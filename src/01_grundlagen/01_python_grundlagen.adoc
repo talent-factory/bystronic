@@ -1,0 +1,617 @@
+= Python Grundlagen - Bystronic Entwickler Kurs
+:author: Daniel Senften
+:email: daniel.senften@talent-factory.ch
+:revnumber: 1.0
+:revdate: 2025-01-02
+:toc: left
+:toclevels: 3
+:sectnums:
+:source-highlighter: highlight.js
+:icons: font
+:experimental:
+
+== Willkommen bei Python! 🐍
+
+Herzlich willkommen zum Python Grundkurs für Bystronic-Entwickler! In diesem ersten Kapitel lernen Sie die Grundlagen der Python-Programmierung kennen und richten Ihre Entwicklungsumgebung ein.
+
+=== Warum Python?
+
+Python ist eine der beliebtesten Programmiersprachen der Welt und besonders stark in:
+
+* **Datenanalyse und -visualisierung** 📊
+* **Automatisierung und Scripting** ⚙️
+* **Machine Learning und KI** 🤖
+* **Webentwicklung** 🌐
+* **Wissenschaftliche Berechnungen** 🧮
+
+.Python vs. VBA - Ein Vergleich
+[cols="1,1,1", options="header"]
+|===
+|Kriterium |VBA |Python
+
+|Performance
+|Langsam bei grossen Datenmengen
+|Sehr schnell, besonders mit NumPy/Pandas
+
+|Bibliotheken
+|Begrenzt auf Office-Umgebung
+|Riesiges Ökosystem (500.000+ Pakete)
+
+|Plattform
+|Nur Windows/Office
+|Windows, macOS, Linux
+
+|Community
+|Klein
+|Millionen von Entwicklern weltweit
+
+|Zukunftssicherheit
+|Stagnierend
+|Wächst stetig weiter
+
+|Lernkurve
+|Steil für komplexe Aufgaben
+|Sanft und intuitiv
+|===
+
+== Installation und Einrichtung
+
+=== Python Installation
+
+==== Windows
+
+[source,powershell]
+----
+# Option 1: Über Microsoft Store (empfohlen)
+# Suchen Sie im Microsoft Store nach "Python 3.13"
+
+# Option 2: Über python.org
+# Laden Sie Python von https://python.org/downloads herunter
+# Wichtig: Haken bei "Add Python to PATH" setzen!
+----
+
+==== macOS
+
+[source,bash]
+----
+# Option 1: Homebrew (empfohlen)
+brew install python@3.13
+
+# Option 2: Über python.org
+# Laden Sie den macOS Installer von https://python.org/downloads herunter
+----
+
+==== Linux (Ubuntu/Debian)
+
+[source,bash]
+----
+# Python installation
+sudo apt update
+sudo apt install python3.13 python3.13-pip python3.13-venv
+
+# Erstellen Sie einen Symlink für einfachere Nutzung
+sudo ln -s /usr/bin/python3.13 /usr/local/bin/python
+----
+
+TIP: Überprüfen Sie Ihre Installation mit `python --version` in der Kommandozeile.
+
+=== Git Installation
+
+Git ist für die Versionskontrolle und Zusammenarbeit unerlässlich.
+
+==== Windows
+
+[source,powershell]
+----
+# Laden Sie Git für Windows herunter:
+# https://git-scm.com/download/win
+# 
+# Empfohlene Einstellungen während der Installation:
+# - Use Visual Studio Code as Git's default editor
+# - Git from the command line and also from 3rd-party software
+# - Use the OpenSSL library
+# - Checkout Windows-style, commit Unix-style line endings
+----
+
+==== macOS
+
+[source,bash]
+----
+# Mit Homebrew
+brew install git
+
+# Oder laden Sie den Installer herunter:
+# https://git-scm.com/download/mac
+----
+
+==== Linux
+
+[source,bash]
+----
+# Ubuntu/Debian
+sudo apt install git
+
+# CentOS/RHEL
+sudo yum install git
+----
+
+=== uv Package Manager Installation
+
+`uv` ist ein moderner, schneller Python Package Manager, der Pip und Virtualenv ersetzt.
+
+==== Alle Plattformen
+
+[source,bash]
+----
+# Mit curl (empfohlen)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Mit pip (falls schon Python installiert ist)
+pip install uv
+
+# Windows mit PowerShell
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+----
+
+IMPORTANT: Nach der Installation öffnen Sie ein neues Terminal, damit `uv` verfügbar ist.
+
+=== Visual Studio Code Einrichtung
+
+==== Installation
+
+1. Laden Sie VS Code herunter: https://code.visualstudio.com/
+2. Installieren Sie die folgenden Extensions:
+   - **Python** (Microsoft)
+   - **Jupyter** (Microsoft) 
+   - **Python Docstring Generator** (Nils Werner)
+   - **GitLens** (GitKraken)
+   - **AsciiDoc** (asciidoctor.org)
+
+==== Python-spezifische Konfiguration
+
+.VS Code Settings für Python (.vscode/settings.json)
+[source,json]
+----
+{
+    "python.defaultInterpreterPath": ".venv/bin/python",
+    "python.formatting.provider": "black",
+    "python.linting.enabled": true,
+    "python.linting.ruffEnabled": true,
+    "python.testing.pytestEnabled": true,
+    "jupyter.askForKernelRestart": false
+}
+----
+
+== Ihr erstes Python-Programm
+
+=== Das klassische "Hello World"
+
+Erstellen Sie eine neue Datei `hello_world.py`:
+
+[source,python]
+----
+# Mein erstes Python-Programm
+print("Hallo Welt!")
+print("Willkommen bei Python!")
+
+# Variablen definieren
+name = "Bystronic Entwickler"
+jahr = 2025
+
+print(f"Hallo {name}! Das Jahr {jahr} wird grossartig für Python!")
+----
+
+TIP: Das `f` vor dem String ermöglicht es, Variablen direkt in den Text einzufügen (f-strings).
+
+=== Interaktiver Python-Modus
+
+Öffnen Sie eine Kommandozeile und geben Sie `python` ein:
+
+[source,python]
+----
+>>> print("Hallo aus dem interaktiven Modus!")
+Hallo aus dem interaktiven Modus!
+
+>>> 5 + 3
+8
+
+>>> name = "Python"
+>>> name.upper()
+'PYTHON'
+
+>>> exit()  # Zum Beenden
+----
+
+== Python Syntax Grundlagen
+
+=== Einrückung (Indentation)
+
+Python verwendet Einrückung statt geschweifte Klammern `{}`:
+
+[source,python]
+----
+# VBA-Style (funktioniert NICHT in Python)
+# If bedingung Then
+#     aktion1
+#     aktion2
+# End If
+
+# Python-Style
+if bedingung:
+    aktion1  # 4 Leerzeichen Einrückung
+    aktion2  # Konsistent eingerückt
+----
+
+CAUTION: Mischen Sie niemals Tabs und Leerzeichen! Verwenden Sie immer 4 Leerzeichen.
+
+=== Kommentare
+
+[source,python]
+----
+# Einzeiliger Kommentar
+
+"""
+Mehrzeiliger Kommentar
+Nützlich für längere Erklärungen
+oder Dokumentation
+"""
+
+def meine_funktion():
+    """
+    Docstring - erklärt was die Funktion tut
+    Wird von Tools wie VS Code angezeigt
+    """
+    return "Beispiel"
+----
+
+=== Variablen und Datentypen
+
+[source,python]
+----
+# Zahlen
+alter = 25              # Integer (Ganzzahl)
+gehalt = 75000.50       # Float (Dezimalzahl)
+komplex_zahl = 3 + 4j   # Complex (komplexe Zahl)
+
+# Strings (Texte)
+vorname = "Max"
+nachname = 'Mustermann'  # Einfache oder doppelte Anführungszeichen
+vollname = f"{vorname} {nachname}"
+
+# Boolean (Wahrheitswerte)
+ist_entwickler = True
+ist_anfaenger = False
+
+# Listen
+programmiersprachen = ["Python", "Java", "C#", "JavaScript"]
+zahlen = [1, 2, 3, 4, 5]
+
+# Dictionary (wie VBA Collections, aber besser)
+person = {
+    "name": "Max Mustermann",
+    "alter": 30,
+    "abteilung": "IT",
+    "programmiersprachen": ["Python", "VBA"]
+}
+
+# Typ anzeigen
+print(type(alter))      # <class 'int'>
+print(type(person))     # <class 'dict'>
+----
+
+=== Operatoren
+
+[source,python]
+----
+# Mathematische Operatoren
+a, b = 10, 3
+
+addition = a + b        # 13
+subtraktion = a - b     # 7
+multiplikation = a * b  # 30
+division = a / b        # 3.333...
+ganzzahl_division = a // b  # 3
+modulo = a % b          # 1 (Rest der Division)
+potenz = a ** b         # 1000 (10 hoch 3)
+
+# Vergleichsoperatoren
+print(a > b)            # True
+print(a == b)           # False
+print(a != b)           # True
+
+# Logische Operatoren
+print(True and False)   # False
+print(True or False)    # True
+print(not True)         # False
+----
+
+=== Kontrollstrukturen
+
+==== If-Statements
+
+[source,python]
+----
+alter = 25
+erfahrung_jahre = 3
+
+if alter >= 18:
+    print("Volljährig")
+    
+    if erfahrung_jahre > 5:
+        print("Senior Entwickler")
+    elif erfahrung_jahre > 2:
+        print("Junior Entwickler") 
+    else:
+        print("Trainee")
+else:
+    print("Minderjährig")
+
+# Kurze Schreibweise (Ternary Operator)
+status = "Senior" if erfahrung_jahre > 5 else "Junior"
+----
+
+==== Schleifen
+
+[source,python]
+----
+# For-Schleife
+programmiersprachen = ["Python", "Java", "C#", "VBA"]
+
+for sprache in programmiersprachen:
+    print(f"Ich lerne {sprache}")
+
+# For-Schleife mit Index
+for i, sprache in enumerate(programmiersprachen):
+    print(f"{i+1}. {sprache}")
+
+# For-Schleife mit range()
+for i in range(5):  # 0, 1, 2, 3, 4
+    print(f"Durchgang {i}")
+
+for i in range(1, 6):  # 1, 2, 3, 4, 5
+    print(f"Zahl: {i}")
+
+# While-Schleife
+counter = 0
+while counter < 3:
+    print(f"Counter: {counter}")
+    counter += 1
+----
+
+=== Funktionen
+
+[source,python]
+----
+# Einfache Funktion
+def gruessen(name):
+    """Grüsst eine Person mit ihrem Namen"""
+    return f"Hallo {name}!"
+
+# Funktion aufrufen
+nachricht = gruessen("Max")
+print(nachricht)
+
+# Funktion mit mehreren Parametern
+def berechne_gehalt(grundgehalt, bonus=0, steuersatz=0.3):
+    """
+    Berechnet das Nettogehalt
+    
+    Args:
+        grundgehalt: Grundgehalt in Euro
+        bonus: Bonus in Euro (optional)
+        steuersatz: Steuersatz als Dezimalzahl (optional)
+    
+    Returns:
+        Nettogehalt nach Abzug der Steuern
+    """
+    bruttogehalt = grundgehalt + bonus
+    nettogehalt = bruttogehalt * (1 - steuersatz)
+    return nettogehalt
+
+# Funktionsaufrufe
+gehalt1 = berechne_gehalt(50000)  # Nur Grundgehalt
+gehalt2 = berechne_gehalt(50000, 5000)  # Mit Bonus
+gehalt3 = berechne_gehalt(50000, bonus=5000, steuersatz=0.25)  # Alles angegeben
+----
+
+== Praktische Übungen
+
+=== Übung 1: Persönliche Informationen
+
+Erstellen Sie ein Programm, das persönliche Informationen sammelt und formatiert ausgibt.
+
+[source,python]
+----
+# TODO: Implementieren Sie das Programm
+# 1. Fragen Sie nach Name, Alter, Abteilung
+# 2. Berechnen Sie das Geburtsjahr
+# 3. Geben Sie eine schöne Zusammenfassung aus
+
+# Ihre Lösung hier:
+
+----
+
+[.solution]
+====
+.Mögliche Lösung:
+[source,python]
+----
+# Eingaben sammeln
+name = input("Wie heissen Sie? ")
+alter = int(input("Wie alt sind Sie? "))
+abteilung = input("In welcher Abteilung arbeiten Sie? ")
+
+# Berechnungen
+aktuelles_jahr = 2025
+geburtsjahr = aktuelles_jahr - alter
+
+# Ausgabe
+print("\n" + "="*50)
+print(f"Persönliche Informationen für {name}")
+print("="*50)
+print(f"Alter: {alter} Jahre")
+print(f"Geburtsjahr: {geburtsjahr}")
+print(f"Abteilung: {abteilung}")
+print(f"Status: {'Senior' if alter > 30 else 'Junior'} Mitarbeiter")
+----
+====
+
+=== Übung 2: Einfacher Taschenrechner
+
+[source,python]
+----
+# TODO: Erstellen Sie einen Taschenrechner
+# 1. Funktionen für +, -, *, / erstellen
+# 2. Menu zur Auswahl der Operation
+# 3. Eingabe von zwei Zahlen
+# 4. Ergebnis anzeigen
+
+# Ihre Lösung hier:
+
+----
+
+=== Übung 3: Liste von Programmiersprachen
+
+[source,python]
+----
+# TODO: Arbeiten Sie mit Listen
+# 1. Erstellen Sie eine Liste Ihrer Lieblings-Programmiersprachen
+# 2. Fügen Sie "Python" hinzu, falls nicht vorhanden
+# 3. Sortieren Sie die Liste alphabetisch
+# 4. Geben Sie jede Sprache mit Nummer aus
+
+# Ihre Lösung hier:
+
+----
+
+== Projekt: VBA vs Python Vergleich
+
+Erstellen Sie ein kleines Programm, das die Unterschiede zwischen VBA und Python demonstriert.
+
+[source,python]
+----
+# vba_vs_python.py
+"""
+Dieses Programm zeigt praktische Unterschiede zwischen VBA und Python
+"""
+
+def demonstriere_listen():
+    """Zeigt Listenoperationen in Python"""
+    print("=== Listen in Python ===")
+    
+    # Liste erstellen
+    zahlen = [1, 2, 3, 4, 5]
+    print(f"Original: {zahlen}")
+    
+    # Operationen
+    zahlen.append(6)  # Hinzufügen
+    print(f"Nach append(6): {zahlen}")
+    
+    quadrate = [x**2 for x in zahlen]  # List Comprehension
+    print(f"Quadrate: {quadrate}")
+    
+    gerade = [x for x in zahlen if x % 2 == 0]  # Filtern
+    print(f"Gerade Zahlen: {gerade}")
+
+def demonstriere_dictionaries():
+    """Zeigt Dictionary-Operationen"""
+    print("\n=== Dictionaries in Python ===")
+    
+    mitarbeiter = {
+        "Max": {"abteilung": "IT", "gehalt": 60000},
+        "Anna": {"abteilung": "Sales", "gehalt": 55000},
+        "Tom": {"abteilung": "IT", "gehalt": 65000}
+    }
+    
+    # IT-Mitarbeiter finden
+    it_mitarbeiter = {name: daten for name, daten in mitarbeiter.items() 
+                      if daten["abteilung"] == "IT"}
+    print(f"IT-Mitarbeiter: {it_mitarbeiter}")
+
+def main():
+    """Hauptfunktion"""
+    print("VBA vs Python - Praktische Beispiele")
+    print("="*40)
+    
+    demonstriere_listen()
+    demonstriere_dictionaries()
+    
+    print("\n=== Fazit ===")
+    print("Python bietet elegantere Syntax für:")
+    print("- Listenoperationen (List Comprehensions)")
+    print("- Dictionary-Handling")
+    print("- Funktionale Programmierung")
+    print("- Objektorientierte Programmierung")
+
+if __name__ == "__main__":
+    main()
+----
+
+== Nützliche Tools und Ressourcen
+
+=== Python-spezifische Tools
+
+* **IPython**: Verbesserter interaktiver Python-Interpreter
+* **Jupyter Notebooks**: Interaktive Entwicklungsumgebung
+* **Black**: Code-Formatter
+* **Ruff**: Schneller Linter und Formatter
+
+Installation:
+[source,bash]
+----
+uv add ipython jupyter black ruff
+----
+
+=== Online-Ressourcen
+
+* **Offizielle Python-Dokumentation**: https://docs.python.org/3/
+* **Python.org Tutorial**: https://docs.python.org/3/tutorial/
+* **Real Python**: https://realpython.com/
+* **Python Package Index (PyPI)**: https://pypi.org/
+
+=== Empfohlene Bücher
+
+* "Automate the Boring Stuff with Python" von Al Sweigart
+* "Python Crash Course" von Eric Matthes
+* "Effective Python" von Brett Slatkin
+
+== Zusammenfassung
+
+In diesem Kapitel haben Sie gelernt:
+
+✅ **Installation**: Python, Git, uv und VS Code eingerichtet +
+✅ **Grundlagen**: Python-Syntax, Variablen, Operatoren +
+✅ **Kontrollstrukturen**: if-statements, Schleifen +
+✅ **Funktionen**: Eigene Funktionen definieren und verwenden +
+✅ **Übungen**: Praktische Programmiererfahrung gesammelt
+
+=== Nächste Schritte
+
+Im nächsten Kapitel "02_datentypen" werden wir tiefer in die verschiedenen Datentypen von Python eintauchen:
+
+* Listen, Tupel und Sets im Detail
+* Dictionaries für komplexe Datenstrukturen
+* String-Manipulation und Formatierung
+* Datum und Zeit mit `datetime`
+
+== Checkliste
+
+Bevor Sie zum nächsten Kapitel wechseln, stellen Sie sicher, dass:
+
+* [ ] Python 3.13+ installiert ist (`python --version`)
+* [ ] Git installiert ist (`git --version`)
+* [ ] uv installiert ist (`uv --version`)
+* [ ] VS Code mit Python-Extensions eingerichtet ist
+* [ ] Sie alle Übungen gelöst haben
+* [ ] Das VBA vs Python Projekt funktioniert
+
+[NOTE]
+====
+**Tipp für VBA-Entwickler**: Lassen Sie sich nicht von der anderen Syntax entmutigen! Python ist nach kurzer Eingewöhnung viel intuitiver und mächtiger als VBA. Die Investition in das Lernen zahlt sich schnell aus.
+====
+
+---
+
+**Nächstes Kapitel**: link:../02_datentypen/02_datentypen.adoc[Kapitel 2: Datentypen im Detail]
+
+**Zurück zur Übersicht**: link:../../README.md[Kursübersicht]
