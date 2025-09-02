@@ -48,8 +48,8 @@ Zusätzliche Verzeichnisse:
 
 1. **Grundlagen**: Python-Syntax, Programmstruktur, VS Code Setup
 2. **Datentypen**: Listen, Dictionaries, Sets, etc.
-3. **Libraries**: NumPy, Pandas, Matplotlib schwerpunktmäßig
-4. **Datenanalyse**: Große Datenmengen verarbeiten und visualisieren
+3. **Libraries**: NumPy, Pandas, Matplotlib schwerpunktmässig
+4. **Datenanalyse**: Grosse Datenmengen verarbeiten und visualisieren
 5. **Import/Export**: CSV, Excel, JSON, Datenbanken
 6. **UI**: Einfache Benutzeroberflächen erstellen
 7. **KI-Integration**: Programmieren mit KI-Unterstützung

@@ -7,7 +7,7 @@ Dieses Projekt bietet eine umfassende Einführung in die Python-Programmierung f
 Nach dem Abschluss dieses Kurses werden Sie in der Lage sein:
 - Python-Programme zu erstellen und zu verstehen
 - Visual Studio Code effektiv für die Python-Entwicklung zu nutzen
-- Große Datenmengen zu analysieren und zu visualisieren
+- Grosse Datenmengen zu analysieren und zu visualisieren
 - Wichtige Python-Libraries (NumPy, Pandas) zu verwenden
 - Einfache Benutzeroberflächen zu erstellen
 - Mit KI-Tools eigene Programme zu entwickeln
@@ -142,7 +142,7 @@ Lernen Sie, wie Sie moderne KI-Tools für die Programmierung nutzen:
 | Performance | Langsam | Sehr schnell |
 | Libraries | Begrenzt | Riesiges Ökosystem |
 | Plattform | Windows/Office | Plattformunabhängig |
-| Community | Klein | Sehr große, aktive Community |
+| Community | Klein | Sehr grosse, aktive Community |
 | Zukunftssicherheit | Begrenzt | Sehr hoch |
 | Datenanalyse | Grundlegend | Professionelle Tools |
 

@@ -21,7 +21,7 @@ def main():
     
     # String-Formatierung mit f-strings
     print(f"Hallo {name}!")
-    print(f"Das Jahr {jahr} wird großartig für {sprache}!")
+    print(f"Das Jahr {jahr} wird grossartig für {sprache}!")
     
     # Verschiedene Arten der String-Formatierung
     print("\nVerschiedene Formatierungsarten:")

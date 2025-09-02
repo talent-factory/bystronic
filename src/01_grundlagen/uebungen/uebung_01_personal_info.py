@@ -89,7 +89,7 @@ def main():
 def sammle_informationen():
     infos = {}
     
-    infos['name'] = input("Wie heißen Sie? ")
+    infos['name'] = input("Wie heissen Sie? ")
     infos['alter'] = int(input("Wie alt sind Sie? "))
     infos['abteilung'] = input("In welcher Abteilung arbeiten Sie? ")
     
