@@ -13,7 +13,7 @@ Willkommen zum ersten Kapitel des Python Grundkurses für Bystronic-Entwickler! 
 
 ### 🎯 Übungen
 - **[Übung 1: Persönliche Informationen](uebungen/uebung_01_personal_info.py)** - Eingabe, Verarbeitung, Ausgabe
-- **[Übung 2: Taschenrechner](uebungen/uebung_02_taschenrechner.py)** - Funktionen und Fehlerbehandlung  
+- **[Übung 2: Taschenrechner](uebungen/uebung_02_taschenrechner.py)** - Funktionen und Fehlerbehandlung
 - **[Übung 3: Programmiersprachen](uebungen/uebung_03_programmiersprachen.py)** - Listen und Datenstrukturen
 
 ## 🚀 Schnellstart
@@ -50,17 +50,17 @@ uv run python src/01_grundlagen/uebungen/uebung_03_programmiersprachen.py
 
 Nach diesem Kapitel können Sie:
 
-✅ **Installation**: Python, Git, uv und VS Code einrichten  
-✅ **Grundlagen**: Python-Syntax, Variablen, Operatoren verstehen  
-✅ **Kontrollstrukturen**: if-statements und Schleifen verwenden  
-✅ **Funktionen**: Eigene Funktionen definieren und aufrufen  
-✅ **Datenstrukturen**: Listen und Dictionaries grundlegend nutzen  
-✅ **VBA-Vergleich**: Unterschiede und Vorteile von Python erkennen  
+✅ **Installation**: Python, Git, uv und VS Code einrichten
+✅ **Grundlagen**: Python-Syntax, Variablen, Operatoren verstehen
+✅ **Kontrollstrukturen**: if-statements und Schleifen verwenden
+✅ **Funktionen**: Eigene Funktionen definieren und aufrufen
+✅ **Datenstrukturen**: Listen und Dictionaries grundlegend nutzen
+✅ **VBA-Vergleich**: Unterschiede und Vorteile von Python erkennen
 
 ## 🔧 Benötigte Tools
 
 - **Python 3.13+** - Programmiersprache
-- **Git** - Versionskontrolle  
+- **Git** - Versionskontrolle
 - **uv** - Package Manager
 - **Visual Studio Code** - IDE mit Python-Extensions
 

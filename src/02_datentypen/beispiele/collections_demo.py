@@ -374,7 +374,7 @@ def simuliere_qualitaetskontrolle():
     toleranzen = {"dicke": 0.1, "breite": 0.5, "laenge": 1.0}
 
     for i in range(50):
-        teil_nr = f"P{i+1:03d}"
+        teil_nr = f"P{i + 1:03d}"
 
         messung = {
             "teil_nr": teil_nr,
@@ -415,8 +415,8 @@ def analysiere_qualitaetsdaten(messungen):
     nok_teile = gesamt - ok_teile
 
     print(f"   Geprüfte Teile: {gesamt}")
-    print(f"   OK-Teile: {ok_teile} ({ok_teile/gesamt*100:.1f}%)")
-    print(f"   NOK-Teile: {nok_teile} ({nok_teile/gesamt*100:.1f}%)")
+    print(f"   OK-Teile: {ok_teile} ({ok_teile / gesamt * 100:.1f}%)")
+    print(f"   NOK-Teile: {nok_teile} ({nok_teile / gesamt * 100:.1f}%)")
 
     # Fehleranalyse
     fehlertypen = {}
@@ -427,7 +427,7 @@ def analysiere_qualitaetsdaten(messungen):
     if fehlertypen:
         print("\n   Fehlerverteilung:")
         for fehlertyp, anzahl in sorted(fehlertypen.items()):
-            print(f"     {fehlertyp}: {anzahl} ({anzahl/gesamt*100:.1f}%)")
+            print(f"     {fehlertyp}: {anzahl} ({anzahl / gesamt * 100:.1f}%)")
 
     # Statistische Auswertung
     print("\n   Statistische Werte:")

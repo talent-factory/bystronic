@@ -20,7 +20,6 @@ dev = [
     "pytest>=7.4.0",
     "pytest-cov>=4.1.0",
     "mypy>=1.7.0",
-    "pre-commit>=3.5.0",
 ]
 
 [build-system]
@@ -103,3 +102,8 @@ warn_unused_ignores = true
 warn_no_return = true
 warn_unreachable = true
 strict_equality = true
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.3.0",
+]

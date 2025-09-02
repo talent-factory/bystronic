@@ -304,7 +304,7 @@ print(f"Ist teile_anzahl ein Integer? {isinstance(teile_anzahl, int)}")
 print(f"teile_anzahl > 1000: {teile_anzahl > 1000}")
 print(f"2.0 <= materialdicke <= 3.0: {2.0 <= materialdicke <= 3.0}")
 
-# Aufgabe 2: Berechnungen  
+# Aufgabe 2: Berechnungen
 volumen_cm3 = (blechlaenge * blechbreite * blechdicke) / 1000  # mm³ zu cm³
 gewicht_kg = (volumen_cm3 * dichte_stahl) / 1000  # g zu kg
 oberflaeche_m2 = (2 * (blechlaenge*blechbreite + blechlaenge*blechdicke + blechbreite*blechdicke)) / 1000000
@@ -330,10 +330,10 @@ for teil in teile:
     breite_ok = abs(teil['breite'] - breite_soll) <= breite_toleranz
     laenge_ok = abs(teil['laenge'] - laenge_soll) <= laenge_toleranz
     teil_ok = dicke_ok and breite_ok and laenge_ok
-    
+
     status = "✅ OK" if teil_ok else "❌ NOK"
     print(f"{teil['nr']}: {status} (D:{dicke_ok}, B:{breite_ok}, L:{laenge_ok})")
-    
+
     if teil_ok:
         ok_teile += 1
     else:
@@ -349,7 +349,7 @@ for tag_daten in woche:
     verfuegbarkeit = ((schichtzeit - tag_daten['downtime']) / schichtzeit) * 100
     qualitaetsrate = ((tag_daten['ist'] - tag_daten['ausschuss']) / tag_daten['ist']) * 100
     oee = (effizienz * verfuegbarkeit * qualitaetsrate) / 10000
-    
+
     print(f"{tag_daten['tag']:<10} {tag_daten['soll']:<6} {tag_daten['ist']:<6} {tag_daten['ausschuss']:<8} {tag_daten['downtime']:<8} {effizienz:>6.1f}% {verfuegbarkeit:>7.1f}%")
 
 # Bonus: Komplexe Zahlen
@@ -359,7 +359,7 @@ for i, z in enumerate(impedanzen, 1):
     betrag = abs(z)
     phase_rad = math.atan2(z.imag, z.real)
     phase_grad = math.degrees(phase_rad)
-    
+
     print(f"Impedanz {i}: Strom={strom:.2f}A, Leistung={leistung:.1f}W, |Z|={betrag:.1f}Ω, φ={phase_grad:.1f}°")
 """
         )
@@ -376,7 +376,7 @@ def main():
         """
 Diese Übung behandelt die wichtigsten Zahlentypen in Python:
 • Integer (ganze Zahlen)
-• Float (Fliesskommazahlen)  
+• Float (Fliesskommazahlen)
 • Complex (komplexe Zahlen)
 • Boolean (Wahrheitswerte)
 

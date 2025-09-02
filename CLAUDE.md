@@ -7,6 +7,7 @@ Dieses Projekt ist ein umfassender Python-Grundkurs für Bystronic-Entwickler mi
 ## Wichtige Befehle
 
 ### Entwicklungsumgebung
+
 ```bash
 # Projekt initialisieren und Abhängigkeiten installieren
 uv sync
@@ -33,8 +34,9 @@ uv run python script.py   # Python-Script ausführen
 ### Projektstruktur
 
 Das Projekt ist in thematische Module unter `src/` unterteilt:
+
 - `src/01_grundlagen/` - Python Basics
-- `src/02_datentypen/` - Datentypen und Strukturen  
+- `src/02_datentypen/` - Datentypen und Strukturen
 - `src/03_numpy/` - NumPy für numerische Berechnungen
 - `src/04_pandas/` - Pandas für Datenanalyse
 - `src/05_visualisierung/` - Matplotlib, Seaborn, Plotly
@@ -44,6 +46,7 @@ Das Projekt ist in thematische Module unter `src/` unterteilt:
 - `src/09_projekte/` - Praxisprojekte
 
 Zusätzliche Verzeichnisse:
+
 - `data/` - Beispieldaten für Übungen
 - `docs/` - Dokumentation und Anleitungen
 

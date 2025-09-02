@@ -1,8 +1,9 @@
 ---
-trigger: manual
+description: Erstelle professionelle Git-Commits mit automatischen Checks für Java, Python und React Projekte
+auto_execution_mode: 3
 ---
 
-# Windsurf Rule: Commit
+# Claude Command: Commit
 
 Dieser Befehl hilft dabei, professionelle Git-Commits mit automatischen Qualitätschecks und konventionellen Commit-Nachrichten zu erstellen.
 
@@ -61,7 +62,7 @@ Mit Optionen:
 - **Formatierung**: Black, isort
 - **Type Checking**: mypy
 - **Tests**: pytest, unittest
-- **Dependencies**: Poetry, pip-tools, requirements.txt
+- **Dependencies**: uv, poetry, pip-tools, requirements.txt
 
 ### React/Node.js-Projekte
 
@@ -81,7 +82,7 @@ Mit Optionen:
 ## Commit-Typen mit Emojis
 
 - ✨ `feat`: Neue Funktionalität
-- 🐛 `fix`: Fehlerbehebung
+- 🐛 `fix`: Fehlerbehebung  
 - 📚 `docs`: Dokumentationsänderungen
 - 💎 `style`: Code-Formatierung (keine Logikänderung)
 - ♻️ `refactor`: Code-Umstrukturierung ohne neue Features oder Fixes

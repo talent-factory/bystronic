@@ -81,7 +81,7 @@ Mit Optionen:
 ## Commit-Typen mit Emojis
 
 - ✨ `feat`: Neue Funktionalität
-- 🐛 `fix`: Fehlerbehebung  
+- 🐛 `fix`: Fehlerbehebung
 - 📚 `docs`: Dokumentationsänderungen
 - 💎 `style`: Code-Formatierung (keine Logikänderung)
 - ♻️ `refactor`: Code-Umstrukturierung ohne neue Features oder Fixes

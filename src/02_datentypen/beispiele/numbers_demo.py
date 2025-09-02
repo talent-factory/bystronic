@@ -101,7 +101,7 @@ def demonstrate_math_operations():
     print(f"Division: {a} / {b} = {a / b}")
     print(f"Ganzzahldivision: {a} // {b} = {a // b}")
     print(f"Modulo (Rest): {a} % {b} = {a % b}")
-    print(f"Potenz: {a} ** {b} = {a ** b}")
+    print(f"Potenz: {a} ** {b} = {a**b}")
 
     # Weitere mathematische Funktionen
     zahl = 16.7
@@ -165,7 +165,7 @@ def calculate_material_usage():
     verschnitt = 100 - materialausnutzung
 
     print(f"  Blechgrösse: {blech_laenge} × {blech_breite} × {blech_dicke} mm")
-    print(f"  Blechgewicht: {blech_gewicht/1000:.1f} kg")
+    print(f"  Blechgewicht: {blech_gewicht / 1000:.1f} kg")
     print(f"  Teilgrösse: {teil_laenge} × {teil_breite} mm")
     print(f"  Anzahl Teile: {anzahl_teile}")
     print(f"  Materialausnutzung: {materialausnutzung:.1f}%")

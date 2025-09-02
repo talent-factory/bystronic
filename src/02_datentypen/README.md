@@ -68,14 +68,14 @@ uv run python src/02_datentypen/uebungen/uebung_04_conversion.py
 
 Nach diesem Kapitel können Sie:
 
-✅ **Zahlentypen**: int, float, complex verstehen und verwenden  
-✅ **Strings**: Texte manipulieren, formatieren und durchsuchen  
-✅ **Listen**: Dynamische Arrays erstellen und bearbeiten  
-✅ **Dictionaries**: Key-Value-Paare für strukturierte Daten nutzen  
-✅ **Sets**: Eindeutige Elemente verwalten und Mengenoperationen durchführen  
-✅ **Tupel**: Unveränderliche Datenstrukturen verwenden  
-✅ **Konvertierung**: Zwischen Datentypen wechseln und validieren  
-✅ **Collections**: Komplexe Datenstrukturen verschachteln  
+✅ **Zahlentypen**: int, float, complex verstehen und verwenden
+✅ **Strings**: Texte manipulieren, formatieren und durchsuchen
+✅ **Listen**: Dynamische Arrays erstellen und bearbeiten
+✅ **Dictionaries**: Key-Value-Paare für strukturierte Daten nutzen
+✅ **Sets**: Eindeutige Elemente verwalten und Mengenoperationen durchführen
+✅ **Tupel**: Unveränderliche Datenstrukturen verwenden
+✅ **Konvertierung**: Zwischen Datentypen wechseln und validieren
+✅ **Collections**: Komplexe Datenstrukturen verschachteln
 
 ## 🔧 Datentypen-Übersicht
 
@@ -148,7 +148,7 @@ mitarbeiter = {
         "kompetenzen": ["Python", "SQL", "Git"]
     },
     "ID002": {
-        "name": "Anna", 
+        "name": "Anna",
         "abteilung": "Produktion",
         "gehalt": 68000,
         "kompetenzen": ["CAD", "Qualitätskontrolle"]
@@ -166,7 +166,7 @@ wert = True        ' Boolean
 
 ' Python: Natürlich dynamisch
 wert = 42          # int
-wert = "Text"      # str  
+wert = "Text"      # str
 wert = True        # bool
 wert = [1, 2, 3]   # list
 wert = {"key": "value"}  # dict

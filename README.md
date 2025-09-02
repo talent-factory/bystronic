@@ -5,6 +5,7 @@ Dieses Projekt bietet eine umfassende Einführung in die Python-Programmierung f
 ## 🎯 Kursziele
 
 Nach dem Abschluss dieses Kurses werden Sie in der Lage sein:
+
 - Python-Programme zu erstellen und zu verstehen
 - Visual Studio Code effektiv für die Python-Entwicklung zu nutzen
 - Grosse Datenmengen zu analysieren und zu visualisieren
@@ -15,18 +16,21 @@ Nach dem Abschluss dieses Kurses werden Sie in der Lage sein:
 ## 📚 Kursinhalt
 
 ### 1. Grundlagen der Python-Programmierung
+
 - Aufbau eines Python-Programms
 - Syntax und Struktur
 - Einfache Beispiele und erste Programme
 - Unterschiede und Vorteile gegenüber VBA
 
 ### 2. Entwicklungsumgebung: Visual Studio Code
+
 - Installation und Konfiguration
 - Python-Extensions und nützliche Tools
 - Debugging und Code-Navigation
 - Jupyter Notebook Integration
 
 ### 3. Wichtige Datentypen
+
 - Zahlen (int, float, complex)
 - Strings und Textverarbeitung
 - Listen, Tupel und Sets
@@ -34,42 +38,50 @@ Nach dem Abschluss dieses Kurses werden Sie in der Lage sein:
 - Booleans
 
 ### 4. Datenanalyse und Visualisierung 📊
+
 **Schwerpunktthema des Kurses**
 
 #### NumPy - Numerische Berechnungen
+
 - Arrays und Matrizen
 - Mathematische Operationen
 - Performance-Optimierung
 
 #### Pandas - Datenmanipulation
+
 - DataFrames und Series
 - Datenfilterung und -transformation
 - Gruppierung und Aggregation
 - Zeitreihenanalyse
 
 #### Datenvisualisierung
+
 - Matplotlib für grundlegende Plots
 - Seaborn für statistische Visualisierungen
 - Plotly für interaktive Grafiken
 
 ### 5. Datenimport und -export
+
 - CSV, Excel, JSON Dateien
 - Datenbankverbindungen
 - APIs und Web-Scraping
 - Datenqualität und -bereinigung
 
 ### 6. Live Scripting mit Jupyter Notebook
+
 - Interactive Python Development
 - Dokumentation und Visualisierung
 - Datenexploration
 - Prototyping
 
 ### 7. Einfache Benutzeroberflächen
+
 - Tkinter Grundlagen
 - Streamlit für Daten-Apps
 - Plotly Dash für Dashboards
 
 ### 8. Wichtige Libraries im Überblick
+
 - **NumPy**: Numerische Berechnungen
 - **Pandas**: Datenanalyse
 - **Matplotlib/Seaborn/Plotly**: Visualisierung
@@ -80,6 +92,7 @@ Nach dem Abschluss dieses Kurses werden Sie in der Lage sein:
 ## 🚀 Erste Schritte
 
 ### Voraussetzungen
+
 - Python 3.13+ installiert
 - Visual Studio Code
 - Git für Versionskontrolle
@@ -123,6 +136,7 @@ bystronic/
 ## 🎓 Übungen und Projekte
 
 Jedes Kapitel enthält:
+
 - **Erklärungen**: Theoretische Grundlagen
 - **Beispiele**: Praktische Code-Demonstrationen
 - **Übungen**: Selbständige Aufgaben
@@ -131,6 +145,7 @@ Jedes Kapitel enthält:
 ## 🤖 KI-Integration
 
 Lernen Sie, wie Sie moderne KI-Tools für die Programmierung nutzen:
+
 - ChatGPT/Claude für Code-Generierung
 - GitHub Copilot für Entwicklung
 - Best Practices für KI-assistierte Programmierung
@@ -149,6 +164,7 @@ Lernen Sie, wie Sie moderne KI-Tools für die Programmierung nutzen:
 ## 🎯 Nach dem Kurs
 
 Sie werden in der Lage sein:
+
 - Eigene Automatisierungsscripts zu schreiben
 - Datenanalysen durchzuführen
 - Visualisierungen zu erstellen
@@ -164,4 +180,4 @@ Sie werden in der Lage sein:
 
 ---
 
-**Viel Erfolg beim Lernen von Python! 🐍**
+## Viel Erfolg beim Lernen von Python! 🐍

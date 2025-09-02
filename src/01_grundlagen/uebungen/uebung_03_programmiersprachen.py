@@ -230,9 +230,9 @@ def kategorisiere_sprachen(sprachen: List[str]) -> Dict[str, List[str]]:
         "Mobile": ["Swift", "Kotlin", "Java", "Dart"],
         "Andere": []
     }
-    
+
     ergebnis = {k: [] for k in kategorien.keys()}
-    
+
     for sprache in sprachen:
         gefunden = False
         for kategorie, sprachen_in_kategorie in kategorien.items():
@@ -242,7 +242,7 @@ def kategorisiere_sprachen(sprachen: List[str]) -> Dict[str, List[str]]:
                 break
         if not gefunden:
             ergebnis["Andere"].append(sprache)
-    
+
     # Leere Kategorien entfernen
     return {k: v for k, v in ergebnis.items() if v}
 

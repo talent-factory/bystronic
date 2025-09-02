@@ -50,8 +50,8 @@ def demonstrate_string_creation():
     maschine = "ByStar Fiber"
 
     # Mehrzeilige Strings
-    beschreibung = """Bystronic ist ein führender Anbieter von 
-Blechbearbeitungsmaschinen und Automatisierungslösungen 
+    beschreibung = """Bystronic ist ein führender Anbieter von
+Blechbearbeitungsmaschinen und Automatisierungslösungen
 für die industrielle Fertigung."""
 
     # Raw Strings (für Dateipfade, reguläre Ausdrücke)
@@ -111,8 +111,8 @@ def demonstrate_string_formatting():
 
     print("f-String Formatierung (modern, empfohlen):")
     bericht = f"""
-Produktionsbericht vom {datum.strftime('%d.%m.%Y')}
-{'=' * 45}
+Produktionsbericht vom {datum.strftime("%d.%m.%Y")}
+{"=" * 45}
 Schicht: {schicht}
 Mitarbeiter: {mitarbeiter}
 Produzierte Teile: {teile_produziert:,} von {soll_teile:,}
@@ -134,7 +134,7 @@ Gesamtkosten: {teile_produziert * kosten_pro_teil:,.2f}€
     werte = [1234.567, 0.123456, 1234567.89]
     for wert in werte:
         print(f"Zahl: {wert:>12.2f}")  # Rechtsbündig, 2 Dezimalstellen
-        print(f"Prozent: {wert/100:>10.1%}")  # Als Prozent
+        print(f"Prozent: {wert / 100:>10.1%}")  # Als Prozent
         print(f"Wissenschaftlich: {wert:>12.2e}")  # Wissenschaftliche Notation
         print("-" * 30)
 
@@ -226,12 +226,12 @@ def erstelle_produktionsbericht():
 
     bericht = f"""
 BYSTRONIC PRODUKTIONSBERICHT
-{'=' * 50}
-Datum: {daten['datum'].strftime('%d.%m.%Y')}
-Schicht: {daten['schicht']}
+{"=" * 50}
+Datum: {daten["datum"].strftime("%d.%m.%Y")}
+Schicht: {daten["schicht"]}
 
 MASCHINENSTATUS:
-{'-' * 50}
+{"-" * 50}
 """
 
     gesamt_teile = 0
@@ -246,14 +246,14 @@ MASCHINENSTATUS:
         )
 
         bericht += f"""
-{maschine['name']:>12}: {maschine['teile']:>3} Teile | {maschine['laufzeit']:>4.1f}h | {effizienz:>5.1f}% | {teile_pro_stunde:>4.1f} T/h"""
+{maschine["name"]:>12}: {maschine["teile"]:>3} Teile | {maschine["laufzeit"]:>4.1f}h | {effizienz:>5.1f}% | {teile_pro_stunde:>4.1f} T/h"""
 
         gesamt_teile += maschine["teile"]
         gesamt_laufzeit += maschine["laufzeit"]
 
     bericht += f"""
 
-{'-' * 50}
+{"-" * 50}
 ZUSAMMENFASSUNG:
 Gesamt produzierte Teile: {gesamt_teile:>6}
 Durchschn. Teile/Stunde: {gesamt_teile / gesamt_laufzeit:>8.1f}

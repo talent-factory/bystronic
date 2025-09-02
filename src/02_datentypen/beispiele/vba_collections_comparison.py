@@ -60,7 +60,7 @@ VBA - STATISCHE ARRAYS:
 ' VBA: Arrays sind statisch und müssen deklariert werden
 Dim maschinen(1 To 4) As String
 maschinen(1) = "Laser"
-maschinen(2) = "Presse" 
+maschinen(2) = "Presse"
 maschinen(3) = "Stanze"
 maschinen(4) = "CNC"
 
@@ -97,7 +97,7 @@ PYTHON - DYNAMISCHE LISTEN:
 
     print("\nDurchlaufen - Methode 2 (mit Index):")
     for i, maschine in enumerate(maschinen):
-        print(f"  {i+1}: {maschine}")
+        print(f"  {i + 1}: {maschine}")
 
     # Praktische Listen-Operationen
     produktionszeiten = [8.5, 7.2, 9.1, 6.8, 8.0, 7.5]
@@ -421,7 +421,7 @@ def practical_production_example():
         """
 PRAKTISCHES BEISPIEL: PRODUKTIONSAUSWERTUNG
 ------------------------------------------
-Dieses Beispiel zeigt, wie Python's Collections 
+Dieses Beispiel zeigt, wie Python's Collections
 für eine komplette Produktionsauswertung verwendet werden.
 """
     )
@@ -586,7 +586,7 @@ VBA LIMITATIONS:
 
 PYTHON VORTEILE:
 • Dynamische Listen mit vielen Methoden
-• Mächtige Dictionaries für strukturierte Daten  
+• Mächtige Dictionaries für strukturierte Daten
 • Sets für Mengenoperationen
 • Beliebige Verschachtelung möglich
 • List/Dict/Set Comprehensions

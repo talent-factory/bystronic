@@ -736,17 +736,17 @@ def validiere_produktionsparameter(parameter):
         "material": (str, None, None),
         "ok": (bool, None, None)
     }
-    
+
     fehler = []
     validierte_daten = {}
-    
+
     for feld, (typ, min_val, max_val) in erforderliche_felder.items():
         if feld not in parameter:
             fehler.append(f"Feld '{feld}' fehlt")
             continue
-        
+
         wert = parameter[feld]
-        
+
         if typ in (int, float):
             erfolg, konvertiert, fehler_msg = validiere_und_konvertiere_zahl(wert, typ, min_val, max_val)
         elif typ == bool:
@@ -755,19 +755,19 @@ def validiere_produktionsparameter(parameter):
         else:  # str
             konvertiert = str(wert)
             erfolg, fehler_msg = True, ""
-        
+
         if not erfolg:
             fehler.append(f"Feld '{feld}': {fehler_msg}")
         else:
             validierte_daten[feld] = konvertiert
-    
+
     return len(fehler) == 0, validierte_daten, fehler
 
 # Aufgabe 4: Datei-Konvertierung
 def daten_zu_csv(daten, dateipfad=None):
     if not daten:
         return ""
-    
+
     output = StringIO()
     fieldnames = list(daten[0].keys())
     writer = csv.DictWriter(output, fieldnames=fieldnames, delimiter=';')
@@ -775,18 +775,18 @@ def daten_zu_csv(daten, dateipfad=None):
     writer.writerows(daten)
     csv_content = output.getvalue()
     output.close()
-    
+
     if dateipfad:
         with open(dateipfad, 'w', encoding='utf-8') as f:
             f.write(csv_content)
-    
+
     return csv_content
 
 def csv_zu_daten(csv_string):
     input_stream = StringIO(csv_string)
     reader = csv.DictReader(input_stream, delimiter=';')
     daten = []
-    
+
     for row in reader:
         konvertierte_row = {}
         for key, value in row.items():
@@ -799,12 +799,12 @@ def csv_zu_daten(csv_string):
             else:
                 konvertierte_row[key] = value
         daten.append(konvertierte_row)
-    
+
     input_stream.close()
     return daten
 
 def daten_zu_json(daten, eingerückt=True):
-    return json.dumps(daten, indent=2 if eingerückt else None, 
+    return json.dumps(daten, indent=2 if eingerückt else None,
                       ensure_ascii=False, default=str)
 
 def json_zu_daten(json_string):
@@ -818,27 +818,27 @@ def json_zu_daten(json_string):
 def analysiere_datentyp(wert):
     if wert is None or wert == "":
         return "null", None, 1.0
-    
+
     wert_str = str(wert).strip()
-    
+
     # Boolean
     if wert_str.lower() in ['true', 'false', 'ja', 'nein', 'yes', 'no']:
         return "boolean", wert_str.lower() in ['true', 'ja', 'yes'], 0.9
-    
+
     # Integer
     try:
         int_wert = int(wert_str)
         return "integer", int_wert, 0.95
     except ValueError:
         pass
-    
+
     # Float
     try:
         float_wert = float(wert_str)
         return "float", float_wert, 0.9
     except ValueError:
         pass
-    
+
     # Datum
     datum_patterns = ["%Y-%m-%d", "%d.%m.%Y", "%Y/%m/%d"]
     for pattern in datum_patterns:
@@ -847,7 +847,7 @@ def analysiere_datentyp(wert):
             return "date", datum, 0.8
         except ValueError:
             continue
-    
+
     return "string", wert_str, 0.7
 
 # Bonus: Serialisierung
@@ -859,7 +859,7 @@ class SerializierbareMaschine:
         self.baujahr = baujahr
         self.wartungen = []
         self.produktionsdaten = {}
-    
+
     def zu_dict(self):
         return {
             "id": self.id,
@@ -869,17 +869,17 @@ class SerializierbareMaschine:
             "wartungen": self.wartungen,
             "produktionsdaten": self.produktionsdaten
         }
-    
+
     def zu_json(self):
         return json.dumps(self.zu_dict(), indent=2, ensure_ascii=False, default=str)
-    
+
     @classmethod
     def von_dict(cls, daten):
         maschine = cls(daten["id"], daten["typ"], daten["leistung"], daten["baujahr"])
         maschine.wartungen = daten.get("wartungen", [])
         maschine.produktionsdaten = daten.get("produktionsdaten", {})
         return maschine
-    
+
     @classmethod
     def von_json(cls, json_string):
         try:

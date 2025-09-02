@@ -432,7 +432,7 @@ haeufigste = max(set(teilenummern), key=teilenummern.count)
 # Aufgabe 2: Dictionaries
 laser_001 = {
     "id": "LASER_001",
-    "typ": "ByStar Fiber", 
+    "typ": "ByStar Fiber",
     "leistung": 6000,
     "baujahr": 2020,
     "aktiv": True,
@@ -448,7 +448,7 @@ hat_standort = "standort" in laser_001
 alle_maschinen_ids = list(produktionsanlage["maschinen"].keys())
 gesamt_produktion = sum(m["produktion"]["heute"] for m in produktionsanlage["maschinen"].values())
 
-laser_mitarbeiter = [p["name"] for p in produktionsanlage["personal"] 
+laser_mitarbeiter = [p["name"] for p in produktionsanlage["personal"]
                     if "Laser" in p["qualifikationen"]]
 
 alle_qualifikationen = set()
@@ -466,7 +466,7 @@ mindestens_zwei = set()
 for op in laser_operatoren | presse_operatoren | cnc_operatoren:
     count = 0
     if op in laser_operatoren: count += 1
-    if op in presse_operatoren: count += 1  
+    if op in presse_operatoren: count += 1
     if op in cnc_operatoren: count += 1
     if count >= 2:
         mindestens_zwei.add(op)
@@ -484,7 +484,7 @@ x, y, z = position
 maschinenpositionen = {
     (0, 0): "Lagerplatz",
     (10, 20): "Laser Station 1",
-    (15, 35): "Presse Station 1", 
+    (15, 35): "Presse Station 1",
     (25, 40): "Qualitätskontrolle"
 }
 
@@ -494,13 +494,13 @@ def analysiere_teil(laenge, breite, dicke, soll_laenge, soll_breite, soll_dicke)
     breite_ok = abs(breite - soll_breite) <= toleranz
     dicke_ok = abs(dicke - soll_dicke) <= toleranz
     ist_ok = laenge_ok and breite_ok and dicke_ok
-    
+
     abweichungen = (
         abs(laenge - soll_laenge),
         abs(breite - soll_breite),
         abs(dicke - soll_dicke)
     )
-    
+
     volumen = laenge * breite * dicke
     return ist_ok, abweichungen, volumen
 
@@ -511,7 +511,7 @@ class ProduktionsDatenManager:
         self.materialien = set()
         self.produktionsverlauf = []
         self.qualitaetsdaten = {}
-    
+
     def registriere_maschine(self, maschinen_id, typ, materialien_liste):
         self.maschinen[maschinen_id] = {
             "typ": typ,
@@ -519,28 +519,28 @@ class ProduktionsDatenManager:
             "registriert": datetime.now()
         }
         self.materialien.update(materialien_liste)
-    
+
     def erfasse_produktion(self, maschinen_id, teil_id, material, anzahl, qualitaet_ok):
         eintrag = (datetime.now(), maschinen_id, teil_id, material, anzahl, qualitaet_ok)
         self.produktionsverlauf.append(eintrag)
         self.materialien.add(material)
-        
+
         if teil_id not in self.qualitaetsdaten:
             self.qualitaetsdaten[teil_id] = []
         self.qualitaetsdaten[teil_id].append(qualitaet_ok)
-    
+
     def finde_kompatible_maschinen(self, material):
-        return [mid for mid, daten in self.maschinen.items() 
+        return [mid for mid, daten in self.maschinen.items()
                 if material in daten["materialien"]]
-    
+
     def berechne_ausschussrate(self, maschinen_id=None):
         relevante_eintraege = self.produktionsverlauf
         if maschinen_id:
             relevante_eintraege = [e for e in relevante_eintraege if e[1] == maschinen_id]
-        
+
         if not relevante_eintraege:
             return 0.0
-        
+
         gesamt = len(relevante_eintraege)
         nok = len([e for e in relevante_eintraege if not e[5]])
         return (nok / gesamt) * 100

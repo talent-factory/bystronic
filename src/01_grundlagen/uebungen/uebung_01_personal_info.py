@@ -94,15 +94,15 @@ def main():
 """
 def sammle_informationen():
     infos = {}
-    
+
     infos['name'] = input("Wie heissen Sie? ")
     infos['alter'] = int(input("Wie alt sind Sie? "))
     infos['abteilung'] = input("In welcher Abteilung arbeiten Sie? ")
-    
+
     # BONUS: Berufserfahrung
     erfahrung_input = input("Wie viele Jahre Berufserfahrung haben Sie? (optional, Enter für überspringen): ")
     infos['berufserfahrung'] = int(erfahrung_input) if erfahrung_input.strip() else None
-    
+
     return infos
 
 def berechne_geburtsjahr(alter: int, aktuelles_jahr: int = 2025) -> int:
@@ -124,10 +124,10 @@ def formatiere_ausgabe(infos: dict) -> None:
     name = infos['name']
     alter = infos['alter']
     abteilung = infos['abteilung']
-    
+
     geburtsjahr = berechne_geburtsjahr(alter)
     grad = bestimme_erfahrungsgrad(alter, infos.get('berufserfahrung'))
-    
+
     # Schöne Formatierung
     print("\n" + "="*60)
     print(f"📋 Mitarbeiterprofil: {name}")
@@ -135,10 +135,10 @@ def formatiere_ausgabe(infos: dict) -> None:
     print(f"👤 Alter:           {alter} Jahre (geboren ca. {geburtsjahr})")
     print(f"🏢 Abteilung:       {abteilung}")
     print(f"📊 Erfahrungsgrad:  {grad}")
-    
+
     if infos.get('berufserfahrung'):
         print(f"💼 Berufserfahrung: {infos['berufserfahrung']} Jahre")
-    
+
     print("="*60)
 """
 
