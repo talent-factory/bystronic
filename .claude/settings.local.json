@@ -6,7 +6,11 @@
       "Bash(init)",
       "Bash(cat:*)",
       "Bash(tree:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(uv sync:*)",
+      "Bash(make:*)",
+      "Bash(uv run:*)",
+      "Bash(timeout:*)"
     ],
     "deny": [],
     "ask": []

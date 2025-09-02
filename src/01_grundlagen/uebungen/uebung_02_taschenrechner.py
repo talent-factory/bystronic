@@ -13,49 +13,54 @@ Aufgabe:
 TIPP: Verwenden Sie try/except für Fehlerbehandlung
 """
 
-import math
 
 def addition(a: float, b: float) -> float:
     """
     TODO: Implementieren Sie die Addition
-    
+
     Args:
         a: Erste Zahl
         b: Zweite Zahl
-        
+
     Returns:
         Summe von a und b
     """
     # Ihre Implementierung hier:
     pass
 
+
 def subtraktion(a: float, b: float) -> float:
     """TODO: Implementieren Sie die Subtraktion"""
     # Ihre Implementierung hier:
     pass
+
 
 def multiplikation(a: float, b: float) -> float:
     """TODO: Implementieren Sie die Multiplikation"""
     # Ihre Implementierung hier:
     pass
 
+
 def division(a: float, b: float) -> float:
     """
     TODO: Implementieren Sie die Division mit Fehlerbehandlung
-    
+
     WICHTIG: Behandeln Sie Division durch Null!
     """
     # Ihre Implementierung hier:
     pass
+
 
 # BONUS-Funktionen
 def modulo(a: float, b: float) -> float:
     """TODO: Implementieren Sie den Modulo-Operator (Rest der Division)"""
     pass
 
+
 def potenz(a: float, b: float) -> float:
     """TODO: Implementieren Sie die Potenzierung (a hoch b)"""
     pass
+
 
 def quadratwurzel(a: float) -> float:
     """
@@ -65,10 +70,11 @@ def quadratwurzel(a: float) -> float:
     """
     pass
 
+
 def zeige_menu() -> None:
     """
     TODO: Zeigen Sie ein übersichtliches Menü mit allen verfügbaren Operationen
-    
+
     Beispiel:
     ========================================
     🧮 BYSTRONIC TASCHENRECHNER
@@ -80,35 +86,38 @@ def zeige_menu() -> None:
     # Ihre Implementierung hier:
     pass
 
+
 def hole_zahl(prompt: str) -> float:
     """
     TODO: Sicher eine Zahl vom Benutzer einlesen
-    
+
     Behandeln Sie ungültige Eingaben mit try/except!
-    
+
     Args:
         prompt: Text für die Eingabeaufforderung
-        
+
     Returns:
         Die eingegebene Zahl als float
     """
     # Ihre Implementierung hier:
     pass
 
+
 def waehle_operation() -> str:
     """
     TODO: Lassen Sie den Benutzer eine Operation wählen
-    
+
     Returns:
         Die gewählte Operation als String ('1', '2', etc.)
     """
     # Ihre Implementierung hier:
     pass
 
+
 def fuehre_berechnung_aus(operation: str, a: float, b: float = None) -> None:
     """
     TODO: Führen Sie die gewählte Berechnung aus und zeigen Sie das Ergebnis
-    
+
     Args:
         operation: Die gewählte Operation ('1', '2', etc.)
         a: Erste Zahl
@@ -117,13 +126,14 @@ def fuehre_berechnung_aus(operation: str, a: float, b: float = None) -> None:
     # Ihre Implementierung hier:
     pass
 
+
 def main():
     """
     Hauptfunktion - Implementiert die Taschenrechner-Logik
     """
     print("Willkommen beim Bystronic Taschenrechner! 🧮")
     print()
-    
+
     while True:
         # TODO: Implementieren Sie die Hauptschleife:
         # 1. Menü anzeigen
@@ -131,13 +141,14 @@ def main():
         # 3. Zahlen eingeben
         # 4. Berechnung durchführen
         # 5. Fragen ob weiter gemacht werden soll
-        
+
         # Ihre Implementierung hier:
-        
+
         # Zum Testen können Sie diese Zeile verwenden:
         break  # Entfernen Sie diese Zeile in Ihrer Implementierung
-    
+
     print("Auf Wiedersehen! 👋")
+
 
 # Lösungsvorschläge (auskommentiert):
 """

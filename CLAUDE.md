@@ -11,20 +11,23 @@ Dieses Projekt ist ein umfassender Python-Grundkurs für Bystronic-Entwickler mi
 # Projekt initialisieren und Abhängigkeiten installieren
 uv sync
 
-# In die uv-Umgebung wechseln
-uv shell
+# Development-Tools installieren (ruff, black, pytest, etc.)
+uv sync --extra dev
 
-# Jupyter Notebook starten
-uv run jupyter notebook
+# Makefile verwenden (empfohlen):
+make help              # Zeige alle verfügbaren Kommandos
+make dev-install       # Installiere alle Dependencies
+make format            # Code formatieren
+make lint              # Code prüfen
+make test              # Tests ausführen
+make notebook          # Jupyter Notebook starten
 
-# Tests ausführen (falls vorhanden)
-uv run pytest
-
-# Code-Formatierung
-uv run black .
-
-# Python-Script ausführen
-uv run python script.py
+# Oder direkt mit uv:
+uv run jupyter notebook    # Jupyter Notebook starten
+uv run black src/          # Code formatieren
+uv run ruff check src/     # Linting
+uv run pytest             # Tests ausführen
+uv run python script.py   # Python-Script ausführen
 ```
 
 ### Projektstruktur

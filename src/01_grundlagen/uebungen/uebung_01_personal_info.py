@@ -11,58 +11,62 @@ Aufgabe:
 TIPP: Verwenden Sie input() für Eingaben und int() für Zahlenkonvertierung
 """
 
+
 def sammle_informationen():
     """
     TODO: Implementieren Sie die Informationssammlung
-    
+
     Sammeln Sie:
     - Name (String)
     - Alter (Integer)
     - Abteilung (String)
     - Jahre Berufserfahrung (Integer) - BONUS
-    
+
     Geben Sie ein Dictionary mit den Informationen zurück
     """
     # Ihre Implementierung hier:
     pass
 
+
 def berechne_geburtsjahr(alter: int, aktuelles_jahr: int = 2025) -> int:
     """
     TODO: Berechnen Sie das Geburtsjahr basierend auf dem Alter
-    
+
     Args:
         alter: Alter der Person
         aktuelles_jahr: Aktuelles Jahr (default: 2025)
-        
+
     Returns:
         Geschätztes Geburtsjahr
     """
     # Ihre Implementierung hier:
     pass
 
+
 def bestimme_erfahrungsgrad(alter: int, berufserfahrung: int = None) -> str:
     """
     TODO: Bestimmen Sie den Erfahrungsgrad
-    
+
     Regeln:
     - Unter 25 Jahre: "Nachwuchstalent"
-    - 25-35 Jahre: "Junior" (bei < 5 Jahren Erfahrung) oder "Senior" 
+    - 25-35 Jahre: "Junior" (bei < 5 Jahren Erfahrung) oder "Senior"
     - Über 35 Jahre: "Senior" oder "Expert" (bei > 10 Jahren Erfahrung)
-    
+
     Args:
         alter: Alter der Person
         berufserfahrung: Jahre der Berufserfahrung (optional)
-        
+
     Returns:
         Erfahrungsgrad als String
     """
     # Ihre Implementierung hier:
     pass
 
+
 def formatiere_ausgabe(infos: dict) -> None:
     """
     TODO: Erstellen Sie eine schöne formatierte Ausgabe
-    
+
     Die Ausgabe soll enthalten:
     - Überschrift mit Name
     - Alter und Geburtsjahr
@@ -73,16 +77,18 @@ def formatiere_ausgabe(infos: dict) -> None:
     # Ihre Implementierung hier:
     pass
 
+
 def main():
     """
     Hauptfunktion - orchestriert die gesamte Anwendung
     """
     print("=== Persönliche Informationen - Bystronic Mitarbeiterprofil ===")
     print()
-    
+
     # TODO: Rufen Sie die Funktionen in der richtigen Reihenfolge auf
-    
+
     print("\nVielen Dank für Ihre Teilnahme! 🎉")
+
 
 # Lösungsvorschlag (auskommentiert - versuchen Sie es zuerst selbst!)
 """
