@@ -307,32 +307,32 @@ def aufgabe_5_bericht_generierung():
     # TODO: Implementieren Sie Funktionen zur Bericht-Generierung:
     
     def erstelle_tageszeile(tag, daten):
-        \"\"\"
+        """
         Erstellt eine formatierte Zeile für den Tagesbericht
         Format: Tag | Teile | Laufzeit | Ausschuss | Effizienz
-        \"\"\"
+        """
         # Ihre Lösung hier:
         pass
     
     def berechne_wochensumme(tage_daten):
-        \"\"\"
+        """
         Berechnet Wochensummen aus Tagesdaten
         Return: Dictionary mit gesamt_teile, gesamt_laufzeit, gesamt_ausschuss
-        \"\"\"
+        """
         # Ihre Lösung hier:
         pass
     
     def erstelle_maschinenbericht(maschinen_id, maschinen_daten):
-        \"\"\"
+        """
         Erstellt vollständigen Bericht für eine Maschine
-        \"\"\"
+        """
         # Ihre Lösung hier:
         pass
     
     def erstelle_wochenbericht(wochendaten):
-        \"\"\"
+        """
         Erstellt den kompletten Wochenbericht
-        \"\"\"
+        """
         # Ihre Lösung hier:
         pass
     
@@ -362,34 +362,34 @@ def bonus_aufgabe_csv_parser():
     print("-" * 40)
     
     # Gegeben: CSV-Daten als String
-    csv_daten = \"\"\"Teilnummer;Material;Dicke;Anzahl;Status;Kosten
+    csv_daten = """Teilnummer;Material;Dicke;Anzahl;Status;Kosten
 BSF-6000-001;Stahl;2.5;150;OK;2250.00
 BSF-6000-002;Aluminium;3.0;120;OK;1800.00
 BSF-6000-003;Edelstahl;1.5;200;Fehler;0.00
 BSF-6000-004;Kupfer;2.0;80;OK;1600.00
-BSF-6000-005;Stahl;2.5;175;OK;2625.00\"\"\"
+BSF-6000-005;Stahl;2.5;175;OK;2625.00"""
     
     # TODO: Implementieren Sie einen einfachen CSV-Parser:
     
     def parse_csv_string(csv_string, trenner=';'):
-        \"\"\"
+        """
         Parst CSV-String zu Liste von Dictionaries
         Erste Zeile = Header, weitere Zeilen = Daten
-        \"\"\"
+        """
         # Ihre Lösung hier:
         pass
     
     def filtere_daten(daten, feld, wert):
-        \"\"\"
+        """
         Filtert Daten nach Feld=Wert
-        \"\"\"
+        """
         # Ihre Lösung hier:
         pass
     
     def berechne_statistik(daten):
-        \"\"\"
+        """
         Berechnet Statistiken über die Daten
-        \"\"\"
+        """
         # Ihre Lösung hier:
         pass
     
@@ -403,25 +403,25 @@ BSF-6000-005;Stahl;2.5;175;OK;2625.00\"\"\"
     
     # TODO: Filtern und Statistiken
     # ok_teile = filtere_daten(daten, 'Status', 'OK')
-    # print(f"\\nOK-Teile: {len(ok_teile)}")
+    # print(f"\nOK-Teile: {len(ok_teile)}")
     
     # stahl_teile = filtere_daten(daten, 'Material', 'Stahl')  
     # print(f"Stahl-Teile: {len(stahl_teile)}")
     
     # statistik = berechne_statistik(daten)
-    # print(f"\\nStatistik: {statistik}")
+    # print(f"\nStatistik: {statistik}")
     
     print("✅ Bonus-Aufgabe abgeschlossen!\n")
 
 def loesung_anzeigen():
-    \"\"\"Zeigt die Musterlösung an\"\"\"
+    """Zeigt die Musterlösung an"""
     antwort = input("Möchten Sie die Musterlösung anzeigen? (j/n): ").lower().strip()
     if antwort in ['j', 'ja', 'y', 'yes']:
-        print("\\n" + "="*50)
+        print("\n" + "="*50)
         print("MUSTERLÖSUNG")
         print("="*50)
         
-        print(\"\"\"
+        print("""
 # Aufgabe 1: String-Grundlagen
 firma_formatiert = firma.title()
 maschine_formatiert = maschine.strip().title()
@@ -446,7 +446,7 @@ Schicht: {schicht}
 Teile: {teile_ist:,} von {teile_soll:,} ({effizienz:.1f}%)
 Laufzeit: {laufzeit:.2f} Stunden
 Gesamtkosten: {gesamtkosten:,.2f}€
-\"\"\"
+""")
 
 # Tabellenformatierung
 print(f"{'Tag':<10} {'Soll':<6} {'Ist':<6} {'Effizienz':<10} {'Kosten':<10}")
@@ -536,16 +536,16 @@ def berechne_statistik(daten):
         'ok_prozent': (ok_anzahl / gesamt_anzahl * 100) if gesamt_anzahl > 0 else 0,
         'materialien': len(materialien)
     }
-\"\"\")
+
 
 def main():
-    \"\"\"Hauptfunktion der Übung\"\"\"
+    """Hauptfunktion der Übung"""
     print("=" * 50)
     print("BYSTRONIC PYTHON GRUNDKURS")
     print("Kapitel 2 - Übung 2: String-Verarbeitung")
     print("=" * 50)
     
-    print(\"\"\"
+    print("""
 Diese Übung behandelt die wichtigsten String-Operationen in Python:
 • String-Manipulation (strip, replace, split, join)
 • String-Formatierung (f-strings, .format(), %)
@@ -554,7 +554,7 @@ Diese Übung behandelt die wichtigsten String-Operationen in Python:
 
 Bearbeiten Sie die Aufgaben der Reihe nach und implementieren
 Sie die TODO-Kommentare.
-\"\"\")
+""")
     
     try:
         aufgabe_1_string_grundlagen()
@@ -565,7 +565,7 @@ Sie die TODO-Kommentare.
         bonus_aufgabe_csv_parser()
         
         print("🎉 Alle Aufgaben abgeschlossen!")
-        print("\\nSie haben erfolgreich gelernt:")
+        print("\nSie haben erfolgreich gelernt:")
         print("✓ Strings zu manipulieren und formatieren")
         print("✓ String-Validierung mit regulären Ausdrücken")
         print("✓ Dateinamen und Pfade zu verwalten")
@@ -575,13 +575,13 @@ Sie die TODO-Kommentare.
         loesung_anzeigen()
         
     except KeyboardInterrupt:
-        print("\\n\\nÜbung durch Benutzer abgebrochen.")
+        print("\n\nÜbung durch Benutzer abgebrochen.")
     except Exception as e:
-        print(f"\\nFehler in der Übung: {e}")
+        print(f"\nFehler in der Übung: {e}")
         print("Überprüfen Sie Ihre Implementierung und versuchen Sie es erneut.")
 
 if __name__ == "__main__":
     main()
     
-    print("\\nDrücken Sie Enter zum Beenden...")
+    print("\nDrücken Sie Enter zum Beenden...")
     input()
