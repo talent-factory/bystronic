@@ -25,11 +25,11 @@ class TestHelloWorld:
 
     def test_main_function_exists(self):
         """Testet, ob die main() Funktion existiert"""
-        assert hasattr(hello_world, 'main')
+        assert hasattr(hello_world, "main")
         assert callable(hello_world.main)
 
-    @patch('builtins.input', return_value='Test User')
-    @patch('builtins.print')
+    @patch("builtins.input", return_value="Test User")
+    @patch("builtins.print")
     def test_main_function_runs_without_error(self, mock_print, mock_input):
         """Testet, ob main() ohne Fehler ausgeführt wird"""
         # Sollte keine Exception werfen
@@ -41,8 +41,8 @@ class TestHelloWorld:
         # Überprüft, ob input aufgerufen wurde
         assert mock_input.called
 
-    @patch('builtins.input', return_value='Bystronic Entwickler')
-    @patch('builtins.print')
+    @patch("builtins.input", return_value="Bystronic Entwickler")
+    @patch("builtins.print")
     def test_string_formatting_output(self, mock_print, mock_input):
         """Testet die String-Formatierung in der Ausgabe"""
         hello_world.main()
@@ -55,7 +55,9 @@ class TestHelloWorld:
         assert welcome_found, "Willkommensnachricht nicht gefunden"
 
         # Überprüfe f-string Verwendung
-        greeting_found = any("Hallo Bystronic Entwickler!" in call for call in print_calls)
+        greeting_found = any(
+            "Hallo Bystronic Entwickler!" in call for call in print_calls
+        )
         assert greeting_found, "Personalisierte Begrüßung nicht gefunden"
 
     def test_calculation_logic(self):
@@ -66,7 +68,9 @@ class TestHelloWorld:
         wochen_im_jahr = 52
 
         expected_stunden = stunden_pro_tag * tage_pro_woche * wochen_im_jahr
-        assert expected_stunden == 2080, f"Erwartete 2080 Stunden, bekommen {expected_stunden}"
+        assert (
+            expected_stunden == 2080
+        ), f"Erwartete 2080 Stunden, bekommen {expected_stunden}"
 
 
 class TestVbaVsPython:
@@ -74,10 +78,10 @@ class TestVbaVsPython:
 
     def test_main_function_exists(self):
         """Testet, ob die main() Funktion existiert"""
-        assert hasattr(vba_vs_python, 'main')
+        assert hasattr(vba_vs_python, "main")
         assert callable(vba_vs_python.main)
 
-    @patch('builtins.print')
+    @patch("builtins.print")
     def test_main_runs_without_error(self, mock_print):
         """Testet, ob main() ohne Fehler läuft"""
         vba_vs_python.main()
@@ -85,12 +89,12 @@ class TestVbaVsPython:
 
     def test_demonstriere_listen_function_exists(self):
         """Testet, ob demonstriere_listen Funktion existiert"""
-        assert hasattr(vba_vs_python, 'demonstriere_listen')
+        assert hasattr(vba_vs_python, "demonstriere_listen")
         assert callable(vba_vs_python.demonstriere_listen)
 
     def test_demonstriere_dictionaries_function_exists(self):
         """Testet, ob demonstriere_dictionaries Funktion existiert"""
-        assert hasattr(vba_vs_python, 'demonstriere_dictionaries')
+        assert hasattr(vba_vs_python, "demonstriere_dictionaries")
         assert callable(vba_vs_python.demonstriere_dictionaries)
 
     def test_list_operations_logic(self):
@@ -130,8 +134,8 @@ class TestVbaVsPython:
 class TestIntegration:
     """Integrationstests für das gesamte Grundlagen-Modul"""
 
-    @patch('builtins.input', return_value='Test')
-    @patch('builtins.print')
+    @patch("builtins.input", return_value="Test")
+    @patch("builtins.print")
     def test_all_examples_run_successfully(self, mock_print, mock_input):
         """Testet, ob alle Beispiele erfolgreich ausgeführt werden können"""
         # Test hello_world
@@ -148,13 +152,15 @@ class TestIntegration:
         # Überprüfe, ob wichtige Python-Konzepte in den Beispielen vorkommen
 
         # String-Formatierung
-        assert hasattr(hello_world, 'main'), "String-Formatierung Beispiel fehlt"
+        assert hasattr(hello_world, "main"), "String-Formatierung Beispiel fehlt"
 
         # Funktionen und Listen-Operationen
-        assert hasattr(vba_vs_python, 'demonstriere_listen'), "Listen-Beispiel fehlt"
+        assert hasattr(vba_vs_python, "demonstriere_listen"), "Listen-Beispiel fehlt"
 
         # Dictionary-Operationen
-        assert hasattr(vba_vs_python, 'demonstriere_dictionaries'), "Dictionary-Beispiel fehlt"
+        assert hasattr(
+            vba_vs_python, "demonstriere_dictionaries"
+        ), "Dictionary-Beispiel fehlt"
 
 
 # Hilfsfunktionen für Tests

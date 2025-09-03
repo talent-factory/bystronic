@@ -27,11 +27,11 @@ class TestNumbersDemo:
 
     def test_main_function_exists(self):
         """Testet, ob die main() Funktion existiert"""
-        assert hasattr(numbers_demo, 'main')
+        assert hasattr(numbers_demo, "main")
         assert callable(numbers_demo.main)
 
-    @patch('builtins.print')
-    @patch('builtins.input', return_value='')
+    @patch("builtins.print")
+    @patch("builtins.input", return_value="")
     def test_main_runs_without_error(self, mock_input, mock_print):
         """Testet, ob main() ohne Fehler läuft"""
         numbers_demo.main()
@@ -39,12 +39,12 @@ class TestNumbersDemo:
 
     def test_demonstrate_math_operations_function(self):
         """Testet die mathematischen Operationen"""
-        assert hasattr(numbers_demo, 'demonstrate_math_operations')
+        assert hasattr(numbers_demo, "demonstrate_math_operations")
         assert callable(numbers_demo.demonstrate_math_operations)
 
     def test_calculate_production_metrics_function(self):
         """Testet die Produktionsmetriken-Berechnung"""
-        assert hasattr(numbers_demo, 'calculate_production_metrics')
+        assert hasattr(numbers_demo, "calculate_production_metrics")
         assert callable(numbers_demo.calculate_production_metrics)
 
         # Test der Berechnungslogik
@@ -52,16 +52,18 @@ class TestNumbersDemo:
         teile_produziert = 1850
         effizienz = (teile_produziert / teile_geplant) * 100
 
-        assert abs(effizienz - 92.5) < 0.1, f"Effizienz-Berechnung fehlerhaft: {effizienz}"
+        assert (
+            abs(effizienz - 92.5) < 0.1
+        ), f"Effizienz-Berechnung fehlerhaft: {effizienz}"
 
     def test_calculate_material_usage_function(self):
         """Testet die Materialverbrauch-Berechnung"""
-        assert hasattr(numbers_demo, 'calculate_material_usage')
+        assert hasattr(numbers_demo, "calculate_material_usage")
         assert callable(numbers_demo.calculate_material_usage)
 
     def test_calculate_laser_parameters_function(self):
         """Testet die Laser-Parameter-Berechnung"""
-        assert hasattr(numbers_demo, 'calculate_laser_parameters')
+        assert hasattr(numbers_demo, "calculate_laser_parameters")
         assert callable(numbers_demo.calculate_laser_parameters)
 
     def test_mathematical_calculations(self):
@@ -80,7 +82,9 @@ class TestNumbersDemo:
         gesamt_teil_flaeche = teil_flaeche * anzahl_teile
         materialausnutzung = (gesamt_teil_flaeche / blech_flaeche) * 100
 
-        assert abs(materialausnutzung - 50.0) < 0.1, "Materialausnutzung-Berechnung fehlerhaft"
+        assert (
+            abs(materialausnutzung - 50.0) < 0.1
+        ), "Materialausnutzung-Berechnung fehlerhaft"
 
     def test_complex_numbers_usage(self):
         """Testet die Verwendung komplexer Zahlen"""
@@ -89,12 +93,16 @@ class TestNumbersDemo:
         spannung = impedanz * strom
 
         expected_spannung = 500 + 300j
-        assert spannung == expected_spannung, f"Komplexe Zahlen-Berechnung fehlerhaft: {spannung}"
+        assert (
+            spannung == expected_spannung
+        ), f"Komplexe Zahlen-Berechnung fehlerhaft: {spannung}"
 
         # Test Betrag
         betrag = abs(spannung)
         expected_betrag = math.sqrt(500**2 + 300**2)
-        assert abs(betrag - expected_betrag) < 0.1, f"Betrag-Berechnung fehlerhaft: {betrag}"
+        assert (
+            abs(betrag - expected_betrag) < 0.1
+        ), f"Betrag-Berechnung fehlerhaft: {betrag}"
 
 
 class TestStringsDemo:
@@ -102,11 +110,11 @@ class TestStringsDemo:
 
     def test_main_function_exists(self):
         """Testet, ob die main() Funktion existiert"""
-        assert hasattr(strings_demo, 'main')
+        assert hasattr(strings_demo, "main")
         assert callable(strings_demo.main)
 
-    @patch('builtins.print')
-    @patch('builtins.input', return_value='')
+    @patch("builtins.print")
+    @patch("builtins.input", return_value="")
     def test_main_runs_without_error(self, mock_input, mock_print):
         """Testet, ob main() ohne Fehler läuft"""
         strings_demo.main()
@@ -116,14 +124,17 @@ class TestStringsDemo:
         """Testet, ob String-Operationen demonstriert werden"""
         # Überprüfe, ob wichtige String-Methoden im Code vorkommen
         import inspect
+
         source = inspect.getsource(strings_demo)
 
         # Wichtige String-Methoden sollten demonstriert werden
-        assert '.upper()' in source or '.lower()' in source, "String-Case-Methoden fehlen"
-        assert '.strip()' in source, "String-Trimming fehlt"
+        assert (
+            ".upper()" in source or ".lower()" in source
+        ), "String-Case-Methoden fehlen"
+        assert ".strip()" in source, "String-Trimming fehlt"
         # String-Splitting ist möglicherweise anders implementiert
-        assert 'split' in source or 'partition' in source, "String-Splitting fehlt"
-        assert 'f"' in source or '.format(' in source, "String-Formatierung fehlt"
+        assert "split" in source or "partition" in source, "String-Splitting fehlt"
+        assert 'f"' in source or ".format(" in source, "String-Formatierung fehlt"
 
     def test_bystronic_specific_examples(self):
         """Testet Bystronic-spezifische String-Beispiele"""
@@ -131,7 +142,9 @@ class TestStringsDemo:
         maschinen_name = "LASER_01_BYSTAR_FIBER"
 
         # Typische Operationen
-        assert maschinen_name.startswith("LASER"), "Maschinen-Präfix-Test fehlgeschlagen"
+        assert maschinen_name.startswith(
+            "LASER"
+        ), "Maschinen-Präfix-Test fehlgeschlagen"
         assert "BYSTAR" in maschinen_name, "Maschinen-Typ-Test fehlgeschlagen"
 
         teile = maschinen_name.split("_")
@@ -143,11 +156,11 @@ class TestCollectionsDemo:
 
     def test_main_function_exists(self):
         """Testet, ob die main() Funktion existiert"""
-        assert hasattr(collections_demo, 'main')
+        assert hasattr(collections_demo, "main")
         assert callable(collections_demo.main)
 
-    @patch('builtins.print')
-    @patch('builtins.input', return_value='')
+    @patch("builtins.print")
+    @patch("builtins.input", return_value="")
     def test_main_runs_without_error(self, mock_input, mock_print):
         """Testet, ob main() ohne Fehler läuft"""
         collections_demo.main()
@@ -177,7 +190,7 @@ class TestCollectionsDemo:
             "id": "LASER_01",
             "typ": "ByStar Fiber",
             "baujahr": 2019,
-            "produktionszeit": 2450.5
+            "produktionszeit": 2450.5,
         }
 
         # Grundlegende Dictionary-Operationen
@@ -212,7 +225,9 @@ class TestCollectionsDemo:
 
         # Set-Operationen
         gemeinsame = typen_a & typen_b
-        assert "ByStar" in gemeinsame and "Xpert" in gemeinsame, "Set-Intersection fehlerhaft"
+        assert (
+            "ByStar" in gemeinsame and "Xpert" in gemeinsame
+        ), "Set-Intersection fehlerhaft"
 
         alle_typen = typen_a | typen_b
         assert len(alle_typen) == 4, "Set-Union fehlerhaft"
@@ -256,8 +271,8 @@ class TestDataTypeIntegration:
         assert bool("") is False, "String-zu-Bool-Konvertierung fehlerhaft"
         assert bool("text") is True, "String-zu-Bool-Konvertierung fehlerhaft"
 
-    @patch('builtins.print')
-    @patch('builtins.input', return_value='')
+    @patch("builtins.print")
+    @patch("builtins.input", return_value="")
     def test_all_examples_run_successfully(self, mock_input, mock_print):
         """Testet, ob alle Datentypen-Beispiele erfolgreich laufen"""
         # Alle Beispiele sollten ohne Fehler durchlaufen
@@ -286,7 +301,7 @@ def test_example_files_exist():
         "numbers_demo.py",
         "strings_demo.py",
         "collections_demo.py",
-        "vba_collections_comparison.py"
+        "vba_collections_comparison.py",
     ]
 
     for filename in files_to_check:

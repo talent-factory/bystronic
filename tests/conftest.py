@@ -29,7 +29,7 @@ def sample_maschinendaten():
         "Baujahr": [2019, 2020, 2018, 2021, 2017],
         "Produktionszeit_h": [2450.5, 1890.2, 3200.8, 1250.4, 2890.1],
         "Wartung_fällig": [True, False, True, False, True],
-        "Ausschussrate": [0.023, 0.045, 0.012, 0.067, 0.034]
+        "Ausschussrate": [0.023, 0.045, 0.012, 0.067, 0.034],
     }
 
 
@@ -42,14 +42,14 @@ def sample_dataframe(sample_maschinendaten):
 @pytest.fixture
 def temp_csv_file():
     """Fixture für temporäre CSV-Datei"""
-    with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as tmp:
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False) as tmp:
         yield tmp.name
 
 
 @pytest.fixture
 def temp_json_file():
     """Fixture für temporäre JSON-Datei"""
-    with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as tmp:
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as tmp:
         yield tmp.name
 
 
@@ -63,14 +63,16 @@ def produktionsdaten_sample():
 
     for woche in range(1, 5):
         for maschine in maschinen:
-            data.append({
-                "Woche": woche,
-                "Maschine": maschine,
-                "Geplante_Zeit": 40.0,
-                "Tatsächliche_Zeit": 40.0 + np.random.normal(0, 2),
-                "Teile_produziert": 1000 + np.random.randint(-100, 100),
-                "Ausschuss": np.random.randint(5, 25)
-            })
+            data.append(
+                {
+                    "Woche": woche,
+                    "Maschine": maschine,
+                    "Geplante_Zeit": 40.0,
+                    "Tatsächliche_Zeit": 40.0 + np.random.normal(0, 2),
+                    "Teile_produziert": 1000 + np.random.randint(-100, 100),
+                    "Ausschuss": np.random.randint(5, 25),
+                }
+            )
 
     return pd.DataFrame(data)
 
@@ -82,34 +84,26 @@ def setup_test_environment():
     np.random.seed(42)
 
     # Pandas-Optionen für Tests
-    pd.set_option('display.max_columns', None)
-    pd.set_option('display.width', None)
+    pd.set_option("display.max_columns", None)
+    pd.set_option("display.width", None)
 
     yield
 
     # Cleanup nach Tests
-    pd.reset_option('display.max_columns')
-    pd.reset_option('display.width')
+    pd.reset_option("display.max_columns")
+    pd.reset_option("display.width")
 
 
 # Marker für verschiedene Test-Kategorien
 def pytest_configure(config):
     """Pytest-Konfiguration mit benutzerdefinierten Markern"""
-    config.addinivalue_line(
-        "markers", "grundlagen: Tests für Python-Grundlagen"
-    )
+    config.addinivalue_line("markers", "grundlagen: Tests für Python-Grundlagen")
     config.addinivalue_line(
         "markers", "datentypen: Tests für Datentypen und Operationen"
     )
-    config.addinivalue_line(
-        "markers", "pandas: Tests für Pandas-Funktionalität"
-    )
-    config.addinivalue_line(
-        "markers", "integration: Integrationstests"
-    )
-    config.addinivalue_line(
-        "markers", "slow: Langsame Tests"
-    )
+    config.addinivalue_line("markers", "pandas: Tests für Pandas-Funktionalität")
+    config.addinivalue_line("markers", "integration: Integrationstests")
+    config.addinivalue_line("markers", "slow: Langsame Tests")
 
 
 # Hilfsfunktionen für Tests
@@ -126,9 +120,9 @@ def create_test_maschinendaten_csv(filepath, data=None):
         data = {
             "Maschine": ["LASER_01", "PRESSE_01"],
             "Produktionszeit": [2450.5, 3200.8],
-            "Status": ["Aktiv", "Wartung"]
+            "Status": ["Aktiv", "Wartung"],
         }
 
     df = pd.DataFrame(data)
-    df.to_csv(filepath, index=False, encoding='utf-8')
+    df.to_csv(filepath, index=False, encoding="utf-8")
     return filepath

@@ -46,17 +46,21 @@ class TestDataFrameBasics:
 
         # Grundlegende DataFrame-Eigenschaften testen
         assert df.shape == (3, 5), f"DataFrame Shape fehlerhaft: {df.shape}"
-        assert list(df.columns) == list(maschinendaten.keys()), "Spalten-Namen fehlerhaft"
+        assert list(df.columns) == list(
+            maschinendaten.keys()
+        ), "Spalten-Namen fehlerhaft"
         assert len(df) == 3, "DataFrame-Länge fehlerhaft"
 
     def test_dataframe_operations(self):
         """Testet grundlegende DataFrame-Operationen"""
         # Test-DataFrame erstellen
-        df = pd.DataFrame({
-            "Maschine": ["Laser_01", "Laser_02", "Presse_01"],
-            "Produktionszeit_h": [2450.5, 1890.2, 3200.8],
-            "Baujahr": [2019, 2020, 2018]
-        })
+        df = pd.DataFrame(
+            {
+                "Maschine": ["Laser_01", "Laser_02", "Presse_01"],
+                "Produktionszeit_h": [2450.5, 1890.2, 3200.8],
+                "Baujahr": [2019, 2020, 2018],
+            }
+        )
 
         # Filterung testen
         filtered = df[df["Produktionszeit_h"] > 2000]
@@ -64,7 +68,9 @@ class TestDataFrameBasics:
 
         # Sortierung testen
         sorted_df = df.sort_values("Produktionszeit_h")
-        assert sorted_df.iloc[0]["Maschine"] == "Laser_02", "DataFrame-Sortierung fehlerhaft"
+        assert (
+            sorted_df.iloc[0]["Maschine"] == "Laser_02"
+        ), "DataFrame-Sortierung fehlerhaft"
 
         # Neue Spalte hinzufügen
         df["Alter"] = 2024 - df["Baujahr"]
@@ -73,10 +79,12 @@ class TestDataFrameBasics:
 
     def test_aggregation_operations(self):
         """Testet Aggregations-Operationen"""
-        df = pd.DataFrame({
-            "Typ": ["ByStar", "ByStar", "Xpert", "Xpert"],
-            "Produktionszeit_h": [2450.5, 1890.2, 3200.8, 1250.4]
-        })
+        df = pd.DataFrame(
+            {
+                "Typ": ["ByStar", "ByStar", "Xpert", "Xpert"],
+                "Produktionszeit_h": [2450.5, 1890.2, 3200.8, 1250.4],
+            }
+        )
 
         # Gruppierung und Aggregation
         grouped = df.groupby("Typ")["Produktionszeit_h"].mean()
@@ -99,12 +107,11 @@ class TestDataImportExport:
     def test_csv_operations(self):
         """Testet CSV-Import/Export-Operationen"""
         # Test-DataFrame erstellen
-        test_data = pd.DataFrame({
-            "Maschine": ["Test_01", "Test_02"],
-            "Wert": [100.5, 200.3]
-        })
+        test_data = pd.DataFrame(
+            {"Maschine": ["Test_01", "Test_02"], "Wert": [100.5, 200.3]}
+        )
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False) as tmp:
             # CSV schreiben
             test_data.to_csv(tmp.name, index=False)
 
@@ -116,17 +123,16 @@ class TestDataImportExport:
 
     def test_json_operations(self):
         """Testet JSON-Import/Export-Operationen"""
-        test_data = pd.DataFrame({
-            "id": ["LASER_01", "PRESSE_01"],
-            "aktiv": [True, False]
-        })
+        test_data = pd.DataFrame(
+            {"id": ["LASER_01", "PRESSE_01"], "aktiv": [True, False]}
+        )
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as tmp:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as tmp:
             # JSON schreiben
-            test_data.to_json(tmp.name, orient='records', indent=2)
+            test_data.to_json(tmp.name, orient="records", indent=2)
 
             # JSON lesen
-            loaded_data = pd.read_json(tmp.name, orient='records')
+            loaded_data = pd.read_json(tmp.name, orient="records")
 
             # Vergleichen (JSON kann Datentypen ändern)
             assert len(loaded_data) == len(test_data)
@@ -143,15 +149,19 @@ class TestDataCleaning:
     def test_missing_data_handling(self):
         """Testet Behandlung fehlender Daten"""
         # DataFrame mit fehlenden Werten
-        df_dirty = pd.DataFrame({
-            "Maschine": ["Laser_01", "Laser_02", None, "Presse_01"],
-            "Produktionszeit": [2450.5, None, 1800.0, 3200.8],
-            "Status": ["Aktiv", "Wartung", "Aktiv", None]
-        })
+        df_dirty = pd.DataFrame(
+            {
+                "Maschine": ["Laser_01", "Laser_02", None, "Presse_01"],
+                "Produktionszeit": [2450.5, None, 1800.0, 3200.8],
+                "Status": ["Aktiv", "Wartung", "Aktiv", None],
+            }
+        )
 
         # Fehlende Werte identifizieren
         missing_count = df_dirty.isnull().sum().sum()
-        assert missing_count == 3, f"Fehlende Werte nicht korrekt erkannt: {missing_count}"
+        assert (
+            missing_count == 3
+        ), f"Fehlende Werte nicht korrekt erkannt: {missing_count}"
 
         # Zeilen mit fehlenden Werten entfernen
         df_clean = df_dirty.dropna()
@@ -159,29 +169,35 @@ class TestDataCleaning:
 
         # Fehlende Werte füllen
         df_filled = df_dirty.fillna("Unbekannt")
-        assert df_filled.isnull().sum().sum() == 0, "fillna() funktioniert nicht korrekt"
+        assert (
+            df_filled.isnull().sum().sum() == 0
+        ), "fillna() funktioniert nicht korrekt"
 
     def test_data_type_conversion(self):
         """Testet Datentyp-Konvertierungen"""
-        df = pd.DataFrame({
-            "Maschine": ["Laser_01", "Laser_02"],
-            "Baujahr": ["2019", "2020"],  # Als String
-            "Aktiv": ["True", "False"]    # Als String
-        })
+        df = pd.DataFrame(
+            {
+                "Maschine": ["Laser_01", "Laser_02"],
+                "Baujahr": ["2019", "2020"],  # Als String
+                "Aktiv": ["True", "False"],  # Als String
+            }
+        )
 
         # Datentypen konvertieren
         df["Baujahr"] = pd.to_numeric(df["Baujahr"])
         df["Aktiv"] = df["Aktiv"].map({"True": True, "False": False})
 
-        assert df["Baujahr"].dtype in [np.int64, np.int32], "Numerische Konvertierung fehlerhaft"
+        assert df["Baujahr"].dtype in [
+            np.int64,
+            np.int32,
+        ], "Numerische Konvertierung fehlerhaft"
         assert df["Aktiv"].dtype == bool, "Boolean-Konvertierung fehlerhaft"
 
     def test_duplicate_handling(self):
         """Testet Behandlung von Duplikaten"""
-        df_with_dupes = pd.DataFrame({
-            "Maschine": ["Laser_01", "Laser_01", "Laser_02"],
-            "Wert": [100, 100, 200]
-        })
+        df_with_dupes = pd.DataFrame(
+            {"Maschine": ["Laser_01", "Laser_01", "Laser_02"], "Wert": [100, 100, 200]}
+        )
 
         # Duplikate identifizieren
         duplicates = df_with_dupes.duplicated()
@@ -201,10 +217,12 @@ class TestDataAnalysis:
 
     def test_statistical_analysis(self):
         """Testet statistische Analysen"""
-        df = pd.DataFrame({
-            "Produktionszeit": [2450.5, 1890.2, 3200.8, 1250.4, 2800.1],
-            "Ausschussrate": [0.023, 0.045, 0.012, 0.067, 0.034]
-        })
+        df = pd.DataFrame(
+            {
+                "Produktionszeit": [2450.5, 1890.2, 3200.8, 1250.4, 2800.1],
+                "Ausschussrate": [0.023, 0.045, 0.012, 0.067, 0.034],
+            }
+        )
 
         # Grundlegende Statistiken
         stats = df.describe()
@@ -214,16 +232,15 @@ class TestDataAnalysis:
         # Korrelation
         correlation = df["Produktionszeit"].corr(df["Ausschussrate"])
         assert isinstance(correlation, float | np.float64), "Korrelation fehlerhaft"
-        assert -1 <= correlation <= 1, "Korrelationswert außerhalb des gültigen Bereichs"
+        assert (
+            -1 <= correlation <= 1
+        ), "Korrelationswert außerhalb des gültigen Bereichs"
 
     def test_time_series_operations(self):
         """Testet Zeitreihen-Operationen"""
         # Zeitreihen-DataFrame erstellen
         dates = pd.date_range("2024-01-01", periods=5, freq="D")
-        df_time = pd.DataFrame({
-            "Datum": dates,
-            "Produktion": [100, 120, 95, 110, 105]
-        })
+        df_time = pd.DataFrame({"Datum": dates, "Produktion": [100, 120, 95, 110, 105]})
 
         # Datum als Index setzen
         df_time.set_index("Datum", inplace=True)
@@ -241,13 +258,13 @@ class TestDataAnalysis:
 class TestPandasIntegration:
     """Integrationstests für Pandas-Beispiele"""
 
-    @patch('builtins.print')
+    @patch("builtins.print")
     def test_all_examples_run_without_error(self, mock_print):
         """Testet, ob alle Pandas-Beispiele ohne Fehler laufen"""
         # Nur dataframe_basics testen, da andere möglicherweise Dateien benötigen
         try:
             # Mock für input() falls benötigt
-            with patch('builtins.input', return_value=''):
+            with patch("builtins.input", return_value=""):
                 # Führe das Hauptskript aus (falls vorhanden)
                 pass
         except Exception as e:
@@ -256,14 +273,16 @@ class TestPandasIntegration:
     def test_bystronic_specific_data_patterns(self):
         """Testet Bystronic-spezifische Datenmuster"""
         # Typische Bystronic-Maschinendaten
-        maschinendaten = pd.DataFrame({
-            "Maschine_ID": ["LASER_01", "LASER_02", "PRESSE_01", "STANZE_01"],
-            "Typ": ["ByStar Fiber", "ByStar Fiber", "Xpert 150", "ByTrans"],
-            "Baujahr": [2019, 2020, 2018, 2017],
-            "Produktionszeit_YTD": [2450.5, 1890.2, 3200.8, 2890.1],
-            "Wartung_fällig": [True, False, True, True],
-            "Ausschussrate": [0.023, 0.045, 0.012, 0.067]
-        })
+        maschinendaten = pd.DataFrame(
+            {
+                "Maschine_ID": ["LASER_01", "LASER_02", "PRESSE_01", "STANZE_01"],
+                "Typ": ["ByStar Fiber", "ByStar Fiber", "Xpert 150", "ByTrans"],
+                "Baujahr": [2019, 2020, 2018, 2017],
+                "Produktionszeit_YTD": [2450.5, 1890.2, 3200.8, 2890.1],
+                "Wartung_fällig": [True, False, True, True],
+                "Ausschussrate": [0.023, 0.045, 0.012, 0.067],
+            }
+        )
 
         # Typische Analysen
         # 1. Wartungsplanung
@@ -293,13 +312,15 @@ class TestPandasIntegration:
 
         for woche in range(1, 5):
             for maschine in maschinen:
-                wochen_daten.append({
-                    "Woche": woche,
-                    "Maschine": maschine,
-                    "Geplante_Zeit": 40.0,
-                    "Tatsächliche_Zeit": 40.0 + np.random.normal(0, 2),
-                    "Teile_produziert": 1000 + np.random.randint(-100, 100)
-                })
+                wochen_daten.append(
+                    {
+                        "Woche": woche,
+                        "Maschine": maschine,
+                        "Geplante_Zeit": 40.0,
+                        "Tatsächliche_Zeit": 40.0 + np.random.normal(0, 2),
+                        "Teile_produziert": 1000 + np.random.randint(-100, 100),
+                    }
+                )
 
         df_produktion = pd.DataFrame(wochen_daten)
 
@@ -309,19 +330,20 @@ class TestPandasIntegration:
         )
 
         # Gruppierte Analysen
-        wochen_summary = df_produktion.groupby("Woche").agg({
-            "Tatsächliche_Zeit": "sum",
-            "Teile_produziert": "sum",
-            "Abweichung": "mean"
-        })
+        wochen_summary = df_produktion.groupby("Woche").agg(
+            {
+                "Tatsächliche_Zeit": "sum",
+                "Teile_produziert": "sum",
+                "Abweichung": "mean",
+            }
+        )
 
         assert len(wochen_summary) == 4, "Wochen-Gruppierung fehlerhaft"
         assert "Tatsächliche_Zeit" in wochen_summary.columns, "Aggregation fehlerhaft"
 
-        maschinen_summary = df_produktion.groupby("Maschine").agg({
-            "Abweichung": ["mean", "std"],
-            "Teile_produziert": "sum"
-        })
+        maschinen_summary = df_produktion.groupby("Maschine").agg(
+            {"Abweichung": ["mean", "std"], "Teile_produziert": "sum"}
+        )
 
         assert len(maschinen_summary) == 3, "Maschinen-Gruppierung fehlerhaft"
 
@@ -333,7 +355,7 @@ def test_pandas_version_compatibility():
 
     # Überprüfe, ob eine kompatible Pandas-Version installiert ist
     version = pd.__version__
-    major_version = int(version.split('.')[0])
+    major_version = int(version.split(".")[0])
 
     assert major_version >= 1, f"Pandas-Version zu alt: {version}"
 
@@ -345,7 +367,7 @@ def test_example_files_exist():
         "data_import_export.py",
         "data_cleaning.py",
         "data_analysis.py",
-        "vba_vs_pandas.py"
+        "vba_vs_pandas.py",
     ]
 
     for filename in files_to_check:

@@ -1,6 +1,0 @@
-Maschine,Produktionszeit_sum,Produktionszeit_mean,Produktionszeit_count,Stückzahl_sum,Ausschuss_Rate_mean,Ausschuss_Rate_std,Energieverbrauch_sum
-Laser_01,1604.06,6.34,253,24693,0.03,0.01,31985.4
-Laser_02,1560.21,6.27,249,23744,0.04,0.01,31236.0
-Presse_01,1283.7,5.13,250,19985,0.03,0.01,24255.9
-Presse_02,1230.8,5.07,243,18710,0.04,0.01,23369.0
-Stanze_01,946.97,3.8,249,14519,0.04,0.01,15767.7
