@@ -458,14 +458,14 @@ df_export["Bereinigt_Am"] = datetime.now().strftime("%Y-%m-%d")
 df_export["Qualitätsscore"] = df_export["Data_Quality_Score"]
 
 # Export als CSV
-export_file = "bereinigte_produktionsdaten.csv"
+export_file = "data/generated/bereinigte_produktionsdaten.csv"
 df_export.to_csv(export_file, index=False, encoding="utf-8")
 print(f"✅ Bereinigte Daten exportiert: {export_file}")
 
 # Bereinigungsprotokoll als JSON
 import json
 
-protocol_file = "bereinigungsprotokoll.json"
+protocol_file = "data/generated/bereinigungsprotokoll.json"
 with open(protocol_file, "w", encoding="utf-8") as f:
     json.dump(cleaning_report, f, indent=2, ensure_ascii=False, default=str)
 print(f"✅ Bereinigungsprotokoll exportiert: {protocol_file}")

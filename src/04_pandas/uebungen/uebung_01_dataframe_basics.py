@@ -452,5 +452,5 @@ print("\n💡 Als Bystronic-Entwickler können Sie jetzt DataFrame-Grundlagen")
 print("   professionell einsetzen für Produktionsdaten-Analysen!")
 
 # Export der Ergebnisse (optional)
-df_berechnet.to_csv("uebung_01_ergebnisse.csv", index=False)
-print("\n💾 Ergebnisse gespeichert als: uebung_01_ergebnisse.csv")
+df_berechnet.to_csv("data/generated/uebung_01_ergebnisse.csv", index=False)
+print("\n💾 Ergebnisse gespeichert als: data/generated/uebung_01_ergebnisse.csv")

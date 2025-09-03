@@ -222,8 +222,8 @@ print("\n1️⃣2️⃣ Daten exportieren")
 print("-" * 40)
 
 # CSV exportieren (wird in .gitignore ignoriert)
-df_maschinen.to_csv("maschinendaten.csv", index=False, encoding="utf-8")
-print("✅ Daten als CSV exportiert: maschinendaten.csv")
+df_maschinen.to_csv("data/generated/maschinendaten.csv", index=False, encoding="utf-8")
+print("✅ Daten als CSV exportiert: data/generated/maschinendaten.csv")
 
 # Excel exportieren (wird in .gitignore ignoriert)
 try:

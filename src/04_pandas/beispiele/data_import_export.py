@@ -88,7 +88,7 @@ print("\n2️⃣ CSV mit erweiterten Optionen")
 print("-" * 40)
 
 # CSV mit deutschen Locale-Einstellungen
-csv_deutsch = "produktionsdaten_deutsch.csv"
+csv_deutsch = "data/generated/produktionsdaten_deutsch.csv"
 df_produktion.to_csv(
     csv_deutsch,
     index=False,
@@ -225,7 +225,7 @@ maschinendaten_json = {
 }
 
 # JSON schreiben
-json_datei = "maschinendaten.json"
+json_datei = "data/generated/maschinendaten.json"
 with open(json_datei, "w", encoding="utf-8") as f:
     json.dump(maschinendaten_json, f, indent=2, ensure_ascii=False)
 print(f"✅ JSON-Datei geschrieben: {json_datei}")
@@ -281,7 +281,7 @@ schmutzige_daten = pd.DataFrame(
     }
 )
 
-schmutzige_csv = "schmutzige_daten.csv"
+schmutzige_csv = "data/generated/schmutzige_daten_demo.csv"
 schmutzige_daten.to_csv(schmutzige_csv, index=False)
 print("Schmutzige Daten erstellt:")
 print(schmutzige_daten)
@@ -393,7 +393,7 @@ print("Export-DataFrame erstellt:")
 print(export_df.head())
 
 # CSV mit deutscher Formatierung exportieren
-export_csv = "export_zusammenfassung.csv"
+export_csv = "data/generated/export_zusammenfassung.csv"
 export_df.to_csv(
     export_csv,
     index=False,

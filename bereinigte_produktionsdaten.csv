@@ -1,9 +1,0 @@
-Datum,Maschine,Temperatur,Produktionszeit,Status,Kommentar,Datum_Original,Temperatur_Original,Data_Quality_Score,Bereinigt_Am,Qualitätsscore
-2024-01-01,Laser_01,20.5,8.5,OK,Normal,2024-01-01,20.5,100.0,2025-09-03,100.0
-2024-02-01,Laser_01,21.2,7.2,OK,Alles gut,01.02.2024,21.2,100.0,2025-09-03,100.0
-2024-03-01,Laser_01,20.5,9.1,OK,Kein Kommentar,2024/03/01,invalid,100.0,2025-09-03,100.0
-2024-04-01,Presse_01,19.8,8.25,FEHLER,Störung Sensor 3,2024-04-01,19.8,100.0,2025-09-03,100.0
-,Presse_01,22.1,8.8,FEHLER,Kein Kommentar,invalid_date,22.1,80.0,2025-09-03,80.0
-2024-05-01,Stanze_01,20.5,8.25,OK,Wartung erforderlich,2024-05-01,150.0,100.0,2025-09-03,100.0
-,Stanze_01,20.5,7.5,OK,Kein Kommentar,,,100.0,2025-09-03,100.0
-2024-06-01,Laser_02,20.1,8.0,FEHLER,Normal,2024-06-01,20.1,100.0,2025-09-03,100.0
