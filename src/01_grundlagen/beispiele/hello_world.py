@@ -7,7 +7,7 @@ und zeigt einfache Ausgaben und Variablen-Verwendung.
 """
 
 
-def main():
+def main() -> None:
     """Hauptfunktion mit grundlegenden Python-Beispielen"""
 
     # Einfache Ausgabe
@@ -40,8 +40,8 @@ def main():
 
     # Interaktive Eingabe
     print("\n" + "-" * 30)
-    benutzer_name = input("Wie ist Ihr Name? ")
-    print(f"Hallo {benutzer_name}! Schön, Sie kennenzulernen.")
+    benutzer_name = input("Wie ist dein Name? ")
+    print(f"Hallo {benutzer_name}! Schön, dich kennenzulernen.")
 
 
 if __name__ == "__main__":
