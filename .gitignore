@@ -15,7 +15,7 @@ wheels/
 # Generated data files and reports
 *.xlsx
 
-# Spezifisch generierte CSV-Dateien (durch Skripte erstellt)
+# Generierte Dateien im Root-Verzeichnis (Legacy)
 bereinigte_produktionsdaten.csv
 produktionsdaten_deutsch.csv
 maschinendaten.csv
@@ -26,6 +26,9 @@ qualitaetsanalyse.csv
 monatliche_trends.csv
 pivot_produktionszeit.csv
 uebung_*_ergebnisse.csv
+
+# Neue Datenstruktur - Generierte Dateien
+data/generated/
 
 # JSON-Protokolle und Reports
 bereinigungsprotokoll.json

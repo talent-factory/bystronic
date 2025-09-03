@@ -69,7 +69,7 @@ print(f"Beispieldaten erstellt: {len(df_produktion)} Datensätze")
 print(df_produktion.head())
 
 # CSV schreiben (Standard)
-csv_datei = "produktionsdaten.csv"
+csv_datei = "data/samples/produktionsdaten.csv"
 df_produktion.to_csv(csv_datei, index=False)
 print(f"\n✅ CSV-Datei geschrieben: {csv_datei}")
 
@@ -325,7 +325,7 @@ total_rows = 0
 produktionszeit_sum = 0
 
 print(f"Verarbeite CSV in Chunks à {chunk_size} Zeilen:")
-for chunk in pd.read_csv("produktionsdaten.csv", chunksize=chunk_size):
+for chunk in pd.read_csv("data/samples/produktionsdaten.csv", chunksize=chunk_size):
     total_rows += len(chunk)
     produktionszeit_sum += chunk["Produktionszeit"].sum()
     print(f"  Chunk verarbeitet: {len(chunk)} Zeilen")
@@ -406,10 +406,10 @@ print(f"✅ Formatierte CSV-Datei exportiert: {export_csv}")
 
 # Aufräumen - Temporäre Dateien löschen (optional)
 temp_files = [
-    "produktionsdaten.csv",
-    "produktionsdaten_deutsch.csv",
-    "maschinendaten.json",
-    "schmutzige_daten.csv",
+    "data/generated/produktionsdaten.csv",
+    "data/generated/produktionsdaten_deutsch.csv",
+    "data/generated/maschinendaten.json",
+    "data/generated/schmutzige_daten.csv",
     "export_zusammenfassung.csv",
 ]
 

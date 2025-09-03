@@ -1,0 +1,9 @@
+# Git LFS Konfiguration für große Dateien
+
+# Große Dateien automatisch mit LFS verwalten
+data/large/*.csv filter=lfs diff=lfs merge=lfs -text
+data/large/*.xlsx filter=lfs diff=lfs merge=lfs -text
+data/large/*.json filter=lfs diff=lfs merge=lfs -text
+
+# Kleine Testdateien bleiben in normalem Git
+# (data/samples/* wird nicht von LFS verwaltet)
