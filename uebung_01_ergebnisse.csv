@@ -1,0 +1,6 @@
+Maschine,Typ,Baujahr,Laufzeit_h,Wartung_fällig,Alter,Laufzeit_Kategorie,Wartung_Status,Effizienz_Score,Wartungskosten_Euro
+Laser_01,ByStar,2019,2450.5,True,5,Mittel,Normal,490.1,1725.25
+Laser_02,ByStar,2020,1890.2,False,4,Mittel,Keine,472.55,0.0
+Presse_01,Xpert,2018,3200.8,True,6,Hoch,Dringend,533.47,2100.4
+Presse_02,Xpert,2021,1250.4,False,3,Niedrig,Keine,416.8,0.0
+Stanze_01,ByTrans,2017,2890.1,True,7,Hoch,Dringend,412.87,1945.05

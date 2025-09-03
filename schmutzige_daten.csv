@@ -1,0 +1,6 @@
+Maschine,Produktionszeit,Datum,Status
+Laser_01,8.5,2024-01-01,OK
+  Presse_01  ,  7.2  ,01.02.2024,ok
+STANZE_01,invalid,2024/03/01,OK
+,9.1,2024-04-01,Fehler
+Laser_02,6.8,,OK

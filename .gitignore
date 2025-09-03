@@ -11,6 +11,3 @@ wheels/
 
 # Virtual environments
 .venv
-
-# Project Files
-*.csv
