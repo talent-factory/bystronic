@@ -2,7 +2,7 @@
 :author: Daniel Senften
 :email: daniel.senften@talent-factory.ch
 :revnumber: 1.0
-:revdate: 2025-01-02
+:revdate: {docdate}
 :toc: left
 :toclevels: 3
 :sectnums:

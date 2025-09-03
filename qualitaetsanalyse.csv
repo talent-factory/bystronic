@@ -1,0 +1,5 @@
+Produkt,Ausschuss_Rate_mean,Ausschuss_Rate_std,Ausschuss_Rate_min,Ausschuss_Rate_max,Mindestqualitaet_first,Qualitaet_OK
+Teil_A,0.0348,0.0147,0.01,0.06,0.02,False
+Teil_B,0.0338,0.0145,0.0103,0.0597,0.03,False
+Teil_C,0.0357,0.0144,0.0102,0.0599,0.05,True
+Teil_D,0.0354,0.014,0.0101,0.0599,0.02,False
