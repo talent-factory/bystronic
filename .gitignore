@@ -11,3 +11,7 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Large data files (>100MB)
+*.csv
+src/09_projekte/grafik/V084_Scope.csv
