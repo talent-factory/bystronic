@@ -10,7 +10,9 @@
       "Bash(uv sync:*)",
       "Bash(make:*)",
       "Bash(uv run:*)",
-      "Bash(timeout:*)"
+      "Bash(timeout:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
