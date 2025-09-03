@@ -1507,20 +1507,28 @@ management_summary_df.to_csv("data/generated/management_summary.csv", encoding="
 print("✅ management_summary.csv")
 
 # 2. Effizienz-Ranking
-effizienz_ranking_sorted.to_csv("data/generated/effizienz_ranking.csv", encoding="utf-8")
+effizienz_ranking_sorted.to_csv(
+    "data/generated/effizienz_ranking.csv", encoding="utf-8"
+)
 print("✅ effizienz_ranking.csv")
 
 # 3. Produkt-Rentabilität
-produkt_rentabilitaet_sorted.to_csv("data/generated/produkt_rentabilitaet.csv", encoding="utf-8")
+produkt_rentabilitaet_sorted.to_csv(
+    "data/generated/produkt_rentabilitaet.csv", encoding="utf-8"
+)
 print("✅ produkt_rentabilitaet.csv")
 
 # 4. Handlungsempfehlungen
-empfehlungen_df.to_csv("data/generated/handlungsempfehlungen.csv", index=False, encoding="utf-8")
+empfehlungen_df.to_csv(
+    "data/generated/handlungsempfehlungen.csv", index=False, encoding="utf-8"
+)
 print("✅ handlungsempfehlungen.csv")
 
 # 5. Vollständiger angereicherter Datensatz (Stichprobe)
 df_enriched.sample(1000).to_csv(
-    "data/generated/angereicherte_produktionsdaten_stichprobe.csv", index=False, encoding="utf-8"
+    "data/generated/angereicherte_produktionsdaten_stichprobe.csv",
+    index=False,
+    encoding="utf-8",
 )
 print("✅ angereicherte_produktionsdaten_stichprobe.csv")
 
