@@ -6,12 +6,12 @@ Diese Datei enthält gemeinsame Fixtures und Konfigurationen
 für alle Tests im Projekt.
 """
 
-import sys
 import tempfile
 from pathlib import Path
-import pytest
-import pandas as pd
+
 import numpy as np
+import pandas as pd
+import pytest
 
 
 @pytest.fixture
@@ -57,10 +57,10 @@ def temp_json_file():
 def produktionsdaten_sample():
     """Fixture für Beispiel-Produktionsdaten"""
     np.random.seed(42)  # Für reproduzierbare Tests
-    
+
     data = []
     maschinen = ["LASER_01", "LASER_02", "PRESSE_01"]
-    
+
     for woche in range(1, 5):
         for maschine in maschinen:
             data.append({
@@ -71,7 +71,7 @@ def produktionsdaten_sample():
                 "Teile_produziert": 1000 + np.random.randint(-100, 100),
                 "Ausschuss": np.random.randint(5, 25)
             })
-    
+
     return pd.DataFrame(data)
 
 
@@ -80,13 +80,13 @@ def setup_test_environment():
     """Automatische Fixture für Test-Umgebung Setup"""
     # Seed für reproduzierbare Tests setzen
     np.random.seed(42)
-    
+
     # Pandas-Optionen für Tests
     pd.set_option('display.max_columns', None)
     pd.set_option('display.width', None)
-    
+
     yield
-    
+
     # Cleanup nach Tests
     pd.reset_option('display.max_columns')
     pd.reset_option('display.width')
@@ -128,7 +128,7 @@ def create_test_maschinendaten_csv(filepath, data=None):
             "Produktionszeit": [2450.5, 3200.8],
             "Status": ["Aktiv", "Wartung"]
         }
-    
+
     df = pd.DataFrame(data)
     df.to_csv(filepath, index=False, encoding='utf-8')
     return filepath
