@@ -54,7 +54,6 @@ def aufgabe_2_berechnungen():
     blechlaenge = 3000  # mm
     blechbreite = 1500  # mm
     blechdicke = 2.0  # mm
-    dichte_stahl = 7.85  # g/cm³
 
     print(f"Blech: {blechlaenge} × {blechbreite} × {blechdicke} mm")
 
@@ -72,8 +71,6 @@ def aufgabe_2_berechnungen():
 
     # TODO: Berechnen Sie, wie viele rechteckige Teile
     # (150mm × 100mm) aus dem Blech geschnitten werden können
-    teil_laenge = 150  # mm
-    teil_breite = 100  # mm
 
     # Ihre Lösung hier:
     # teile_pro_reihe = ...
@@ -90,9 +87,6 @@ def aufgabe_3_laser_parameter():
     print("-" * 40)
 
     # Gegeben:
-    laserleistung = 6.0  # kW
-    materialdicke = 3.0  # mm
-    schnittgeschwindigkeit = 2.8  # m/min
 
     # TODO: Berechnen Sie die Schnittzeit für verschiedene Formen:
 
@@ -103,14 +97,13 @@ def aufgabe_3_laser_parameter():
     # schnittzeit_rechteck = ...
 
     # 2. Kreis: Durchmesser 100mm
-    durchmesser = 100  # mm
 
     # TODO: Kreisumfang und Schnittzeit berechnen
     # kreis_umfang = ...
     # schnittzeit_kreis = ...
 
     # 3. Komplexes Teil: Kombination aus Rechteck und 4 Kreisen
-    komplex_umfang = rechteck_umfang + 4 * (math.pi * 20)  # 4 Löcher à 20mm Durchmesser
+    rechteck_umfang + 4 * (math.pi * 20)  # 4 Löcher à 20mm Durchmesser
 
     # TODO: Schnittzeit für komplexes Teil
     # schnittzeit_komplex = ...
@@ -156,10 +149,7 @@ def aufgabe_4_qualitaet():
     # 3. Ist die Länge im Toleranzbereich?
     # 4. Ist das Teil insgesamt OK (alle Masse im Toleranzbereich)?
 
-    ok_teile = 0
-    nok_teile = 0
-
-    for teil in teile:
+    for _teil in teile:
         # TODO: Implementieren Sie die Qualitätsprüfung
         # dicke_ok = ...
         # breite_ok = ...
@@ -198,8 +188,6 @@ def aufgabe_5_produktionsmetriken():
         {"tag": "Freitag", "soll": 200, "ist": 185, "ausschuss": 9, "downtime": 40},
     ]
 
-    schichtzeit = 8 * 60  # 8 Stunden = 480 Minuten
-
     print("Wochenbericht:")
     print("-" * 60)
     print(
@@ -213,9 +201,7 @@ def aufgabe_5_produktionsmetriken():
     # 3. Qualitätsrate: ((Ist-Teile - Ausschuss) / Ist-Teile) × 100
     # 4. OEE (Overall Equipment Effectiveness): Effizienz × Verfügbarkeit × Qualitätsrate / 10000
 
-    woche_gesamt = {"soll": 0, "ist": 0, "ausschuss": 0, "downtime": 0}
-
-    for tag_daten in woche:
+    for _tag_daten in woche:
         # TODO: Berechnungen durchführen
         # effizienz = ...
         # verfuegbarkeit = ...

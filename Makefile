@@ -1,4 +1,4 @@
-.PHONY: help format lint test clean install dev-install
+.PHONY: help format lint test clean clean-html install dev-install
 
 help: ## Zeige verfügbare Kommandos
 	@echo "Verfügbare Kommandos:"
@@ -40,7 +40,7 @@ pre-commit-install: ## Installiere Pre-Commit Hooks
 pre-commit: ## Führe Pre-Commit Checks manuell aus
 	uv run pre-commit run --all-files
 
-clean: ## Räume Build-Artefakte auf
+clean: ## Bereinige Build-Artefakte und Cache-Dateien
 	rm -rf build/
 	rm -rf dist/
 	rm -rf *.egg-info/
@@ -49,9 +49,26 @@ clean: ## Räume Build-Artefakte auf
 	rm -rf htmlcov/
 	rm -rf .mypy_cache/
 	rm -rf .ruff_cache/
+	rm -rf data/generated/*
 	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
 	find . -type f -name "*.pyc" -delete
+	find . -type f -name "*.html" ! -path "*/templates/*" ! -path "*/static/*" -delete
+	@echo "Generierte HTML-Dateien bereinigt"
+
+clean-html: ## Bereinige nur generierte HTML-Visualisierungen
+	find . -type f -name "*.html" ! -path "*/templates/*" ! -path "*/static/*" -delete
+	@echo "Generierte HTML-Visualisierungen bereinigt"
 
 all: clean dev-install lint test ## Führe alle Checks aus
+
+lfs-pull: ## Lade Git LFS Dateien herunter
+	git lfs pull
+
+lfs-status: ## Zeige Git LFS Status
+	git lfs ls-files
+	git lfs status
+
+lfs-clean: ## Bereinige Git LFS Cache
+	git lfs prune
 
 ci: lint test ## Continuous Integration Checks

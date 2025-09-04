@@ -61,14 +61,6 @@ def aufgabe_2_dictionaries():
     print("-" * 40)
 
     # TODO: Erstellen Sie ein Dictionary für eine Maschine:
-    laser_001 = {
-        # "id": "LASER_001",
-        # "typ": "ByStar Fiber",
-        # "leistung": 6000,  # Watt
-        # "baujahr": 2020,
-        # "aktiv": True,
-        # "standort": "Halle A"
-    }
 
     # TODO: Dictionary-Operationen:
     # 1. Fügen Sie "wartung_datum": "2024-07-15" hinzu
@@ -79,30 +71,6 @@ def aufgabe_2_dictionaries():
     # Ihre Lösung hier:
 
     # TODO: Verschachteltes Dictionary für Produktionsanlage:
-    produktionsanlage = {
-        "name": "Fertigung Halle A",
-        "maschinen": {
-            # "LASER_001": {
-            #     "typ": "ByStar Fiber",
-            #     "status": "Aktiv",
-            #     "produktion": {
-            #         "heute": 145,
-            #         "diese_woche": 720,
-            #         "diesen_monat": 3200
-            #     },
-            #     "wartung": {
-            #         "letzter_service": "2024-01-15",
-            #         "naechster_service": "2024-07-15"
-            #     }
-            # },
-            # Fügen Sie weitere Maschinen hinzu...
-        },
-        "personal": [
-            # {"name": "Max", "schicht": "Tag", "qualifikationen": ["Laser", "Presse"]},
-            # {"name": "Anna", "schicht": "Nacht", "qualifikationen": ["Laser", "CNC"]},
-            # Fügen Sie weiteres Personal hinzu...
-        ],
-    }
 
     # TODO: Navigieren Sie durch die verschachtelte Struktur:
     # 1. Geben Sie alle Maschinen-IDs aus
@@ -147,9 +115,6 @@ def aufgabe_3_sets():
     # laser_oder_presse = ...
 
     # TODO: Operatoren-Qualifikationen:
-    laser_operatoren = {"Max", "Anna", "Peter", "Sarah"}
-    presse_operatoren = {"Anna", "Tom", "Sarah", "Lisa"}
-    cnc_operatoren = {"Peter", "Tom", "Michael", "Anna"}
 
     # Finden Sie:
     # 1. Universal-Operatoren (können alle drei Maschinen bedienen)
@@ -159,7 +124,6 @@ def aufgabe_3_sets():
     # Ihre Lösung hier:
 
     # TODO: Duplikate aus Messdaten entfernen:
-    messwerte = [2.1, 2.0, 2.1, 1.95, 2.0, 2.05, 2.1, 1.95, 2.0]
 
     # eindeutige_werte = ...
     # anzahl_duplikate = ...
@@ -187,12 +151,6 @@ def aufgabe_4_tupel():
 
     # TODO: Tupel als Dictionary-Schlüssel:
     # Erstellen Sie ein Dictionary mit Positionen als Schlüssel
-    maschinenpositionen = {
-        # (0, 0): "Lagerplatz",
-        # (10, 20): "Laser Station 1",
-        # (15, 35): "Presse Station 1",
-        # (25, 40): "Qualitätskontrolle"
-    }
 
     # TODO: Mehrere Werte von einer Funktion zurückgeben:
     def analysiere_teil(laenge, breite, dicke, soll_laenge, soll_breite, soll_dicke):
@@ -223,7 +181,7 @@ def aufgabe_4_tupel():
         (100.20, 50.12, 1.95, 100.0, 50.0, 2.0),
     ]
 
-    for i, (l, b, d, sl, sb, sd) in enumerate(testteile, 1):
+    for _i, (_l, _b, _d, _sl, _sb, _sd) in enumerate(testteile, 1):
         # ok, abw, vol = analysiere_teil(l, b, d, sl, sb, sd)
         # status = "✅ OK" if ok else "❌ NOK"
         # print(f"Teil {i}: {status}, Abweichungen: {abw}, Volumen: {vol:.2f}")
@@ -281,7 +239,7 @@ def aufgabe_5_produktionsdaten_management():
             pass
 
     # TODO: Testen Sie das System:
-    manager = ProduktionsDatenManager()
+    ProduktionsDatenManager()
 
     # Maschinen registrieren
     # manager.registriere_maschine("LASER_001", "ByStar Fiber", ["Stahl", "Aluminium", "Edelstahl"])

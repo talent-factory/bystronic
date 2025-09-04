@@ -11,3 +11,36 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Generated data files and reports
+*.xlsx
+
+# Generierte Dateien im Root-Verzeichnis (Legacy)
+bereinigte_produktionsdaten.csv
+produktionsdaten_deutsch.csv
+maschinendaten.csv
+export_zusammenfassung.csv
+produktionsanalyse_*.csv
+qualitaetsanalyse.csv
+*_zusammenfassung.csv
+monatliche_trends.csv
+pivot_produktionszeit.csv
+uebung_*_ergebnisse.csv
+
+# Neue Datenstruktur - Generierte Dateien
+data/generated/
+
+# JSON-Protokolle und Reports
+bereinigungsprotokoll.json
+maschinendaten.json
+
+# Coverage and test reports
+htmlcov/
+.coverage
+coverage.xml
+.pytest_cache/
+
+# Visualisierung - Generierte HTML-Dateien
+*.html
+!**/templates/*.html
+!**/static/*.html

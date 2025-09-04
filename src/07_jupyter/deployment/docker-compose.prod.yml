@@ -1,0 +1,51 @@
+version: '3.8'
+
+# Production-spezifische Overrides
+services:
+  jupyter:
+    environment:
+      - JUPYTER_TOKEN=bystronic-secure-token-2024
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_LOG_LEVEL=INFO
+    volumes:
+      - jupyter_notebooks:/home/jovyan/work
+      - jupyter_config:/home/jovyan/.jupyter
+      - /opt/bystronic/data:/home/jovyan/work/data:ro
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '2.0'
+        reservations:
+          memory: 2G
+          cpus: '1.0'
+
+  nginx:
+    volumes:
+      - ./nginx/prod.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    restart: always
+
+  jupyterhub:
+    volumes:
+      - ./jupyterhub_config.py:/srv/jupyterhub/jupyterhub_config.py:ro
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      - jupyterhub_data:/srv/jupyterhub
+      - /opt/bystronic/users:/srv/jupyterhub/users
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '1.0'
+
+volumes:
+  jupyter_notebooks:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/bystronic/notebooks
+  jupyter_config:
+  jupyterhub_data:

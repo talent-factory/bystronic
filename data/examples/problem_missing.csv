@@ -1,0 +1,5 @@
+Maschine,Produktion,Temperatur,Status
+A,1000,23.5,OK
+B,,24.1,OK
+C,950,,WARNING
+D,1100,22.8,

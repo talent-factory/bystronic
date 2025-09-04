@@ -1,0 +1,65 @@
+name: UI Tests
+
+on:
+  push:
+    branches: [ main, develop, feature/* ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  ui-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v3
+      with:
+        version: "latest"
+
+    - name: Set up Python ${{ matrix.python-version }}
+      run: uv python install ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        uv sync --all-extras
+        uv add --group test pytest-xvfb
+
+    - name: Setup virtual display for GUI tests
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y xvfb
+
+    - name: Run UI utility tests
+      run: |
+        uv run pytest tests/test_08_ui_utils.py -v --tb=short
+
+    - name: Run simple UI tests
+      run: |
+        xvfb-run -a uv run pytest tests/test_08_ui_simple.py -v --tb=short
+
+    - name: Run basic UI tests (without GUI)
+      run: |
+        uv run pytest tests/test_08_ui.py::TestUIUtilities -v --tb=short
+
+    - name: Run Streamlit tests
+      run: |
+        uv run pytest tests/test_08_ui_streamlit_specific.py::TestStreamlitUtilities -v --tb=short
+
+    - name: Generate test report
+      if: always()
+      run: |
+        uv run pytest tests/test_08_ui_simple.py --junit-xml=test-results.xml --cov-report=xml
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-results-${{ matrix.python-version }}
+        path: |
+          test-results.xml
+          coverage.xml

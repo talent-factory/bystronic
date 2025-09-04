@@ -1,0 +1,403 @@
+= Test-Leitfaden für Bystronic Python Grundkurs
+:author: Daniel Senften
+:email: daniel.senften@talent-factory.ch
+:revnumber: 1.0
+:revdate: {docdate}
+:toc: left
+:toclevels: 3
+:sectnums:
+:source-highlighter: highlight.js
+:icons: font
+:experimental:
+
+== Überblick
+
+Dieser Leitfaden erklärt, wie die Tests für die Beispieldateien des Bystronic Python Grundkurses verwendet werden. Die Tests helfen Studierenden dabei, die Funktionalität der Beispiele zu verstehen und eigene Test-Fähigkeiten zu entwickeln.
+
+== Warum Tests für Lernmaterial?
+
+=== Vorteile für Studierende
+
+* *Verständnis*: Tests zeigen, wie Code funktionieren soll
+* *Sicherheit*: Experimente mit dem Code ohne Angst vor Fehlern
+* *Best Practices*: Lernen professioneller Test-Techniken
+* *Debugging*: Verstehen, wo und warum Code fehlschlägt
+
+=== Lernziele
+
+* Grundlagen von `pytest` verstehen
+* Test-Driven Development (TDD) kennenlernen
+* Mocking und Fixtures verwenden
+* Datenanalyse-Code testen
+
+== Test-Struktur
+
+=== Verzeichnisaufbau
+
+[source]
+----
+tests/
+├── __init__.py                # Test-Package-Initialisierung
+├── conftest.py                # Gemeinsame Fixtures und Konfiguration
+├── test_01_grundlagen.py      # Tests für Python-Grundlagen
+├── test_02_datentypen.py      # Tests für Datentypen
+└── test_04_pandas.py          # Tests für Pandas-Beispiele
+----
+
+=== Test-Kategorien
+
+==== 1. Grundlagen-Tests (`test_01_grundlagen.py`)
+
+Testet die Beispiele aus `src/01_grundlagen/beispiele/`:
+
+* `hello_world.py` - String-Formatierung und Ausgaben
+* `vba_vs_python.py` - Funktionen und Berechnungen
+
+*Wichtige Test-Patterns:*
+
+[source,python]
+----
+@patch('builtins.input', return_value='Test User')
+@patch('builtins.print')
+def test_main_function_runs_without_error(self, mock_print, mock_input):
+    """Testet interaktive Funktionen ohne echte Eingabe"""
+    hello_world.main()
+    assert mock_print.called
+----
+
+==== 2. Datentypen-Tests (`test_02_datentypen.py`)
+
+Testet die Beispiele aus `src/02_datentypen/beispiele/`:
+
+* `numbers_demo.py` - Numerische Berechnungen
+* `strings_demo.py` - String-Operationen
+* `collections_demo.py` - Listen, Dictionaries, Sets
+
+*Wichtige Test-Patterns:*
+
+[source,python]
+----
+def test_mathematical_calculations(self):
+    """Testet spezifische Berechnungen"""
+    schnittlaenge = 100  # mm
+    schnittgeschwindigkeit = 15.75  # m/min
+    expected_zeit = (schnittlaenge / 1000) / schnittgeschwindigkeit
+
+    assert abs(expected_zeit - 0.00635) < 0.001
+----
+
+==== 3. Pandas-Tests (`test_04_pandas.py`)
+
+Testet die Beispiele aus `src/04_pandas/beispiele/`:
+
+* `dataframe_basics.py` - DataFrame-Grundlagen
+* `data_import_export.py` - Datenimport/-export
+* `data_cleaning.py` - Datenbereinigung
+* `data_analysis.py` - Datenanalyse
+
+*Wichtige Test-Patterns:*
+
+[source,python]
+----
+def test_dataframe_operations(self):
+    """Testet DataFrame-Operationen"""
+    df = pd.DataFrame({
+        "Maschine": ["Laser_01", "Laser_02"],
+        "Produktionszeit_h": [2450.5, 1890.2]
+    })
+
+    filtered = df[df["Produktionszeit_h"] > 2000]
+    assert len(filtered) == 1
+----
+
+== Tests ausführen
+
+=== Alle Tests ausführen
+
+[source,bash]
+----
+# Alle Tests
+pytest
+
+# Mit ausführlicher Ausgabe
+pytest -v
+
+# Mit Coverage-Report
+pytest --cov=src --cov-report=html
+----
+
+=== Spezifische Tests ausführen
+
+[source,bash]
+----
+# Nur Grundlagen-Tests
+pytest tests/test_01_grundlagen.py
+
+# Nur eine Test-Klasse
+pytest tests/test_01_grundlagen.py::TestHelloWorld
+
+# Nur eine Test-Methode
+pytest tests/test_01_grundlagen.py::TestHelloWorld::test_main_function_exists
+----
+
+=== Test-Marker verwenden
+
+[source,bash]
+----
+# Nur Pandas-Tests
+pytest -m pandas
+
+# Nur schnelle Tests (ohne langsame)
+pytest -m "not slow"
+
+# Integrationstests
+pytest -m integration
+----
+
+== Fixtures verstehen
+
+=== Gemeinsame Fixtures (`conftest.py`)
+
+==== `sample_maschinendaten`
+
+Stellt Beispiel-Maschinendaten zur Verfügung:
+
+[source,python]
+----
+def test_with_sample_data(sample_maschinendaten):
+    """Verwendet die Fixture für Testdaten"""
+    df = pd.DataFrame(sample_maschinendaten)
+    assert len(df) == 5
+----
+
+==== `temp_csv_file` und `temp_json_file`
+
+Erstellen temporäre Dateien für Import/Export-Tests:
+
+[source,python]
+----
+def test_csv_export(temp_csv_file, sample_dataframe):
+    """Testet CSV-Export mit temporärer Datei"""
+    sample_dataframe.to_csv(temp_csv_file, index=False)
+    loaded = pd.read_csv(temp_csv_file)
+    pd.testing.assert_frame_equal(sample_dataframe, loaded)
+----
+
+== Mocking verstehen
+
+=== Warum Mocking?
+
+* *Isolation*: Tests unabhängig von externen Faktoren
+* *Kontrolle*: Vorhersagbare Eingaben und Ausgaben
+* *Geschwindigkeit*: Keine echten Datei-/Netzwerk-Operationen
+
+=== Häufige Mock-Patterns
+
+==== Input/Output mocken
+
+[source,python]
+----
+@patch('builtins.input', return_value='Testbenutzer')
+@patch('builtins.print')
+def test_interactive_function(mock_print, mock_input):
+    my_function()
+    assert mock_input.called
+    assert mock_print.called
+----
+
+==== Dateisystem mocken
+
+[source,python]
+----
+@patch('pandas.read_csv')
+def test_data_loading(mock_read_csv):
+    mock_read_csv.return_value = pd.DataFrame({'test': [1, 2, 3]})
+    result = load_data('fake_file.csv')
+    assert len(result) == 3
+----
+
+== Eigene Tests schreiben
+
+=== Test-Struktur
+
+[source,python]
+----
+class TestMeineKlasse:
+    """Tests für MeineKlasse"""
+
+    def test_funktion_existiert(self):
+        """Testet, ob die Funktion existiert"""
+        assert hasattr(mein_modul, 'meine_funktion')
+        assert callable(mein_modul.meine_funktion)
+
+    def test_funktion_logik(self):
+        """Testet die Funktionslogik"""
+        result = mein_modul.meine_funktion(input_wert)
+        assert result == erwarteter_wert
+
+    def test_edge_cases(self):
+        """Testet Grenzfälle"""
+        with pytest.raises(ValueError):
+            mein_modul.meine_funktion(ungültiger_wert)
+----
+
+=== Assertions verwenden
+
+[source,python]
+----
+# Grundlegende Assertions
+assert wert == erwartet
+assert wert is True
+assert wert in liste
+assert len(liste) == 3
+
+# Numerische Vergleiche mit Toleranz
+assert abs(result - expected) < 0.001
+
+# Exception-Tests
+with pytest.raises(ValueError):
+    fehlerhafte_funktion()
+
+# Pandas-spezifische Assertions
+pd.testing.assert_frame_equal(df1, df2)
+pd.testing.assert_series_equal(series1, series2)
+----
+
+== Best Practices
+
+=== Test-Naming
+
+* Beschreibende Namen: `test_berechnet_produktionszeit_korrekt`
+* Konsistente Struktur: `test_<was_wird_getestet>`
+* Klare Dokumentation in Docstrings
+
+=== Test-Organisation
+
+* Eine Test-Klasse pro zu testende Klasse/Modul
+* Logische Gruppierung verwandter Tests
+* Setup und Teardown in Fixtures
+
+=== Daten für Tests
+
+* Kleine, fokussierte Testdaten verwenden
+* Fixtures für wiederverwendbare Daten
+* Keine echten Produktionsdaten in Tests
+
+=== Fehlerbehandlung
+
+[source,python]
+----
+def test_error_handling():
+    """Testet Fehlerbehandlung"""
+    with pytest.raises(ValueError, match="Ungültiger Wert"):
+        meine_funktion(-1)
+----
+
+== Häufige Probleme und Lösungen
+
+=== Import-Probleme
+
+*Problem:* Module können nicht importiert werden
+
+*Lösung:*
+[source,python]
+----
+import sys
+from pathlib import Path
+
+# Pfad zu den Beispielen hinzufügen
+beispiele_path = Path(__file__).parent.parent / "src" / "beispiele"
+sys.path.insert(0, str(beispiele_path))
+----
+
+=== Pandas-Vergleiche
+
+*Problem:* DataFrame-Vergleiche schlagen fehl
+
+*Lösung:*
+[source,python]
+----
+# Statt ==
+pd.testing.assert_frame_equal(df1, df2)
+
+# Mit Toleranz für Fließkommazahlen
+pd.testing.assert_frame_equal(df1, df2, check_exact=False, rtol=1e-3)
+----
+
+=== Zufällige Daten
+
+*Problem:* Tests mit Zufallsdaten sind nicht reproduzierbar
+
+*Lösung:*
+[source,python]
+----
+import numpy as np
+
+def test_with_random_data():
+    np.random.seed(42)  # Fester Seed für Reproduzierbarkeit
+    data = np.random.randn(100)
+    # Test mit vorhersagbaren "zufälligen" Daten
+----
+
+== Weiterführende Themen
+
+=== Parametrisierte Tests
+
+[source,python]
+----
+@pytest.mark.parametrize("input,expected", [
+    (100, 200),
+    (50, 100),
+    (0, 0)
+])
+def test_verdopplung(input, expected):
+    assert verdoppeln(input) == expected
+----
+
+=== Property-Based Testing
+
+[source,python]
+----
+from hypothesis import given, strategies as st
+
+@given(st.floats(min_value=0, max_value=1000))
+def test_produktionszeit_immer_positiv(stunden):
+    result = berechne_produktionszeit(stunden)
+    assert result >= 0
+----
+
+=== Performance-Tests
+
+[source,python]
+----
+import time
+
+def test_performance():
+    start = time.time()
+    grosse_berechnung()
+    duration = time.time() - start
+    assert duration < 1.0  # Sollte unter 1 Sekunde dauern
+----
+
+== Zusammenfassung
+
+Die Tests in diesem Projekt dienen als:
+
+1. *Lernwerkzeug* für Python-Testing
+2. *Qualitätssicherung* für die Beispiele
+3. *Dokumentation* der erwarteten Funktionalität
+4. *Experimentierfeld* für Studierende
+
+Nutzen Sie die Tests, um:
+
+* Die Beispiele besser zu verstehen
+* Eigene Test-Fähigkeiten zu entwickeln
+* Sicher mit dem Code zu experimentieren
+* Professionelle Entwicklungspraktiken zu lernen
+
+*Nächste Schritte:*
+
+1. Tests ausführen: `pytest -v`
+2. Coverage-Report erstellen: `pytest --cov=src --cov-report=html`
+3. Eigene Tests für Übungen schreiben
+4. Mit verschiedenen Test-Patterns experimentieren

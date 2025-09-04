@@ -1,27 +1,41 @@
 # Kapitel 2: Datentypen und Datenstrukturen
 
-Willkommen zum zweiten Kapitel des Python Grundkurses für Bystronic-Entwickler! 📊
+Willkommen zum zweiten Kapitel des Python Grundkurses für Bystronic-Entwickler!
+📊
 
 ## 📚 Inhalte dieses Kapitels
 
 ### Hauptdokumentation
-- **[02_datentypen.ipynb](02_datentypen.ipynb)** - Interaktives Jupyter Notebook mit allen Datentypen
+
+- **[02_datentypen.ipynb](02_datentypen.ipynb)** - Interaktives Jupyter Notebook
+  mit allen Datentypen
 
 ### 💡 Beispiele
-- **[numbers_demo.py](beispiele/numbers_demo.py)** - Zahlen und mathematische Operationen
-- **[strings_demo.py](beispiele/strings_demo.py)** - String-Manipulation und Formatierung
-- **[collections_demo.py](beispiele/collections_demo.py)** - Listen, Dictionaries, Sets und Tupel
-- **[vba_collections_comparison.py](beispiele/vba_collections_comparison.py)** - VBA vs Python Collections
+
+- **[numbers_demo.py](beispiele/numbers_demo.py)** - Zahlen und mathematische
+  Operationen
+- **[strings_demo.py](beispiele/strings_demo.py)** - String-Manipulation und
+  Formatierung
+- **[collections_demo.py](beispiele/collections_demo.py)** - Listen,
+  Dictionaries, Sets und Tupel
+- **[vba_collections_comparison.py](beispiele/vba_collections_comparison.py)** -
+  VBA vs Python Collections
 
 ### 🎯 Übungen
-- **[Übung 1: Zahlenoperationen](uebungen/uebung_01_zahlen.py)** - Arbeiten mit int, float, complex
-- **[Übung 2: String-Verarbeitung](uebungen/uebung_02_strings.py)** - Textmanipulation und Formatierung
-- **[Übung 3: Listen und Dictionaries](uebungen/uebung_03_collections.py)** - Datenstrukturen beherrschen
-- **[Übung 4: Datenkonvertierung](uebungen/uebung_04_conversion.py)** - Type Casting und Validierung
+
+- **[Übung 1: Zahlenoperationen](uebungen/uebung_01_zahlen.py)** - Arbeiten mit
+  int, float, complex
+- **[Übung 2: String-Verarbeitung](uebungen/uebung_02_strings.py)** -
+  Textmanipulation und Formatierung
+- **[Übung 3: Listen und Dictionaries](uebungen/uebung_03_collections.py)** -
+  Datenstrukturen beherrschen
+- **[Übung 4: Datenkonvertierung](uebungen/uebung_04_conversion.py)** - Type
+  Casting und Validierung
 
 ## 🚀 Schnellstart
 
 ### 1. Umgebung einrichten
+
 ```bash
 # Im Projektverzeichnis
 uv sync
@@ -29,12 +43,14 @@ uv shell
 ```
 
 ### 2. Jupyter Notebook starten
+
 ```bash
 # Haupttutorial öffnen
 uv run jupyter notebook src/02_datentypen/02_datentypen.ipynb
 ```
 
 ### 3. Beispiele ausführen
+
 ```bash
 # Zahlen-Beispiele
 uv run python src/02_datentypen/beispiele/numbers_demo.py
@@ -50,6 +66,7 @@ uv run python src/02_datentypen/beispiele/vba_collections_comparison.py
 ```
 
 ### 4. Übungen bearbeiten
+
 ```bash
 # Übung 1 - Zahlenoperationen
 uv run python src/02_datentypen/uebungen/uebung_01_zahlen.py
@@ -68,18 +85,18 @@ uv run python src/02_datentypen/uebungen/uebung_04_conversion.py
 
 Nach diesem Kapitel können Sie:
 
-✅ **Zahlentypen**: int, float, complex verstehen und verwenden
-✅ **Strings**: Texte manipulieren, formatieren und durchsuchen
-✅ **Listen**: Dynamische Arrays erstellen und bearbeiten
-✅ **Dictionaries**: Key-Value-Paare für strukturierte Daten nutzen
-✅ **Sets**: Eindeutige Elemente verwalten und Mengenoperationen durchführen
-✅ **Tupel**: Unveränderliche Datenstrukturen verwenden
-✅ **Konvertierung**: Zwischen Datentypen wechseln und validieren
-✅ **Collections**: Komplexe Datenstrukturen verschachteln
+✅ **Zahlentypen**: int, float, complex verstehen und verwenden ✅ **Strings**:
+Texte manipulieren, formatieren und durchsuchen ✅ **Listen**: Dynamische Arrays
+erstellen und bearbeiten ✅ **Dictionaries**: Key-Value-Paare für strukturierte
+Daten nutzen ✅ **Sets**: Eindeutige Elemente verwalten und Mengenoperationen
+durchführen ✅ **Tupel**: Unveränderliche Datenstrukturen verwenden ✅
+**Konvertierung**: Zwischen Datentypen wechseln und validieren ✅
+**Collections**: Komplexe Datenstrukturen verschachteln
 
 ## 🔧 Datentypen-Übersicht
 
 ### Primitive Datentypen
+
 ```python
 # Zahlen
 ganze_zahl = 42                    # int
@@ -96,6 +113,7 @@ Zeilen
 ```
 
 ### Collections (Sammlungen)
+
 ```python
 # Liste (veränderbar)
 maschinen = ["Laser", "Presse", "Stanze"]
@@ -117,6 +135,7 @@ standorte = {"Bern", "Niederönz", "Sulgen"}
 ## 💡 Tipps für VBA-Entwickler
 
 ### Arrays vs Python-Listen
+
 ```vba
 ' VBA: Statische Arrays
 Dim zahlen(1 To 5) As Integer
@@ -132,6 +151,7 @@ zahlen.remove(20)               # Element entfernen
 ```
 
 ### Collections vs Dictionaries
+
 ```vba
 ' VBA: Collections (nur String-Keys)
 Dim mitarbeiter As Collection
@@ -157,6 +177,7 @@ mitarbeiter = {
 ```
 
 ### Variant vs Python's dynamische Typen
+
 ```vba
 ' VBA: Variant für verschiedene Typen
 Dim wert As Variant
@@ -205,6 +226,7 @@ Bevor Sie zum nächsten Kapitel wechseln:
 ## 📊 Praktische Anwendungen für Bystronic
 
 ### Maschinendaten verwalten
+
 ```python
 # Produktionsdaten strukturiert speichern
 maschine = {
@@ -219,6 +241,7 @@ maschine = {
 ```
 
 ### Qualitätsdaten analysieren
+
 ```python
 # Messwerte strukturiert erfassen
 messungen = [
@@ -234,14 +257,15 @@ fehlerhafte_teile = [m for m in messungen if not m["ok"]]
 
 ## 📝 Zusätzliche Ressourcen
 
-- **Python Data Model**: https://docs.python.org/3/reference/datamodel.html
-- **Built-in Types**: https://docs.python.org/3/library/stdtypes.html
-- **Collections Module**: https://docs.python.org/3/library/collections.html
+- **Python Data Model**: <https://docs.python.org/3/reference/datamodel.html>
+- **Built-in Types**: <https://docs.python.org/3/library/stdtypes.html>
+- **Collections Module**: <https://docs.python.org/3/library/collections.html>
 
 ## ➡️ Nächste Schritte
 
-Nach erfolgreichem Abschluss dieses Kapitels:
-**→ [Kapitel 3: NumPy für numerische Berechnungen](../03_numpy/README.md)**
+Nach erfolgreichem Abschluss dieses Kapitels: **→
+[Kapitel 3: NumPy für numerische Berechnungen](../03_numpy/README.md)**
 
----
-*Dieses Kapitel ist Teil des Python Grundkurses für Bystronic-Entwickler*
+______________________________________________________________________
+
+## Dieses Kapitel ist Teil des Python Grundkurses für Bystronic-Entwickler

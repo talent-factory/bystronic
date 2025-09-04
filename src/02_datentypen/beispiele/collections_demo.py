@@ -223,7 +223,6 @@ def demonstrate_tuples():
     """Demonstriert Tupel-Operationen"""
     # Koordinaten als Tupel
     position_laser = (10.5, 20.8)
-    position_presse = (15.2, 35.1)
 
     print(f"Laser Position: {position_laser}")
     print(f"X: {position_laser[0]}, Y: {position_laser[1]}")
