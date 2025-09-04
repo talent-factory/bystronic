@@ -1,5 +1,7 @@
 # Python Programmierung Grundkurs - Bystronic
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/talent-factory/bystronic)
+
 Dieses Projekt bietet eine umfassende Einführung in die Python-Programmierung
 für Bystronic-Entwickler. Der Kurs konzentriert sich auf praktische Anwendungen
 und die Datenanalyse.
@@ -41,7 +43,7 @@ Nach dem Abschluss dieses Kurses werden Sie in der Lage sein:
 
 ### 4. Datenanalyse und Visualisierung 📊
 
-**Schwerpunktthema des Kurses**
+#### Schwerpunktthema des Kurses
 
 #### NumPy - Numerische Berechnungen
 
@@ -119,7 +121,7 @@ uv run jupyter notebook
 
 ## 📁 Projektstruktur
 
-```
+```text
 bystronic/
 ├── src/
 │   ├── 01_grundlagen/      # Python Grundlagen
