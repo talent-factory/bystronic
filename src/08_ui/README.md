@@ -5,11 +5,13 @@ Willkommen zum achten Kapitel des Python Grundkurses für Bystronic-Entwickler! 
 ## 📚 Inhalte dieses Kapitels
 
 ### Hauptdokumentation
+
 - **[08_ui.ipynb](08_ui.ipynb)** - Interaktives Jupyter Notebook mit UI-Entwicklungs-Grundlagen
 
 ### 💡 Beispiele
 
 #### PyQt/PySide (Desktop GUI)
+
 - **[grundlagen_widget.py](beispiele/pyqt/grundlagen_widget.py)** - Erste Widgets und Layouts
 - **[maschinendaten_gui.py](beispiele/pyqt/maschinendaten_gui.py)** - Industrielle Datenerfassung GUI
 - **[diagramm_viewer.py](beispiele/pyqt/diagramm_viewer.py)** - Matplotlib-Integration in GUI
@@ -17,6 +19,7 @@ Willkommen zum achten Kapitel des Python Grundkurses für Bystronic-Entwickler! 
 - **[moderne_ui.py](beispiele/pyqt/moderne_ui.py)** - Moderne UI-Elemente und Styling
 
 #### Streamlit (Web-Dashboards)
+
 - **[erste_webapp.py](beispiele/streamlit/erste_webapp.py)** - Grundlagen von Streamlit
 - **[produktions_dashboard.py](beispiele/streamlit/produktions_dashboard.py)** - Produktionsübersicht-Dashboard
 - **[qualitaets_monitor.py](beispiele/streamlit/qualitaets_monitor.py)** - Echtzeit-Qualitätskontrolle
@@ -24,6 +27,7 @@ Willkommen zum achten Kapitel des Python Grundkurses für Bystronic-Entwickler! 
 - **[interaktive_charts.py](beispiele/streamlit/interaktive_charts.py)** - Dynamische Diagramme
 
 ### 🎯 Übungen
+
 - **[Übung 1: GUI-Grundlagen](uebungen/uebung_01_grundlagen.py)** - Erste PyQt-Anwendung erstellen
 - **[Übung 2: Maschinendaten-Interface](uebungen/uebung_02_maschinen_ui.py)** - Industrielle Benutzeroberfläche
 - **[Übung 3: Streamlit-Dashboard](uebungen/uebung_03_dashboard.py)** - Web-Dashboard entwickeln
@@ -32,6 +36,7 @@ Willkommen zum achten Kapitel des Python Grundkurses für Bystronic-Entwickler! 
 ## 🚀 Schnellstart
 
 ### 1. Umgebung einrichten
+
 ```bash
 # Im Projektverzeichnis
 uv sync
@@ -42,12 +47,14 @@ uv add PySide6 streamlit plotly-express
 ```
 
 ### 2. Jupyter Notebook starten
+
 ```bash
 # Haupttutorial öffnen
 uv run jupyter notebook src/08_ui/08_ui.ipynb
 ```
 
 ### 3. PyQt-Beispiele ausführen
+
 ```bash
 # Grundlagen-Widget
 uv run python src/08_ui/beispiele/pyqt/grundlagen_widget.py
@@ -66,6 +73,7 @@ uv run python src/08_ui/beispiele/pyqt/moderne_ui.py
 ```
 
 ### 4. Streamlit-Beispiele ausführen
+
 ```bash
 # Erste Web-App
 uv run streamlit run src/08_ui/beispiele/streamlit/erste_webapp.py
@@ -84,6 +92,7 @@ uv run streamlit run src/08_ui/beispiele/streamlit/interaktive_charts.py
 ```
 
 ### 5. Übungen bearbeiten
+
 ```bash
 # Übung 1 - GUI-Grundlagen
 uv run python src/08_ui/uebungen/uebung_01_grundlagen.py
@@ -114,6 +123,7 @@ Nach diesem Kapitel können Sie:
 ## 🖥️ PyQt/PySide - Desktop-GUIs
 
 ### Grundlagen-Setup
+
 ```python
 import sys
 from PySide6.QtWidgets import (
@@ -155,11 +165,13 @@ if __name__ == "__main__":
 ```
 
 **📖 PyQt Ressourcen:**
+
 - **PySide6 Dokumentation**: [https://doc.qt.io/qtforpython/](https://doc.qt.io/qtforpython/)
 - **Qt Widgets**: [https://doc.qt.io/qt-6/qtwidgets-module.html](https://doc.qt.io/qt-6/qtwidgets-module.html)
 - **Qt Designer**: [https://doc.qt.io/qt-6/qtdesigner-manual.html](https://doc.qt.io/qt-6/qtdesigner-manual.html)
 
 ### Moderne UI-Komponenten
+
 ```python
 from PySide6.QtWidgets import (
     QProgressBar, QTableWidget, QTabWidget,
@@ -188,6 +200,7 @@ tabs.addTab(wartungs_widget, "Wartung")
 ## 🌐 Streamlit - Web-Dashboards
 
 ### Einfaches Dashboard
+
 ```python
 import streamlit as st
 import pandas as pd
@@ -253,12 +266,14 @@ st.plotly_chart(fig, use_container_width=True)
 ```
 
 **📖 Streamlit Ressourcen:**
+
 - **Homepage**: [https://streamlit.io/](https://streamlit.io/)
 - **Dokumentation**: [https://docs.streamlit.io/](https://docs.streamlit.io/)
 - **Gallery**: [https://streamlit.io/gallery](https://streamlit.io/gallery)
 - **Components**: [https://streamlit.io/components](https://streamlit.io/components)
 
 ### Erweiterte Features
+
 ```python
 # File Upload
 uploaded_file = st.file_uploader(
@@ -287,6 +302,7 @@ with placeholder.container():
 ## 🏭 Bystronic-Anwendungsfälle
 
 ### 1. Produktionsüberwachung
+
 ```python
 class ProduktionsMonitor(QMainWindow):
     def __init__(self):
@@ -332,6 +348,7 @@ class ProduktionsMonitor(QMainWindow):
 ```
 
 ### 2. Qualitätskontroll-Dashboard
+
 ```python
 def qualitaets_dashboard():
     st.title("🔍 Qualitätskontrolle")
@@ -373,6 +390,7 @@ def qualitaets_dashboard():
 ```
 
 ### 3. Wartungsplaner
+
 ```python
 class WartungsPlaner(QMainWindow):
     def __init__(self):
@@ -408,6 +426,7 @@ class WartungsPlaner(QMainWindow):
 ## 🎨 UI-Design Best Practices
 
 ### Professionelles Styling
+
 ```python
 # PyQt Styling mit QSS (Qt Style Sheets)
 app.setStyleSheet("""
@@ -465,6 +484,7 @@ st.markdown("""
 ```
 
 ### Responsive Layouts
+
 ```python
 # PyQt: Splitter für anpassbare Bereiche
 splitter = QSplitter(Qt.Horizontal)
@@ -482,6 +502,7 @@ with col2:
 ## 💡 Performance-Optimierung
 
 ### Datenhandling
+
 ```python
 # PyQt: Model/View für große Datenmengen
 class MaschinendatenModel(QAbstractTableModel):
@@ -511,6 +532,7 @@ def create_ml_model():
 ```
 
 ### Memory Management
+
 ```python
 # PyQt: Explizite Cleanup
 def closeEvent(self, event):
@@ -533,6 +555,7 @@ if len(st.session_state.data_buffer) > 1000:
 ## 🔧 Integration mit anderen Systemen
 
 ### Datenbank-Anbindung
+
 ```python
 import sqlite3
 from PySide6.QtCore import QThread, pyqtSignal
@@ -554,6 +577,7 @@ class DatabaseWorker(QThread):
 ```
 
 ### API-Integration
+
 ```python
 import requests
 import streamlit as st
@@ -577,6 +601,7 @@ else:
 ## 📱 Deployment und Distribution
 
 ### PyQt Application Packaging
+
 ```bash
 # PyInstaller für Desktop-Apps
 pip install pyinstaller
@@ -587,6 +612,7 @@ pyinstaller --onefile --windowed --icon=bystronic.ico maschinendaten_gui.py
 ```
 
 ### Streamlit Deployment
+
 ```bash
 # Lokales Deployment
 streamlit run dashboard.py --server.port 8080
@@ -614,16 +640,19 @@ Bevor Sie zum nächsten Kapitel wechseln:
 ## 📝 Zusätzliche Ressourcen
 
 ### PyQt/PySide Erweitert
+
 - **Qt Documentation**: [https://doc.qt.io/](https://doc.qt.io/)
 - **Qt Designer Tutorial**: [https://realpython.com/qt-designer-python/](https://realpython.com/qt-designer-python/)
 - **Advanced PyQt**: [https://www.pythonguis.com/](https://www.pythonguis.com/)
 
 ### Streamlit Ecosystem
+
 - **Streamlit Components**: [https://streamlit.io/components](https://streamlit.io/components)
 - **Streamlit Cloud**: [https://streamlit.io/cloud](https://streamlit.io/cloud)
 - **Advanced Streamlit**: [https://streamlit-tutorial.readthedocs.io/](https://streamlit-tutorial.readthedocs.io/)
 
 ### Alternative UI-Frameworks
+
 - **Dash by Plotly**: [https://dash.plotly.com/](https://dash.plotly.com/) - Web-Apps für Datenvisualisierung
 - **Flask + Bootstrap**: Klassische Web-Entwicklung
 - **FastAPI + React**: Moderne API + Frontend-Kombination

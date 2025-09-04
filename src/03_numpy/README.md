@@ -5,9 +5,11 @@ Willkommen zum dritten Kapitel des Python Grundkurses für Bystronic-Entwickler!
 ## 📚 Inhalte dieses Kapitels
 
 ### Hauptdokumentation
+
 - **[03_numpy.ipynb](03_numpy.ipynb)** - Interaktives Jupyter Notebook mit NumPy-Grundlagen
 
 ### 💡 Beispiele
+
 - **[arrays_demo.py](beispiele/arrays_demo.py)** - Array-Erstellung und grundlegende Operationen
 - **[mathematical_operations.py](beispiele/mathematical_operations.py)** - Mathematische Funktionen und Berechnungen
 - **[array_manipulation.py](beispiele/array_manipulation.py)** - Reshaping, Slicing und Indexing
@@ -15,6 +17,7 @@ Willkommen zum dritten Kapitel des Python Grundkurses für Bystronic-Entwickler!
 - **[vba_vs_numpy.py](beispiele/vba_vs_numpy.py)** - Vergleich Excel/VBA zu NumPy
 
 ### 🎯 Übungen
+
 - **[Übung 1: Array-Grundlagen](uebungen/uebung_01_arrays.py)** - Erstellen und Manipulieren von Arrays
 - **[Übung 2: Mathematische Operationen](uebungen/uebung_02_math.py)** - Berechnungen mit NumPy
 - **[Übung 3: Datenanalyse](uebungen/uebung_03_analysis.py)** - Statistische Auswertungen
@@ -23,6 +26,7 @@ Willkommen zum dritten Kapitel des Python Grundkurses für Bystronic-Entwickler!
 ## 🚀 Schnellstart
 
 ### 1. Umgebung einrichten
+
 ```bash
 # Im Projektverzeichnis
 uv sync
@@ -30,12 +34,14 @@ uv shell
 ```
 
 ### 2. Jupyter Notebook starten
+
 ```bash
 # Haupttutorial öffnen
 uv run jupyter notebook src/03_numpy/03_numpy.ipynb
 ```
 
 ### 3. Beispiele ausführen
+
 ```bash
 # Array-Grundlagen
 uv run python src/03_numpy/beispiele/arrays_demo.py
@@ -54,6 +60,7 @@ uv run python src/03_numpy/beispiele/vba_vs_numpy.py
 ```
 
 ### 4. Übungen bearbeiten
+
 ```bash
 # Übung 1 - Array-Grundlagen
 uv run python src/03_numpy/uebungen/uebung_01_arrays.py
@@ -84,6 +91,7 @@ Nach diesem Kapitel können Sie:
 ## 🔧 NumPy-Kernkonzepte
 
 ### ndarray vs Python-Listen
+
 ```python
 import numpy as np
 
@@ -97,6 +105,7 @@ result = numpy_array * 2  # Vektorisierte Operation!
 ```
 
 ### Array-Erstellung
+
 ```python
 # Verschiedene Methoden der Array-Erstellung
 np.array([1, 2, 3, 4])           # Aus Liste
@@ -108,6 +117,7 @@ np.random.random((3, 3))         # Zufallszahlen
 ```
 
 ### Wichtige NumPy-Operationen
+
 ```python
 # Mathematische Operationen
 arr = np.array([1, 2, 3, 4, 5])
@@ -130,6 +140,7 @@ np.dot(matrix1, matrix2)         # Matrix-Multiplikation
 ## 💡 Tipps für Excel/VBA-Entwickler
 
 ### Arrays vs Excel-Bereiche
+
 ```vba
 ' VBA: Arbeiten mit Ranges (langsam)
 Dim rng As Range
@@ -146,6 +157,7 @@ result = data * 2  # Alle 1000 Werte in einem Schritt!
 ```
 
 ### Formeln vs NumPy-Funktionen
+
 ```vba
 ' VBA/Excel: Einzelne Formeln
 =SUM(A1:A100)      ' Summe
@@ -160,6 +172,7 @@ data.std()         # Standardabweichung
 ```
 
 ### Matrix-Operationen
+
 ```vba
 ' VBA: Matrix-Multiplikation (umständlich)
 Dim result() As Double
@@ -181,6 +194,7 @@ result = matrix1 @ matrix2
 ## 📊 Praktische Anwendungen für Bystronic
 
 ### Produktionsdaten-Analyse
+
 ```python
 # Maschinenlaufzeiten analysieren
 import numpy as np
@@ -201,6 +215,7 @@ korrelation = np.corrcoef(laser_zeiten, presse_zeiten)[0, 1]
 ```
 
 ### Qualitätskontrolle mit Statistik
+
 ```python
 # Messwerte analysieren
 messwerte = np.array([2.05, 1.98, 2.02, 2.07, 1.95, 2.01, 2.04, 1.99])
@@ -235,9 +250,9 @@ Bevor Sie zum nächsten Kapitel wechseln:
 
 ## 📝 Zusätzliche Ressourcen
 
-- **NumPy Documentation**: https://numpy.org/doc/stable/
-- **NumPy Quickstart**: https://numpy.org/doc/stable/user/quickstart.html
-- **From Python to NumPy**: https://www.labri.fr/perso/nrougier/from-python-to-numpy/
+- **NumPy Documentation**: <https://numpy.org/doc/stable/>
+- **NumPy Quickstart**: <https://numpy.org/doc/stable/user/quickstart.html>
+- **From Python to NumPy**: <https://www.labri.fr/perso/nrougier/from-python-to-numpy/>
 
 ## ➡️ Nächste Schritte
 

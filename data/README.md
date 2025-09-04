@@ -21,6 +21,7 @@ data/
 ## Git LFS Konfiguration
 
 Große Dateien (> 10MB) werden automatisch mit Git LFS verwaltet:
+
 - `*.csv` Dateien > 10MB
 - `*.xlsx` Dateien > 5MB
 - `*.json` Dateien > 5MB
@@ -28,16 +29,19 @@ Große Dateien (> 10MB) werden automatisch mit Git LFS verwaltet:
 ## Verwendung
 
 ### Kleine Testdaten (samples/)
+
 - Direkt in Git versioniert
 - Für Lernmodule und Tests
 - Schneller Zugriff ohne LFS
 
 ### Große Dateien (large/)
+
 - Mit Git LFS verwaltet
 - Für realistische Datenanalyse-Projekte
 - Automatischer Download bei Bedarf
 
 ### Generierte Dateien (generated/)
+
 - Werden durch Skripte erstellt
 - In .gitignore ausgeschlossen
 - Können jederzeit neu generiert werden

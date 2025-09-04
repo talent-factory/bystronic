@@ -5,6 +5,7 @@ Diese Test-Suite validiert die Funktionalität aller NumPy-Beispiele und demonst
 ## 📋 Test-Übersicht
 
 ### **TestArraysDemo** (6 Tests)
+
 - ✅ **Modul-Import**: Grundlegende Importfähigkeit
 - ✅ **Main-Funktion**: Existenz und Ausführbarkeit
 - ✅ **Array-Erstellung**: Verschiedene Erstellungsmethoden (zeros, ones, arange, linspace)
@@ -12,6 +13,7 @@ Diese Test-Suite validiert die Funktionalität aller NumPy-Beispiele und demonst
 - ✅ **Koordinatenberechnungen**: Geometrische Berechnungen für CNC-Anwendungen
 
 ### **TestMathematicalOperations** (7 Tests)
+
 - ✅ **Vektorisierte Operationen**: Grundrechenarten mit Arrays
 - ✅ **Trigonometrische Funktionen**: sin, cos, tan und trigonometrische Identitäten
 - ✅ **Statistische Funktionen**: Mittelwert, Standardabweichung, Perzentile
@@ -19,6 +21,7 @@ Diese Test-Suite validiert die Funktionalität aller NumPy-Beispiele und demonst
 - ✅ **Exponentialfunktionen**: exp, log, ln für technische Berechnungen
 
 ### **TestArrayManipulation** (8 Tests)
+
 - ✅ **Reshaping**: Array-Formänderungen und automatische Dimensionierung
 - ✅ **Transponierung**: Matrix-Transposition und Doppeltransposition
 - ✅ **Concatenation**: hstack, vstack, concatenate Operationen
@@ -28,6 +31,7 @@ Diese Test-Suite validiert die Funktionalität aller NumPy-Beispiele und demonst
 - ✅ **Advanced Indexing**: Fancy Indexing, argmax, argmin
 
 ### **TestLinearAlgebra** (8 Tests)
+
 - ✅ **Matrix-Operationen**: Multiplikation, Addition, Transposition
 - ✅ **Matrix-Eigenschaften**: Determinante, Spur, Rang
 - ✅ **Lineare Gleichungssysteme**: Lösung von A @ x = b Systemen
@@ -38,11 +42,13 @@ Diese Test-Suite validiert die Funktionalität aller NumPy-Beispiele und demonst
 - ✅ **SVD**: Singulärwertzerlegung für Dimensionsreduktion
 
 ### **TestVBAvsNumPy** (5 Tests)
+
 - ✅ **Performance-Konzepte**: Vektorisierung vs. Schleifen
 - ✅ **Matrix-Vergleiche**: NumPy @ vs. manuelle Triple-Loop
 - ✅ **Statistische Operationen**: NumPy-Funktionen vs. manuelle Berechnung
 
 ### **TestNumpyPerformanceAndAccuracy** (6 Tests)
+
 - ✅ **Speicher-Layout**: C-contiguous vs. Fortran-contiguous Arrays
 - ✅ **Datentyp-Präzision**: float32 vs. float64 Unterschiede
 - ✅ **Numerische Stabilität**: Umgang mit großen/kleinen Zahlen
@@ -53,21 +59,25 @@ Diese Test-Suite validiert die Funktionalität aller NumPy-Beispiele und demonst
 ## 🚀 Tests ausführen
 
 ### Alle NumPy-Tests
+
 ```bash
 uv run python -m pytest tests/test_03_numpy.py -v
 ```
 
 ### Spezifische Test-Klasse
+
 ```bash
 uv run python -m pytest tests/test_03_numpy.py::TestArraysDemo -v
 ```
 
 ### Einzelner Test
+
 ```bash
 uv run python -m pytest tests/test_03_numpy.py::TestMathematicalOperations::test_trigonometric_functions -v
 ```
 
 ### Mit Coverage-Report
+
 ```bash
 uv run python -m pytest tests/test_03_numpy.py --cov=src/03_numpy --cov-report=html
 ```
@@ -77,12 +87,14 @@ uv run python -m pytest tests/test_03_numpy.py --cov=src/03_numpy --cov-report=h
 Aktuelle Coverage: **98%** (703/714 Statements)
 
 **Nicht getestete Zeilen:**
+
 - `if __name__ == "__main__":` Blöcke in main() Funktionen
 - Einzelne Ausnahmebehandlungen in komplexen Berechnungen
 
 ## 🎯 Test-Patterns für numerische Berechnungen
 
 ### **Numerische Toleranzen**
+
 ```python
 # Für Fließkomma-Vergleiche
 assert np.allclose(result, expected, atol=1e-10)
@@ -92,6 +104,7 @@ assert abs(result - expected) / expected < 1e-15
 ```
 
 ### **Matrix-Verifikationen**
+
 ```python
 # Einheitsmatrix-Check
 identity = A @ A_inv
@@ -104,6 +117,7 @@ assert np.allclose(left_side, right_side)
 ```
 
 ### **Array-Shape-Tests**
+
 ```python
 # Shape-Validierung
 assert array.shape == (expected_rows, expected_cols)
@@ -112,6 +126,7 @@ assert array.size == expected_total_elements
 ```
 
 ### **Statistical-Tests**
+
 ```python
 # Plausibilitätschecks für statistische Werte
 assert expected_min < mean < expected_max
@@ -120,6 +135,7 @@ assert quartile_25 < median < quartile_75
 ```
 
 ### **Edge-Case-Handling**
+
 ```python
 # NaN/Inf-Tests
 assert np.isnan(result_with_nan)
@@ -135,6 +151,7 @@ assert empty.shape == (0,)
 ## 🔧 Test-Dependencies
 
 Die Tests verwenden folgende Bibliotheken:
+
 - **pytest**: Test-Framework
 - **numpy**: Hauptbibliothek (wird getestet)
 - **warnings**: Für Warning-Unterdrückung bei numerischen Edge Cases

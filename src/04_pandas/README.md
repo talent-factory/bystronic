@@ -5,9 +5,11 @@ Willkommen zum vierten Kapitel des Python Grundkurses für Bystronic-Entwickler!
 ## 📚 Inhalte dieses Kapitels
 
 ### Hauptdokumentation
+
 - **[04_pandas.ipynb](04_pandas.ipynb)** - Interaktives Jupyter Notebook mit Pandas-Grundlagen
 
 ### 💡 Beispiele
+
 - **[dataframe_basics.py](beispiele/dataframe_basics.py)** - DataFrame-Erstellung und grundlegende Operationen
 - **[data_import_export.py](beispiele/data_import_export.py)** - Daten aus CSV, Excel und anderen Quellen laden
 - **[data_cleaning.py](beispiele/data_cleaning.py)** - Datenbereinigung und -validierung
@@ -15,6 +17,7 @@ Willkommen zum vierten Kapitel des Python Grundkurses für Bystronic-Entwickler!
 - **[vba_vs_pandas.py](beispiele/vba_vs_pandas.py)** - Vergleich Excel/VBA zu Pandas
 
 ### 🎯 Übungen
+
 - **[Übung 1: DataFrame-Grundlagen](uebungen/uebung_01_dataframe_basics.py)** - Erstellen und Manipulieren von DataFrames
 - **[Übung 2: Datenimport](uebungen/uebung_02_data_import.py)** - Laden verschiedener Datenformate
 - **[Übung 3: Datenbereinigung](uebungen/uebung_03_data_cleaning.py)** - Umgang mit fehlenden und fehlerhaften Daten
@@ -23,6 +26,7 @@ Willkommen zum vierten Kapitel des Python Grundkurses für Bystronic-Entwickler!
 ## 🚀 Schnellstart
 
 ### 1. Umgebung einrichten
+
 ```bash
 # Im Projektverzeichnis
 uv sync
@@ -30,12 +34,14 @@ uv shell
 ```
 
 ### 2. Jupyter Notebook starten
+
 ```bash
 # Haupttutorial öffnen
 uv run jupyter notebook src/04_pandas/04_pandas.ipynb
 ```
 
 ### 3. Beispiele ausführen
+
 ```bash
 # DataFrame-Grundlagen
 uv run python src/04_pandas/beispiele/dataframe_basics.py
@@ -54,6 +60,7 @@ uv run python src/04_pandas/beispiele/vba_vs_pandas.py
 ```
 
 ### 4. Übungen bearbeiten
+
 ```bash
 # Übung 1 - DataFrame-Grundlagen
 uv run python src/04_pandas/uebungen/uebung_01_dataframe_basics.py
@@ -84,6 +91,7 @@ Nach diesem Kapitel können Sie:
 ## 🔧 Pandas-Kernkonzepte
 
 ### Series vs DataFrame
+
 ```python
 import pandas as pd
 
@@ -101,6 +109,7 @@ maschinendaten = pd.DataFrame({
 ```
 
 ### Wichtige Pandas-Operationen
+
 ```python
 # Daten laden
 df = pd.read_csv('produktionsdaten.csv')
@@ -126,6 +135,7 @@ df.pivot_table(values='Ausschuss',      # Pivot-Tabelle
 ## 💡 Tipps für Excel/VBA-Entwickler
 
 ### Excel-Arbeitsblätter vs DataFrames
+
 ```vba
 ' VBA: Arbeiten mit Worksheets
 Dim ws As Worksheet
@@ -146,6 +156,7 @@ df.loc[df['Ausschuss'] > 0.05, 'Kategorie'] = 'Hoch'
 ```
 
 ### VLOOKUP vs Merge/Join
+
 ```vba
 ' VBA: VLOOKUP-Formel
 ws.Range("E2:E" & lastRow).Formula = _
@@ -164,6 +175,7 @@ result = produktionsdaten.merge(
 ```
 
 ### Pivot-Tabellen
+
 ```vba
 ' VBA: Pivot-Tabelle erstellen (sehr umständlich!)
 Dim pt As PivotTable
@@ -181,6 +193,7 @@ pivot = df.pivot_table(
 ## 📊 Praktische Anwendungen für Bystronic
 
 ### Produktionsdaten analysieren
+
 ```python
 # Typische Maschinendaten-Analyse
 produktionsdaten = pd.DataFrame({
@@ -207,6 +220,7 @@ verfügbarkeit = produktionsdaten.groupby('Maschine').agg({
 ```
 
 ### Qualitätskontrolle
+
 ```python
 # Messdaten analysieren
 qualitätsdaten = pd.read_csv('messwerte.csv')
@@ -229,6 +243,7 @@ ausreisser = ausreisser[
 ```
 
 ### Wartungsplanung
+
 ```python
 # Wartungsdaten verwalten
 wartung = pd.DataFrame({
@@ -266,6 +281,7 @@ Bevor Sie zum nächsten Kapitel wechseln:
 ## 📈 Performance-Tipps
 
 ### Effiziente Pandas-Nutzung
+
 ```python
 # ❌ Langsam: Schleifen über Zeilen
 for index, row in df.iterrows():
@@ -285,10 +301,10 @@ df_result = pd.concat(data_chunks, ignore_index=True)
 
 ## 📝 Zusätzliche Ressourcen
 
-- **Pandas Documentation**: https://pandas.pydata.org/docs/
-- **10 Minutes to Pandas**: https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html
-- **Pandas Cookbook**: https://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html
-- **Real Python Pandas Tutorials**: https://realpython.com/learning-paths/pandas-data-science/
+- **Pandas Documentation**: <https://pandas.pydata.org/docs/>
+- **10 Minutes to Pandas**: <https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html>
+- **Pandas Cookbook**: <https://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html>
+- **Real Python Pandas Tutorials**: <https://realpython.com/learning-paths/pandas-data-science/>
 
 ## ➡️ Nächste Schritte
 

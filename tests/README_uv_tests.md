@@ -21,6 +21,7 @@ uv run pytest tests/test_08_ui_utils.py -v
 ## Verfügbare Testsuites
 
 ### 1. Basis-Tests (immer funktionsfähig)
+
 ```bash
 # Grundlegende Funktionalität ohne UI-Dependencies
 uv run pytest tests/test_08_ui_simple.py::TestBasicFunctionality -v
@@ -30,6 +31,7 @@ uv run pytest tests/test_08_ui_simple.py::TestErrorHandling -v
 ```
 
 ### 2. Datenverarbeitungs-Tests
+
 ```bash
 # Benötigt: pandas, numpy (bereits in dependencies)
 uv run pytest tests/test_08_ui_simple.py::TestDataProcessing -v
@@ -39,18 +41,21 @@ uv run pytest tests/test_08_ui_simple.py::TestDatabaseOperations -v
 ```
 
 ### 3. Chart-Tests
+
 ```bash
 # Benötigt: plotly (bereits in dependencies)
 uv run pytest tests/test_08_ui_simple.py::TestChartGeneration -v
 ```
 
 ### 4. Streamlit-Tests
+
 ```bash
 # Benötigt: streamlit (bereits in dependencies)
 uv run pytest tests/test_08_ui_simple.py::TestStreamlitMocking -v
 ```
 
 ### 5. Performance-Tests
+
 ```bash
 # Benötigt: psutil
 uv add psutil
@@ -60,6 +65,7 @@ uv run pytest tests/test_08_ui_simple.py::TestPerformanceAndMemory -v
 ## Dependency-Management
 
 ### Aktuelle Dependencies prüfen
+
 ```bash
 uv run python -c "
 from tests.test_08_ui_utils import print_dependency_status
@@ -68,6 +74,7 @@ print_dependency_status()
 ```
 
 ### Fehlende Dependencies installieren
+
 ```bash
 # UI-Dependencies (optional)
 uv sync --extra ui
@@ -91,17 +98,20 @@ Die Tests sind so konfiguriert, dass sie automatisch übersprungen werden, wenn 
 ## Erweiterte Ausführung
 
 ### Mit Coverage-Report
+
 ```bash
 uv run pytest tests/test_08_ui_simple.py --cov=tests --cov-report=html
 ```
 
 ### Parallele Ausführung
+
 ```bash
 uv add pytest-xdist
 uv run pytest tests/test_08_ui_simple.py -n auto
 ```
 
 ### Nur bestimmte Tests
+
 ```bash
 # Nur Datenvalidierung
 uv run pytest tests/test_08_ui_simple.py -k "validation"
@@ -113,12 +123,14 @@ uv run pytest tests/test_08_ui_simple.py -k "performance"
 ## Troubleshooting
 
 ### Problem: Import-Fehler
+
 ```bash
 # Lösung: Projekt im Development-Modus installieren
 uv pip install -e .
 ```
 
 ### Problem: PySide6-Fehler in CI
+
 ```bash
 # Lösung: Virtual Display verwenden
 sudo apt-get install xvfb
@@ -126,6 +138,7 @@ xvfb-run -a uv run pytest tests/test_08_ui_simple.py
 ```
 
 ### Problem: Coverage-Warnungen
+
 ```bash
 # Lösung: Coverage auf Tests beschränken
 uv run pytest tests/test_08_ui_simple.py --cov=tests --no-cov-report
@@ -143,12 +156,14 @@ Die Tests sind für GitHub Actions konfiguriert (siehe `.github/workflows/ui-tes
 ## Lokale Entwicklung
 
 ### Pre-Commit Hooks
+
 ```bash
 uv add pre-commit
 uv run pre-commit install
 ```
 
 ### Test-Driven Development
+
 ```bash
 # Watch-Modus für kontinuierliche Tests
 uv add pytest-watch
@@ -156,6 +171,7 @@ uv run ptw tests/test_08_ui_simple.py
 ```
 
 ### Debugging
+
 ```bash
 # Verbose Output mit Traceback
 uv run pytest tests/test_08_ui_simple.py -v -s --tb=long

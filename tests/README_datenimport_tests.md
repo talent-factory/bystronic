@@ -11,6 +11,7 @@ Diese Test-Suite überprüft alle Funktionalitäten des Datenimport-Moduls (Modu
 **Zweck**: Überprüfung der grundlegenden CSV-Import-Funktionalitäten
 
 **Getestete Funktionen**:
+
 - `csv_import_beispiele()` - Grundlegende CSV-Import-Szenarien
 - Verschiedene Trennzeichen (Komma, Semikolon, Tab)
 - Encoding-Behandlung (UTF-8, Latin-1)
@@ -18,6 +19,7 @@ Diese Test-Suite überprüft alle Funktionalitäten des Datenimport-Moduls (Modu
 - Performance-Optimierungen (Chunked Reading, Datentyp-Optimierung)
 
 **Wichtige Tests**:
+
 ```python
 def test_csv_import_beispiele(self):
     """Test der grundlegenden CSV-Import-Beispiele"""
@@ -38,6 +40,7 @@ def test_csv_fehlende_werte(self):
 **Zweck**: Spezielle Tests für den industriellen Bystronic CSV Parser
 
 **Getestete Funktionen**:
+
 - `BystronicCSVParser` - Klasse für komplexe CSV-Strukturen
 - Automatische Struktur-Erkennung
 - Metadaten-Extraktion
@@ -45,6 +48,7 @@ def test_csv_fehlende_werte(self):
 - Fehlerbehandlung
 
 **Mock-Daten Struktur**:
+
 ```
 Zeile 1-4: Metadaten (Name, File, Timestamps)
 Zeile 7: Header mit alternierenden "Name" und Spaltennamen
@@ -53,6 +57,7 @@ Zeile 22+: Messdaten
 ```
 
 **Wichtige Tests**:
+
 ```python
 def test_detect_structure(self):
     """Test der Struktur-Erkennung"""
@@ -72,16 +77,19 @@ def test_data_validation(self):
 **Zweck**: Tests für Excel-Import/Export mit mehreren Arbeitsblättern
 
 **Getestete Funktionen**:
-- `BystronicExcelHandler` - Umfassende Excel-Verarbeitung
+
+- Bystronic_Maschinen_Export_2024.csvsende Excel-Verarbeitung
 - Multi-Sheet Loading
 - KPI-Berechnungen
 - Excel-Export mit Formatierung
 
 **Test-Excel-Struktur**:
+
 - **Produktion**: Datum, Maschinen-Daten, Verfügbarkeit
 - **Qualität**: Monatliche Qualitätskennzahlen
 
 **Wichtige Tests**:
+
 ```python
 def test_excel_multi_sheet_loading(self):
     """Test des Ladens mehrerer Arbeitsblätter"""
@@ -97,12 +105,14 @@ def test_excel_kpi_calculation(self):
 **Zweck**: Tests für IoT-Sensordaten und API-Integration
 
 **Getestete Funktionen**:
+
 - JSON-Loading und -Parsing
 - Normalisierung hierarchischer Strukturen
 - pandas `json_normalize` Integration
 - JSON-Export with Metadaten
 
 **Test-JSON-Struktur**:
+
 ```json
 {
   "metadata": {
@@ -120,6 +130,7 @@ def test_excel_kpi_calculation(self):
 ```
 
 **Wichtige Tests**:
+
 ```python
 def test_json_normalization(self):
     """Test der JSON-Normalisierung zu DataFrame"""
@@ -135,6 +146,7 @@ def test_json_pandas_normalization(self):
 **Zweck**: Validation und Cleaning von industriellen Daten
 
 **Getestete Szenarien**:
+
 - Fehlende Werte (NaN, leere Strings)
 - Unrealistische Werte (negative Produktionszahlen, extreme Temperaturen)
 - Ausreißer-Erkennung (IQR-Methode)
@@ -142,6 +154,7 @@ def test_json_pandas_normalization(self):
 - Datentyp-Optimierung für Memory-Effizienz
 
 **Problematische Test-Daten**:
+
 ```python
 {
     'Produktion': [1000, -50, 1200, np.nan, 2000],    # Negative Werte, NaN
@@ -151,6 +164,7 @@ def test_json_pandas_normalization(self):
 ```
 
 **Wichtige Tests**:
+
 ```python
 def test_outlier_detection(self):
     """Test der Ausreißer-Erkennung"""
@@ -170,12 +184,14 @@ def test_data_type_optimization(self):
 **Zweck**: Tests für verschiedene Export-Formate und -Strategien
 
 **Getestete Formate**:
+
 - **CSV**: UTF-8 Encoding, verschiedene Separatoren
 - **Excel**: Multi-Sheet Export mit Metadaten
 - **JSON**: Mit Metadaten und strukturierten Informationen
 - **Parquet**: Komprimierung und Performance (optional)
 
 **Wichtige Tests**:
+
 ```python
 def test_excel_export_multi_sheet(self):
     """Test des Excel-Exports mit mehreren Blättern"""
@@ -195,13 +211,15 @@ def test_multi_format_export(self):
 **Zweck**: End-to-End Tests der kompletten Datenverarbeitungs-Pipeline
 
 **Pipeline-Schritte**:
-1. **Daten-Import**: CSV mit Produktionsdaten
+
+1. **Daten-Import**: CSV mit komplexen Strukturen
 2. **Datenbereinigung**: NaN-Behandlung, Duplikate entfernen
 3. **Aggregation**: Maschinenbezogene Statistiken
 4. **Export**: CSV + JSON mit Metadaten
 5. **Verification**: Vollständigkeitsprüfung
 
 **Wichtiger Test**:
+
 ```python
 def test_complete_pipeline(self):
     """Test einer kompletten Datenverarbeitungs-Pipeline"""
@@ -210,7 +228,8 @@ def test_complete_pipeline(self):
 
 ## 🚀 Test-Ausführung
 
-### Alle Tests ausführen:
+### Alle Tests ausführen
+
 ```bash
 # Komplette Test-Suite
 pytest tests/test_06_datenimport.py -v
@@ -222,7 +241,8 @@ pytest tests/test_06_datenimport.py::TestCSVImportGrundlagen -v
 pytest tests/test_06_datenimport.py --cov=src.datenimport --cov-report=html
 ```
 
-### Spezifische Test-Kategorien:
+### Spezifische Test-Kategorien
+
 ```bash
 # Nur Parser-Tests
 pytest tests/test_06_datenimport.py::TestBystronicCSVParser -v
@@ -236,12 +256,14 @@ pytest tests/test_06_datenimport.py -v --tb=long -s
 
 ## 🔧 Test-Konfiguration
 
-### Fixtures und Setup:
+### Fixtures und Setup
+
 - **Temporäre Verzeichnisse**: Jeder Test verwendet eigene temp-Directories
 - **Mock-Daten**: Realistische Bystronic-Datenstrukturen
 - **Automatisches Cleanup**: Temp-Files werden nach Tests entfernt
 
-### Abhängigkeiten:
+### Abhängigkeiten
+
 ```python
 # Erforderliche Packages
 import pandas as pd
@@ -257,13 +279,15 @@ import pyarrow as pa  # Wird graceful gehandhabt wenn nicht verfügbar
 
 ## 📊 Test-Daten
 
-### CSV-Test-Strukturen:
+### CSV-Test-Strukturen
+
 1. **Standard CSV**: Komma-getrennt, UTF-8
 2. **Deutsches Format**: Semikolon-getrennt, Komma als Dezimaltrenner
 3. **Tab-Format**: Tab-getrennt, für technische Daten
 4. **Problematische Daten**: Fehlende Werte, Encoding-Probleme
 
-### Bystronic CSV Spezial-Format:
+### Bystronic CSV Spezial-Format
+
 ```
 Name    Distance Control
 File    O:\Messungen\Test.csv
@@ -273,12 +297,14 @@ Name    TEMP_001    Name    VIBR_001    Name    POWER_001
 1       22.8        1       1.4         1       6.0
 ```
 
-### Excel-Test-Strukturen:
+### Excel-Test-Strukturen
+
 - **Multi-Sheet**: Produktion, Qualität, Wartung, Konfiguration
 - **Aggregierte Daten**: KPIs, Statistiken, Trends
 - **Formatierte Ausgaben**: Mit Styling und Metadaten
 
-### JSON-IoT-Strukturen:
+### JSON-IoT-Strukturen
+
 ```json
 {
   "sensors": [
@@ -294,14 +320,16 @@ Name    TEMP_001    Name    VIBR_001    Name    POWER_001
 
 ## 📈 Test-Metriken
 
-### Coverage-Ziele:
+### Coverage-Ziele
+
 - **CSV-Import**: >95% Line Coverage
 - **Excel-Handling**: >90% Line Coverage
 - **JSON-Processing**: >95% Line Coverage
 - **Data Cleaning**: >90% Line Coverage
 - **Export Functions**: >95% Line Coverage
 
-### Performance-Benchmarks:
+### Performance-Benchmarks
+
 - **CSV-Import (1MB)**: <2 Sekunden
 - **Excel Multi-Sheet**: <5 Sekunden
 - **JSON Normalization**: <1 Sekunde
@@ -309,21 +337,24 @@ Name    TEMP_001    Name    VIBR_001    Name    POWER_001
 
 ## 🛡️ Fehlerbehandlung
 
-### Getestete Fehlerszenarien:
+### Getestete Fehlerszenarien
+
 1. **Datei nicht gefunden**: Graceful handling mit aussagekräftigen Fehlermeldungen
 2. **Encoding-Probleme**: Automatische Encoding-Erkennung und Fallbacks
 3. **Ungültige Datenstrukturen**: Robuste Parser mit Validierung
 4. **Memory-Probleme**: Chunked Processing und Streaming
 5. **Korrupte Daten**: Datenvalidierung und Bereinigung
 
-### Logging und Debugging:
+### Logging und Debugging
+
 - **Test-spezifische Logs**: Detaillierte Informationen für Debugging
 - **Intermediate Results**: Speicherung von Zwischenergebnissen für Analyse
 - **Performance Timing**: Messung kritischer Operationen
 
 ## 📚 Verwendung in der Praxis
 
-### Für Entwickler:
+### Für Entwickler
+
 ```python
 # Test einzeln ausführen
 pytest tests/test_06_datenimport.py::TestCSVImportGrundlagen::test_csv_import_beispiele -v
@@ -335,7 +366,8 @@ pytest tests/test_06_datenimport.py -v -s --tb=long
 pytest-watch tests/test_06_datenimport.py
 ```
 
-### Für CI/CD-Pipeline:
+### Für CI/CD-Pipeline
+
 ```yaml
 # GitHub Actions / GitLab CI
 - name: Run Data Import Tests
@@ -346,7 +378,8 @@ pytest-watch tests/test_06_datenimport.py
       --cov-report=xml
 ```
 
-### Für Qualitätssicherung:
+### Für Qualitätssicherung
+
 - **Regressions-Tests**: Automatische Ausführung bei Code-Änderungen
 - **Performance-Tests**: Überwachung der Verarbeitungszeiten
 - **Datenvalidierung**: Sicherstellung korrekter Datenverarbeitung

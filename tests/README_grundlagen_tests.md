@@ -5,12 +5,14 @@ Diese Test-Suite validiert die Funktionalität der Python-Grundlagen-Beispiele u
 ## 📋 Test-Übersicht
 
 ### **TestHelloWorld** (4 Tests)
+
 - ✅ **Funktion-Existenz**: Überprüft, ob main() Funktion vorhanden und aufrufbar ist
 - ✅ **Ausführbarkeit**: Testet fehlerfreie Ausführung mit Mock-Input/Output
 - ✅ **String-Formatierung**: Validiert korrekte Ausgabe und f-string Verwendung
 - ✅ **Berechnungslogik**: Testet Arbeitsstunden-Berechnung (8h × 5d × 52w = 2080h)
 
 ### **TestVbaVsPython** (6 Tests)
+
 - ✅ **Funktion-Existenz**: Überprüft Verfügbarkeit aller Hauptfunktionen
 - ✅ **Ausführbarkeit**: Testet fehlerfreie Ausführung der main() Funktion
 - ✅ **Listen-Demonstrationen**: Validiert demonstriere_listen() Funktion
@@ -19,31 +21,37 @@ Diese Test-Suite validiert die Funktionalität der Python-Grundlagen-Beispiele u
 - ✅ **Mathematische Operationen**: Testet sum, max, min, Durchschnitt mit Listen
 
 ### **TestIntegration** (2 Tests)
+
 - ✅ **Gesamtausführung**: Testet alle Beispiele zusammen
 - ✅ **Lernkonzepte-Abdeckung**: Validiert, dass wichtige Python-Konzepte enthalten sind
 
 ### **Einzelne Test-Funktionen** (2 Tests)
+
 - ✅ **Modul-Imports**: Testet korrekte Importierbarkeit aller Module
 - ✅ **Datei-Existenz**: Überprüft Verfügbarkeit der Beispieldateien
 
 ## 🚀 Tests ausführen
 
 ### Alle Grundlagen-Tests
+
 ```bash
 uv run python -m pytest tests/test_01_grundlagen.py -v
 ```
 
 ### Spezifische Test-Klasse
+
 ```bash
 uv run python -m pytest tests/test_01_grundlagen.py::TestHelloWorld -v
 ```
 
 ### Einzelner Test
+
 ```bash
 uv run python -m pytest tests/test_01_grundlagen.py::TestVbaVsPython::test_list_operations_logic -v
 ```
 
 ### Mit Coverage-Report
+
 ```bash
 uv run python -m pytest tests/test_01_grundlagen.py --cov=src/01_grundlagen --cov-report=html
 ```
@@ -51,6 +59,7 @@ uv run python -m pytest tests/test_01_grundlagen.py --cov=src/01_grundlagen --co
 ## 🎯 Test-Patterns für Python-Anfänger
 
 ### **Mock-basierte Tests**
+
 ```python
 @patch("builtins.input", return_value="Test User")
 @patch("builtins.print")
@@ -62,6 +71,7 @@ def test_user_interaction(self, mock_print, mock_input):
 ```
 
 ### **Ausgabe-Validierung**
+
 ```python
 # Sammle alle print-Aufrufe
 print_calls = [call[0][0] for call in mock_print.call_args_list]
@@ -72,6 +82,7 @@ assert welcome_found, "Willkommensnachricht nicht gefunden"
 ```
 
 ### **Funktions-Existenz-Tests**
+
 ```python
 def test_function_exists(self):
     assert hasattr(module, "function_name")
@@ -79,6 +90,7 @@ def test_function_exists(self):
 ```
 
 ### **Logik-Validierung**
+
 ```python
 def test_calculation_logic(self):
     # Simuliere Berechnungen aus den Beispielen
@@ -89,6 +101,7 @@ def test_calculation_logic(self):
 ## 🔧 Test-Dependencies
 
 Die Tests verwenden folgende Bibliotheken:
+
 - **pytest**: Test-Framework
 - **unittest.mock**: Für Input/Output-Mocking und Patch-Funktionalität
 - **pathlib/sys**: Für dynamische Modul-Imports und Pfad-Management

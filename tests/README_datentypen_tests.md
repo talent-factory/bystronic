@@ -5,6 +5,7 @@ Diese Test-Suite validiert die Funktionalität der Datentypen-Beispiele und demo
 ## 📋 Test-Übersicht
 
 ### **TestNumbersDemo** (8 Tests)
+
 - ✅ **Funktion-Existenz**: Überprüft Verfügbarkeit der main() Funktion
 - ✅ **Ausführbarkeit**: Testet fehlerfreie Ausführung mit Mock-Input/Output
 - ✅ **Math-Operationen**: Validiert demonstrate_math_operations() Funktion
@@ -15,12 +16,14 @@ Diese Test-Suite validiert die Funktionalität der Datentypen-Beispiele und demo
 - ✅ **Komplexe Zahlen**: Impedanz-Berechnungen für Elektrotechnik-Anwendungen
 
 ### **TestStringsDemo** (4 Tests)
+
 - ✅ **Funktion-Existenz**: Überprüft Verfügbarkeit der main() Funktion
 - ✅ **Ausführbarkeit**: Testet fehlerfreie Ausführung
 - ✅ **String-Operationen**: Validiert upper/lower, strip, split, f-strings
 - ✅ **Bystronic-Beispiele**: Maschinennamen-Parsing und -Verarbeitung
 
 ### **TestCollectionsDemo** (6 Tests)
+
 - ✅ **Funktion-Existenz**: Überprüft Verfügbarkeit der main() Funktion
 - ✅ **Ausführbarkeit**: Testet fehlerfreie Ausführung
 - ✅ **Listen-Operationen**: append, extend, Filterung, List Comprehensions
@@ -29,32 +32,38 @@ Diese Test-Suite validiert die Funktionalität der Datentypen-Beispiele und demo
 - ✅ **Set-Operationen**: Intersection, Union, Membership-Tests
 
 ### **TestDataTypeIntegration** (3 Tests)
+
 - ✅ **Numerische Präzision**: Fließkomma-Genauigkeit und Toleranzberechnungen
 - ✅ **Typ-Konvertierungen**: String↔Number, Boolean-Casting
 - ✅ **Gesamtausführung**: Alle Beispiele zusammen testen
 
 ### **Einzelne Test-Funktionen** (2 Tests)
+
 - ✅ **Modul-Imports**: Testet korrekte Importierbarkeit aller Module
 - ✅ **Datei-Existenz**: Überprüft Verfügbarkeit der Beispieldateien
 
 ## 🚀 Tests ausführen
 
 ### Alle Datentypen-Tests
+
 ```bash
 uv run python -m pytest tests/test_02_datentypen.py -v
 ```
 
 ### Spezifische Test-Klasse
+
 ```bash
 uv run python -m pytest tests/test_02_datentypen.py::TestNumbersDemo -v
 ```
 
 ### Einzelner Test
+
 ```bash
 uv run python -m pytest tests/test_02_datentypen.py::TestCollectionsDemo::test_dictionary_operations -v
 ```
 
 ### Mit Coverage-Report
+
 ```bash
 uv run python -m pytest tests/test_02_datentypen.py --cov=src/02_datentypen --cov-report=html
 ```
@@ -62,6 +71,7 @@ uv run python -m pytest tests/test_02_datentypen.py --cov=src/02_datentypen --co
 ## 🎯 Test-Patterns für Datentypen
 
 ### **Numerische Präzisions-Tests**
+
 ```python
 def test_numeric_precision(self):
     # Fließkomma-Vergleiche mit Toleranz
@@ -70,6 +80,7 @@ def test_numeric_precision(self):
 ```
 
 ### **Komplexe Zahlen-Tests**
+
 ```python
 def test_complex_numbers(self):
     impedanz = 50 + 30j
@@ -79,6 +90,7 @@ def test_complex_numbers(self):
 ```
 
 ### **String-Operationen-Tests**
+
 ```python
 def test_string_operations(self):
     maschinen_name = "LASER_01_BYSTAR_FIBER"
@@ -88,6 +100,7 @@ def test_string_operations(self):
 ```
 
 ### **Collection-Tests**
+
 ```python
 def test_list_operations(self):
     laser_maschinen = [m for m in maschinen if m.startswith("LASER")]
@@ -95,6 +108,7 @@ def test_list_operations(self):
 ```
 
 ### **Source-Code-Analyse**
+
 ```python
 def test_code_contains_patterns(self):
     import inspect
@@ -107,20 +121,24 @@ def test_code_contains_patterns(self):
 Die Tests validieren typische Bystronic-Berechnungen:
 
 ### **Produktionsmetriken**
+
 - Effizienz-Berechnung: `(produziert / geplant) * 100`
 - Materialausnutzung: `(Teil-Fläche * Anzahl) / Blech-Fläche * 100`
 
 ### **Laser-Berechnungen**
+
 - Schnittzeit: `Länge / Geschwindigkeit`
 - Materialdicke-Toleranzen: `±0.1mm Genauigkeit`
 
 ### **Maschinendaten-Verarbeitung**
+
 - Maschinennamen-Parsing: `"LASER_01_BYSTAR_FIBER".split("_")`
 - Typisierung und Kategorisierung von Maschinendaten
 
 ## 🔧 Test-Dependencies
 
 Die Tests verwenden folgende Bibliotheken:
+
 - **pytest**: Test-Framework
 - **unittest.mock**: Für Input/Output-Mocking
 - **math**: Für mathematische Berechnungen und Vergleiche

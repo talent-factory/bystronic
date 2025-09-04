@@ -15,6 +15,7 @@ Die Tests für Modul 08 sind in drei Hauptdateien organisiert:
 ### 1. Grundlegende UI-Tests (`test_08_ui.py`)
 
 #### TestPyQTGrundlagen
+
 - **Widget-Initialisierung**: Prüft korrekte Erstellung der Hauptkomponenten
 - **Menüleisten-Tests**: Validiert Menü-Struktur und -Funktionalität
 - **Tab-Erstellung**: Überprüft alle vier Haupttabs
@@ -23,12 +24,14 @@ Die Tests für Modul 08 sind in drei Hauptdateien organisiert:
 - **Status-Updates**: Prüft Maschinen-Status-Änderungen
 
 #### TestDatenbankBrowser
+
 - **Datenbank-Initialisierung**: Erstellt temporäre SQLite-Datenbank
 - **Tabellen-Erstellung**: Validiert Schema für machines, production_data, maintenance
 - **Query-Ausführung**: Testet SQL-Abfragen und Fehlerbehandlung
 - **Beispieldaten**: Überprüft Einfügung von Testdaten
 
 #### TestStreamlitComponents
+
 - **Import-Tests**: Validiert verfügbare Streamlit-Module
 - **Daten-Generierung**: Testet Produktionsdaten-Erstellung
 - **Konfiguration**: Prüft Seiten-Setup und Parameter
@@ -36,6 +39,7 @@ Die Tests für Modul 08 sind in drei Hauptdateien organisiert:
 ### 2. PyQt-spezifische Tests (`test_08_ui_pyqt_specific.py`)
 
 #### TestMaschinendatenGUI
+
 - **Datenmodell**: Testet MaschinenDatenModel mit Beispieldaten
 - **Filterung**: Validiert Status- und Suchfilter
 - **Export-Funktionalität**: Prüft CSV-Export
@@ -43,12 +47,14 @@ Die Tests für Modul 08 sind in drei Hauptdateien organisiert:
 - **Tabellen-Operationen**: Sortierung, Selektion, Kontextmenüs
 
 #### TestDiagrammViewer
+
 - **Chart-Erstellung**: Testet verschiedene Diagrammtypen (Line, Bar, Scatter, Pie)
 - **Datenladung**: Validiert CSV-Import für Visualisierung
 - **Chart-Export**: Prüft PNG-Export-Funktionalität
 - **Chart-Widget**: Testet benutzerdefinierte Chart-Komponenten
 
 #### TestModerneUI
+
 - **Theme-Switching**: Testet Dark/Light-Theme-Wechsel
 - **Animierte Buttons**: Validiert Button-Animationen
 - **Glas-Effekte**: Prüft visuelle Effekte
@@ -57,18 +63,21 @@ Die Tests für Modul 08 sind in drei Hauptdateien organisiert:
 ### 3. Streamlit-spezifische Tests (`test_08_ui_streamlit_specific.py`)
 
 #### TestStreamlitDataUpload
+
 - **CSV-Verarbeitung**: Testet Upload und Parsing von CSV-Dateien
 - **JSON-Verarbeitung**: Validiert JSON-Datenimport
 - **Datei-Validierung**: Prüft Struktur und erforderliche Spalten
 - **Datenbereinigung**: Testet Duplikat-Entfernung und Datentyp-Konvertierung
 
 #### TestStreamlitCharts
+
 - **Plotly-Integration**: Testet verschiedene Chart-Typen
 - **Zeitreihen-Visualisierung**: Line Charts für Produktionsdaten
 - **Aggregations-Charts**: Bar Charts für zusammengefasste Daten
 - **Multi-Achsen-Diagramme**: Komplexe Visualisierungen
 
 #### TestStreamlitDashboard
+
 - **KPI-Berechnung**: Validiert Kennzahlen-Generierung
 - **Status-Aggregation**: Testet Maschinen-Status-Zusammenfassung
 - **Alert-System**: Prüft automatische Warnungen
@@ -256,6 +265,7 @@ python -m pytest tests/test_08_ui.py -x
 ### Neue Tests hinzufügen
 
 1. **Neue Testklasse erstellen**:
+
    ```python
    class TestNeueKomponente:
        @pytest.fixture
@@ -267,6 +277,7 @@ python -m pytest tests/test_08_ui.py -x
    ```
 
 2. **Fixtures erweitern**:
+
    ```python
    @pytest.fixture
    def complex_data():
@@ -274,6 +285,7 @@ python -m pytest tests/test_08_ui.py -x
    ```
 
 3. **Mock-Strategien anpassen**:
+
    ```python
    @patch('module.external_dependency')
    def test_with_mock(self, mock_dep):

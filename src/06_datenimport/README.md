@@ -21,7 +21,7 @@ Nach diesem Modul können Sie:
 
 ## 📋 Modulstruktur
 
-```
+```text
 src/06_datenimport/
 ├── README.md                           # Diese Datei - Übersicht und Dokumentation
 ├── datenimport_tutorial.ipynb          # Interaktives Jupyter Tutorial
@@ -36,6 +36,7 @@ src/06_datenimport/
 ## 🚀 Schnellstart
 
 ### 1. Basis-Setup
+
 ```python
 import pandas as pd
 import numpy as np
@@ -47,6 +48,7 @@ pd.set_option('display.max_rows', 10)
 ```
 
 ### 2. Einfacher CSV-Import
+
 ```python
 # Standard CSV
 df = pd.read_csv('datei.csv')
@@ -60,6 +62,7 @@ df = pd.read_csv('datei.csv',
 ```
 
 ### 3. Bystronic CSV-Parser verwenden
+
 ```python
 from src.datenimport.beispiele.bystronic_csv_parser import BystronicCSVParser
 
@@ -71,6 +74,7 @@ metadata = result['metadata']
 ```
 
 ### 4. Excel Multi-Sheet Verarbeitung
+
 ```python
 # Alle Arbeitsblätter laden
 excel_data = pd.read_excel('bystronic_data.xlsx', sheet_name=None)
@@ -80,6 +84,7 @@ production_df = pd.read_excel('data.xlsx', sheet_name='Produktion')
 ```
 
 ### 5. JSON-Daten normalisieren
+
 ```python
 import json
 
@@ -98,6 +103,7 @@ df = pd.json_normalize(data['sensors'],
 ### CSV-Import mit Problembehandlung
 
 **Automatische Trennzeichen-Erkennung:**
+
 ```python
 from src.datenimport.beispiele.csv_import_grundlagen import csv_import_beispiele
 
@@ -111,6 +117,7 @@ df_tab = dataframes['tab']              # Tab-getrennt
 ```
 
 **Encoding-Probleme lösen:**
+
 ```python
 from src.datenimport.beispiele.csv_import_grundlagen import csv_probleme_loesen
 
@@ -124,7 +131,8 @@ csv_probleme_loesen()
 ### Bystronic CSV-Parser für komplexe Strukturen
 
 **V084_Scope.csv Format:**
-```
+
+```text
 Zeile 1-6:    Metadaten (Name, File, Timestamps)
 Zeile 7:      Header mit "Name\tSpalte1\tName\tSpalte2..."
 Zeile 8-21:   Zusätzliche Metadaten (Data-Type, etc.)
@@ -132,6 +140,7 @@ Zeile 22+:    Messdaten
 ```
 
 **Parser verwenden:**
+
 ```python
 from src.datenimport.beispiele.bystronic_csv_parser import BystronicCSVParser
 
@@ -249,6 +258,7 @@ main()  # Startet interaktive Übungen mit 5 Aufgaben
 ```
 
 **Übungsinhalt:**
+
 1. **Grundlegender CSV-Import** - Standard-Dateien laden
 2. **Verschiedene Trennzeichen** - Komma, Semikolon, Tab
 3. **Fehlende Werte behandeln** - dropna(), fillna() Strategien
@@ -274,7 +284,6 @@ df = pd.concat(chunks, ignore_index=True)
 ### Datentyp-Optimierung
 
 ```python
-# Memory-effiziente Datentypen
 dtypes = {
     'ID': 'int32',           # Statt int64
     'Kategorie': 'category',  # Für wiederkehrende Strings
@@ -398,17 +407,20 @@ print(f"✅ Pipeline abgeschlossen: {report['processed_rows']:,} Zeilen verarbei
 ## 📚 Weiterführende Ressourcen
 
 ### Offizielle Dokumentation
+
 - [Pandas I/O Documentation](https://pandas.pydata.org/docs/user_guide/io.html)
 - [NumPy Data Types](https://numpy.org/doc/stable/user/basics.types.html)
 - [JSON Documentation](https://docs.python.org/3/library/json.html)
 - [Requests Library](https://requests.readthedocs.io/)
 
 ### Performance & Best Practices
+
 - [Pandas Performance Tips](https://pandas.pydata.org/docs/user_guide/enhancingperf.html)
 - [Memory Usage Optimization](https://pandas.pydata.org/docs/user_guide/scale.html)
 - [Data Validation Patterns](https://pandas.pydata.org/docs/user_guide/missing_data.html)
 
 ### Industrielle Datenverarbeitung
+
 - [Time Series Analysis](https://pandas.pydata.org/docs/user_guide/timeseries.html)
 - [Working with Large Datasets](https://pandas.pydata.org/docs/user_guide/scale.html)
 - [Data Quality Assessment](https://github.com/pandas-profiling/pandas-profiling)
