@@ -76,7 +76,7 @@ Nach dem Abschluss dieses Kurses werden Sie in der Lage sein:
 
 ### 7. Einfache Benutzeroberflächen
 
-- Tkinter Grundlagen
+- PyQt/PySide Grundlagen
 - Streamlit für Daten-Apps
 - Plotly Dash für Dashboards
 

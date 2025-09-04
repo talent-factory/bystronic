@@ -13,7 +13,7 @@ Dieses Modul behandelt den professionellen Import und Export von Daten in versch
 Nach diesem Modul können Sie:
 
 - **CSV-Dateien mit komplexen Strukturen** importieren und verarbeiten
-- **Excel-Dateien mit mehreren Arbeitsblättern** effizient handhaben  
+- **Excel-Dateien mit mehreren Arbeitsblättern** effizient handhaben
 - **JSON-Daten aus Dateien und APIs** laden und normalisieren
 - **Datenqualität systematisch prüfen** und verbessern
 - **Daten in verschiedenen Formaten exportieren** und dokumentieren
@@ -52,7 +52,7 @@ pd.set_option('display.max_rows', 10)
 df = pd.read_csv('datei.csv')
 
 # Mit spezifischen Parametern
-df = pd.read_csv('datei.csv', 
+df = pd.read_csv('datei.csv',
                 sep=';',           # Semikolon-getrennt
                 decimal=',',       # Deutsches Dezimalformat
                 encoding='utf-8',  # Encoding explizit
@@ -88,8 +88,8 @@ with open('sensor_data.json', 'r') as f:
     data = json.load(f)
 
 # Zu DataFrame normalisieren
-df = pd.json_normalize(data['sensors'], 
-                      record_path='readings', 
+df = pd.json_normalize(data['sensors'],
+                      record_path='readings',
                       meta=['id', 'type'])
 ```
 
@@ -116,7 +116,7 @@ from src.datenimport.beispiele.csv_import_grundlagen import csv_probleme_loesen
 
 # Behandelt automatisch:
 # - Fehlende Werte
-# - Gemischte Trennzeichen  
+# - Gemischte Trennzeichen
 # - Encoding-Probleme (UTF-8, Latin-1, CP1252)
 csv_probleme_loesen()
 ```
@@ -126,7 +126,7 @@ csv_probleme_loesen()
 **V084_Scope.csv Format:**
 ```
 Zeile 1-6:    Metadaten (Name, File, Timestamps)
-Zeile 7:      Header mit "Name\tSpalte1\tName\tSpalte2..."  
+Zeile 7:      Header mit "Name\tSpalte1\tName\tSpalte2..."
 Zeile 8-21:   Zusätzliche Metadaten (Data-Type, etc.)
 Zeile 22+:    Messdaten
 ```
@@ -174,18 +174,18 @@ print(f"Durchschnittliche Verfügbarkeit: {kpis['avg_availability']:.1f}%")
 def clean_production_data(df):
     """Umfassende Bereinigung von Produktionsdaten"""
     df_clean = df.copy()
-    
+
     # 1. Duplikate entfernen
     df_clean = df_clean.drop_duplicates()
-    
+
     # 2. Unrealistische Werte korrigieren
     df_clean.loc[df_clean['Produktion'] < 0, 'Produktion'] = 0
     df_clean.loc[df_clean['Verfügbarkeit'] > 100, 'Verfügbarkeit'] = 100
-    
+
     # 3. Extreme Temperaturen behandeln
     extreme_temp = (df_clean['Temperatur'] < -50) | (df_clean['Temperatur'] > 200)
     df_clean.loc[extreme_temp, 'Temperatur'] = np.nan
-    
+
     # 4. Fehlende Werte mit sinnvollen Defaults ersetzen
     numeric_cols = df_clean.select_dtypes(include=[np.number]).columns
     for col in numeric_cols:
@@ -193,7 +193,7 @@ def clean_production_data(df):
             df_clean[col].fillna(df_clean[col].median(), inplace=True)
         elif col == 'Temperatur':
             df_clean[col].fillna(df_clean[col].mean(), inplace=True)
-    
+
     return df_clean
 ```
 
@@ -203,13 +203,13 @@ def clean_production_data(df):
 def export_comprehensive(df, base_name, formats=['csv', 'excel', 'json']):
     """Exportiert DataFrame in verschiedene Formate mit Metadaten"""
     exported_files = []
-    
+
     # CSV Export
     if 'csv' in formats:
         csv_file = f"{base_name}.csv"
         df.to_csv(csv_file, index=False, encoding='utf-8')
         exported_files.append(csv_file)
-    
+
     # Excel Export mit Statistiken
     if 'excel' in formats:
         excel_file = f"{base_name}.xlsx"
@@ -217,7 +217,7 @@ def export_comprehensive(df, base_name, formats=['csv', 'excel', 'json']):
             df.to_excel(writer, sheet_name='Daten', index=False)
             df.describe().to_excel(writer, sheet_name='Statistiken')
         exported_files.append(excel_file)
-    
+
     # JSON Export mit Metadaten
     if 'json' in formats:
         json_file = f"{base_name}.json"
@@ -229,11 +229,11 @@ def export_comprehensive(df, base_name, formats=['csv', 'excel', 'json']):
             },
             'data': df.to_dict('records')
         }
-        
+
         with open(json_file, 'w', encoding='utf-8') as f:
             json.dump(export_data, f, indent=2, default=str, ensure_ascii=False)
         exported_files.append(json_file)
-    
+
     return exported_files
 ```
 
@@ -298,7 +298,7 @@ def safe_csv_import(file_path):
     """Sicherer CSV-Import mit Fallback-Strategien"""
     encodings = ['utf-8', 'latin-1', 'cp1252']
     separators = [',', ';', '\t']
-    
+
     for encoding in encodings:
         for sep in separators:
             try:
@@ -308,7 +308,7 @@ def safe_csv_import(file_path):
                     return df
             except Exception:
                 continue
-    
+
     raise ValueError(f"❌ Konnte Datei nicht laden: {file_path}")
 ```
 
@@ -318,23 +318,23 @@ def safe_csv_import(file_path):
 def validate_industrial_data(df):
     """Validiert Industriedaten auf Plausibilität"""
     issues = []
-    
+
     # Negative Produktionswerte
     if 'Produktion' in df.columns and (df['Produktion'] < 0).any():
         issues.append("Negative Produktionswerte gefunden")
-    
+
     # Unrealistische Temperaturen
     if 'Temperatur' in df.columns:
         temp_range = df['Temperatur'].dropna()
         if len(temp_range) > 0 and (temp_range.min() < -50 or temp_range.max() > 200):
             issues.append("Unrealistische Temperaturwerte")
-    
+
     # Verfügbarkeit außerhalb 0-100%
     if 'Verfügbarkeit' in df.columns:
         avail_range = df['Verfügbarkeit'].dropna()
         if len(avail_range) > 0 and (avail_range.min() < 0 or avail_range.max() > 100):
             issues.append("Verfügbarkeit außerhalb gültigen Bereichs")
-    
+
     return issues
 ```
 
@@ -358,27 +358,27 @@ pytest tests/test_06_datenimport.py --cov=src.datenimport --cov-report=html
 ```python
 def bystronic_data_pipeline(input_file, output_dir):
     """Vollständige Pipeline für Bystronic-Datenverarbeitung"""
-    
+
     # 1. Import mit speziellem Parser
     parser = BystronicCSVParser()
     result = parser.parse_complex_csv(input_file)
     df_raw = result['dataframe']
-    
+
     # 2. Datenqualität prüfen
     quality_issues = validate_industrial_data(df_raw)
     if quality_issues:
         print(f"⚠️ Qualitätsprobleme: {quality_issues}")
-    
+
     # 3. Daten bereinigen
     df_clean = clean_production_data(df_raw)
-    
+
     # 4. KPIs berechnen
     kpis = calculate_production_kpis(df_clean)
-    
+
     # 5. Ergebnisse exportieren
     base_name = Path(output_dir) / "processed_data"
     exported_files = export_comprehensive(df_clean, base_name)
-    
+
     # 6. Bericht generieren
     report = {
         'input_file': input_file,
@@ -387,7 +387,7 @@ def bystronic_data_pipeline(input_file, output_dir):
         'kpis': kpis,
         'exported_files': exported_files
     }
-    
+
     return report
 
 # Verwendung
@@ -418,7 +418,7 @@ print(f"✅ Pipeline abgeschlossen: {report['processed_rows']:,} Zeilen verarbei
 Nach erfolgreichem Abschluss dieses Moduls sind Sie bereit für:
 
 - **Modul 07**: Jupyter Notebooks für interaktive Datenanalyse
-- **Modul 08**: GUI-Entwicklung mit Tkinter und Streamlit  
+- **Modul 08**: GUI-Entwicklung mit PyQt/PySide und Streamlit
 - **Modul 09**: Vollständige Praxisprojekte mit echter Datenverarbeitung
 
 ---

@@ -42,7 +42,7 @@ Das Projekt ist in thematische Module unter `src/` unterteilt:
 - `src/05_visualisierung/` - Matplotlib, Seaborn, Plotly
 - `src/06_datenimport/` - CSV, Excel, JSON, APIs
 - `src/07_jupyter/` - Jupyter Notebooks
-- `src/08_ui/` - Tkinter, Streamlit, Dash
+- `src/08_ui/` - PyQt/PySide, Streamlit, Dash
 - `src/09_projekte/` - Praxisprojekte
 
 Zusätzliche Verzeichnisse:
