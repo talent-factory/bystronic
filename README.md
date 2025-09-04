@@ -1,6 +1,8 @@
 # Python Programmierung Grundkurs - Bystronic
 
-Dieses Projekt bietet eine umfassende Einführung in die Python-Programmierung für Bystronic-Entwickler. Der Kurs konzentriert sich auf praktische Anwendungen und die Datenanalyse.
+Dieses Projekt bietet eine umfassende Einführung in die Python-Programmierung
+für Bystronic-Entwickler. Der Kurs konzentriert sich auf praktische Anwendungen
+und die Datenanalyse.
 
 ## 🎯 Kursziele
 
@@ -76,7 +78,7 @@ Nach dem Abschluss dieses Kurses werden Sie in der Lage sein:
 
 ### 7. Einfache Benutzeroberflächen
 
-- Tkinter Grundlagen
+- PyQt/PySide Grundlagen
 - Streamlit für Daten-Apps
 - Plotly Dash für Dashboards
 
@@ -152,14 +154,14 @@ Lernen Sie, wie Sie moderne KI-Tools für die Programmierung nutzen:
 
 ## 📈 Warum Python statt VBA?
 
-| Aspekt | VBA | Python |
-|--------|-----|--------|
-| Performance | Langsam | Sehr schnell |
-| Libraries | Begrenzt | Riesiges Ökosystem |
-| Plattform | Windows/Office | Plattformunabhängig |
-| Community | Klein | Sehr grosse, aktive Community |
-| Zukunftssicherheit | Begrenzt | Sehr hoch |
-| Datenanalyse | Grundlegend | Professionelle Tools |
+| Aspekt             | VBA            | Python                        |
+| ------------------ | -------------- | ----------------------------- |
+| Performance        | Langsam        | Sehr schnell                  |
+| Libraries          | Begrenzt       | Riesiges Ökosystem            |
+| Plattform          | Windows/Office | Plattformunabhängig           |
+| Community          | Klein          | Sehr grosse, aktive Community |
+| Zukunftssicherheit | Begrenzt       | Sehr hoch                     |
+| Datenanalyse       | Grundlegend    | Professionelle Tools          |
 
 ## 🎯 Nach dem Kurs
 
@@ -178,6 +180,6 @@ Sie werden in der Lage sein:
 - **Beispiele**: Alle Kapitel-Ordner
 - **Hilfe**: Issues in diesem Repository
 
----
+______________________________________________________________________
 
 ## Viel Erfolg beim Lernen von Python! 🐍

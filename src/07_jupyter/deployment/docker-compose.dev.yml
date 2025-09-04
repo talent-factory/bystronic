@@ -1,0 +1,24 @@
+version: '3.8'
+
+# Development-spezifische Overrides
+services:
+  jupyter:
+    environment:
+      - JUPYTER_TOKEN=dev-token-bystronic
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_LOG_LEVEL=DEBUG
+    volumes:
+      - ../beispiele:/home/jovyan/work/beispiele
+      - ../uebungen:/home/jovyan/work/uebungen
+      - ../../data:/home/jovyan/work/data
+    ports:
+      - "8888:8888"
+    command: ["start-notebook.sh",
+              "--NotebookApp.token=dev-token-bystronic",
+              "--NotebookApp.allow_root=True",
+              "--NotebookApp.disable_check_xsrf=True"]
+
+  # Nginx für Development deaktiviert
+  nginx:
+    profiles:
+      - disabled

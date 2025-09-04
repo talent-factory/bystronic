@@ -1,0 +1,8 @@
+Maschine;Produktion;Temperatur;Verfuegbarkeit
+Alpha;1000;22.5;95.0
+Beta;;23.1;88.5
+Gamma;1200;-999;92.0
+Delta;800;24.2;
+Alpha;1500;25.8;120.5
+Beta;FEHLER;21.3;85.2
+Gamma;900;0;75.0

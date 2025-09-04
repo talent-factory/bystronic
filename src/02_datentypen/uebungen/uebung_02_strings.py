@@ -62,14 +62,7 @@ def aufgabe_2_string_formatierung():
     print("-" * 40)
 
     # Gegeben: Produktionsdaten
-    datum = datetime.date.today()
-    mitarbeiter = "Max Mustermann"
-    schicht = "Tagschicht"
-    maschine = "LASER_001"
-    teile_soll = 1200
-    teile_ist = 1147
-    laufzeit = 7.75  # Stunden
-    kosten_pro_teil = 15.847  # Euro
+    datetime.date.today()
 
     # TODO: Erstellen Sie einen Produktionsbericht mit verschiedenen Formatierungsmethoden:
 
@@ -100,11 +93,6 @@ def aufgabe_2_string_formatierung():
     # TODO: Erweiterte Formatierung
     # Erstellen Sie eine Tabelle mit rechtsbündigen Zahlen:
     # Spalten: Tag, Soll, Ist, Effizienz%, Kosten€
-    wochendaten = [
-        ("Montag", 1200, 1147, 95.6, 17245.50),
-        ("Dienstag", 1200, 1203, 100.3, 18098.25),
-        ("Mittwoch", 1200, 1089, 90.8, 16387.75),
-    ]
 
     print("\n4. Tabellenformatierung:")
     print("-" * 50)
@@ -178,21 +166,21 @@ def aufgabe_3_string_validierung():
 
     # TODO: Testen Sie Ihre Validierungsfunktionen
     print("Teilenummern-Validierung:")
-    for nummer in test_teilenummern:
+    for _nummer in test_teilenummern:
         # gueltig = ist_gueltige_teilenummer(nummer)
         # status = "✅ Gültig" if gueltig else "❌ Ungültig"
         # print(f"  '{nummer}': {status}")
         pass
 
     print("\nE-Mail Validierung:")
-    for email in test_emails:
+    for _email in test_emails:
         # gueltig = ist_gueltige_email(email)
         # status = "✅ Gültig" if gueltig else "❌ Ungültig"
         # print(f"  '{email}': {status}")
         pass
 
     print("\nMaschinennummern-Validierung:")
-    for maschine in test_maschinen:
+    for _maschine in test_maschinen:
         # gueltig = ist_gueltige_maschinennummer(maschine)
         # status = "✅ Gültig" if gueltig else "❌ Ungültig"
         # print(f"  '{maschine}': {status}")
@@ -241,8 +229,8 @@ def aufgabe_4_dateinamen_verwaltung():
     maschinen = ["LASER_001", "PRESSE_142", "CNC_099"]
     schichten = [("T", "Tag"), ("N", "Nacht"), ("S", "Spät")]
 
-    for maschine in maschinen:
-        for schicht_code, schicht_name in schichten:
+    for _maschine in maschinen:
+        for _schicht_code, _schicht_name in schichten:
             # dateiname = generiere_produktionsdatei(maschine, heute, schicht_code)
             # print(f"  {maschine} - {schicht_name}: {dateiname}")
             pass
@@ -250,7 +238,7 @@ def aufgabe_4_dateinamen_verwaltung():
     print(f"\nBackup-Pfade für {heute}:")
     basis_pfade = ["/data", "C:\\Bystronic\\Data", "\\\\server\\produktionsdaten"]
 
-    for pfad in basis_pfade:
+    for _pfad in basis_pfade:
         # backup_pfad = generiere_backup_pfad(pfad, heute)
         # print(f"  {pfad} -> {backup_pfad}")
         pass
@@ -263,7 +251,7 @@ def aufgabe_4_dateinamen_verwaltung():
         "INVALID_LOG_FILE.log",
     ]
 
-    for log_datei in log_dateien:
+    for _log_datei in log_dateien:
         # info = parse_log_datei(log_datei)
         # if info:
         #     print(f"  {log_datei}: Maschine={info['maschine']}, Datum={info['datum']}, Zeit={info['zeit']}")
@@ -280,33 +268,6 @@ def aufgabe_5_bericht_generierung():
     print("-" * 40)
 
     # Gegeben: Produktionsdaten der letzten Woche
-    wochendaten = {
-        "kw": 11,
-        "jahr": 2024,
-        "abteilung": "Fertigung Halle A",
-        "maschinen": {
-            "LASER_001": {
-                "typ": "ByStar Fiber 6kW",
-                "tage": {
-                    "Montag": {"teile": 145, "laufzeit": 7.5, "ausschuss": 3},
-                    "Dienstag": {"teile": 152, "laufzeit": 7.8, "ausschuss": 2},
-                    "Mittwoch": {"teile": 138, "laufzeit": 7.2, "ausschuss": 5},
-                    "Donnerstag": {"teile": 160, "laufzeit": 8.0, "ausschuss": 1},
-                    "Freitag": {"teile": 147, "laufzeit": 7.6, "ausschuss": 4},
-                },
-            },
-            "PRESSE_001": {
-                "typ": "Xpert Pro 150t",
-                "tage": {
-                    "Montag": {"teile": 89, "laufzeit": 6.8, "ausschuss": 7},
-                    "Dienstag": {"teile": 95, "laufzeit": 7.2, "ausschuss": 5},
-                    "Mittwoch": {"teile": 87, "laufzeit": 6.5, "ausschuss": 8},
-                    "Donnerstag": {"teile": 102, "laufzeit": 7.8, "ausschuss": 3},
-                    "Freitag": {"teile": 91, "laufzeit": 7.0, "ausschuss": 6},
-                },
-            },
-        },
-    }
 
     # TODO: Implementieren Sie Funktionen zur Bericht-Generierung:
 
@@ -367,12 +328,6 @@ def bonus_aufgabe_csv_parser():
     print("-" * 40)
 
     # Gegeben: CSV-Daten als String
-    csv_daten = """Teilnummer;Material;Dicke;Anzahl;Status;Kosten
-BSF-6000-001;Stahl;2.5;150;OK;2250.00
-BSF-6000-002;Aluminium;3.0;120;OK;1800.00
-BSF-6000-003;Edelstahl;1.5;200;Fehler;0.00
-BSF-6000-004;Kupfer;2.0;80;OK;1600.00
-BSF-6000-005;Stahl;2.5;175;OK;2625.00"""
 
     # TODO: Implementieren Sie einen einfachen CSV-Parser:
 
@@ -548,7 +503,7 @@ def filtere_daten(daten, feld, wert):
 def berechne_statistik(daten):
     ok_anzahl = len([d for d in daten if d.get("Status") == "OK"])
     gesamt_anzahl = len(daten)
-    materialien = set(d.get("Material", "") for d in daten)
+    materialien = {d.get("Material", "") for d in daten}
 
     return {
         "gesamt": gesamt_anzahl,
