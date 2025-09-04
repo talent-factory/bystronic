@@ -17,16 +17,12 @@ Starten mit: streamlit run uebung_03_dashboard.py
 Autor: Python Grundkurs für Bystronic-Entwickler
 """
 
-
 import pandas as pd
 import streamlit as st
 
 # Seitenkonfiguration
-st.set_page_config(
-    page_title="Übung 3: Dashboard",
-    page_icon="📊",
-    layout="wide"
-)
+st.set_page_config(page_title="Übung 3: Dashboard", page_icon="📊", layout="wide")
+
 
 # TODO: Aufgabe 1 - Implementieren Sie die Dateninitialisierung
 def init_session_state():
@@ -37,6 +33,7 @@ def init_session_state():
     # - 'dashboard_active' als False
     # - 'current_shift' als 1
     pass
+
 
 # TODO: Aufgabe 2 - Implementieren Sie die Datengenerierung
 @st.cache_data(ttl=10)  # Cache für 10 Sekunden
@@ -79,6 +76,7 @@ def generate_sample_data():
     # Für jetzt: leeres DataFrame zurückgeben
     return pd.DataFrame()
 
+
 def main():
     """Hauptfunktion der Streamlit-App."""
 
@@ -109,6 +107,7 @@ def main():
     elif page == "📝 Logs":
         show_logs_page()
 
+
 # TODO: Aufgabe 6 - Implementieren Sie die Übersichtsseite
 def show_overview_page():
     """Zeigt die Dashboard-Übersicht."""
@@ -118,8 +117,12 @@ def show_overview_page():
     df = generate_sample_data()
 
     if df.empty:
-        st.warning("⚠️ Keine Daten verfügbar. Implementieren Sie zuerst die Datengenerierung!")
-        st.info("💡 Tipp: Entkommentieren Sie den Code in der generate_sample_data() Funktion")
+        st.warning(
+            "⚠️ Keine Daten verfügbar. Implementieren Sie zuerst die Datengenerierung!"
+        )
+        st.info(
+            "💡 Tipp: Entkommentieren Sie den Code in der generate_sample_data() Funktion"
+        )
         return
 
     # TODO: Aufgabe 6a - KPI-Metriken implementieren
@@ -169,6 +172,7 @@ def show_overview_page():
     # fig = px.line(df, x='timestamp', y='efficiency', color='machine',
     #               title='Effizienz-Verlauf nach Maschine')
     # st.plotly_chart(fig, use_container_width=True)
+
 
 # TODO: Aufgabe 7 - Implementieren Sie die Visualisierungsseite
 def show_visualization_page():
@@ -238,6 +242,7 @@ def show_visualization_page():
     # st.write(f"**Gefilterte Daten:** {len(filtered_advanced)} von {len(filtered_df)} Einträgen")
     # st.dataframe(filtered_advanced.head(10), use_container_width=True)
 
+
 # TODO: Aufgabe 8 - Implementieren Sie die Einstellungsseite
 def show_settings_page():
     """Zeigt Einstellungen und Konfiguration."""
@@ -295,6 +300,7 @@ def show_settings_page():
     #         st.success("Export vorbereitet!")
     #     else:
     #         st.error("Keine Daten zum Exportieren!")
+
 
 # TODO: Aufgabe 9 - Implementieren Sie die Logs-Seite
 def show_logs_page():

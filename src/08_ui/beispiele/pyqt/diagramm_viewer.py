@@ -79,22 +79,22 @@ class MaschinendatenPlot(FigureCanvas):
         self.ax4 = self.figure.add_subplot(2, 2, 4)  # Leistung
 
         # Plot-Titel und Labels
-        self.ax1.set_title('Temperatur [°C]', fontweight='bold')
-        self.ax1.set_ylabel('Temperatur [°C]')
+        self.ax1.set_title("Temperatur [°C]", fontweight="bold")
+        self.ax1.set_ylabel("Temperatur [°C]")
         self.ax1.grid(True, alpha=0.3)
 
-        self.ax2.set_title('Druck [bar]', fontweight='bold')
-        self.ax2.set_ylabel('Druck [bar]')
+        self.ax2.set_title("Druck [bar]", fontweight="bold")
+        self.ax2.set_ylabel("Druck [bar]")
         self.ax2.grid(True, alpha=0.3)
 
-        self.ax3.set_title('Schnittgeschwindigkeit [m/min]', fontweight='bold')
-        self.ax3.set_ylabel('Geschwindigkeit [m/min]')
-        self.ax3.set_xlabel('Zeit')
+        self.ax3.set_title("Schnittgeschwindigkeit [m/min]", fontweight="bold")
+        self.ax3.set_ylabel("Geschwindigkeit [m/min]")
+        self.ax3.set_xlabel("Zeit")
         self.ax3.grid(True, alpha=0.3)
 
-        self.ax4.set_title('Leistungsaufnahme [kW]', fontweight='bold')
-        self.ax4.set_ylabel('Leistung [kW]')
-        self.ax4.set_xlabel('Zeit')
+        self.ax4.set_title("Leistungsaufnahme [kW]", fontweight="bold")
+        self.ax4.set_ylabel("Leistung [kW]")
+        self.ax4.set_xlabel("Zeit")
         self.ax4.grid(True, alpha=0.3)
 
         # Layout optimieren
@@ -131,11 +131,19 @@ class MaschinendatenPlot(FigureCanvas):
         self.ax4.clear()
 
         # Temperatur-Plot
-        self.ax1.plot(self.timestamps, self.temperature_data, 'r-', linewidth=2, label='Temperatur')
-        self.ax1.axhline(y=70, color='orange', linestyle='--', alpha=0.7, label='Warnung')
-        self.ax1.axhline(y=80, color='red', linestyle='--', alpha=0.7, label='Kritisch')
-        self.ax1.set_title('Temperatur [°C]', fontweight='bold')
-        self.ax1.set_ylabel('Temperatur [°C]')
+        self.ax1.plot(
+            self.timestamps,
+            self.temperature_data,
+            "r-",
+            linewidth=2,
+            label="Temperatur",
+        )
+        self.ax1.axhline(
+            y=70, color="orange", linestyle="--", alpha=0.7, label="Warnung"
+        )
+        self.ax1.axhline(y=80, color="red", linestyle="--", alpha=0.7, label="Kritisch")
+        self.ax1.set_title("Temperatur [°C]", fontweight="bold")
+        self.ax1.set_ylabel("Temperatur [°C]")
         self.ax1.grid(True, alpha=0.3)
         self.ax1.legend()
 
@@ -146,11 +154,17 @@ class MaschinendatenPlot(FigureCanvas):
             self.ax1.set_ylim(temp_min - padding, temp_max + padding)
 
         # Druck-Plot
-        self.ax2.plot(self.timestamps, self.pressure_data, 'b-', linewidth=2, label='Druck')
-        self.ax2.axhline(y=6, color='red', linestyle='--', alpha=0.7, label='Min. Druck')
-        self.ax2.axhline(y=10, color='red', linestyle='--', alpha=0.7, label='Max. Druck')
-        self.ax2.set_title('Druck [bar]', fontweight='bold')
-        self.ax2.set_ylabel('Druck [bar]')
+        self.ax2.plot(
+            self.timestamps, self.pressure_data, "b-", linewidth=2, label="Druck"
+        )
+        self.ax2.axhline(
+            y=6, color="red", linestyle="--", alpha=0.7, label="Min. Druck"
+        )
+        self.ax2.axhline(
+            y=10, color="red", linestyle="--", alpha=0.7, label="Max. Druck"
+        )
+        self.ax2.set_title("Druck [bar]", fontweight="bold")
+        self.ax2.set_ylabel("Druck [bar]")
         self.ax2.grid(True, alpha=0.3)
         self.ax2.legend()
 
@@ -160,26 +174,32 @@ class MaschinendatenPlot(FigureCanvas):
             self.ax2.set_ylim(max(0, press_min - padding), press_max + padding)
 
         # Geschwindigkeits-Plot
-        self.ax3.plot(self.timestamps, self.speed_data, 'g-', linewidth=2, label='Geschwindigkeit')
-        self.ax3.axhline(y=2.0, color='orange', linestyle='--', alpha=0.7, label='Optimal')
-        self.ax3.set_title('Schnittgeschwindigkeit [m/min]', fontweight='bold')
-        self.ax3.set_ylabel('Geschwindigkeit [m/min]')
-        self.ax3.set_xlabel('Zeit')
+        self.ax3.plot(
+            self.timestamps, self.speed_data, "g-", linewidth=2, label="Geschwindigkeit"
+        )
+        self.ax3.axhline(
+            y=2.0, color="orange", linestyle="--", alpha=0.7, label="Optimal"
+        )
+        self.ax3.set_title("Schnittgeschwindigkeit [m/min]", fontweight="bold")
+        self.ax3.set_ylabel("Geschwindigkeit [m/min]")
+        self.ax3.set_xlabel("Zeit")
         self.ax3.grid(True, alpha=0.3)
         self.ax3.legend()
 
         # Leistungs-Plot
-        self.ax4.plot(self.timestamps, self.power_data, 'm-', linewidth=2, label='Leistung')
-        self.ax4.set_title('Leistungsaufnahme [kW]', fontweight='bold')
-        self.ax4.set_ylabel('Leistung [kW]')
-        self.ax4.set_xlabel('Zeit')
+        self.ax4.plot(
+            self.timestamps, self.power_data, "m-", linewidth=2, label="Leistung"
+        )
+        self.ax4.set_title("Leistungsaufnahme [kW]", fontweight="bold")
+        self.ax4.set_ylabel("Leistung [kW]")
+        self.ax4.set_xlabel("Zeit")
         self.ax4.grid(True, alpha=0.3)
         self.ax4.legend()
 
         # X-Achsen formatieren (nur Zeit anzeigen)
         for ax in [self.ax1, self.ax2, self.ax3, self.ax4]:
-            ax.xaxis.set_major_formatter(mdates.DateFormatter('%H:%M:%S'))
-            ax.tick_params(axis='x', rotation=45)
+            ax.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M:%S"))
+            ax.tick_params(axis="x", rotation=45)
 
         # Layout aktualisieren
         self.figure.tight_layout(pad=2.0)
@@ -215,56 +235,66 @@ class StatistikPlot(FigureCanvas):
 
         # Subplot 1: Produktionsverteilung
         ax1 = self.figure.add_subplot(2, 2, 1)
-        hours = ['06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00']
+        hours = ["06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00"]
         production = [20, 45, 52, 48, 55, 43, 25]
-        ax1.bar(hours, production, color='skyblue', alpha=0.7)
-        ax1.set_title('Stündliche Produktion')
-        ax1.set_ylabel('Teile pro Stunde')
-        ax1.tick_params(axis='x', rotation=45)
+        ax1.bar(hours, production, color="skyblue", alpha=0.7)
+        ax1.set_title("Stündliche Produktion")
+        ax1.set_ylabel("Teile pro Stunde")
+        ax1.tick_params(axis="x", rotation=45)
 
         # Subplot 2: Qualitätsverteilung
         ax2 = self.figure.add_subplot(2, 2, 2)
         quality_data = np.random.normal(98.5, 1.2, 100)
-        ax2.hist(quality_data, bins=20, alpha=0.7, color='lightgreen', edgecolor='black')
-        ax2.axvline(x=95, color='red', linestyle='--', label='Min. Qualität')
-        ax2.set_title('Qualitätsverteilung')
-        ax2.set_xlabel('Qualitätsindex [%]')
-        ax2.set_ylabel('Häufigkeit')
+        ax2.hist(
+            quality_data, bins=20, alpha=0.7, color="lightgreen", edgecolor="black"
+        )
+        ax2.axvline(x=95, color="red", linestyle="--", label="Min. Qualität")
+        ax2.set_title("Qualitätsverteilung")
+        ax2.set_xlabel("Qualitätsindex [%]")
+        ax2.set_ylabel("Häufigkeit")
         ax2.legend()
 
         # Subplot 3: Temperatur vs. Qualität
         ax3 = self.figure.add_subplot(2, 2, 3)
         temp_data = np.random.normal(65, 5, 50)
-        quality_corr = 100 - (temp_data - 65)**2 * 0.1 + np.random.normal(0, 0.5, 50)
-        ax3.scatter(temp_data, quality_corr, alpha=0.6, color='orange')
-        ax3.set_title('Temperatur vs. Qualität')
-        ax3.set_xlabel('Temperatur [°C]')
-        ax3.set_ylabel('Qualität [%]')
+        quality_corr = 100 - (temp_data - 65) ** 2 * 0.1 + np.random.normal(0, 0.5, 50)
+        ax3.scatter(temp_data, quality_corr, alpha=0.6, color="orange")
+        ax3.set_title("Temperatur vs. Qualität")
+        ax3.set_xlabel("Temperatur [°C]")
+        ax3.set_ylabel("Qualität [%]")
 
         # Trendlinie
         z = np.polyfit(temp_data, quality_corr, 2)
         p = np.poly1d(z)
         temp_sorted = np.sort(temp_data)
-        ax3.plot(temp_sorted, p(temp_sorted), "r--", alpha=0.8, label='Trend')
+        ax3.plot(temp_sorted, p(temp_sorted), "r--", alpha=0.8, label="Trend")
         ax3.legend()
 
         # Subplot 4: Maschinenauslastung
         ax4 = self.figure.add_subplot(2, 2, 4)
-        machines = ['Laser 1', 'Laser 2', 'Stanze 1', 'Biege-\nmaschine']
+        machines = ["Laser 1", "Laser 2", "Stanze 1", "Biege-\nmaschine"]
         utilization = [87, 92, 78, 65]
-        colors = ['red' if u < 70 else 'orange' if u < 85 else 'green' for u in utilization]
+        colors = [
+            "red" if u < 70 else "orange" if u < 85 else "green" for u in utilization
+        ]
 
         bars = ax4.bar(machines, utilization, color=colors, alpha=0.7)
-        ax4.set_title('Maschinenauslastung')
-        ax4.set_ylabel('Auslastung [%]')
+        ax4.set_title("Maschinenauslastung")
+        ax4.set_ylabel("Auslastung [%]")
         ax4.set_ylim(0, 100)
 
         # Werte auf Balken anzeigen
         for bar, value in zip(bars, utilization, strict=False):
-            ax4.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 1,
-                    f'{value}%', ha='center', va='bottom', fontweight='bold')
+            ax4.text(
+                bar.get_x() + bar.get_width() / 2,
+                bar.get_height() + 1,
+                f"{value}%",
+                ha="center",
+                va="bottom",
+                fontweight="bold",
+            )
 
-        ax4.tick_params(axis='x', rotation=45)
+        ax4.tick_params(axis="x", rotation=45)
 
         self.figure.tight_layout(pad=2.0)
         self.draw()
@@ -485,7 +515,8 @@ class DiagrammViewer(QMainWindow):
         layout = QVBoxLayout(tab)
 
         # Info-Label
-        info_label = QLabel("""
+        info_label = QLabel(
+            """
         Maschinenvergleich und Trend-Analyse
 
         Hier könnten verschiedene Maschinen verglichen werden:
@@ -496,13 +527,16 @@ class DiagrammViewer(QMainWindow):
 
         Diese Funktionalität würde in einer vollständigen Anwendung
         weitere Matplotlib-Plots mit komplexeren Datenquellen beinhalten.
-        """)
-        info_label.setStyleSheet("""
+        """
+        )
+        info_label.setStyleSheet(
+            """
             border: 2px solid #ccc;
             padding: 20px;
             background-color: #f9f9f9;
             font-size: 14px;
-        """)
+        """
+        )
         layout.addWidget(info_label)
 
         # Beispiel-Konfiguration
@@ -597,10 +631,12 @@ class DiagrammViewer(QMainWindow):
         report_group = QGroupBox("Bericht erstellen")
         report_layout = QVBoxLayout(report_group)
 
-        report_info = QLabel("""
+        report_info = QLabel(
+            """
         Automatische Berichtsgenerierung mit allen Diagrammen,
         Statistiken und Maschinendaten für Management-Präsentationen.
-        """)
+        """
+        )
         report_layout.addWidget(report_info)
 
         generate_report_button = QPushButton("PDF-Bericht erstellen")
@@ -652,9 +688,7 @@ class DiagrammViewer(QMainWindow):
         speed = max(0, base_speed + np.random.normal(0, 0.2))
         power = max(0, base_power + np.random.normal(0, 5))
 
-        self.realtime_plot.add_data_point(
-            datetime.now(), temp, pressure, speed, power
-        )
+        self.realtime_plot.add_data_point(datetime.now(), temp, pressure, speed, power)
 
     def add_manual_point(self):
         """Fügt einen manuellen Datenpunkt hinzu."""
@@ -663,43 +697,51 @@ class DiagrammViewer(QMainWindow):
         speed = self.speed_spin.value()
         power = self.power_spin.value()
 
-        self.realtime_plot.add_data_point(
-            datetime.now(), temp, pressure, speed, power
-        )
+        self.realtime_plot.add_data_point(datetime.now(), temp, pressure, speed, power)
 
         self.statusBar().showMessage("Manueller Datenpunkt hinzugefügt", 2000)
 
     def save_plot(self):
         """Speichert den aktuellen Plot als Bild."""
         filename, _ = QFileDialog.getSaveFileName(
-            self, "Plot speichern", "maschinendaten_plot.png",
-            "PNG Files (*.png);;PDF Files (*.pdf);;SVG Files (*.svg)"
+            self,
+            "Plot speichern",
+            "maschinendaten_plot.png",
+            "PNG Files (*.png);;PDF Files (*.pdf);;SVG Files (*.svg)",
         )
 
         if filename:
             try:
-                self.realtime_plot.figure.savefig(filename, dpi=300, bbox_inches='tight')
-                QMessageBox.information(self, "Export", f"Plot gespeichert als: {filename}")
+                self.realtime_plot.figure.savefig(
+                    filename, dpi=300, bbox_inches="tight"
+                )
+                QMessageBox.information(
+                    self, "Export", f"Plot gespeichert als: {filename}"
+                )
             except Exception as e:
                 QMessageBox.warning(self, "Fehler", f"Fehler beim Speichern: {e}")
 
     def save_data(self):
         """Speichert die aktuellen Daten als CSV."""
         if not self.realtime_plot.timestamps:
-            QMessageBox.information(self, "Info", "Keine Daten zum Speichern vorhanden.")
+            QMessageBox.information(
+                self, "Info", "Keine Daten zum Speichern vorhanden."
+            )
             return
 
         filename, _ = QFileDialog.getSaveFileName(
-            self, "Daten speichern", "maschinendaten.csv",
-            "CSV Files (*.csv)"
+            self, "Daten speichern", "maschinendaten.csv", "CSV Files (*.csv)"
         )
 
         if filename:
             try:
                 # Simulierter CSV-Export
-                QMessageBox.information(self, "Export",
+                QMessageBox.information(
+                    self,
+                    "Export",
                     f"Daten würden gespeichert werden in: {filename}\n"
-                    f"Datenpunkte: {len(self.realtime_plot.timestamps)}")
+                    f"Datenpunkte: {len(self.realtime_plot.timestamps)}",
+                )
             except Exception as e:
                 QMessageBox.warning(self, "Fehler", f"Fehler beim Speichern: {e}")
 
@@ -711,31 +753,42 @@ class DiagrammViewer(QMainWindow):
     def export_statistics(self):
         """Exportiert die Statistiken."""
         filename, _ = QFileDialog.getSaveFileName(
-            self, "Statistiken speichern", "statistiken.png",
-            "PNG Files (*.png);;PDF Files (*.pdf)"
+            self,
+            "Statistiken speichern",
+            "statistiken.png",
+            "PNG Files (*.png);;PDF Files (*.pdf)",
         )
 
         if filename:
             try:
-                self.statistics_plot.figure.savefig(filename, dpi=300, bbox_inches='tight')
-                QMessageBox.information(self, "Export", f"Statistiken gespeichert als: {filename}")
+                self.statistics_plot.figure.savefig(
+                    filename, dpi=300, bbox_inches="tight"
+                )
+                QMessageBox.information(
+                    self, "Export", f"Statistiken gespeichert als: {filename}"
+                )
             except Exception as e:
                 QMessageBox.warning(self, "Fehler", f"Fehler beim Exportieren: {e}")
 
     def create_comparison(self):
         """Erstellt einen Maschinenvergleich."""
-        QMessageBox.information(self, "Vergleich",
+        QMessageBox.information(
+            self,
+            "Vergleich",
             "Maschinenvergleich würde hier erstellt werden.\n"
             "In einer vollständigen Anwendung würde hier ein neuer\n"
-            "Plot mit den Vergleichsdaten generiert werden.")
+            "Plot mit den Vergleichsdaten generiert werden.",
+        )
 
     def export_current_plot(self):
         """Exportiert den aktuell angezeigten Plot."""
         current_tab = self.tab_widget.currentIndex()
 
         filename, _ = QFileDialog.getSaveFileName(
-            self, "Plot exportieren", f"plot_tab_{current_tab}.png",
-            f"{self.format_combo.currentText()} Files (*.{self.format_combo.currentText().lower()})"
+            self,
+            "Plot exportieren",
+            f"plot_tab_{current_tab}.png",
+            f"{self.format_combo.currentText()} Files (*.{self.format_combo.currentText().lower()})",
         )
 
         if filename:
@@ -745,14 +798,18 @@ class DiagrammViewer(QMainWindow):
                 elif current_tab == 1:  # Statistik-Tab
                     plot_widget = self.statistics_plot
                 else:
-                    QMessageBox.information(self, "Info", "Dieser Tab enthält keinen exportierbaren Plot.")
+                    QMessageBox.information(
+                        self, "Info", "Dieser Tab enthält keinen exportierbaren Plot."
+                    )
                     return
 
                 # DPI und Größe aus den Einstellungen verwenden
                 dpi = self.dpi_spin.value()
-                plot_widget.figure.savefig(filename, dpi=dpi, bbox_inches='tight')
+                plot_widget.figure.savefig(filename, dpi=dpi, bbox_inches="tight")
 
-                QMessageBox.information(self, "Export", f"Plot exportiert als: {filename}")
+                QMessageBox.information(
+                    self, "Export", f"Plot exportiert als: {filename}"
+                )
             except Exception as e:
                 QMessageBox.warning(self, "Fehler", f"Fehler beim Export: {e}")
 
@@ -765,44 +822,53 @@ class DiagrammViewer(QMainWindow):
                 # Echtzeit-Plot
                 self.realtime_plot.figure.savefig(
                     f"{folder}/echtzeit_daten.{self.format_combo.currentText().lower()}",
-                    dpi=self.dpi_spin.value(), bbox_inches='tight'
+                    dpi=self.dpi_spin.value(),
+                    bbox_inches="tight",
                 )
 
                 # Statistik-Plot
                 self.statistics_plot.figure.savefig(
                     f"{folder}/statistiken.{self.format_combo.currentText().lower()}",
-                    dpi=self.dpi_spin.value(), bbox_inches='tight'
+                    dpi=self.dpi_spin.value(),
+                    bbox_inches="tight",
                 )
 
-                QMessageBox.information(self, "Export", f"Alle Plots exportiert nach: {folder}")
+                QMessageBox.information(
+                    self, "Export", f"Alle Plots exportiert nach: {folder}"
+                )
             except Exception as e:
                 QMessageBox.warning(self, "Fehler", f"Fehler beim Export: {e}")
 
     def generate_pdf_report(self):
         """Generiert einen PDF-Bericht."""
         filename, _ = QFileDialog.getSaveFileName(
-            self, "PDF-Bericht speichern", "maschinendaten_bericht.pdf",
-            "PDF Files (*.pdf)"
+            self,
+            "PDF-Bericht speichern",
+            "maschinendaten_bericht.pdf",
+            "PDF Files (*.pdf)",
         )
 
         if filename:
-            QMessageBox.information(self, "Bericht",
+            QMessageBox.information(
+                self,
+                "Bericht",
                 f"PDF-Bericht würde erstellt werden: {filename}\n\n"
                 "Der Bericht würde enthalten:\n"
                 "• Alle aktuellen Diagramme\n"
                 "• Produktionsstatistiken\n"
                 "• Qualitätsmetriken\n"
                 "• Maschinenstatus\n"
-                "• Wartungsempfehlungen")
+                "• Wartungsempfehlungen",
+            )
 
 
 def main():
     """Hauptfunktion zum Starten der Anwendung."""
     app = QApplication(sys.argv)
-    app.setStyle('Fusion')
+    app.setStyle("Fusion")
 
     # Matplotlib-Style setzen
-    plt.style.use('default')
+    plt.style.use("default")
 
     # Hauptfenster erstellen
     window = DiagrammViewer()

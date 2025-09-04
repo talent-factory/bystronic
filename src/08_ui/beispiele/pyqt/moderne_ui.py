@@ -52,26 +52,26 @@ class ModernButton(QPushButton):
                 "bg": "#3498db",
                 "hover": "#2980b9",
                 "pressed": "#1f5582",
-                "text": "#ffffff"
+                "text": "#ffffff",
             },
             "success": {
                 "bg": "#2ecc71",
                 "hover": "#27ae60",
                 "pressed": "#1e7e34",
-                "text": "#ffffff"
+                "text": "#ffffff",
             },
             "danger": {
                 "bg": "#e74c3c",
                 "hover": "#c0392b",
                 "pressed": "#a93226",
-                "text": "#ffffff"
+                "text": "#ffffff",
             },
             "dark": {
                 "bg": "#34495e",
                 "hover": "#2c3e50",
                 "pressed": "#1a252f",
-                "text": "#ffffff"
-            }
+                "text": "#ffffff",
+            },
         }
 
         color = colors.get(self.color_scheme, colors["primary"])
@@ -79,8 +79,8 @@ class ModernButton(QPushButton):
         style = f"""
         QPushButton {{
             background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
-                stop:0 {color['bg']}, stop:1 {self.darken_color(color['bg'])});
-            color: {color['text']};
+                stop:0 {color["bg"]}, stop:1 {self.darken_color(color["bg"])});
+            color: {color["text"]};
             border: none;
             border-radius: 8px;
             padding: 12px 24px;
@@ -90,11 +90,11 @@ class ModernButton(QPushButton):
 
         QPushButton:hover {{
             background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
-                stop:0 {color['hover']}, stop:1 {self.darken_color(color['hover'])});
+                stop:0 {color["hover"]}, stop:1 {self.darken_color(color["hover"])});
         }}
 
         QPushButton:pressed {{
-            background: {color['pressed']};
+            background: {color["pressed"]};
         }}
 
         QPushButton:disabled {{
@@ -156,26 +156,30 @@ class ModernCard(QFrame):
 
         if title:
             title_label = QLabel(title)
-            title_label.setStyleSheet("""
+            title_label.setStyleSheet(
+                """
                 QLabel {
                     color: #ffffff;
                     font-size: 18px;
                     font-weight: bold;
                     margin-bottom: 10px;
                 }
-            """)
+            """
+            )
             layout.addWidget(title_label)
 
         if content:
             content_label = QLabel(content)
             content_label.setWordWrap(True)
-            content_label.setStyleSheet("""
+            content_label.setStyleSheet(
+                """
                 QLabel {
                     color: rgba(255, 255, 255, 0.9);
                     font-size: 14px;
                     line-height: 1.4;
                 }
-            """)
+            """
+            )
             layout.addWidget(content_label)
 
 
@@ -195,14 +199,16 @@ class ModernProgressBar(QWidget):
         # Label für Wert
         self.value_label = QLabel("0%")
         self.value_label.setAlignment(Qt.AlignCenter)
-        self.value_label.setStyleSheet("""
+        self.value_label.setStyleSheet(
+            """
             QLabel {
                 color: #ffffff;
                 font-size: 16px;
                 font-weight: bold;
                 margin-bottom: 10px;
             }
-        """)
+        """
+        )
         layout.addWidget(self.value_label)
 
         # Fortschrittsbalken
@@ -211,7 +217,8 @@ class ModernProgressBar(QWidget):
         self.progress_bar.setValue(self.value)
 
         # Modernes Styling
-        self.progress_bar.setStyleSheet("""
+        self.progress_bar.setStyleSheet(
+            """
             QProgressBar {
                 border: none;
                 border-radius: 10px;
@@ -225,7 +232,8 @@ class ModernProgressBar(QWidget):
                 background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
                     stop:0 #3498db, stop:0.5 #2ecc71, stop:1 #f39c12);
             }
-        """)
+        """
+        )
 
         layout.addWidget(self.progress_bar)
 
@@ -241,9 +249,7 @@ class ModernProgressBar(QWidget):
         self.animation.setEasingCurve(QEasingCurve.OutCubic)
 
         # Label während Animation aktualisieren
-        self.animation.valueChanged.connect(
-            lambda v: self.value_label.setText(f"{v}%")
-        )
+        self.animation.valueChanged.connect(lambda v: self.value_label.setText(f"{v}%"))
 
         self.animation.start()
 
@@ -267,7 +273,8 @@ class ModernSidebar(QWidget):
 
         # Header
         header = QLabel("Bystronic Dashboard")
-        header.setStyleSheet("""
+        header.setStyleSheet(
+            """
             QLabel {
                 background: rgba(52, 73, 94, 0.9);
                 color: #ffffff;
@@ -276,7 +283,8 @@ class ModernSidebar(QWidget):
                 font-weight: bold;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
-        """)
+        """
+        )
         layout.addWidget(header)
 
         # Navigation Items
@@ -285,7 +293,7 @@ class ModernSidebar(QWidget):
             ("📊", "Produktion", "production"),
             ("🔧", "Wartung", "maintenance"),
             ("📈", "Statistiken", "statistics"),
-            ("⚙️", "Einstellungen", "settings")
+            ("⚙️", "Einstellungen", "settings"),
         ]
 
         for icon, text, page_id in nav_items:
@@ -296,30 +304,35 @@ class ModernSidebar(QWidget):
 
         # User Info
         user_info = QLabel("👤 Benutzer: Admin")
-        user_info.setStyleSheet("""
+        user_info.setStyleSheet(
+            """
             QLabel {
                 background: rgba(52, 73, 94, 0.7);
                 color: rgba(255, 255, 255, 0.8);
                 padding: 15px;
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
-        """)
+        """
+        )
         layout.addWidget(user_info)
 
         # Sidebar-Hintergrund
-        self.setStyleSheet("""
+        self.setStyleSheet(
+            """
             QWidget {
                 background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
                     stop:0 rgba(44, 62, 80, 0.95),
                     stop:1 rgba(52, 73, 94, 0.95));
                 border-right: 1px solid rgba(255, 255, 255, 0.1);
             }
-        """)
+        """
+        )
 
     def create_nav_button(self, icon, text, page_id):
         """Erstellt einen Navigations-Button."""
         button = QPushButton(f"{icon}  {text}")
-        button.setStyleSheet("""
+        button.setStyleSheet(
+            """
             QPushButton {
                 background: transparent;
                 color: rgba(255, 255, 255, 0.9);
@@ -337,7 +350,8 @@ class ModernSidebar(QWidget):
             QPushButton:pressed {
                 background: rgba(255, 255, 255, 0.2);
             }
-        """)
+        """
+        )
 
         button.clicked.connect(lambda: self.page_changed.emit(page_id))
         return button
@@ -357,7 +371,8 @@ class ModernDashboard(QMainWindow):
 
     def setup_dark_theme(self):
         """Setzt das dunkle Theme."""
-        self.setStyleSheet("""
+        self.setStyleSheet(
+            """
             QMainWindow {
                 background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
                     stop:0 #2c3e50, stop:0.5 #34495e, stop:1 #2c3e50);
@@ -387,7 +402,8 @@ class ModernDashboard(QMainWindow):
             QScrollBar::handle:vertical:hover {
                 background: rgba(255, 255, 255, 0.5);
             }
-        """)
+        """
+        )
 
     def setup_ui(self):
         """Erstellt die Benutzeroberfläche."""
@@ -445,14 +461,16 @@ class ModernDashboard(QMainWindow):
 
         # Titel
         title = QLabel("🏠 Dashboard Übersicht")
-        title.setStyleSheet("""
+        title.setStyleSheet(
+            """
             QLabel {
                 color: #ffffff;
                 font-size: 28px;
                 font-weight: bold;
                 margin-bottom: 20px;
             }
-        """)
+        """
+        )
         layout.addWidget(title)
 
         # KPI-Karten Grid
@@ -464,7 +482,7 @@ class ModernDashboard(QMainWindow):
             ("Maschinenauslastung", "87%", "success"),
             ("Stückzahl/Stunde", "245", "primary"),
             ("Qualitätsindex", "98.5%", "success"),
-            ("Aktive Alarme", "2", "danger")
+            ("Aktive Alarme", "2", "danger"),
         ]
 
         self.kpi_cards = []
@@ -477,8 +495,7 @@ class ModernDashboard(QMainWindow):
 
         # Maschinenübersicht
         machines_card = ModernCard(
-            "🏭 Maschinenübersicht",
-            "Aktuelle Status der Produktionsmaschinen:"
+            "🏭 Maschinenübersicht", "Aktuelle Status der Produktionsmaschinen:"
         )
 
         machines_layout = QVBoxLayout()
@@ -488,7 +505,7 @@ class ModernDashboard(QMainWindow):
             ("Laser 1", 92, "Läuft"),
             ("Laser 2", 87, "Läuft"),
             ("Stanze 1", 0, "Wartung"),
-            ("Biegemaschine", 78, "Läuft")
+            ("Biegemaschine", 78, "Läuft"),
         ]
 
         for name, utilization, status in machines:
@@ -510,13 +527,15 @@ class ModernDashboard(QMainWindow):
 
         # Titel
         title_label = QLabel(title)
-        title_label.setStyleSheet("""
+        title_label.setStyleSheet(
+            """
             QLabel {
                 color: rgba(255, 255, 255, 0.8);
                 font-size: 14px;
                 margin-bottom: 10px;
             }
-        """)
+        """
+        )
         layout.addWidget(title_label)
 
         # Wert
@@ -525,27 +544,31 @@ class ModernDashboard(QMainWindow):
             "primary": "#3498db",
             "success": "#2ecc71",
             "danger": "#e74c3c",
-            "warning": "#f39c12"
+            "warning": "#f39c12",
         }
 
-        value_label.setStyleSheet(f"""
+        value_label.setStyleSheet(
+            f"""
             QLabel {{
-                color: {colors.get(color_scheme, colors['primary'])};
+                color: {colors.get(color_scheme, colors["primary"])};
                 font-size: 36px;
                 font-weight: bold;
             }}
-        """)
+        """
+        )
         layout.addWidget(value_label)
 
         # Trend-Indikator (Simulation)
         trend = QLabel("↗ +5.2%")
-        trend.setStyleSheet("""
+        trend.setStyleSheet(
+            """
             QLabel {
                 color: #2ecc71;
                 font-size: 12px;
                 font-weight: bold;
             }
-        """)
+        """
+        )
         layout.addWidget(trend)
 
         card.setLayout(layout)
@@ -558,13 +581,15 @@ class ModernDashboard(QMainWindow):
 
         # Name
         name_label = QLabel(name)
-        name_label.setStyleSheet("""
+        name_label.setStyleSheet(
+            """
             QLabel {
                 color: #ffffff;
                 font-weight: bold;
                 font-size: 14px;
             }
-        """)
+        """
+        )
         name_label.setFixedWidth(120)
         layout.addWidget(name_label)
 
@@ -579,19 +604,21 @@ class ModernDashboard(QMainWindow):
             "Läuft": "#2ecc71",
             "Wartung": "#f39c12",
             "Fehler": "#e74c3c",
-            "Offline": "#95a5a6"
+            "Offline": "#95a5a6",
         }
 
-        status_label.setStyleSheet(f"""
+        status_label.setStyleSheet(
+            f"""
             QLabel {{
-                color: {status_colors.get(status, '#ffffff')};
+                color: {status_colors.get(status, "#ffffff")};
                 font-weight: bold;
                 font-size: 14px;
                 padding: 5px 10px;
                 border-radius: 5px;
                 background: rgba(255, 255, 255, 0.1);
             }}
-        """)
+        """
+        )
         status_label.setFixedWidth(80)
         layout.addWidget(status_label)
 
@@ -606,14 +633,16 @@ class ModernDashboard(QMainWindow):
 
         # Titel
         title = QLabel("📊 Produktionsübersicht")
-        title.setStyleSheet("""
+        title.setStyleSheet(
+            """
             QLabel {
                 color: #ffffff;
                 font-size: 28px;
                 font-weight: bold;
                 margin-bottom: 20px;
             }
-        """)
+        """
+        )
         layout.addWidget(title)
 
         # Produktions-Controls
@@ -636,7 +665,7 @@ class ModernDashboard(QMainWindow):
         placeholder = ModernCard(
             "Produktionsdaten",
             "Hier würden detaillierte Produktionsdaten, Diagramme und "
-            "Echtzeitmetriken angezeigt werden."
+            "Echtzeitmetriken angezeigt werden.",
         )
         layout.addWidget(placeholder)
 
@@ -651,14 +680,16 @@ class ModernDashboard(QMainWindow):
         layout.setContentsMargins(30, 30, 30, 30)
 
         title = QLabel("🔧 Wartungsplaner")
-        title.setStyleSheet("""
+        title.setStyleSheet(
+            """
             QLabel {
                 color: #ffffff;
                 font-size: 28px;
                 font-weight: bold;
                 margin-bottom: 20px;
             }
-        """)
+        """
+        )
         layout.addWidget(title)
 
         # Wartungsübersicht
@@ -666,7 +697,7 @@ class ModernDashboard(QMainWindow):
             "Anstehende Wartungen",
             "Laser 1: Routinewartung - 05.09.2024\n"
             "Stanze 1: Kalibrierung - 07.09.2024\n"
-            "Biegemaschine: Reparatur - 10.09.2024"
+            "Biegemaschine: Reparatur - 10.09.2024",
         )
         layout.addWidget(maintenance_card)
 
@@ -685,20 +716,22 @@ class ModernDashboard(QMainWindow):
         layout.setContentsMargins(30, 30, 30, 30)
 
         title = QLabel("📈 Statistiken & Trends")
-        title.setStyleSheet("""
+        title.setStyleSheet(
+            """
             QLabel {
                 color: #ffffff;
                 font-size: 28px;
                 font-weight: bold;
                 margin-bottom: 20px;
             }
-        """)
+        """
+        )
         layout.addWidget(title)
 
         stats_card = ModernCard(
             "Produktionsstatistiken",
             "Hier würden detaillierte Charts und Grafiken zur\n"
-            "Produktionsleistung, Qualitätsmetriken und Trends angezeigt."
+            "Produktionsleistung, Qualitätsmetriken und Trends angezeigt.",
         )
         layout.addWidget(stats_card)
 
@@ -713,14 +746,16 @@ class ModernDashboard(QMainWindow):
         layout.setContentsMargins(30, 30, 30, 30)
 
         title = QLabel("⚙️ Systemeinstellungen")
-        title.setStyleSheet("""
+        title.setStyleSheet(
+            """
             QLabel {
                 color: #ffffff;
                 font-size: 28px;
                 font-weight: bold;
                 margin-bottom: 20px;
             }
-        """)
+        """
+        )
         layout.addWidget(title)
 
         # Theme-Auswahl
@@ -729,7 +764,8 @@ class ModernDashboard(QMainWindow):
 
         theme_combo = QComboBox()
         theme_combo.addItems(["Dunkles Theme", "Helles Theme", "Auto"])
-        theme_combo.setStyleSheet("""
+        theme_combo.setStyleSheet(
+            """
             QComboBox {
                 background: rgba(255, 255, 255, 0.1);
                 border: 1px solid rgba(255, 255, 255, 0.3);
@@ -737,7 +773,8 @@ class ModernDashboard(QMainWindow):
                 padding: 8px;
                 color: #ffffff;
             }
-        """)
+        """
+        )
         theme_layout.addWidget(QLabel("Theme:"))
         theme_layout.addWidget(theme_combo)
 
@@ -749,7 +786,7 @@ class ModernDashboard(QMainWindow):
             "Systemkonfiguration",
             "Automatische Updates: ✓ Aktiviert\n"
             "Datenbank-Backup: Täglich um 02:00\n"
-            "Session-Timeout: 60 Minuten"
+            "Session-Timeout: 60 Minuten",
         )
         layout.addWidget(system_card)
 
@@ -764,7 +801,7 @@ class ModernDashboard(QMainWindow):
         self.animation_counter += 1
 
         # KPI-Werte leicht variieren (nur auf Dashboard-Seite)
-        if hasattr(self, 'kpi_cards') and self.kpi_cards:
+        if hasattr(self, "kpi_cards") and self.kpi_cards:
             # Simulierte Schwankungen
             [random.randint(-2, 3) for _ in range(4)]
 

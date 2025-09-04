@@ -28,11 +28,12 @@ st.set_page_config(
     page_title="Bystronic Streamlit Demo",
     page_icon="🏭",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
 )
 
 # Custom CSS für besseres Aussehen
-st.markdown("""
+st.markdown(
+    """
 <style>
 .main-header {
     font-size: 3rem;
@@ -60,15 +61,19 @@ st.markdown("""
     border-left-color: #ff6666;
 }
 </style>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True,
+)
 
 
 def main():
     """Hauptfunktion der Streamlit-App."""
 
     # Titel der Anwendung
-    st.markdown('<h1 class="main-header">🏭 Bystronic Streamlit Dashboard</h1>',
-                unsafe_allow_html=True)
+    st.markdown(
+        '<h1 class="main-header">🏭 Bystronic Streamlit Dashboard</h1>',
+        unsafe_allow_html=True,
+    )
 
     st.markdown("---")
 
@@ -78,8 +83,14 @@ def main():
     # App-Modus wählen
     app_mode = st.sidebar.selectbox(
         "Wählen Sie einen Bereich:",
-        ["🏠 Übersicht", "📊 Widgets Demo", "📈 Datenvisualisierung",
-         "🎮 Interaktive Elemente", "📱 Layout Demo", "🔄 Echtzeitdaten"]
+        [
+            "🏠 Übersicht",
+            "📊 Widgets Demo",
+            "📈 Datenvisualisierung",
+            "🎮 Interaktive Elemente",
+            "📱 Layout Demo",
+            "🔄 Echtzeitdaten",
+        ],
     )
 
     # Sidebar-Info
@@ -109,7 +120,8 @@ def show_overview():
 
     st.header("Willkommen bei Streamlit!")
 
-    st.markdown("""
+    st.markdown(
+        """
     **Streamlit** ist ein Python-Framework zur schnellen Erstellung von
     Web-Dashboards und Datenvisualisierung-Apps. Perfekt für:
 
@@ -117,7 +129,8 @@ def show_overview():
     - 🏭 **Industrielle Überwachung** - Echtzeitmonitoring von Maschinen
     - 📈 **Business Intelligence** - KPI-Tracking und Reporting
     - 🔬 **Datenanalyse** - Interaktive Datenexploration
-    """)
+    """
+    )
 
     # Beispiel-Metriken
     st.subheader("📋 Aktuelle Systemübersicht")
@@ -129,7 +142,7 @@ def show_overview():
             label="🏭 Maschinenauslastung",
             value="87%",
             delta="5.2%",
-            help="Durchschnittliche Auslastung aller Maschinen"
+            help="Durchschnittliche Auslastung aller Maschinen",
         )
 
     with col2:
@@ -137,7 +150,7 @@ def show_overview():
             label="⚡ Energieverbrauch",
             value="145 kWh",
             delta="-12 kWh",
-            help="Aktueller Stromverbrauch"
+            help="Aktueller Stromverbrauch",
         )
 
     with col3:
@@ -145,7 +158,7 @@ def show_overview():
             label="📦 Tagesproduktion",
             value="1,247",
             delta="89",
-            help="Produzierte Teile heute"
+            help="Produzierte Teile heute",
         )
 
     with col4:
@@ -153,7 +166,7 @@ def show_overview():
             label="✅ Qualitätsindex",
             value="98.5%",
             delta="0.3%",
-            help="Aktuelle Qualitätsbewertung"
+            help="Aktuelle Qualitätsbewertung",
         )
 
     # Quick Status Cards
@@ -211,7 +224,9 @@ def show_widgets_demo():
 
         # Numerische Eingaben
         st.write("**Numerische Eingaben:**")
-        target_production = st.number_input("Tagesziel", min_value=100, max_value=3000, value=2000)
+        target_production = st.number_input(
+            "Tagesziel", min_value=100, max_value=3000, value=2000
+        )
         temperature_limit = st.slider("Temperaturgrenze [°C]", 50, 100, 75)
 
         # Datum/Zeit
@@ -221,23 +236,25 @@ def show_widgets_demo():
         # Auswahl-Widgets
         st.write("**Auswahl-Widgets:**")
         machine_type = st.selectbox(
-            "Maschinentyp",
-            ["Laser-Schneidmaschine", "Stanzmaschine", "Biegemaschine"]
+            "Maschinentyp", ["Laser-Schneidmaschine", "Stanzmaschine", "Biegemaschine"]
         )
 
         st.multiselect(
             "Qualitätsprüfungen",
-            ["Maßhaltigkeit", "Oberflächengüte", "Materialfestigkeit", "Kantenqualität"],
-            default=["Maßhaltigkeit", "Oberflächengüte"]
+            [
+                "Maßhaltigkeit",
+                "Oberflächengüte",
+                "Materialfestigkeit",
+                "Kantenqualität",
+            ],
+            default=["Maßhaltigkeit", "Oberflächengüte"],
         )
 
         # Checkboxen und Radio
         enable_alerts = st.checkbox("E-Mail Benachrichtigungen", value=True)
 
         priority_level = st.radio(
-            "Prioritätsstufe",
-            ["Normal", "Hoch", "Kritisch"],
-            horizontal=True
+            "Prioritätsstufe", ["Normal", "Hoch", "Kritisch"], horizontal=True
         )
 
         # Buttons
@@ -261,14 +278,23 @@ def show_widgets_demo():
 
     results_data = {
         "Parameter": [
-            "Operator", "Maschinentyp", "Tagesziel", "Temperaturgrenze",
-            "Wartungsdatum", "Priorität", "Benachrichtigungen"
+            "Operator",
+            "Maschinentyp",
+            "Tagesziel",
+            "Temperaturgrenze",
+            "Wartungsdatum",
+            "Priorität",
+            "Benachrichtigungen",
         ],
         "Wert": [
-            operator_name, machine_type, f"{target_production:,} Stück",
-            f"{temperature_limit}°C", maintenance_date.strftime("%d.%m.%Y"),
-            priority_level, "Aktiviert" if enable_alerts else "Deaktiviert"
-        ]
+            operator_name,
+            machine_type,
+            f"{target_production:,} Stück",
+            f"{temperature_limit}°C",
+            maintenance_date.strftime("%d.%m.%Y"),
+            priority_level,
+            "Aktiviert" if enable_alerts else "Deaktiviert",
+        ],
     }
 
     results_df = pd.DataFrame(results_data)
@@ -284,15 +310,15 @@ def show_visualization_demo():
     @st.cache_data
     def generate_production_data():
         """Generiert Beispiel-Produktionsdaten."""
-        dates = pd.date_range(start='2024-09-01', end='2024-09-04', freq='H')
+        dates = pd.date_range(start="2024-09-01", end="2024-09-04", freq="H")
 
         data = {
-            'timestamp': dates,
-            'production_rate': np.random.normal(250, 30, len(dates)),
-            'temperature': np.random.normal(65, 8, len(dates)),
-            'quality_index': np.random.normal(98, 2, len(dates)),
-            'machine': np.random.choice(['Laser 1', 'Laser 2', 'Stanze 1'], len(dates)),
-            'shift': [(hour % 24) // 8 + 1 for hour in range(len(dates))]
+            "timestamp": dates,
+            "production_rate": np.random.normal(250, 30, len(dates)),
+            "temperature": np.random.normal(65, 8, len(dates)),
+            "quality_index": np.random.normal(98, 2, len(dates)),
+            "machine": np.random.choice(["Laser 1", "Laser 2", "Stanze 1"], len(dates)),
+            "shift": [(hour % 24) // 8 + 1 for hour in range(len(dates))],
         }
 
         return pd.DataFrame(data)
@@ -308,11 +334,11 @@ def show_visualization_demo():
         # Liniendiagramm - Produktionsrate
         fig_line = px.line(
             df,
-            x='timestamp',
-            y='production_rate',
-            color='machine',
-            title='Produktionsrate über Zeit',
-            labels={'production_rate': 'Teile/Stunde', 'timestamp': 'Zeit'}
+            x="timestamp",
+            y="production_rate",
+            color="machine",
+            title="Produktionsrate über Zeit",
+            labels={"production_rate": "Teile/Stunde", "timestamp": "Zeit"},
         )
         fig_line.update_layout(height=400)
         st.plotly_chart(fig_line, use_container_width=True)
@@ -321,12 +347,12 @@ def show_visualization_demo():
         # Streudiagramm - Temperatur vs Qualität
         fig_scatter = px.scatter(
             df,
-            x='temperature',
-            y='quality_index',
-            color='machine',
-            size='production_rate',
-            title='Temperatur vs. Qualitätsindex',
-            labels={'temperature': 'Temperatur [°C]', 'quality_index': 'Qualität [%]'}
+            x="temperature",
+            y="quality_index",
+            color="machine",
+            size="production_rate",
+            title="Temperatur vs. Qualitätsindex",
+            labels={"temperature": "Temperatur [°C]", "quality_index": "Qualität [%]"},
         )
         fig_scatter.update_layout(height=400)
         st.plotly_chart(fig_scatter, use_container_width=True)
@@ -338,10 +364,10 @@ def show_visualization_demo():
         # Histogramm
         fig_hist = px.histogram(
             df,
-            x='quality_index',
+            x="quality_index",
             nbins=20,
-            title='Qualitätsverteilung',
-            labels={'quality_index': 'Qualitätsindex [%]', 'count': 'Häufigkeit'}
+            title="Qualitätsverteilung",
+            labels={"quality_index": "Qualitätsindex [%]", "count": "Häufigkeit"},
         )
         fig_hist.update_layout(height=350)
         st.plotly_chart(fig_hist, use_container_width=True)
@@ -350,10 +376,10 @@ def show_visualization_demo():
         # Boxplot
         fig_box = px.box(
             df,
-            x='machine',
-            y='production_rate',
-            title='Produktionsrate nach Maschine',
-            labels={'production_rate': 'Teile/Stunde', 'machine': 'Maschine'}
+            x="machine",
+            y="production_rate",
+            title="Produktionsrate nach Maschine",
+            labels={"production_rate": "Teile/Stunde", "machine": "Maschine"},
         )
         fig_box.update_layout(height=350)
         st.plotly_chart(fig_box, use_container_width=True)
@@ -362,13 +388,13 @@ def show_visualization_demo():
     st.subheader("🔥 Korrelations-Heatmap")
 
     # Numerische Spalten für Korrelation
-    numeric_df = df[['production_rate', 'temperature', 'quality_index']].corr()
+    numeric_df = df[["production_rate", "temperature", "quality_index"]].corr()
 
     fig_heatmap = px.imshow(
         numeric_df,
-        title='Korrelation zwischen Produktionsparametern',
-        color_continuous_scale='RdBu',
-        aspect='auto'
+        title="Korrelation zwischen Produktionsparametern",
+        color_continuous_scale="RdBu",
+        aspect="auto",
     )
     fig_heatmap.update_layout(height=400)
     st.plotly_chart(fig_heatmap, use_container_width=True)
@@ -382,31 +408,31 @@ def show_visualization_demo():
     with col_filter1:
         selected_machines = st.multiselect(
             "Maschinen auswählen:",
-            df['machine'].unique(),
-            default=df['machine'].unique()
+            df["machine"].unique(),
+            default=df["machine"].unique(),
         )
 
     with col_filter2:
         date_range = st.date_input(
             "Datumsbereich:",
-            value=[df['timestamp'].min().date(), df['timestamp'].max().date()],
-            min_value=df['timestamp'].min().date(),
-            max_value=df['timestamp'].max().date()
+            value=[df["timestamp"].min().date(), df["timestamp"].max().date()],
+            min_value=df["timestamp"].min().date(),
+            max_value=df["timestamp"].max().date(),
         )
 
     # Daten filtern
     filtered_df = df[
-        (df['machine'].isin(selected_machines)) &
-        (df['timestamp'].dt.date >= date_range[0]) &
-        (df['timestamp'].dt.date <= date_range[1])
+        (df["machine"].isin(selected_machines))
+        & (df["timestamp"].dt.date >= date_range[0])
+        & (df["timestamp"].dt.date <= date_range[1])
     ]
 
     # Formatierte Tabelle anzeigen
     display_df = filtered_df.copy()
-    display_df['timestamp'] = display_df['timestamp'].dt.strftime('%d.%m.%Y %H:%M')
-    display_df['production_rate'] = display_df['production_rate'].round(1)
-    display_df['temperature'] = display_df['temperature'].round(1)
-    display_df['quality_index'] = display_df['quality_index'].round(2)
+    display_df["timestamp"] = display_df["timestamp"].dt.strftime("%d.%m.%Y %H:%M")
+    display_df["production_rate"] = display_df["production_rate"].round(1)
+    display_df["temperature"] = display_df["temperature"].round(1)
+    display_df["quality_index"] = display_df["quality_index"].round(2)
 
     st.dataframe(display_df, use_container_width=True)
 
@@ -416,7 +442,7 @@ def show_visualization_demo():
         label="📥 Daten als CSV herunterladen",
         data=csv_data,
         file_name=f"produktionsdaten_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
-        mime="text/csv"
+        mime="text/csv",
     )
 
 
@@ -429,10 +455,10 @@ def show_interactive_elements():
     st.subheader("💾 Session State - Zustandserhaltung")
 
     # Zähler im Session State
-    if 'counter' not in st.session_state:
+    if "counter" not in st.session_state:
         st.session_state.counter = 0
 
-    if 'production_log' not in st.session_state:
+    if "production_log" not in st.session_state:
         st.session_state.production_log = []
 
     col1, col2, col3 = st.columns(3)
@@ -468,7 +494,9 @@ def show_interactive_elements():
 
     if st.session_state.production_log:
         st.write("**Aktuelle Log-Einträge:**")
-        for entry in reversed(st.session_state.production_log[-10:]):  # Letzte 10 anzeigen
+        for entry in reversed(
+            st.session_state.production_log[-10:]
+        ):  # Letzte 10 anzeigen
             st.text(entry)
 
         if st.button("🗑️ Log löschen"):
@@ -480,13 +508,13 @@ def show_interactive_elements():
 
     uploaded_file = st.file_uploader(
         "CSV-Datei hochladen:",
-        type=['csv', 'xlsx'],
-        help="Laden Sie Maschinendaten oder Produktionsdaten hoch"
+        type=["csv", "xlsx"],
+        help="Laden Sie Maschinendaten oder Produktionsdaten hoch",
     )
 
     if uploaded_file is not None:
         try:
-            if uploaded_file.name.endswith('.csv'):
+            if uploaded_file.name.endswith(".csv"):
                 df = pd.read_csv(uploaded_file)
             else:
                 df = pd.read_excel(uploaded_file)
@@ -527,11 +555,13 @@ def show_interactive_elements():
 
     # Hauptbereich zeigt die Sidebar-Werte
     st.write("**Aktuelle Einstellungen aus der Sidebar:**")
-    settings_df = pd.DataFrame({
-        "Parameter": ["Maschinenleistung", "Kühltemperatur"],
-        "Wert": [f"{machine_power}%", f"{cooling_temp}°C"],
-        "Status": ["Normal", "Normal"]
-    })
+    settings_df = pd.DataFrame(
+        {
+            "Parameter": ["Maschinenleistung", "Kühltemperatur"],
+            "Wert": [f"{machine_power}%", f"{cooling_temp}°C"],
+            "Status": ["Normal", "Normal"],
+        }
+    )
     st.table(settings_df)
 
 
@@ -554,11 +584,8 @@ def show_layout_demo():
         st.success("**Breite Hauptspalte**\n\nHauptcontent und Charts")
 
         # Beispiel-Chart
-        data = pd.DataFrame({
-            'x': range(10),
-            'y': np.random.randn(10).cumsum()
-        })
-        st.line_chart(data.set_index('x'))
+        data = pd.DataFrame({"x": range(10), "y": np.random.randn(10).cumsum()})
+        st.line_chart(data.set_index("x"))
 
     with col3:
         st.warning("**Rechte Spalte**\n\nSteuerung")
@@ -571,22 +598,26 @@ def show_layout_demo():
     # Tabs Layout
     st.subheader("📂 Tabs Layout")
 
-    tab1, tab2, tab3, tab4 = st.tabs(["🏭 Produktion", "🔧 Wartung", "📊 Qualität", "⚙️ Einstellungen"])
+    tab1, tab2, tab3, tab4 = st.tabs(
+        ["🏭 Produktion", "🔧 Wartung", "📊 Qualität", "⚙️ Einstellungen"]
+    )
 
     with tab1:
         st.write("**Produktionsübersicht**")
-        prod_data = pd.DataFrame({
-            'Stunde': [f"{i:02d}:00" for i in range(8, 16)],
-            'Produktion': np.random.randint(200, 300, 8)
-        })
-        st.bar_chart(prod_data.set_index('Stunde'))
+        prod_data = pd.DataFrame(
+            {
+                "Stunde": [f"{i:02d}:00" for i in range(8, 16)],
+                "Produktion": np.random.randint(200, 300, 8),
+            }
+        )
+        st.bar_chart(prod_data.set_index("Stunde"))
 
     with tab2:
         st.write("**Wartungsplanung**")
         maintenance_data = {
-            'Maschine': ['Laser 1', 'Laser 2', 'Stanze 1'],
-            'Nächste Wartung': ['05.09.2024', '12.09.2024', '08.09.2024'],
-            'Typ': ['Routine', 'Reparatur', 'Kalibrierung']
+            "Maschine": ["Laser 1", "Laser 2", "Stanze 1"],
+            "Nächste Wartung": ["05.09.2024", "12.09.2024", "08.09.2024"],
+            "Typ": ["Routine", "Reparatur", "Kalibrierung"],
         }
         st.table(pd.DataFrame(maintenance_data))
 
@@ -608,13 +639,28 @@ def show_layout_demo():
     with st.expander("🔍 Detaillierte Maschinenparameter"):
         st.write("Hier sind alle detaillierten Parameter:")
 
-        param_data = pd.DataFrame({
-            'Parameter': ['Temperatur Kopf 1', 'Temperatur Kopf 2', 'Schnittgeschwindigkeit',
-                         'Laserstrom', 'Hilfsgas-Druck', 'Fokus-Position'],
-            'Aktuell': ['64.2°C', '65.8°C', '2.4 m/min', '180A', '8.1 bar', '-2.1mm'],
-            'Sollwert': ['65°C', '65°C', '2.5 m/min', '175A', '8.0 bar', '-2.0mm'],
-            'Toleranz': ['±3°C', '±3°C', '±0.2', '±10A', '±0.5 bar', '±0.3mm']
-        })
+        param_data = pd.DataFrame(
+            {
+                "Parameter": [
+                    "Temperatur Kopf 1",
+                    "Temperatur Kopf 2",
+                    "Schnittgeschwindigkeit",
+                    "Laserstrom",
+                    "Hilfsgas-Druck",
+                    "Fokus-Position",
+                ],
+                "Aktuell": [
+                    "64.2°C",
+                    "65.8°C",
+                    "2.4 m/min",
+                    "180A",
+                    "8.1 bar",
+                    "-2.1mm",
+                ],
+                "Sollwert": ["65°C", "65°C", "2.5 m/min", "175A", "8.0 bar", "-2.0mm"],
+                "Toleranz": ["±3°C", "±3°C", "±0.2", "±10A", "±0.5 bar", "±0.3mm"],
+            }
+        )
         st.dataframe(param_data, use_container_width=True)
 
     with st.expander("📈 Produktionsstatistiken"):
@@ -622,10 +668,23 @@ def show_layout_demo():
 
         # Beispiel-Statistiken
         stats_data = {
-            'Metrik': ['Gesamtproduktion', 'Durchschn. Stückzahl/Tag', 'Qualitätsindex',
-                      'Ausschussrate', 'Betriebszeit', 'Ungeplante Stillstände'],
-            'Wert': ['14,250 Teile', '2,036 Teile', '98.4%', '1.6%', '165h 30min', '4h 15min'],
-            'Trend': ['↗ +8.2%', '↗ +5.1%', '→ +0.1%', '↘ -0.3%', '↗ +2.1%', '↘ -1.2h']
+            "Metrik": [
+                "Gesamtproduktion",
+                "Durchschn. Stückzahl/Tag",
+                "Qualitätsindex",
+                "Ausschussrate",
+                "Betriebszeit",
+                "Ungeplante Stillstände",
+            ],
+            "Wert": [
+                "14,250 Teile",
+                "2,036 Teile",
+                "98.4%",
+                "1.6%",
+                "165h 30min",
+                "4h 15min",
+            ],
+            "Trend": ["↗ +8.2%", "↗ +5.1%", "→ +0.1%", "↘ -0.3%", "↗ +2.1%", "↘ -1.2h"],
         }
         st.table(pd.DataFrame(stats_data))
 
@@ -651,10 +710,12 @@ def show_realtime_demo():
 
     st.header("🔄 Echtzeitdaten-Simulation")
 
-    st.markdown("""
+    st.markdown(
+        """
     Diese Seite simuliert Echtzeitdaten-Updates. In einer echten Anwendung
     würden hier live Daten von Maschinen oder Datenbanken geladen werden.
-    """)
+    """
+    )
 
     # Auto-Refresh aktivieren
     auto_refresh = st.checkbox("🔄 Auto-Refresh (alle 2 Sekunden)", value=False)
@@ -675,11 +736,13 @@ def show_realtime_demo():
 
                 with col1:
                     temp = 65 + np.random.normal(0, 3)
-                    st.metric("🌡️ Temperatur", f"{temp:.1f}°C", f"{temp-65:.1f}")
+                    st.metric("🌡️ Temperatur", f"{temp:.1f}°C", f"{temp - 65:.1f}")
 
                 with col2:
                     pressure = 8.2 + np.random.normal(0, 0.5)
-                    st.metric("💨 Druck", f"{pressure:.1f} bar", f"{pressure-8.2:.1f}")
+                    st.metric(
+                        "💨 Druck", f"{pressure:.1f} bar", f"{pressure - 8.2:.1f}"
+                    )
 
                 with col3:
                     production = np.random.randint(240, 260)
@@ -687,17 +750,22 @@ def show_realtime_demo():
 
                 with col4:
                     quality = 98.5 + np.random.normal(0, 0.5)
-                    st.metric("✅ Qualität", f"{quality:.1f}%", f"{quality-98.5:.1f}")
+                    st.metric("✅ Qualität", f"{quality:.1f}%", f"{quality - 98.5:.1f}")
 
                 # Live-Chart
-                chart_data = pd.DataFrame({
-                    'Zeit': pd.date_range(start=datetime.now() - timedelta(minutes=30),
-                                         end=datetime.now(), freq='1min'),
-                    'Temperatur': 65 + np.random.normal(0, 2, 31).cumsum() * 0.1,
-                    'Druck': 8.2 + np.random.normal(0, 0.3, 31).cumsum() * 0.05
-                })
+                chart_data = pd.DataFrame(
+                    {
+                        "Zeit": pd.date_range(
+                            start=datetime.now() - timedelta(minutes=30),
+                            end=datetime.now(),
+                            freq="1min",
+                        ),
+                        "Temperatur": 65 + np.random.normal(0, 2, 31).cumsum() * 0.1,
+                        "Druck": 8.2 + np.random.normal(0, 0.3, 31).cumsum() * 0.05,
+                    }
+                )
 
-                st.line_chart(chart_data.set_index('Zeit'))
+                st.line_chart(chart_data.set_index("Zeit"))
 
             # 2 Sekunden warten
             time.sleep(2)
@@ -715,46 +783,51 @@ def show_realtime_demo():
     # Zeitraum-Auswahl
     time_range = st.selectbox(
         "Zeitraum:",
-        ["Letzte Stunde", "Letzten 4 Stunden", "Letzten 24 Stunden", "Letzte Woche"]
+        ["Letzte Stunde", "Letzten 4 Stunden", "Letzten 24 Stunden", "Letzte Woche"],
     )
 
     # Entsprechende Daten generieren
     if time_range == "Letzte Stunde":
         periods = 60
-        freq = '1min'
+        freq = "1min"
     elif time_range == "Letzten 4 Stunden":
         periods = 240
-        freq = '1min'
+        freq = "1min"
     elif time_range == "Letzten 24 Stunden":
         periods = 24
-        freq = '1h'
+        freq = "1h"
     else:  # Letzte Woche
         periods = 168
-        freq = '1h'
+        freq = "1h"
 
-    hist_data = pd.DataFrame({
-        'timestamp': pd.date_range(end=datetime.now(), periods=periods, freq=freq),
-        'temperature': 65 + np.random.normal(0, 3, periods),
-        'pressure': 8.2 + np.random.normal(0, 0.5, periods),
-        'production_rate': np.random.normal(250, 20, periods)
-    })
+    hist_data = pd.DataFrame(
+        {
+            "timestamp": pd.date_range(end=datetime.now(), periods=periods, freq=freq),
+            "temperature": 65 + np.random.normal(0, 3, periods),
+            "pressure": 8.2 + np.random.normal(0, 0.5, periods),
+            "production_rate": np.random.normal(250, 20, periods),
+        }
+    )
 
     # Charts
     chart_tab1, chart_tab2, chart_tab3 = st.tabs(["Temperatur", "Druck", "Produktion"])
 
     with chart_tab1:
-        fig_temp = px.line(hist_data, x='timestamp', y='temperature',
-                          title='Temperaturverlauf')
+        fig_temp = px.line(
+            hist_data, x="timestamp", y="temperature", title="Temperaturverlauf"
+        )
         st.plotly_chart(fig_temp, use_container_width=True)
 
     with chart_tab2:
-        fig_press = px.line(hist_data, x='timestamp', y='pressure',
-                           title='Druckverlauf')
+        fig_press = px.line(
+            hist_data, x="timestamp", y="pressure", title="Druckverlauf"
+        )
         st.plotly_chart(fig_press, use_container_width=True)
 
     with chart_tab3:
-        fig_prod = px.line(hist_data, x='timestamp', y='production_rate',
-                          title='Produktionsrate')
+        fig_prod = px.line(
+            hist_data, x="timestamp", y="production_rate", title="Produktionsrate"
+        )
         st.plotly_chart(fig_prod, use_container_width=True)
 
 

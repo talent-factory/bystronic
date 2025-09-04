@@ -197,10 +197,10 @@ class TestMyFeature:
     def test_data_processing(self):
         # Generiere Testdaten
         data = TestDataGenerator.create_machine_data(5)
-        
+
         # Teste Funktionalität
         result = process_machine_data(data)
-        
+
         # Assertions
         assert len(result) == 5
         assert all('processed' in item for item in result)

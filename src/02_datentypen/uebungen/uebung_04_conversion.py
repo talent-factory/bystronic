@@ -163,7 +163,6 @@ def aufgabe_3_datenvalidierung():
         Erwartet: {"teile": int, "zeit": float, "material": str, "ok": bool}
         """
 
-
         # TODO: Implementieren Sie die Validierung
         # for feld, (typ, min_val, max_val) in erforderliche_felder.items():
         #     if feld not in parameter:
@@ -430,7 +429,6 @@ def aufgabe_5_datentyp_analyse():
             list(daten[0].keys())
         else:
             [f"Spalte_{i}" for i in range(len(daten[0]))]
-
 
         # TODO: Für jede Spalte Datentypen analysieren
         # for spalte in spalten:

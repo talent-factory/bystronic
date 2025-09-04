@@ -149,7 +149,6 @@ def aufgabe_4_qualitaet():
     # 3. Ist die Länge im Toleranzbereich?
     # 4. Ist das Teil insgesamt OK (alle Masse im Toleranzbereich)?
 
-
     for _teil in teile:
         # TODO: Implementieren Sie die Qualitätsprüfung
         # dicke_ok = ...
@@ -189,7 +188,6 @@ def aufgabe_5_produktionsmetriken():
         {"tag": "Freitag", "soll": 200, "ist": 185, "ausschuss": 9, "downtime": 40},
     ]
 
-
     print("Wochenbericht:")
     print("-" * 60)
     print(
@@ -202,7 +200,6 @@ def aufgabe_5_produktionsmetriken():
     # 2. Verfügbarkeit: ((Schichtzeit - Downtime) / Schichtzeit) × 100
     # 3. Qualitätsrate: ((Ist-Teile - Ausschuss) / Ist-Teile) × 100
     # 4. OEE (Overall Equipment Effectiveness): Effizienz × Verfügbarkeit × Qualitätsrate / 10000
-
 
     for _tag_daten in woche:
         # TODO: Berechnungen durchführen

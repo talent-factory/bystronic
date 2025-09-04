@@ -80,14 +80,16 @@ class MaschinendatenWorker(QThread):
         speed_variation = np.random.normal(0, 0.1)
 
         return {
-            'timestamp': datetime.now(),
-            'temperature': max(0, base_temp + temp_variation),
-            'pressure': max(0, base_pressure + pressure_variation),
-            'cutting_speed': max(0, base_speed + speed_variation),
-            'parts_produced': np.random.randint(240, 260),
-            'quality_index': np.random.uniform(95, 99.5),
-            'power_consumption': np.random.uniform(45, 55),
-            'status': np.random.choice(['Normal', 'Normal', 'Normal', 'Warnung'], p=[0.85, 0.1, 0.04, 0.01])
+            "timestamp": datetime.now(),
+            "temperature": max(0, base_temp + temp_variation),
+            "pressure": max(0, base_pressure + pressure_variation),
+            "cutting_speed": max(0, base_speed + speed_variation),
+            "parts_produced": np.random.randint(240, 260),
+            "quality_index": np.random.uniform(95, 99.5),
+            "power_consumption": np.random.uniform(45, 55),
+            "status": np.random.choice(
+                ["Normal", "Normal", "Normal", "Warnung"], p=[0.85, 0.1, 0.04, 0.01]
+            ),
         }
 
 
@@ -103,10 +105,12 @@ class AlarmDialog(QDialog):
         layout = QVBoxLayout(self)
 
         # Alarm-Informationen
-        info_label = QLabel(f"<b>Alarm:</b> {alarm_data['type']}<br>"
-                           f"<b>Zeit:</b> {alarm_data['timestamp']}<br>"
-                           f"<b>Maschine:</b> {alarm_data['machine']}<br>"
-                           f"<b>Schweregrad:</b> {alarm_data['severity']}")
+        info_label = QLabel(
+            f"<b>Alarm:</b> {alarm_data['type']}<br>"
+            f"<b>Zeit:</b> {alarm_data['timestamp']}<br>"
+            f"<b>Maschine:</b> {alarm_data['machine']}<br>"
+            f"<b>Schweregrad:</b> {alarm_data['severity']}"
+        )
         layout.addWidget(info_label)
 
         # Beschreibung
@@ -114,7 +118,7 @@ class AlarmDialog(QDialog):
         layout.addWidget(desc_label)
 
         self.description = QTextEdit()
-        self.description.setPlainText(alarm_data['description'])
+        self.description.setPlainText(alarm_data["description"])
         layout.addWidget(self.description)
 
         # Buttons
@@ -147,12 +151,9 @@ class WartungsDialog(QDialog):
         type_layout = QHBoxLayout()
         type_layout.addWidget(QLabel("Wartungstyp:"))
         self.type_combo = QComboBox()
-        self.type_combo.addItems([
-            "Routinewartung",
-            "Präventivwartung",
-            "Reparatur",
-            "Kalibrierung"
-        ])
+        self.type_combo.addItems(
+            ["Routinewartung", "Präventivwartung", "Reparatur", "Kalibrierung"]
+        )
         type_layout.addWidget(self.type_combo)
         layout.addLayout(type_layout)
 
@@ -187,11 +188,11 @@ class WartungsDialog(QDialog):
     def get_wartung_data(self):
         """Gibt die eingegebenen Wartungsdaten zurück."""
         return {
-            'machine': self.machine_combo.currentText(),
-            'type': self.type_combo.currentText(),
-            'planned_date': self.date_edit.dateTime().toPython(),
-            'description': self.description.toPlainText(),
-            'estimated_duration': self.duration_spin.value()
+            "machine": self.machine_combo.currentText(),
+            "type": self.type_combo.currentText(),
+            "planned_date": self.date_edit.dateTime().toPython(),
+            "description": self.description.toPlainText(),
+            "estimated_duration": self.duration_spin.value(),
         }
 
 
@@ -300,7 +301,9 @@ class MaschinendatenGUI(QMainWindow):
         overview_layout = QGridLayout(overview_group)
 
         # KPI-Karten
-        self.create_kpi_card(overview_layout, "Maschinenauslastung", "87%", 0, 0, "green")
+        self.create_kpi_card(
+            overview_layout, "Maschinenauslastung", "87%", 0, 0, "green"
+        )
         self.create_kpi_card(overview_layout, "Stückzahl/Stunde", "245", 0, 1, "blue")
         self.create_kpi_card(overview_layout, "Qualitätsindex", "98.5%", 0, 2, "orange")
         self.create_kpi_card(overview_layout, "Aktive Alarme", "2", 0, 3, "red")
@@ -318,11 +321,17 @@ class MaschinendatenGUI(QMainWindow):
 
         value_label = QLabel(value)
         value_label.setAlignment(Qt.AlignCenter)
-        value_label.setStyleSheet(f"font-size: 24px; font-weight: bold; color: {color};")
+        value_label.setStyleSheet(
+            f"font-size: 24px; font-weight: bold; color: {color};"
+        )
         card_layout.addWidget(value_label)
 
         # Referenz speichern für Updates
-        setattr(self, f"kpi_{title.lower().replace(' ', '_').replace('/', '_')}", value_label)
+        setattr(
+            self,
+            f"kpi_{title.lower().replace(' ', '_').replace('/', '_')}",
+            value_label,
+        )
 
         layout.addWidget(card, row, col)
 
@@ -342,7 +351,8 @@ class MaschinendatenGUI(QMainWindow):
         self.machine_status_label = QLabel("Status: Bereit")
         self.machine_status_label.setStyleSheet(
             "padding: 10px; background-color: lightgreen; "
-            "border: 2px solid green; font-weight: bold;")
+            "border: 2px solid green; font-weight: bold;"
+        )
         status_layout.addWidget(self.machine_status_label)
 
         left_layout.addWidget(status_group)
@@ -356,7 +366,12 @@ class MaschinendatenGUI(QMainWindow):
         self.speed_label = QLabel("Schnittgeschwindigkeit: 2.5 m/min")
         self.power_label = QLabel("Leistungsaufnahme: 50 kW")
 
-        for label in [self.temp_label, self.pressure_label, self.speed_label, self.power_label]:
+        for label in [
+            self.temp_label,
+            self.pressure_label,
+            self.speed_label,
+            self.power_label,
+        ]:
             label.setStyleSheet("padding: 8px; border: 1px solid gray; margin: 2px;")
             values_layout.addWidget(label)
 
@@ -368,15 +383,21 @@ class MaschinendatenGUI(QMainWindow):
 
         button_layout = QHBoxLayout()
         self.start_button = QPushButton("Start")
-        self.start_button.setStyleSheet("background-color: green; color: white; font-weight: bold;")
+        self.start_button.setStyleSheet(
+            "background-color: green; color: white; font-weight: bold;"
+        )
         self.start_button.clicked.connect(self.start_machine)
 
         self.stop_button = QPushButton("Stopp")
-        self.stop_button.setStyleSheet("background-color: red; color: white; font-weight: bold;")
+        self.stop_button.setStyleSheet(
+            "background-color: red; color: white; font-weight: bold;"
+        )
         self.stop_button.clicked.connect(self.stop_machine)
 
         self.pause_button = QPushButton("Pause")
-        self.pause_button.setStyleSheet("background-color: orange; color: white; font-weight: bold;")
+        self.pause_button.setStyleSheet(
+            "background-color: orange; color: white; font-weight: bold;"
+        )
         self.pause_button.clicked.connect(self.pause_machine)
 
         button_layout.addWidget(self.start_button)
@@ -393,11 +414,13 @@ class MaschinendatenGUI(QMainWindow):
         right_layout = QVBoxLayout(right_widget)
 
         # Matplotlib-Canvas würde hier eingefügt
-        chart_placeholder = QLabel("Hier würden Matplotlib-Diagramme angezeigt:\n\n"
-                                  "• Temperaturverlauf\n"
-                                  "• Druckverlauf\n"
-                                  "• Geschwindigkeitsprofil\n"
-                                  "• Leistungsaufnahme")
+        chart_placeholder = QLabel(
+            "Hier würden Matplotlib-Diagramme angezeigt:\n\n"
+            "• Temperaturverlauf\n"
+            "• Druckverlauf\n"
+            "• Geschwindigkeitsprofil\n"
+            "• Leistungsaufnahme"
+        )
         chart_placeholder.setAlignment(Qt.AlignCenter)
         chart_placeholder.setStyleSheet("border: 2px dashed gray; padding: 20px;")
         right_layout.addWidget(chart_placeholder)
@@ -423,8 +446,12 @@ class MaschinendatenGUI(QMainWindow):
         self.production_rate = QLabel("Rate: 245 Teile/Stunde")
         self.production_efficiency = QLabel("Effizienz: 87%")
 
-        for label in [self.production_target, self.production_current,
-                     self.production_rate, self.production_efficiency]:
+        for label in [
+            self.production_target,
+            self.production_current,
+            self.production_rate,
+            self.production_efficiency,
+        ]:
             label.setStyleSheet("padding: 8px; border: 1px solid blue; margin: 2px;")
             metrics_layout.addWidget(label)
 
@@ -452,16 +479,16 @@ class MaschinendatenGUI(QMainWindow):
         list_layout = QVBoxLayout(production_list_group)
 
         self.production_table = QTableWidget(10, 6)
-        self.production_table.setHorizontalHeaderLabels([
-            "Auftragsnr", "Teil", "Menge", "Status", "Start", "Ende"
-        ])
+        self.production_table.setHorizontalHeaderLabels(
+            ["Auftragsnr", "Teil", "Menge", "Status", "Start", "Ende"]
+        )
 
         # Beispieldaten
         sample_orders = [
             ["PO-001", "Flansch 150mm", "50", "Läuft", "08:00", "10:30"],
             ["PO-002", "Gehäuse Typ A", "25", "Wartend", "10:30", "12:00"],
             ["PO-003", "Blech 5mm", "100", "Wartend", "13:00", "16:00"],
-            ["PO-004", "Halterung", "75", "Geplant", "16:00", "18:30"]
+            ["PO-004", "Halterung", "75", "Geplant", "16:00", "18:30"],
         ]
 
         for row, order in enumerate(sample_orders):
@@ -499,11 +526,13 @@ class MaschinendatenGUI(QMainWindow):
 
         # Wartungsliste
         self.maintenance_list = QListWidget()
-        self.maintenance_list.addItems([
-            "Laser 1: Routinewartung - 05.09.2024",
-            "Stanze 1: Kalibrierung - 07.09.2024",
-            "Biegemaschine: Reparatur - 10.09.2024"
-        ])
+        self.maintenance_list.addItems(
+            [
+                "Laser 1: Routinewartung - 05.09.2024",
+                "Stanze 1: Kalibrierung - 07.09.2024",
+                "Biegemaschine: Reparatur - 10.09.2024",
+            ]
+        )
         left_layout.addWidget(self.maintenance_list)
 
         layout.addWidget(left_widget)
@@ -513,16 +542,16 @@ class MaschinendatenGUI(QMainWindow):
         right_layout = QVBoxLayout(right_widget)
 
         self.maintenance_history = QTableWidget(8, 5)
-        self.maintenance_history.setHorizontalHeaderLabels([
-            "Datum", "Maschine", "Typ", "Dauer", "Status"
-        ])
+        self.maintenance_history.setHorizontalHeaderLabels(
+            ["Datum", "Maschine", "Typ", "Dauer", "Status"]
+        )
 
         # Beispiel-Wartungshistorie
         history_data = [
             ["02.09.2024", "Laser 1", "Routinewartung", "2h", "Abgeschlossen"],
             ["30.08.2024", "Laser 2", "Reparatur", "4h", "Abgeschlossen"],
             ["28.08.2024", "Stanze 1", "Kalibrierung", "1h", "Abgeschlossen"],
-            ["25.08.2024", "Biegemaschine", "Präventiv", "3h", "Abgeschlossen"]
+            ["25.08.2024", "Biegemaschine", "Präventiv", "3h", "Abgeschlossen"],
         ]
 
         for row, entry in enumerate(history_data):
@@ -550,13 +579,19 @@ class MaschinendatenGUI(QMainWindow):
 
         # Alarm-Zähler
         self.critical_alarms = QLabel("Kritisch: 0")
-        self.critical_alarms.setStyleSheet("color: red; font-weight: bold; font-size: 16px;")
+        self.critical_alarms.setStyleSheet(
+            "color: red; font-weight: bold; font-size: 16px;"
+        )
 
         self.warning_alarms = QLabel("Warnung: 2")
-        self.warning_alarms.setStyleSheet("color: orange; font-weight: bold; font-size: 16px;")
+        self.warning_alarms.setStyleSheet(
+            "color: orange; font-weight: bold; font-size: 16px;"
+        )
 
         self.info_alarms = QLabel("Info: 1")
-        self.info_alarms.setStyleSheet("color: blue; font-weight: bold; font-size: 16px;")
+        self.info_alarms.setStyleSheet(
+            "color: blue; font-weight: bold; font-size: 16px;"
+        )
 
         overview_layout.addWidget(self.critical_alarms)
         overview_layout.addWidget(self.warning_alarms)
@@ -569,15 +604,15 @@ class MaschinendatenGUI(QMainWindow):
         list_layout = QVBoxLayout(alarm_list_group)
 
         self.alarm_table = QTableWidget(10, 6)
-        self.alarm_table.setHorizontalHeaderLabels([
-            "Zeit", "Maschine", "Typ", "Schweregrad", "Beschreibung", "Status"
-        ])
+        self.alarm_table.setHorizontalHeaderLabels(
+            ["Zeit", "Maschine", "Typ", "Schweregrad", "Beschreibung", "Status"]
+        )
 
         # Beispiel-Alarme
         alarm_data = [
             ["14:32", "Laser 1", "Temperatur", "Warnung", "Temperatur erhöht", "Aktiv"],
             ["14:15", "Stanze 1", "Wartung", "Info", "Wartung fällig", "Bestätigt"],
-            ["13:45", "Laser 2", "Druck", "Warnung", "Druckabfall", "Aktiv"]
+            ["13:45", "Laser 2", "Druck", "Warnung", "Druckabfall", "Aktiv"],
         ]
 
         for row, alarm in enumerate(alarm_data):
@@ -628,22 +663,23 @@ class MaschinendatenGUI(QMainWindow):
         type_layout.addWidget(QLabel("Berichtstyp:"))
 
         self.report_type = QComboBox()
-        self.report_type.addItems([
-            "Tagesproduktion",
-            "Wochenübersicht",
-            "Qualitätsbericht",
-            "Wartungsbericht",
-            "Effizienz-Analyse"
-        ])
+        self.report_type.addItems(
+            [
+                "Tagesproduktion",
+                "Wochenübersicht",
+                "Qualitätsbericht",
+                "Wartungsbericht",
+                "Effizienz-Analyse",
+            ]
+        )
         type_layout.addWidget(self.report_type)
 
         # Zeitraum
         type_layout.addWidget(QLabel("Zeitraum:"))
         self.report_period = QComboBox()
-        self.report_period.addItems([
-            "Heute", "Gestern", "Diese Woche",
-            "Letzte Woche", "Dieser Monat"
-        ])
+        self.report_period.addItems(
+            ["Heute", "Gestern", "Diese Woche", "Letzte Woche", "Dieser Monat"]
+        )
         type_layout.addWidget(self.report_period)
 
         generate_button = QPushButton("Bericht erstellen")
@@ -670,11 +706,12 @@ class MaschinendatenGUI(QMainWindow):
     def init_database(self):
         """Initialisiert die SQLite-Datenbank."""
         try:
-            self.db_connection = sqlite3.connect(':memory:')  # In-Memory DB für Demo
+            self.db_connection = sqlite3.connect(":memory:")  # In-Memory DB für Demo
             cursor = self.db_connection.cursor()
 
             # Tabelle für Maschinendaten
-            cursor.execute('''
+            cursor.execute(
+                """
                 CREATE TABLE machine_data (
                     id INTEGER PRIMARY KEY,
                     timestamp DATETIME,
@@ -686,12 +723,15 @@ class MaschinendatenGUI(QMainWindow):
                     power_consumption REAL,
                     status TEXT
                 )
-            ''')
+            """
+            )
 
             self.db_connection.commit()
             self.status_bar.showMessage("Datenbank initialisiert", 3000)
         except Exception as e:
-            QMessageBox.warning(self, "Datenbankfehler", f"Fehler beim Initialisieren: {e}")
+            QMessageBox.warning(
+                self, "Datenbankfehler", f"Fehler beim Initialisieren: {e}"
+            )
 
     def update_machine_data(self, data):
         """Aktualisiert die Anzeige mit neuen Maschinendaten."""
@@ -699,27 +739,34 @@ class MaschinendatenGUI(QMainWindow):
             # Labels aktualisieren
             self.temp_label.setText(f"Temperatur: {data['temperature']:.1f}°C")
             self.pressure_label.setText(f"Druck: {data['pressure']:.1f} bar")
-            self.speed_label.setText(f"Schnittgeschwindigkeit: {data['cutting_speed']:.1f} m/min")
-            self.power_label.setText(f"Leistungsaufnahme: {data['power_consumption']:.1f} kW")
+            self.speed_label.setText(
+                f"Schnittgeschwindigkeit: {data['cutting_speed']:.1f} m/min"
+            )
+            self.power_label.setText(
+                f"Leistungsaufnahme: {data['power_consumption']:.1f} kW"
+            )
 
             # Status aktualisieren
             status_colors = {
-                'Normal': ('lightgreen', 'green'),
-                'Warnung': ('lightyellow', 'orange'),
-                'Fehler': ('lightcoral', 'red')
+                "Normal": ("lightgreen", "green"),
+                "Warnung": ("lightyellow", "orange"),
+                "Fehler": ("lightcoral", "red"),
             }
-            bg_color, text_color = status_colors.get(data['status'], ('lightgray', 'black'))
+            bg_color, text_color = status_colors.get(
+                data["status"], ("lightgray", "black")
+            )
 
             self.machine_status_label.setText(f"Status: {data['status']}")
             self.machine_status_label.setStyleSheet(
                 f"padding: 10px; background-color: {bg_color}; "
-                f"border: 2px solid {text_color}; font-weight: bold;")
+                f"border: 2px solid {text_color}; font-weight: bold;"
+            )
 
             # KPIs aktualisieren
-            if hasattr(self, 'kpi_stückzahl_stunde'):
-                self.kpi_stückzahl_stunde.setText(str(data['parts_produced']))
+            if hasattr(self, "kpi_stückzahl_stunde"):
+                self.kpi_stückzahl_stunde.setText(str(data["parts_produced"]))
 
-            if hasattr(self, 'kpi_qualitätsindex'):
+            if hasattr(self, "kpi_qualitätsindex"):
                 self.kpi_qualitätsindex.setText(f"{data['quality_index']:.1f}%")
 
             # Daten zur Historie hinzufügen
@@ -741,16 +788,24 @@ class MaschinendatenGUI(QMainWindow):
         """Speichert Daten in die Datenbank."""
         try:
             cursor = self.db_connection.cursor()
-            cursor.execute('''
+            cursor.execute(
+                """
                 INSERT INTO machine_data
                 (timestamp, temperature, pressure, cutting_speed, parts_produced,
                  quality_index, power_consumption, status)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-            ''', (
-                data['timestamp'], data['temperature'], data['pressure'],
-                data['cutting_speed'], data['parts_produced'], data['quality_index'],
-                data['power_consumption'], data['status']
-            ))
+            """,
+                (
+                    data["timestamp"],
+                    data["temperature"],
+                    data["pressure"],
+                    data["cutting_speed"],
+                    data["parts_produced"],
+                    data["quality_index"],
+                    data["power_consumption"],
+                    data["status"],
+                ),
+            )
             self.db_connection.commit()
         except Exception as e:
             print(f"Datenbankfehler: {e}")
@@ -762,9 +817,12 @@ class MaschinendatenGUI(QMainWindow):
 
     def stop_machine(self):
         """Stoppt die Maschine."""
-        reply = QMessageBox.question(self, "Maschine stoppen",
-                                   "Möchten Sie die Maschine wirklich stoppen?",
-                                   QMessageBox.Yes | QMessageBox.No)
+        reply = QMessageBox.question(
+            self,
+            "Maschine stoppen",
+            "Möchten Sie die Maschine wirklich stoppen?",
+            QMessageBox.Yes | QMessageBox.No,
+        )
         if reply == QMessageBox.Yes:
             self.status_bar.showMessage("Maschine wird gestoppt...", 3000)
 
@@ -789,11 +847,11 @@ class MaschinendatenGUI(QMainWindow):
         """Zeigt Alarm-Details an."""
         row = item.row()
         alarm_data = {
-            'type': self.alarm_table.item(row, 2).text(),
-            'timestamp': self.alarm_table.item(row, 0).text(),
-            'machine': self.alarm_table.item(row, 1).text(),
-            'severity': self.alarm_table.item(row, 3).text(),
-            'description': self.alarm_table.item(row, 4).text()
+            "type": self.alarm_table.item(row, 2).text(),
+            "timestamp": self.alarm_table.item(row, 0).text(),
+            "machine": self.alarm_table.item(row, 1).text(),
+            "severity": self.alarm_table.item(row, 3).text(),
+            "description": self.alarm_table.item(row, 4).text(),
         }
 
         dialog = AlarmDialog(alarm_data, self)
@@ -825,7 +883,7 @@ BYSTRONIC PRODUKTIONSBERICHT
 
 Berichtstyp: {report_type}
 Zeitraum: {period}
-Erstellt am: {datetime.now().strftime('%d.%m.%Y %H:%M')}
+Erstellt am: {datetime.now().strftime("%d.%m.%Y %H:%M")}
 
 ZUSAMMENFASSUNG:
 - Gesamtproduktion: 1.450 Teile
@@ -867,28 +925,33 @@ EMPFEHLUNGEN:
                 export_data = []
                 for data in self.machine_data_history[-50:]:  # Letzte 50 Datenpunkte
                     export_entry = data.copy()
-                    export_entry['timestamp'] = data['timestamp'].isoformat()
+                    export_entry["timestamp"] = data["timestamp"].isoformat()
                     export_data.append(export_entry)
 
                 # Simulierter Export (in echte Anwendung würde hier gespeichert)
-                QMessageBox.information(self, "Export",
+                QMessageBox.information(
+                    self,
+                    "Export",
                     f"Daten würden in {filename} exportiert werden.\n"
-                    f"Anzahl Datensätze: {len(export_data)}")
+                    f"Anzahl Datensätze: {len(export_data)}",
+                )
 
             except Exception as e:
                 QMessageBox.warning(self, "Export-Fehler", f"Fehler beim Export: {e}")
         else:
-            QMessageBox.information(self, "Export", "Keine Daten zum Exportieren vorhanden.")
+            QMessageBox.information(
+                self, "Export", "Keine Daten zum Exportieren vorhanden."
+            )
 
     def closeEvent(self, event):
         """Wird beim Schließen der Anwendung aufgerufen."""
         # Worker-Thread stoppen
-        if hasattr(self, 'data_worker') and self.data_worker.isRunning():
+        if hasattr(self, "data_worker") and self.data_worker.isRunning():
             self.data_worker.stop()
             self.data_worker.wait(5000)  # Max 5 Sekunden warten
 
         # Datenbankverbindung schließen
-        if hasattr(self, 'db_connection'):
+        if hasattr(self, "db_connection"):
             self.db_connection.close()
 
         event.accept()
@@ -897,7 +960,7 @@ EMPFEHLUNGEN:
 def main():
     """Hauptfunktion zum Starten der Anwendung."""
     app = QApplication(sys.argv)
-    app.setStyle('Fusion')
+    app.setStyle("Fusion")
 
     # Anwendungsmetadaten
     app.setApplicationName("Bystronic Maschinendaten-GUI")

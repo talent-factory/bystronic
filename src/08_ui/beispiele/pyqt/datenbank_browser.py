@@ -48,7 +48,7 @@ from PySide6.QtWidgets import (
 class DatabaseManager:
     """Manager für Datenbankoperationen."""
 
-    def __init__(self, db_path=':memory:'):
+    def __init__(self, db_path=":memory:"):
         self.db_path = db_path
         self.init_database()
 
@@ -59,7 +59,8 @@ class DatabaseManager:
             cursor = conn.cursor()
 
             # Maschinen-Tabelle
-            cursor.execute('''
+            cursor.execute(
+                """
                 CREATE TABLE IF NOT EXISTS machines (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     name TEXT NOT NULL,
@@ -68,10 +69,12 @@ class DatabaseManager:
                     install_date DATE,
                     status TEXT DEFAULT 'Active'
                 )
-            ''')
+            """
+            )
 
             # Produktionsdaten-Tabelle
-            cursor.execute('''
+            cursor.execute(
+                """
                 CREATE TABLE IF NOT EXISTS production_data (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     machine_id INTEGER,
@@ -84,10 +87,12 @@ class DatabaseManager:
                     operator TEXT,
                     FOREIGN KEY (machine_id) REFERENCES machines (id)
                 )
-            ''')
+            """
+            )
 
             # Wartungsdaten-Tabelle
-            cursor.execute('''
+            cursor.execute(
+                """
                 CREATE TABLE IF NOT EXISTS maintenance (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     machine_id INTEGER,
@@ -99,10 +104,12 @@ class DatabaseManager:
                     duration_hours INTEGER,
                     FOREIGN KEY (machine_id) REFERENCES machines (id)
                 )
-            ''')
+            """
+            )
 
             # Qualitätsdaten-Tabelle
-            cursor.execute('''
+            cursor.execute(
+                """
                 CREATE TABLE IF NOT EXISTS quality_control (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     production_id INTEGER,
@@ -114,7 +121,8 @@ class DatabaseManager:
                     inspector TEXT,
                     FOREIGN KEY (production_id) REFERENCES production_data (id)
                 )
-            ''')
+            """
+            )
 
             conn.commit()
 
@@ -137,19 +145,29 @@ class DatabaseManager:
 
         # Beispiel-Maschinen
         machines_data = [
-            ('Laser 1', 'Laser Cutter', 'Halle A', '2022-01-15', 'Active'),
-            ('Laser 2', 'Laser Cutter', 'Halle A', '2022-03-20', 'Active'),
-            ('Stanze 1', 'Punching Machine', 'Halle B', '2021-11-10', 'Active'),
-            ('Biegemaschine', 'Bending Machine', 'Halle C', '2023-02-05', 'Maintenance')
+            ("Laser 1", "Laser Cutter", "Halle A", "2022-01-15", "Active"),
+            ("Laser 2", "Laser Cutter", "Halle A", "2022-03-20", "Active"),
+            ("Stanze 1", "Punching Machine", "Halle B", "2021-11-10", "Active"),
+            (
+                "Biegemaschine",
+                "Bending Machine",
+                "Halle C",
+                "2023-02-05",
+                "Maintenance",
+            ),
         ]
 
-        cursor.executemany('''
+        cursor.executemany(
+            """
             INSERT INTO machines (name, type, location, install_date, status)
             VALUES (?, ?, ?, ?, ?)
-        ''', machines_data)
+        """,
+            machines_data,
+        )
 
         # Beispiel-Produktionsdaten
         import numpy as np
+
         np.random.seed(42)
 
         production_data = []
@@ -161,33 +179,55 @@ class DatabaseManager:
             speed = np.random.normal(2.5, 0.3)
             parts = np.random.randint(200, 300)
             quality = np.random.uniform(95, 99.5)
-            operators = ['Schmidt', 'Müller', 'Weber', 'Meyer', 'Wagner']
+            operators = ["Schmidt", "Müller", "Weber", "Meyer", "Wagner"]
             operator = np.random.choice(operators)
 
-            production_data.append((
-                machine_id, timestamp, temp, pressure, speed, parts, quality, operator
-            ))
+            production_data.append(
+                (machine_id, timestamp, temp, pressure, speed, parts, quality, operator)
+            )
 
-        cursor.executemany('''
+        cursor.executemany(
+            """
             INSERT INTO production_data
             (machine_id, timestamp, temperature, pressure, cutting_speed,
              parts_produced, quality_index, operator)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        ''', production_data)
+        """,
+            production_data,
+        )
 
         # Beispiel-Wartungsdaten
         maintenance_data = [
-            (1, '2024-09-01 10:00', 'Routine', 'Routinewartung und Reinigung', 250.0, 'Tech1', 2),
-            (2, '2024-08-28 14:00', 'Repair', 'Optik-Justierung', 450.0, 'Tech2', 4),
-            (3, '2024-08-25 09:00', 'Calibration', 'Präzisionskalibrierung', 180.0, 'Tech1', 1),
-            (4, '2024-09-03 08:00', 'Upgrade', 'Software-Update', 120.0, 'Tech3', 3)
+            (
+                1,
+                "2024-09-01 10:00",
+                "Routine",
+                "Routinewartung und Reinigung",
+                250.0,
+                "Tech1",
+                2,
+            ),
+            (2, "2024-08-28 14:00", "Repair", "Optik-Justierung", 450.0, "Tech2", 4),
+            (
+                3,
+                "2024-08-25 09:00",
+                "Calibration",
+                "Präzisionskalibrierung",
+                180.0,
+                "Tech1",
+                1,
+            ),
+            (4, "2024-09-03 08:00", "Upgrade", "Software-Update", 120.0, "Tech3", 3),
         ]
 
-        cursor.executemany('''
+        cursor.executemany(
+            """
             INSERT INTO maintenance
             (machine_id, maintenance_date, type, description, cost, technician, duration_hours)
             VALUES (?, ?, ?, ?, ?, ?, ?)
-        ''', maintenance_data)
+        """,
+            maintenance_data,
+        )
 
         conn.commit()
 
@@ -202,7 +242,7 @@ class DatabaseManager:
             else:
                 cursor.execute(query)
 
-            if query.strip().upper().startswith('SELECT'):
+            if query.strip().upper().startswith("SELECT"):
                 results = cursor.fetchall()
                 columns = [description[0] for description in cursor.description]
                 conn.close()
@@ -227,7 +267,9 @@ class EditRecordDialog(QDialog):
         self.columns = columns or []
         self.input_widgets = {}
 
-        self.setWindowTitle(f"Datensatz {'bearbeiten' if record_data else 'erstellen'} - {table_name}")
+        self.setWindowTitle(
+            f"Datensatz {'bearbeiten' if record_data else 'erstellen'} - {table_name}"
+        )
         self.setModal(True)
         self.resize(500, 400)
 
@@ -254,121 +296,142 @@ class EditRecordDialog(QDialog):
 
     def create_input_fields(self, layout):
         """Erstellt Eingabefelder basierend auf der Tabelle."""
-        if self.table_name == 'machines':
+        if self.table_name == "machines":
             self.create_machine_fields(layout)
-        elif self.table_name == 'production_data':
+        elif self.table_name == "production_data":
             self.create_production_fields(layout)
-        elif self.table_name == 'maintenance':
+        elif self.table_name == "maintenance":
             self.create_maintenance_fields(layout)
-        elif self.table_name == 'quality_control':
+        elif self.table_name == "quality_control":
             self.create_quality_fields(layout)
 
     def create_machine_fields(self, layout):
         """Erstellt Felder für Maschinen-Tabelle."""
         # Name
-        self.input_widgets['name'] = QLineEdit()
-        self.input_widgets['name'].setText(str(self.record_data.get('name', '')))
-        layout.addRow("Name:", self.input_widgets['name'])
+        self.input_widgets["name"] = QLineEdit()
+        self.input_widgets["name"].setText(str(self.record_data.get("name", "")))
+        layout.addRow("Name:", self.input_widgets["name"])
 
         # Typ
-        self.input_widgets['type'] = QComboBox()
-        self.input_widgets['type'].addItems([
-            'Laser Cutter', 'Punching Machine', 'Bending Machine',
-            'Welding Machine', 'Other'
-        ])
-        current_type = self.record_data.get('type', '')
+        self.input_widgets["type"] = QComboBox()
+        self.input_widgets["type"].addItems(
+            [
+                "Laser Cutter",
+                "Punching Machine",
+                "Bending Machine",
+                "Welding Machine",
+                "Other",
+            ]
+        )
+        current_type = self.record_data.get("type", "")
         if current_type:
-            index = self.input_widgets['type'].findText(current_type)
+            index = self.input_widgets["type"].findText(current_type)
             if index >= 0:
-                self.input_widgets['type'].setCurrentIndex(index)
-        layout.addRow("Typ:", self.input_widgets['type'])
+                self.input_widgets["type"].setCurrentIndex(index)
+        layout.addRow("Typ:", self.input_widgets["type"])
 
         # Standort
-        self.input_widgets['location'] = QLineEdit()
-        self.input_widgets['location'].setText(str(self.record_data.get('location', '')))
-        layout.addRow("Standort:", self.input_widgets['location'])
+        self.input_widgets["location"] = QLineEdit()
+        self.input_widgets["location"].setText(
+            str(self.record_data.get("location", ""))
+        )
+        layout.addRow("Standort:", self.input_widgets["location"])
 
         # Installationsdatum
-        self.input_widgets['install_date'] = QDateTimeEdit()
-        self.input_widgets['install_date'].setCalendarPopup(True)
-        if self.record_data.get('install_date'):
+        self.input_widgets["install_date"] = QDateTimeEdit()
+        self.input_widgets["install_date"].setCalendarPopup(True)
+        if self.record_data.get("install_date"):
             try:
-                date = datetime.fromisoformat(str(self.record_data['install_date']))
-                self.input_widgets['install_date'].setDateTime(date)
+                date = datetime.fromisoformat(str(self.record_data["install_date"]))
+                self.input_widgets["install_date"].setDateTime(date)
             except:
-                self.input_widgets['install_date'].setDateTime(datetime.now())
+                self.input_widgets["install_date"].setDateTime(datetime.now())
         else:
-            self.input_widgets['install_date'].setDateTime(datetime.now())
-        layout.addRow("Installationsdatum:", self.input_widgets['install_date'])
+            self.input_widgets["install_date"].setDateTime(datetime.now())
+        layout.addRow("Installationsdatum:", self.input_widgets["install_date"])
 
         # Status
-        self.input_widgets['status'] = QComboBox()
-        self.input_widgets['status'].addItems(['Active', 'Maintenance', 'Inactive'])
-        current_status = self.record_data.get('status', 'Active')
-        index = self.input_widgets['status'].findText(current_status)
+        self.input_widgets["status"] = QComboBox()
+        self.input_widgets["status"].addItems(["Active", "Maintenance", "Inactive"])
+        current_status = self.record_data.get("status", "Active")
+        index = self.input_widgets["status"].findText(current_status)
         if index >= 0:
-            self.input_widgets['status'].setCurrentIndex(index)
-        layout.addRow("Status:", self.input_widgets['status'])
+            self.input_widgets["status"].setCurrentIndex(index)
+        layout.addRow("Status:", self.input_widgets["status"])
 
     def create_production_fields(self, layout):
         """Erstellt Felder für Produktionsdaten."""
         # Maschinen-ID (vereinfacht)
-        self.input_widgets['machine_id'] = QSpinBox()
-        self.input_widgets['machine_id'].setRange(1, 10)
-        self.input_widgets['machine_id'].setValue(int(self.record_data.get('machine_id', 1)))
-        layout.addRow("Maschinen-ID:", self.input_widgets['machine_id'])
+        self.input_widgets["machine_id"] = QSpinBox()
+        self.input_widgets["machine_id"].setRange(1, 10)
+        self.input_widgets["machine_id"].setValue(
+            int(self.record_data.get("machine_id", 1))
+        )
+        layout.addRow("Maschinen-ID:", self.input_widgets["machine_id"])
 
         # Zeitstempel
-        self.input_widgets['timestamp'] = QDateTimeEdit()
-        self.input_widgets['timestamp'].setCalendarPopup(True)
-        if self.record_data.get('timestamp'):
+        self.input_widgets["timestamp"] = QDateTimeEdit()
+        self.input_widgets["timestamp"].setCalendarPopup(True)
+        if self.record_data.get("timestamp"):
             try:
-                timestamp = datetime.fromisoformat(str(self.record_data['timestamp']))
-                self.input_widgets['timestamp'].setDateTime(timestamp)
+                timestamp = datetime.fromisoformat(str(self.record_data["timestamp"]))
+                self.input_widgets["timestamp"].setDateTime(timestamp)
             except:
-                self.input_widgets['timestamp'].setDateTime(datetime.now())
+                self.input_widgets["timestamp"].setDateTime(datetime.now())
         else:
-            self.input_widgets['timestamp'].setDateTime(datetime.now())
-        layout.addRow("Zeitstempel:", self.input_widgets['timestamp'])
+            self.input_widgets["timestamp"].setDateTime(datetime.now())
+        layout.addRow("Zeitstempel:", self.input_widgets["timestamp"])
 
         # Temperatur
-        self.input_widgets['temperature'] = QDoubleSpinBox()
-        self.input_widgets['temperature'].setRange(0, 150)
-        self.input_widgets['temperature'].setValue(float(self.record_data.get('temperature', 65.0)))
-        self.input_widgets['temperature'].setSuffix(" °C")
-        layout.addRow("Temperatur:", self.input_widgets['temperature'])
+        self.input_widgets["temperature"] = QDoubleSpinBox()
+        self.input_widgets["temperature"].setRange(0, 150)
+        self.input_widgets["temperature"].setValue(
+            float(self.record_data.get("temperature", 65.0))
+        )
+        self.input_widgets["temperature"].setSuffix(" °C")
+        layout.addRow("Temperatur:", self.input_widgets["temperature"])
 
         # Druck
-        self.input_widgets['pressure'] = QDoubleSpinBox()
-        self.input_widgets['pressure'].setRange(0, 20)
-        self.input_widgets['pressure'].setValue(float(self.record_data.get('pressure', 8.2)))
-        self.input_widgets['pressure'].setSuffix(" bar")
-        layout.addRow("Druck:", self.input_widgets['pressure'])
+        self.input_widgets["pressure"] = QDoubleSpinBox()
+        self.input_widgets["pressure"].setRange(0, 20)
+        self.input_widgets["pressure"].setValue(
+            float(self.record_data.get("pressure", 8.2))
+        )
+        self.input_widgets["pressure"].setSuffix(" bar")
+        layout.addRow("Druck:", self.input_widgets["pressure"])
 
         # Schnittgeschwindigkeit
-        self.input_widgets['cutting_speed'] = QDoubleSpinBox()
-        self.input_widgets['cutting_speed'].setRange(0, 10)
-        self.input_widgets['cutting_speed'].setValue(float(self.record_data.get('cutting_speed', 2.5)))
-        self.input_widgets['cutting_speed'].setSuffix(" m/min")
-        layout.addRow("Geschwindigkeit:", self.input_widgets['cutting_speed'])
+        self.input_widgets["cutting_speed"] = QDoubleSpinBox()
+        self.input_widgets["cutting_speed"].setRange(0, 10)
+        self.input_widgets["cutting_speed"].setValue(
+            float(self.record_data.get("cutting_speed", 2.5))
+        )
+        self.input_widgets["cutting_speed"].setSuffix(" m/min")
+        layout.addRow("Geschwindigkeit:", self.input_widgets["cutting_speed"])
 
         # Teile produziert
-        self.input_widgets['parts_produced'] = QSpinBox()
-        self.input_widgets['parts_produced'].setRange(0, 1000)
-        self.input_widgets['parts_produced'].setValue(int(self.record_data.get('parts_produced', 250)))
-        layout.addRow("Teile produziert:", self.input_widgets['parts_produced'])
+        self.input_widgets["parts_produced"] = QSpinBox()
+        self.input_widgets["parts_produced"].setRange(0, 1000)
+        self.input_widgets["parts_produced"].setValue(
+            int(self.record_data.get("parts_produced", 250))
+        )
+        layout.addRow("Teile produziert:", self.input_widgets["parts_produced"])
 
         # Qualitätsindex
-        self.input_widgets['quality_index'] = QDoubleSpinBox()
-        self.input_widgets['quality_index'].setRange(0, 100)
-        self.input_widgets['quality_index'].setValue(float(self.record_data.get('quality_index', 98.0)))
-        self.input_widgets['quality_index'].setSuffix(" %")
-        layout.addRow("Qualitätsindex:", self.input_widgets['quality_index'])
+        self.input_widgets["quality_index"] = QDoubleSpinBox()
+        self.input_widgets["quality_index"].setRange(0, 100)
+        self.input_widgets["quality_index"].setValue(
+            float(self.record_data.get("quality_index", 98.0))
+        )
+        self.input_widgets["quality_index"].setSuffix(" %")
+        layout.addRow("Qualitätsindex:", self.input_widgets["quality_index"])
 
         # Operator
-        self.input_widgets['operator'] = QLineEdit()
-        self.input_widgets['operator'].setText(str(self.record_data.get('operator', '')))
-        layout.addRow("Operator:", self.input_widgets['operator'])
+        self.input_widgets["operator"] = QLineEdit()
+        self.input_widgets["operator"].setText(
+            str(self.record_data.get("operator", ""))
+        )
+        layout.addRow("Operator:", self.input_widgets["operator"])
 
     def create_maintenance_fields(self, layout):
         """Erstellt Felder für Wartungsdaten."""
@@ -406,11 +469,11 @@ class DatenbankBrowser(QMainWindow):
         self.setGeometry(100, 100, 1200, 800)
 
         # Datenbankmanager
-        self.db_path = db_path or ':memory:'
+        self.db_path = db_path or ":memory:"
         self.db_manager = DatabaseManager(self.db_path)
 
         # Aktuelle Tabelle und Daten
-        self.current_table = 'machines'
+        self.current_table = "machines"
         self.current_data = []
         self.current_columns = []
 
@@ -557,7 +620,7 @@ class DatenbankBrowser(QMainWindow):
             ("machines", "Maschinen"),
             ("production_data", "Produktionsdaten"),
             ("maintenance", "Wartung"),
-            ("quality_control", "Qualitätskontrolle")
+            ("quality_control", "Qualitätskontrolle"),
         ]
 
         for table_name, display_name in tables:
@@ -594,7 +657,9 @@ class DatenbankBrowser(QMainWindow):
             self.update_table_display()
             self.update_column_filter()
 
-            self.status_bar.showMessage(f"Tabelle {self.current_table} geladen: {len(data)} Datensätze")
+            self.status_bar.showMessage(
+                f"Tabelle {self.current_table} geladen: {len(data)} Datensätze"
+            )
         else:
             QMessageBox.warning(self, "Fehler", "Fehler beim Laden der Tabellendaten")
 
@@ -662,7 +727,9 @@ class DatenbankBrowser(QMainWindow):
 
         if column_name == "Alle Spalten":
             # In allen Spalten suchen
-            where_clause = " OR ".join([f"{col} LIKE ?" for col in self.current_columns])
+            where_clause = " OR ".join(
+                [f"{col} LIKE ?" for col in self.current_columns]
+            )
             params = [f"%{search_text}%"] * len(self.current_columns)
         else:
             # In spezifischer Spalte suchen
@@ -701,13 +768,17 @@ class DatenbankBrowser(QMainWindow):
                 self.load_table_data()
                 self.status_bar.showMessage("Datensatz hinzugefügt", 3000)
             else:
-                QMessageBox.warning(self, "Fehler", "Fehler beim Hinzufügen des Datensatzes")
+                QMessageBox.warning(
+                    self, "Fehler", "Fehler beim Hinzufügen des Datensatzes"
+                )
 
     def edit_record(self):
         """Bearbeitet den ausgewählten Datensatz."""
         current_row = self.data_table.currentRow()
         if current_row < 0:
-            QMessageBox.information(self, "Info", "Bitte wählen Sie einen Datensatz aus.")
+            QMessageBox.information(
+                self, "Info", "Bitte wählen Sie einen Datensatz aus."
+            )
             return
 
         # Aktuelle Daten des Datensatzes abrufen
@@ -717,15 +788,17 @@ class DatenbankBrowser(QMainWindow):
             item = self.data_table.item(current_row, col)
             record_data[column_name] = item.text() if item else ""
 
-        dialog = EditRecordDialog(self.current_table, record_data, self.current_columns, self)
+        dialog = EditRecordDialog(
+            self.current_table, record_data, self.current_columns, self
+        )
 
         if dialog.exec() == QDialog.Accepted:
             data = dialog.get_data()
 
             # SQL UPDATE erstellen
-            set_clause = ", ".join([f"{col} = ?" for col in data.keys() if col != 'id'])
-            values = [value for col, value in data.items() if col != 'id']
-            record_id = record_data.get('id')
+            set_clause = ", ".join([f"{col} = ?" for col in data.keys() if col != "id"])
+            values = [value for col, value in data.items() if col != "id"]
+            record_id = record_data.get("id")
 
             if record_id:
                 query = f"UPDATE {self.current_table} SET {set_clause} WHERE id = ?"
@@ -737,27 +810,34 @@ class DatenbankBrowser(QMainWindow):
                     self.load_table_data()
                     self.status_bar.showMessage("Datensatz aktualisiert", 3000)
                 else:
-                    QMessageBox.warning(self, "Fehler", "Fehler beim Aktualisieren des Datensatzes")
+                    QMessageBox.warning(
+                        self, "Fehler", "Fehler beim Aktualisieren des Datensatzes"
+                    )
 
     def delete_record(self):
         """Löscht den ausgewählten Datensatz."""
         current_row = self.data_table.currentRow()
         if current_row < 0:
-            QMessageBox.information(self, "Info", "Bitte wählen Sie einen Datensatz aus.")
+            QMessageBox.information(
+                self, "Info", "Bitte wählen Sie einen Datensatz aus."
+            )
             return
 
         # Bestätigung
         reply = QMessageBox.question(
-            self, "Datensatz löschen",
+            self,
+            "Datensatz löschen",
             "Möchten Sie den ausgewählten Datensatz wirklich löschen?",
-            QMessageBox.Yes | QMessageBox.No
+            QMessageBox.Yes | QMessageBox.No,
         )
 
         if reply != QMessageBox.Yes:
             return
 
         # ID des Datensatzes ermitteln
-        id_item = self.data_table.item(current_row, 0)  # Annahme: ID ist in der ersten Spalte
+        id_item = self.data_table.item(
+            current_row, 0
+        )  # Annahme: ID ist in der ersten Spalte
         if not id_item:
             QMessageBox.warning(self, "Fehler", "Datensatz-ID nicht gefunden")
             return
@@ -781,12 +861,16 @@ class DatenbankBrowser(QMainWindow):
     def export_data(self):
         """Exportiert die aktuellen Daten."""
         if not self.current_data:
-            QMessageBox.information(self, "Info", "Keine Daten zum Exportieren vorhanden.")
+            QMessageBox.information(
+                self, "Info", "Keine Daten zum Exportieren vorhanden."
+            )
             return
 
         filename, _ = QFileDialog.getSaveFileName(
-            self, "Daten exportieren", f"{self.current_table}_export.csv",
-            "CSV Files (*.csv);;JSON Files (*.json);;Excel Files (*.xlsx)"
+            self,
+            "Daten exportieren",
+            f"{self.current_table}_export.csv",
+            "CSV Files (*.csv);;JSON Files (*.json);;Excel Files (*.xlsx)",
         )
 
         if filename:
@@ -795,60 +879,74 @@ class DatenbankBrowser(QMainWindow):
                 df = pd.DataFrame(self.current_data, columns=self.current_columns)
 
                 # Export basierend auf Dateierweiterung
-                if filename.endswith('.csv'):
+                if filename.endswith(".csv"):
                     df.to_csv(filename, index=False)
-                elif filename.endswith('.json'):
-                    df.to_json(filename, orient='records', indent=2)
-                elif filename.endswith('.xlsx'):
+                elif filename.endswith(".json"):
+                    df.to_json(filename, orient="records", indent=2)
+                elif filename.endswith(".xlsx"):
                     df.to_excel(filename, index=False)
 
-                QMessageBox.information(self, "Export", f"Daten erfolgreich exportiert nach: {filename}")
+                QMessageBox.information(
+                    self, "Export", f"Daten erfolgreich exportiert nach: {filename}"
+                )
                 self.status_bar.showMessage("Export abgeschlossen", 3000)
 
             except Exception as e:
-                QMessageBox.warning(self, "Export-Fehler", f"Fehler beim Exportieren: {e}")
+                QMessageBox.warning(
+                    self, "Export-Fehler", f"Fehler beim Exportieren: {e}"
+                )
 
     def import_data(self):
         """Importiert Daten aus einer Datei."""
         filename, _ = QFileDialog.getOpenFileName(
-            self, "Daten importieren", "",
-            "CSV Files (*.csv);;JSON Files (*.json);;Excel Files (*.xlsx)"
+            self,
+            "Daten importieren",
+            "",
+            "CSV Files (*.csv);;JSON Files (*.json);;Excel Files (*.xlsx)",
         )
 
         if filename:
             try:
                 # DataFrame basierend auf Dateierweiterung laden
-                if filename.endswith('.csv'):
+                if filename.endswith(".csv"):
                     df = pd.read_csv(filename)
-                elif filename.endswith('.json'):
+                elif filename.endswith(".json"):
                     df = pd.read_json(filename)
-                elif filename.endswith('.xlsx'):
+                elif filename.endswith(".xlsx"):
                     df = pd.read_excel(filename)
                 else:
-                    QMessageBox.warning(self, "Fehler", "Nicht unterstütztes Dateiformat")
+                    QMessageBox.warning(
+                        self, "Fehler", "Nicht unterstütztes Dateiformat"
+                    )
                     return
 
                 # Import-Dialog zeigen
                 reply = QMessageBox.question(
-                    self, "Daten importieren",
+                    self,
+                    "Daten importieren",
                     f"Möchten Sie {len(df)} Datensätze in die Tabelle {self.current_table} importieren?",
-                    QMessageBox.Yes | QMessageBox.No
+                    QMessageBox.Yes | QMessageBox.No,
                 )
 
                 if reply == QMessageBox.Yes:
                     # Hier würde der tatsächliche Import stattfinden
-                    QMessageBox.information(self, "Import",
+                    QMessageBox.information(
+                        self,
+                        "Import",
                         f"Import-Simulation:\n{len(df)} Datensätze würden importiert werden.\n"
-                        f"Spalten: {', '.join(df.columns.tolist())}")
+                        f"Spalten: {', '.join(df.columns.tolist())}",
+                    )
 
             except Exception as e:
-                QMessageBox.warning(self, "Import-Fehler", f"Fehler beim Importieren: {e}")
+                QMessageBox.warning(
+                    self, "Import-Fehler", f"Fehler beim Importieren: {e}"
+                )
 
 
 def main():
     """Hauptfunktion zum Starten der Anwendung."""
     app = QApplication(sys.argv)
-    app.setStyle('Fusion')
+    app.setStyle("Fusion")
 
     # Hauptfenster erstellen
     window = DatenbankBrowser()

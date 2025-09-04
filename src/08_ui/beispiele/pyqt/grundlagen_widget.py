@@ -131,12 +131,16 @@ class GrundlagenWidget(QMainWindow):
 
         # Einfacher Button
         simple_button = QPushButton("Einfacher Button")
-        simple_button.clicked.connect(lambda: self.show_message("Einfacher Button geklickt!"))
+        simple_button.clicked.connect(
+            lambda: self.show_message("Einfacher Button geklickt!")
+        )
         button_layout.addWidget(simple_button)
 
         # Button mit Icon (simuliert)
         icon_button = QPushButton("Button mit 'Icon'")
-        icon_button.setStyleSheet("background-color: #4CAF50; color: white; font-weight: bold;")
+        icon_button.setStyleSheet(
+            "background-color: #4CAF50; color: white; font-weight: bold;"
+        )
         icon_button.clicked.connect(lambda: self.show_message("Icon-Button geklickt!"))
         button_layout.addWidget(icon_button)
 
@@ -158,7 +162,9 @@ class GrundlagenWidget(QMainWindow):
         styled_label.setStyleSheet("color: blue; font-size: 14px; font-weight: bold;")
         label_layout.addWidget(styled_label)
 
-        html_label = QLabel("<b>HTML-formatiertes</b> <i>Label</i> mit <font color='red'>Farbe</font>")
+        html_label = QLabel(
+            "<b>HTML-formatiertes</b> <i>Label</i> mit <font color='red'>Farbe</font>"
+        )
         label_layout.addWidget(html_label)
 
         layout.addWidget(label_group)
@@ -169,8 +175,12 @@ class GrundlagenWidget(QMainWindow):
 
         # Checkboxen
         checkbox1 = QCheckBox("Option 1 aktivieren")
-        checkbox1.stateChanged.connect(lambda state: self.status_bar.showMessage(
-            f"Checkbox 1: {'aktiviert' if state == Qt.Checked else 'deaktiviert'}", 3000))
+        checkbox1.stateChanged.connect(
+            lambda state: self.status_bar.showMessage(
+                f"Checkbox 1: {'aktiviert' if state == Qt.Checked else 'deaktiviert'}",
+                3000,
+            )
+        )
         selection_layout.addWidget(checkbox1)
 
         checkbox2 = QCheckBox("Option 2 aktivieren")
@@ -235,11 +245,15 @@ class GrundlagenWidget(QMainWindow):
         control_layout = QHBoxLayout(control_group)
 
         stretch_button = QPushButton("Stretch hinzufügen")
-        stretch_button.clicked.connect(lambda: self.show_message("Stretch würde Platz hinzufügen"))
+        stretch_button.clicked.connect(
+            lambda: self.show_message("Stretch würde Platz hinzufügen")
+        )
         control_layout.addWidget(stretch_button)
 
         spacing_button = QPushButton("Spacing ändern")
-        spacing_button.clicked.connect(lambda: self.show_message("Spacing würde Abstände ändern"))
+        spacing_button.clicked.connect(
+            lambda: self.show_message("Spacing würde Abstände ändern")
+        )
         control_layout.addWidget(spacing_button)
 
         main_layout.addWidget(control_group)
@@ -259,7 +273,8 @@ class GrundlagenWidget(QMainWindow):
         self.line_edit = QLineEdit()
         self.line_edit.setPlaceholderText("Geben Sie hier Text ein...")
         self.line_edit.textChanged.connect(
-            lambda text: self.status_bar.showMessage(f"Text: {text}", 1000))
+            lambda text: self.status_bar.showMessage(f"Text: {text}", 1000)
+        )
         text_layout.addWidget(QLabel("Einzeiliges Textfeld:"))
         text_layout.addWidget(self.line_edit)
 
@@ -292,7 +307,8 @@ class GrundlagenWidget(QMainWindow):
         self.slider.setValue(65)
         self.temp_label = QLabel("65°C")
         self.slider.valueChanged.connect(
-            lambda value: self.temp_label.setText(f"{value}°C"))
+            lambda value: self.temp_label.setText(f"{value}°C")
+        )
         numeric_layout.addWidget(slider_label)
         numeric_layout.addWidget(self.slider)
         numeric_layout.addWidget(self.temp_label)
@@ -306,15 +322,18 @@ class GrundlagenWidget(QMainWindow):
         # Combobox
         combo_label = QLabel("Maschinentyp auswählen:")
         self.combo_box = QComboBox()
-        self.combo_box.addItems([
-            "Laser-Schneidmaschine",
-            "Plasma-Schneidmaschine",
-            "Wasser-Schneidmaschine",
-            "Stanzmaschine",
-            "Biegemaschine"
-        ])
+        self.combo_box.addItems(
+            [
+                "Laser-Schneidmaschine",
+                "Plasma-Schneidmaschine",
+                "Wasser-Schneidmaschine",
+                "Stanzmaschine",
+                "Biegemaschine",
+            ]
+        )
         self.combo_box.currentTextChanged.connect(
-            lambda text: self.status_bar.showMessage(f"Ausgewählt: {text}", 3000))
+            lambda text: self.status_bar.showMessage(f"Ausgewählt: {text}", 3000)
+        )
         selection_layout.addWidget(combo_label)
         selection_layout.addWidget(self.combo_box)
 
@@ -359,10 +378,9 @@ class GrundlagenWidget(QMainWindow):
         progress_controls.addWidget(stop_progress)
 
         reset_progress = QPushButton("Reset")
-        reset_progress.clicked.connect(lambda: (
-            self.progress_bar.setValue(0),
-            setattr(self, 'progress_value', 0)
-        ))
+        reset_progress.clicked.connect(
+            lambda: (self.progress_bar.setValue(0), setattr(self, "progress_value", 0))
+        )
         progress_controls.addWidget(reset_progress)
 
         progress_layout.addLayout(progress_controls)
@@ -375,36 +393,47 @@ class GrundlagenWidget(QMainWindow):
         # Verschiedene Status-Labels
         self.machine_status = QLabel("Maschinen-Status: Bereit")
         self.machine_status.setStyleSheet(
-            "padding: 10px; border: 2px solid green; background-color: lightgreen;")
+            "padding: 10px; border: 2px solid green; background-color: lightgreen;"
+        )
         status_layout.addWidget(self.machine_status)
 
         self.temp_status = QLabel("Temperatur: Normal (65°C)")
         self.temp_status.setStyleSheet(
-            "padding: 10px; border: 2px solid blue; background-color: lightblue;")
+            "padding: 10px; border: 2px solid blue; background-color: lightblue;"
+        )
         status_layout.addWidget(self.temp_status)
 
         self.production_status = QLabel("Produktion: 245 Teile/Stunde")
         self.production_status.setStyleSheet(
-            "padding: 10px; border: 2px solid orange; background-color: lightyellow;")
+            "padding: 10px; border: 2px solid orange; background-color: lightyellow;"
+        )
         status_layout.addWidget(self.production_status)
 
         # Buttons zum Status ändern
         status_buttons = QHBoxLayout()
 
         ready_btn = QPushButton("Bereit")
-        ready_btn.clicked.connect(lambda: self.update_machine_status("Bereit", "green", "lightgreen"))
+        ready_btn.clicked.connect(
+            lambda: self.update_machine_status("Bereit", "green", "lightgreen")
+        )
         status_buttons.addWidget(ready_btn)
 
         running_btn = QPushButton("Läuft")
-        running_btn.clicked.connect(lambda: self.update_machine_status("Läuft", "blue", "lightblue"))
+        running_btn.clicked.connect(
+            lambda: self.update_machine_status("Läuft", "blue", "lightblue")
+        )
         status_buttons.addWidget(running_btn)
 
         warning_btn = QPushButton("Warnung")
-        warning_btn.clicked.connect(lambda: self.update_machine_status("Warnung", "orange", "lightyellow"))
+        warning_btn.clicked.connect(
+            lambda: self.update_machine_status("Warnung", "orange", "lightyellow")
+        )
         status_buttons.addWidget(warning_btn)
 
         error_btn = QPushButton("Fehler")
-        error_btn.clicked.connect(lambda: self.update_machine_status("Fehler", "red", "lightcoral"))
+        error_btn.clicked.connect(
+            lambda: self.update_machine_status("Fehler", "red", "lightcoral")
+        )
         status_buttons.addWidget(error_btn)
 
         status_layout.addLayout(status_buttons)
@@ -418,11 +447,14 @@ class GrundlagenWidget(QMainWindow):
 
     def show_info(self):
         """Zeigt Informationen über die Anwendung."""
-        QMessageBox.about(self, "Über diese Anwendung",
+        QMessageBox.about(
+            self,
+            "Über diese Anwendung",
             "PyQt Grundlagen Demo\n\n"
             "Diese Anwendung demonstriert grundlegende PyQt/PySide-Konzepte "
             "für Bystronic-Entwickler.\n\n"
-            "Erstellt für den Python Grundkurs.")
+            "Erstellt für den Python Grundkurs.",
+        )
 
     def clear_all_inputs(self):
         """Löscht alle Eingabefelder."""
@@ -468,7 +500,8 @@ Maschinentyp: {self.combo_box.currentText()}"""
         self.machine_status.setText(f"Maschinen-Status: {status}")
         self.machine_status.setStyleSheet(
             f"padding: 10px; border: 2px solid {border_color}; "
-            f"background-color: {bg_color}; font-weight: bold;")
+            f"background-color: {bg_color}; font-weight: bold;"
+        )
         self.status_bar.showMessage(f"Status geändert zu: {status}", 3000)
 
     def closeEvent(self, event):
@@ -482,7 +515,7 @@ def main():
     app = QApplication(sys.argv)
 
     # Anwendungs-Stil setzen
-    app.setStyle('Fusion')
+    app.setStyle("Fusion")
 
     # Hauptfenster erstellen und anzeigen
     window = GrundlagenWidget()

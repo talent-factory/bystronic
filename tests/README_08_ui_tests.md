@@ -85,7 +85,7 @@ pip install pytest pytest-cov pandas numpy
 # PyQt-Tests (optional)
 pip install PySide6
 
-# Streamlit-Tests (optional)  
+# Streamlit-Tests (optional)
 pip install streamlit plotly
 
 # Performance-Tests
@@ -261,7 +261,7 @@ python -m pytest tests/test_08_ui.py -x
        @pytest.fixture
        def setup_data(self):
            return test_data
-       
+
        def test_neue_funktionalität(self, setup_data):
            assert expected_behavior()
    ```

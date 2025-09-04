@@ -44,6 +44,7 @@ from PySide6.QtWidgets import (
 # DATENMODELL - Shared zwischen PyQt und Streamlit
 # ============================================================================
 
+
 class ProductionDataManager:
     """Zentrale Datenmanagement-Klasse."""
 
@@ -140,7 +141,9 @@ class ProductionDataManager:
         # return list of dicts mit Maschineninformationen
         pass
 
-    def add_production_data(self, machine_id, temperature, pressure, efficiency, parts_produced, operator):
+    def add_production_data(
+        self, machine_id, temperature, pressure, efficiency, parts_produced, operator
+    ):
         """Fügt Produktionsdaten hinzu."""
         pass
 
@@ -148,7 +151,15 @@ class ProductionDataManager:
         """Gibt Produktionsdaten zurück."""
         pass
 
-    def add_quality_data(self, production_id, dimension_x, dimension_y, surface_quality, pass_fail, inspector):
+    def add_quality_data(
+        self,
+        production_id,
+        dimension_x,
+        dimension_y,
+        surface_quality,
+        pass_fail,
+        inspector,
+    ):
         """Fügt Qualitätsdaten hinzu."""
         pass
 
@@ -156,7 +167,9 @@ class ProductionDataManager:
         """Berechnet Qualitätsstatistiken."""
         pass
 
-    def add_maintenance_log(self, machine_id, maintenance_type, description, cost, duration, technician):
+    def add_maintenance_log(
+        self, machine_id, maintenance_type, description, cost, duration, technician
+    ):
         """Fügt Wartungsprotokoll hinzu."""
         pass
 
@@ -168,6 +181,7 @@ class ProductionDataManager:
 # ============================================================================
 # PYQT VERSION - Desktop Application
 # ============================================================================
+
 
 class MachineDialog(QDialog):
     """Dialog zum Hinzufügen/Bearbeiten von Maschinen."""
@@ -388,6 +402,7 @@ class VollstaendigeAnwendung(QMainWindow):
 # STREAMLIT VERSION - Web Application (Alternative)
 # ============================================================================
 
+
 def streamlit_main():
     """Hauptfunktion für Streamlit-Version."""
     # TODO: BONUS - Implementieren Sie eine Streamlit-Version
@@ -399,9 +414,7 @@ def streamlit_main():
     # - Session State Management
 
     st.set_page_config(
-        page_title="Bystronic Produktionsmanagement",
-        page_icon="🏭",
-        layout="wide"
+        page_title="Bystronic Produktionsmanagement", page_icon="🏭", layout="wide"
     )
 
     # st.title("🏭 Bystronic Produktionsmanagement")
@@ -422,6 +435,7 @@ def streamlit_main():
 # MAIN FUNCTION
 # ============================================================================
 
+
 def main():
     """Hauptfunktion - wählt zwischen PyQt und Streamlit."""
 
@@ -429,7 +443,7 @@ def main():
     app = QApplication(sys.argv)
 
     # Stil setzen
-    app.setStyle('Fusion')
+    app.setStyle("Fusion")
 
     # Hauptfenster erstellen
     window = VollstaendigeAnwendung()

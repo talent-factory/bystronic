@@ -59,7 +59,9 @@ class MaschinendatenInterface(QMainWindow):
 
         # Titel
         title = QLabel("🏭 Bystronic Maschinendaten-Monitor")
-        title.setStyleSheet("font-size: 20px; font-weight: bold; color: #1f4e79; margin: 10px;")
+        title.setStyleSheet(
+            "font-size: 20px; font-weight: bold; color: #1f4e79; margin: 10px;"
+        )
         title.setAlignment(Qt.AlignCenter)
         main_layout.addWidget(title)
 

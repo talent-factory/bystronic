@@ -24,6 +24,7 @@ try:
     from PySide6.QtCore import Qt, QTimer
     from PySide6.QtTest import QTest
     from PySide6.QtWidgets import QApplication, QWidget
+
     PYQT_AVAILABLE = True
 except ImportError:
     PYQT_AVAILABLE = False
@@ -31,13 +32,18 @@ except ImportError:
 # Streamlit Tests
 try:
     import streamlit as st
+
     STREAMLIT_AVAILABLE = True
 except ImportError:
     STREAMLIT_AVAILABLE = False
 
 # Import der zu testenden Module
-sys.path.append(str(Path(__file__).parent.parent / "src" / "08_ui" / "beispiele" / "pyqt"))
-sys.path.append(str(Path(__file__).parent.parent / "src" / "08_ui" / "beispiele" / "streamlit"))
+sys.path.append(
+    str(Path(__file__).parent.parent / "src" / "08_ui" / "beispiele" / "pyqt")
+)
+sys.path.append(
+    str(Path(__file__).parent.parent / "src" / "08_ui" / "beispiele" / "streamlit")
+)
 
 if PYQT_AVAILABLE:
     from datenbank_browser import DatenbankBrowser as DatabaseBrowser
@@ -89,18 +95,23 @@ class TestPyQTGrundlagen:
         tab_widget = widget.tab_widget
         assert tab_widget.count() == 4
 
-        expected_tabs = ["Basis-Widgets", "Layouts", "Eingabe-Widgets", "Anzeige-Widgets"]
+        expected_tabs = [
+            "Basis-Widgets",
+            "Layouts",
+            "Eingabe-Widgets",
+            "Anzeige-Widgets",
+        ]
         actual_tabs = [tab_widget.tabText(i) for i in range(tab_widget.count())]
         assert actual_tabs == expected_tabs
 
     def test_input_widgets(self, widget):
         """Test der Eingabe-Widgets."""
         # Prüfe ob Eingabe-Widgets existieren
-        assert hasattr(widget, 'line_edit')
-        assert hasattr(widget, 'text_edit')
-        assert hasattr(widget, 'spin_box')
-        assert hasattr(widget, 'slider')
-        assert hasattr(widget, 'combo_box')
+        assert hasattr(widget, "line_edit")
+        assert hasattr(widget, "text_edit")
+        assert hasattr(widget, "spin_box")
+        assert hasattr(widget, "slider")
+        assert hasattr(widget, "combo_box")
 
         # Test Standardwerte
         assert widget.spin_box.value() == 100
@@ -149,13 +160,13 @@ class TestPyQTGrundlagen:
         assert "red" in widget.machine_status.styleSheet()
         assert "lightcoral" in widget.machine_status.styleSheet()
 
-    @patch('PySide6.QtWidgets.QMessageBox.information')
+    @patch("PySide6.QtWidgets.QMessageBox.information")
     def test_show_message(self, mock_msgbox, widget):
         """Test der Nachrichten-Anzeige."""
         widget.show_message("Test Nachricht")
         mock_msgbox.assert_called_once_with(widget, "Information", "Test Nachricht")
 
-    @patch('PySide6.QtWidgets.QMessageBox.about')
+    @patch("PySide6.QtWidgets.QMessageBox.about")
     def test_show_info(self, mock_about, widget):
         """Test der Info-Anzeige."""
         widget.show_info()
@@ -180,7 +191,7 @@ class TestDatenbankBrowser:
     @pytest.fixture
     def temp_db(self):
         """Temporäre Datenbank für Tests."""
-        with tempfile.NamedTemporaryFile(suffix='.db', delete=False) as f:
+        with tempfile.NamedTemporaryFile(suffix=".db", delete=False) as f:
             db_path = f.name
         yield db_path
         os.unlink(db_path)
@@ -204,7 +215,7 @@ class TestDatenbankBrowser:
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
         tables = [row[0] for row in cursor.fetchall()]
 
-        expected_tables = ['machines', 'production_data', 'maintenance']
+        expected_tables = ["machines", "production_data", "maintenance"]
         for table in expected_tables:
             assert table in tables
 
@@ -246,11 +257,11 @@ class TestDatenbankBrowser:
 
     def test_widget_components(self, browser):
         """Test der Widget-Komponenten."""
-        assert hasattr(browser, 'data_table')
-        assert hasattr(browser, 'table_tree')
-        assert hasattr(browser, 'search_edit')
-        assert hasattr(browser, 'add_button')
-        assert hasattr(browser, 'status_bar')
+        assert hasattr(browser, "data_table")
+        assert hasattr(browser, "table_tree")
+        assert hasattr(browser, "search_edit")
+        assert hasattr(browser, "add_button")
+        assert hasattr(browser, "status_bar")
 
 
 class TestStreamlitComponents:
@@ -263,7 +274,7 @@ class TestStreamlitComponents:
             pytest.skip("Streamlit nicht verfügbar")
 
         with patch.multiple(
-            'streamlit',
+            "streamlit",
             title=Mock(),
             header=Mock(),
             subheader=Mock(),
@@ -279,7 +290,7 @@ class TestStreamlitComponents:
             plotly_chart=Mock(),
             dataframe=Mock(),
             session_state=Mock(),
-            sidebar=Mock()
+            sidebar=Mock(),
         ) as mocks:
             yield mocks
 
@@ -301,21 +312,23 @@ class TestStreamlitComponents:
     def test_data_generation(self):
         """Test der Daten-Generierung für Streamlit-Apps."""
         # Test Produktionsdaten-Generierung
-        dates = pd.date_range('2024-01-01', periods=30, freq='D')
-        production_data = pd.DataFrame({
-            'Datum': dates,
-            'Produktion': np.random.randint(100, 500, 30),
-            'Qualität': np.random.uniform(95, 99.5, 30),
-            'Effizienz': np.random.uniform(80, 95, 30)
-        })
+        dates = pd.date_range("2024-01-01", periods=30, freq="D")
+        production_data = pd.DataFrame(
+            {
+                "Datum": dates,
+                "Produktion": np.random.randint(100, 500, 30),
+                "Qualität": np.random.uniform(95, 99.5, 30),
+                "Effizienz": np.random.uniform(80, 95, 30),
+            }
+        )
 
         assert len(production_data) == 30
-        assert 'Datum' in production_data.columns
-        assert 'Produktion' in production_data.columns
-        assert production_data['Produktion'].min() >= 100
-        assert production_data['Produktion'].max() <= 500
+        assert "Datum" in production_data.columns
+        assert "Produktion" in production_data.columns
+        assert production_data["Produktion"].min() >= 100
+        assert production_data["Produktion"].max() <= 500
 
-    @patch('streamlit.set_page_config')
+    @patch("streamlit.set_page_config")
     def test_page_config(self, mock_config, mock_streamlit):
         """Test der Seiten-Konfiguration."""
         # Simuliere Streamlit-App-Start
@@ -323,15 +336,15 @@ class TestStreamlitComponents:
 
         # Importiere und teste Konfiguration
         expected_config = {
-            'page_title': 'Bystronic Streamlit Demo',
-            'page_icon': '🏭',
-            'layout': 'wide'
+            "page_title": "Bystronic Streamlit Demo",
+            "page_icon": "🏭",
+            "layout": "wide",
         }
 
         # Prüfe ob Konfiguration korrekt wäre
-        assert expected_config['page_title'] == 'Bystronic Streamlit Demo'
-        assert expected_config['page_icon'] == '🏭'
-        assert expected_config['layout'] == 'wide'
+        assert expected_config["page_title"] == "Bystronic Streamlit Demo"
+        assert expected_config["page_icon"] == "🏭"
+        assert expected_config["layout"] == "wide"
 
 
 class TestUIIntegration:
@@ -341,35 +354,35 @@ class TestUIIntegration:
         """Test des Datenflusses zwischen PyQt und Streamlit."""
         # Erstelle Testdaten im PyQt-Format
         test_data = {
-            'machine_id': 1,
-            'production_rate': 245,
-            'temperature': 65,
-            'status': 'running'
+            "machine_id": 1,
+            "production_rate": 245,
+            "temperature": 65,
+            "status": "running",
         }
 
         # Konvertiere zu Streamlit-Format
         streamlit_data = pd.DataFrame([test_data])
 
         assert len(streamlit_data) == 1
-        assert streamlit_data['machine_id'].iloc[0] == 1
-        assert streamlit_data['production_rate'].iloc[0] == 245
+        assert streamlit_data["machine_id"].iloc[0] == 1
+        assert streamlit_data["production_rate"].iloc[0] == 245
 
     def test_database_to_ui_conversion(self):
         """Test der Datenbank-zu-UI-Konvertierung."""
         # Simuliere Datenbank-Ergebnis
         db_result = [
-            (1, 'Laser_01', 'Laser', 'Active', 245.5),
-            (2, 'Press_01', 'Press', 'Maintenance', 0.0),
-            (3, 'Cut_01', 'Cutter', 'Active', 180.2)
+            (1, "Laser_01", "Laser", "Active", 245.5),
+            (2, "Press_01", "Press", "Maintenance", 0.0),
+            (3, "Cut_01", "Cutter", "Active", 180.2),
         ]
 
         # Konvertiere zu DataFrame
-        columns = ['id', 'name', 'type', 'status', 'production_rate']
+        columns = ["id", "name", "type", "status", "production_rate"]
         df = pd.DataFrame(db_result, columns=columns)
 
         assert len(df) == 3
-        assert df['status'].value_counts()['Active'] == 2
-        assert df['production_rate'].sum() == 425.7
+        assert df["status"].value_counts()["Active"] == 2
+        assert df["production_rate"].sum() == 425.7
 
     def test_error_handling(self):
         """Test der Fehlerbehandlung."""
@@ -379,7 +392,7 @@ class TestUIIntegration:
 
         # Test Datei nicht gefunden
         with pytest.raises(FileNotFoundError):
-            with open('nonexistent_file.txt') as f:
+            with open("nonexistent_file.txt") as f:
                 f.read()
 
         # Test Index-Fehler
@@ -396,18 +409,20 @@ class TestPerformance:
         import time
 
         # Erstelle großen Datensatz
-        large_data = pd.DataFrame({
-            'id': range(10000),
-            'value': np.random.randn(10000),
-            'category': np.random.choice(['A', 'B', 'C'], 10000)
-        })
+        large_data = pd.DataFrame(
+            {
+                "id": range(10000),
+                "value": np.random.randn(10000),
+                "category": np.random.choice(["A", "B", "C"], 10000),
+            }
+        )
 
         # Messe Verarbeitungszeit
         start_time = time.time()
 
         # Simuliere UI-Operationen
-        filtered_data = large_data[large_data['value'] > 0]
-        grouped_data = large_data.groupby('category')['value'].mean()
+        filtered_data = large_data[large_data["value"] > 0]
+        grouped_data = large_data.groupby("category")["value"].mean()
 
         end_time = time.time()
         processing_time = end_time - start_time
@@ -467,12 +482,12 @@ class TestPyQTAdvanced:
 
         # Test Timer-Signal (PySide6 hat keine isConnected() Methode)
         # Stattdessen prüfen wir ob die Signale existieren
-        assert hasattr(widget.timer, 'timeout')
+        assert hasattr(widget.timer, "timeout")
 
         # Test Widget-Signale
-        assert hasattr(widget.line_edit, 'textChanged')
-        assert hasattr(widget.spin_box, 'valueChanged')
-        assert hasattr(widget.slider, 'valueChanged')
+        assert hasattr(widget.line_edit, "textChanged")
+        assert hasattr(widget.spin_box, "valueChanged")
+        assert hasattr(widget.slider, "valueChanged")
 
         widget.close()
 
@@ -501,14 +516,14 @@ class TestStreamlitAdvanced:
         mock_session_state = {}
 
         # Test Initialisierung
-        if 'counter' not in mock_session_state:
-            mock_session_state['counter'] = 0
+        if "counter" not in mock_session_state:
+            mock_session_state["counter"] = 0
 
-        assert mock_session_state['counter'] == 0
+        assert mock_session_state["counter"] == 0
 
         # Test Aktualisierung
-        mock_session_state['counter'] += 1
-        assert mock_session_state['counter'] == 1
+        mock_session_state["counter"] += 1
+        assert mock_session_state["counter"] == 1
 
     def test_caching_behavior(self):
         """Test des Caching-Verhaltens."""
@@ -518,7 +533,7 @@ class TestStreamlitAdvanced:
         def cached_function(param):
             if param not in cache:
                 # Simuliere teure Berechnung
-                result = param ** 2
+                result = param**2
                 cache[param] = result
             return cache[param]
 

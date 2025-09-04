@@ -97,9 +97,7 @@ print("\n🟢 PANDAS/PYTHON Ansatz:")
 start_time = time.time()
 
 # Einfache, lesbare Filterung
-laser_quality = df[
-    (df["Maschine"].str.contains("LASER")) & (df["Qualitaet_OK"])
-]
+laser_quality = df[(df["Maschine"].str.contains("LASER")) & (df["Qualitaet_OK"])]
 
 pandas_time = time.time() - start_time
 
