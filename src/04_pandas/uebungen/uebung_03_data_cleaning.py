@@ -49,7 +49,7 @@ def create_messy_production_data():
     produkte = ["Teil_A", "Teil_B", "Teil_C"]
 
     data = []
-    for i, date in enumerate(dates):
+    for _i, date in enumerate(dates):
         # 15% Wahrscheinlichkeit für fehlende Datensätze
         if np.random.random() < 0.85:
             maschine = np.random.choice(maschinen)
@@ -470,7 +470,7 @@ print(df_clean["Produktionszeit_h"].head(10).tolist())
 
 # Problematische Werte identifizieren
 problematic_prod = df_clean["Produktionszeit_h"].apply(
-    lambda x: not (pd.isna(x) or (isinstance(x, (int, float)) and x >= 0))
+    lambda x: not (pd.isna(x) or (isinstance(x, int | float) and x >= 0))
 )
 print(f"\\nProblematische Produktionszeit-Werte: {problematic_prod.sum()}")
 
@@ -1151,7 +1151,7 @@ bereinigungsprotokoll = {
     "duplikate_log": duplikate_log,
     "imputation_log": {
         k: {
-            kk: (float(vv) if isinstance(vv, (int, float)) else str(vv))
+            kk: (float(vv) if isinstance(vv, int | float) else str(vv))
             for kk, vv in v.items()
         }
         for k, v in imputation_log.items()

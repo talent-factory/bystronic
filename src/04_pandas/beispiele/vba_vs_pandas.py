@@ -33,7 +33,7 @@ def create_comparison_data():
     data = []
     maschinen = ["LASER_001", "LASER_002", "PRESSE_001", "PRESSE_002", "STANZE_001"]
 
-    for i, date in enumerate(dates):
+    for _i, date in enumerate(dates):
         maschine = np.random.choice(maschinen)
 
         data.append(
@@ -98,7 +98,7 @@ start_time = time.time()
 
 # Einfache, lesbare Filterung
 laser_quality = df[
-    (df["Maschine"].str.contains("LASER")) & (df["Qualitaet_OK"] == True)
+    (df["Maschine"].str.contains("LASER")) & (df["Qualitaet_OK"])
 ]
 
 pandas_time = time.time() - start_time

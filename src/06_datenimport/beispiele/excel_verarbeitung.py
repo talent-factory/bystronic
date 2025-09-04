@@ -566,10 +566,10 @@ def main():
 
     if excel_data:
         # Struktur analysieren
-        structure = excel_handler.analyze_workbook_structure(excel_data)
+        excel_handler.analyze_workbook_structure(excel_data)
 
         # Pivot-Analysen erstellen
-        pivot_analyses = excel_handler.create_pivot_analysis(excel_data)
+        excel_handler.create_pivot_analysis(excel_data)
 
         # KPIs berechnen
         kpis = excel_handler.calculate_kpis()

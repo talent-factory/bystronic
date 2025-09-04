@@ -384,7 +384,7 @@ class TestExcelVerarbeitung:
         assert "total_production" in kpis
         assert "avg_availability" in kpis
         assert "daily_average" in kpis
-        assert isinstance(kpis["total_production"], (int, float))
+        assert isinstance(kpis["total_production"], int | float)
         assert 0 <= kpis["avg_availability"] <= 100
 
     def test_excel_export(self):

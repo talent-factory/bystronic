@@ -92,7 +92,6 @@ def create_comprehensive_production_data():
         },
     ]
 
-    schichten = ["Früh", "Spät", "Nacht"]
     produkte = ["Teil_A", "Teil_B", "Teil_C", "Teil_D", "Teil_E"]
 
     # Produktkomplexität definieren

@@ -165,7 +165,7 @@ e) Alle Maschinen, deren Name 'Laser' enthält
 
 print("a) Wartung fällig:")
 # IHRE LÖSUNG HIER:
-wartung_fällig = df_maschinen[df_maschinen["Wartung_fällig"] == True]
+wartung_fällig = df_maschinen[df_maschinen["Wartung_fällig"]]
 print(f"Anzahl: {len(wartung_fällig)}")
 print(wartung_fällig[["Maschine", "Wartung_fällig"]])
 
@@ -184,7 +184,7 @@ print(laser_maschinen[["Maschine", "Typ"]])
 print("\nd) Wartung fällig UND Laufzeit > 2500h:")
 # IHRE LÖSUNG HIER:
 wartung_hohe_laufzeit = df_maschinen[
-    (df_maschinen["Wartung_fällig"] == True) & (df_maschinen["Laufzeit_h"] > 2500)
+    (df_maschinen["Wartung_fällig"]) & (df_maschinen["Laufzeit_h"] > 2500)
 ]
 print(f"Anzahl: {len(wartung_hohe_laufzeit)}")
 print(wartung_hohe_laufzeit[["Maschine", "Laufzeit_h", "Wartung_fällig"]])
@@ -244,9 +244,9 @@ print(df_berechnet[["Maschine", "Laufzeit_h", "Laufzeit_Kategorie"]])
 print("\nc) Wartung-Status:")
 # IHRE LÖSUNG HIER:
 df_berechnet["Wartung_Status"] = np.where(
-    (df_berechnet["Wartung_fällig"] == True) & (df_berechnet["Laufzeit_h"] > 2500),
+    (df_berechnet["Wartung_fällig"]) & (df_berechnet["Laufzeit_h"] > 2500),
     "Dringend",
-    np.where(df_berechnet["Wartung_fällig"] == True, "Normal", "Keine"),
+    np.where(df_berechnet["Wartung_fällig"], "Normal", "Keine"),
 )
 print(df_berechnet[["Maschine", "Wartung_fällig", "Laufzeit_h", "Wartung_Status"]])
 
@@ -363,7 +363,7 @@ d) Identifizieren Sie Maschinen für Ersatz (Alter > 5 Jahre UND niedrige Effizi
 print("a) Wartungspriorität (Wartung + Laufzeit > 2500h):")
 # IHRE LÖSUNG HIER:
 hohe_prioritaet = df_berechnet[
-    (df_berechnet["Wartung_fällig"] == True) & (df_berechnet["Laufzeit_h"] > 2500)
+    (df_berechnet["Wartung_fällig"]) & (df_berechnet["Laufzeit_h"] > 2500)
 ].sort_values("Laufzeit_h", ascending=False)
 print(f"Anzahl mit hoher Priorität: {len(hohe_prioritaet)}")
 print(hohe_prioritaet[["Maschine", "Typ", "Laufzeit_h", "Wartung_Status"]])

@@ -36,7 +36,7 @@ def create_sample_data():
     schichten = ["Früh", "Spät", "Nacht"]
 
     data = []
-    for i, datum in enumerate(dates):
+    for _i, datum in enumerate(dates):
         for maschine in maschinen:
             for schicht in schichten:
                 if np.random.random() > 0.1:  # 90% Wahrscheinlichkeit für Daten

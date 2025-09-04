@@ -93,16 +93,6 @@ def kategorisiere_sprachen(sprachen: list[str]) -> dict[str, list[str]]:
         Dictionary mit Kategorien als Keys und Listen von Sprachen als Values
     """
     # Definieren Sie die Kategorien
-    kategorien = {
-        "Web Development": ["JavaScript", "TypeScript", "PHP", "HTML", "CSS"],
-        "Desktop Applications": ["Java", "C#", "C++", "Swift", "Kotlin"],
-        "Data Science": ["Python", "R", "Julia", "MATLAB"],
-        "Databases": ["SQL", "MongoDB", "PostgreSQL"],
-        "Systems Programming": ["C", "C++", "Rust", "Go"],
-        "Legacy/Office": ["VBA", "COBOL", "Fortran"],
-        "Mobile": ["Swift", "Kotlin", "Java", "Dart"],
-        "Andere": [],
-    }
 
     # TODO: Implementieren Sie die Kategorisierung
     # Durchlaufen Sie Ihre Sprachen und ordnen Sie sie den Kategorien zu

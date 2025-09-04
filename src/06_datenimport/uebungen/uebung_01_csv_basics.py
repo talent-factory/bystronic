@@ -113,7 +113,7 @@ def aufgabe_1_grundlegender_import():
     # TODO: Ihren Code hier einfügen
 
     # Laden Sie die CSV-Datei
-    csv_file = get_data_path("uebungen", "csv_basics", "standard_data.csv")
+    get_data_path("uebungen", "csv_basics", "standard_data.csv")
 
     # LÖSUNG VERSTECKT - Entfernen Sie diese Kommentare für die Musterlösung:
     """
@@ -515,7 +515,7 @@ def main():
     print("=" * 60)
 
     # Testdaten vorbereiten
-    test_dir = setup_test_data()
+    setup_test_data()
 
     print("\n📚 Verfügbare Übungen:")
     print("1. Grundlegender CSV-Import (⭐⭐☆☆)")

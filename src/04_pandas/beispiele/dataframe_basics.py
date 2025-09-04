@@ -97,7 +97,7 @@ print("\n6️⃣ Daten filtern")
 print("-" * 40)
 
 # Boolean Indexing
-wartung_fällig = df_maschinen[df_maschinen["Wartung_fällig"] == True]
+wartung_fällig = df_maschinen[df_maschinen["Wartung_fällig"]]
 print("Maschinen mit fälliger Wartung:")
 print(wartung_fällig)
 

@@ -21,7 +21,6 @@ def aufgabe_1_grundlegende_konvertierung():
     # Testdaten
     test_strings = ["42", "3.14", "True", "123.456", "0", "false", "", "abc123"]
     test_numbers = [42, 3.14, 0, -25, 1.23e-4]
-    test_bools = [True, False, 1, 0]
 
     print("String zu anderen Typen:")
     print("-" * 25)
@@ -63,7 +62,7 @@ def aufgabe_1_grundlegende_konvertierung():
     print("-" * 25)
 
     # TODO: Konvertieren Sie Zahlen zu Strings (formatiert)
-    for zahl in test_numbers:
+    for _zahl in test_numbers:
         # string_wert = str(zahl)
         # formatiert = f"{zahl:.2f}" if isinstance(zahl, float) else str(zahl)
         # print(f"{zahl} -> string: '{string_wert}', formatiert: '{formatiert}'")
@@ -78,10 +77,6 @@ def aufgabe_2_collections_konvertierung():
     print("-" * 40)
 
     # Testdaten
-    test_liste = [1, 2, 3, 2, 4, 1, 5]
-    test_string = "Python"
-    test_dict = {"a": 1, "b": 2, "c": 3}
-    test_set = {3, 1, 4, 5, 9}
 
     print("Collections ineinander konvertieren:")
     print("-" * 35)
@@ -103,7 +98,6 @@ def aufgabe_2_collections_konvertierung():
     # dict_items = list(test_dict.items())
 
     # 5. Liste von Tupeln -> Dictionary
-    tupel_liste = [("name", "Max"), ("alter", 35), ("abteilung", "IT")]
     # tupel_zu_dict = dict(tupel_liste)
 
     # TODO: Geben Sie die Ergebnisse aus
@@ -128,10 +122,6 @@ def aufgabe_2_collections_konvertierung():
         pass
 
     # TODO: Testen Sie Ihre Funktionen
-    test_verschachtelt = {
-        "maschine": {"id": "LASER_001", "specs": {"leistung": 6000, "baujahr": 2020}},
-        "status": "aktiv",
-    }
 
     # haeufigkeiten = liste_zu_zaehler_dict(test_liste)
     # flach = verschachteltes_dict_zu_flach(test_verschachtelt)
@@ -172,15 +162,7 @@ def aufgabe_3_datenvalidierung():
         Validiert Produktionsparameter Dictionary
         Erwartet: {"teile": int, "zeit": float, "material": str, "ok": bool}
         """
-        erforderliche_felder = {
-            "teile": (int, 1, 10000),  # min 1, max 10000
-            "zeit": (float, 0.1, 24.0),  # min 0.1h, max 24h
-            "material": (str, None, None),  # keine Grenzen
-            "ok": (bool, None, None),  # keine Grenzen
-        }
 
-        fehler = []
-        validierte_daten = {}
 
         # TODO: Implementieren Sie die Validierung
         # for feld, (typ, min_val, max_val) in erforderliche_felder.items():
@@ -239,7 +221,7 @@ def aufgabe_3_datenvalidierung():
     print("Validierung der Produktionsparameter:")
     print("-" * 40)
 
-    for i, param in enumerate(test_parameter, 1):
+    for _i, _param in enumerate(test_parameter, 1):
         # erfolg, daten, fehler_liste = validiere_produktionsparameter(param)
         # status = "✅ Gültig" if erfolg else "❌ Ungültig"
         # print(f"Test {i}: {status}")
@@ -259,36 +241,6 @@ def aufgabe_4_datei_konvertierung():
     print("-" * 40)
 
     # Beispieldaten
-    produktionsdaten = [
-        {
-            "datum": "2024-03-15",
-            "maschine": "LASER_001",
-            "teile": 145,
-            "laufzeit": 7.5,
-            "ok": True,
-        },
-        {
-            "datum": "2024-03-15",
-            "maschine": "PRESSE_001",
-            "teile": 89,
-            "laufzeit": 6.8,
-            "ok": False,
-        },
-        {
-            "datum": "2024-03-16",
-            "maschine": "LASER_001",
-            "teile": 152,
-            "laufzeit": 7.8,
-            "ok": True,
-        },
-        {
-            "datum": "2024-03-16",
-            "maschine": "PRESSE_001",
-            "teile": 95,
-            "laufzeit": 7.2,
-            "ok": True,
-        },
-    ]
 
     # TODO: Implementieren Sie Konvertierungsfunktionen:
 
@@ -298,7 +250,7 @@ def aufgabe_4_datei_konvertierung():
             return ""
 
         # CSV-String erstellen
-        output = StringIO()
+        StringIO()
         # fieldnames = list(daten[0].keys())
         # writer = csv.DictWriter(output, fieldnames=fieldnames, delimiter=';')
         # writer.writeheader()
@@ -315,7 +267,7 @@ def aufgabe_4_datei_konvertierung():
 
     def csv_zu_daten(csv_string):
         """Konvertiert CSV-String zu Liste von Dictionaries"""
-        input_stream = StringIO(csv_string)
+        StringIO(csv_string)
         # reader = csv.DictReader(input_stream, delimiter=';')
         # daten = []
         # for row in reader:
@@ -423,7 +375,7 @@ def aufgabe_5_datentyp_analyse():
         if wert is None or wert == "":
             return "null", None, 1.0
 
-        wert_str = str(wert).strip()
+        str(wert).strip()
 
         # TODO: Implementieren Sie die Analyse
         # 1. Boolean erkennen
@@ -475,11 +427,10 @@ def aufgabe_5_datentyp_analyse():
 
         # Spalten identifizieren
         if isinstance(daten[0], dict):
-            spalten = list(daten[0].keys())
+            list(daten[0].keys())
         else:
-            spalten = [f"Spalte_{i}" for i in range(len(daten[0]))]
+            [f"Spalte_{i}" for i in range(len(daten[0]))]
 
-        spalten_analyse = {}
 
         # TODO: Für jede Spalte Datentypen analysieren
         # for spalte in spalten:
@@ -511,40 +462,6 @@ def aufgabe_5_datentyp_analyse():
         pass
 
     # TODO: Testen Sie die Datentyp-Analyse
-    test_daten = [
-        {
-            "id": "1",
-            "name": "Max",
-            "alter": "35",
-            "gehalt": "75000.50",
-            "aktiv": "true",
-            "einstellung": "2020-03-15",
-        },
-        {
-            "id": "2",
-            "name": "Anna",
-            "alter": "28",
-            "gehalt": "68500.00",
-            "aktiv": "true",
-            "einstellung": "2021-07-22",
-        },
-        {
-            "id": "3",
-            "name": "Peter",
-            "alter": "42",
-            "gehalt": "82000.75",
-            "aktiv": "false",
-            "einstellung": "2019-01-10",
-        },
-        {
-            "id": "4",
-            "name": "Sarah",
-            "alter": "31",
-            "gehalt": "71200.25",
-            "aktiv": "true",
-            "einstellung": "2022-09-05",
-        },
-    ]
 
     print("Automatische Datentyp-Analyse:")
     print("-" * 30)
