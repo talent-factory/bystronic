@@ -1,4 +1,4 @@
-.PHONY: help format lint test clean install dev-install
+.PHONY: help format lint test clean clean-html install dev-install
 
 help: ## Zeige verfügbare Kommandos
 	@echo "Verfügbare Kommandos:"
@@ -52,6 +52,12 @@ clean: ## Bereinige Build-Artefakte und Cache-Dateien
 	rm -rf data/generated/*
 	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
 	find . -type f -name "*.pyc" -delete
+	find . -type f -name "*.html" ! -path "*/templates/*" ! -path "*/static/*" -delete
+	@echo "Generierte HTML-Dateien bereinigt"
+
+clean-html: ## Bereinige nur generierte HTML-Visualisierungen
+	find . -type f -name "*.html" ! -path "*/templates/*" ! -path "*/static/*" -delete
+	@echo "Generierte HTML-Visualisierungen bereinigt"
 
 all: clean dev-install lint test ## Führe alle Checks aus
 
