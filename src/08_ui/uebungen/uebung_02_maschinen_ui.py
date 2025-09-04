@@ -12,7 +12,7 @@ Lernziele:
 
 Schwierigkeitsgrad: ⭐⭐⭐☆☆ (Fortgeschrittene)
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 import sys

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Daten-Upload und -verarbeitung mit Streamlit
 ============================================
@@ -10,9 +9,9 @@ Beispiel für Datei-Upload, -verarbeitung und -analyse:
 - Datenbereinigung
 - Export-Funktionen
 
-Starten mit: streamlit run daten_upload.py
+Starten mit: uv run streamlit run src/08_ui/beispiele/streamlit/daten_upload.py
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 from io import BytesIO
@@ -99,7 +98,7 @@ def create_demo_data():
     """Erstellt Demo-Maschinendaten."""
     np.random.seed(42)
 
-    timestamps = pd.date_range(start="2024-09-01", end="2024-09-04", freq="H")
+    timestamps = pd.date_range(start="2024-09-01", end="2024-09-04", freq="h")
     machines = ["Laser_1", "Laser_2", "Stanze_1", "Biegemaschine"]
 
     data = []
@@ -144,7 +143,7 @@ def show_data_overview(df):
 
     # Erste Zeilen anzeigen
     st.subheader("👀 Erste Zeilen")
-    st.dataframe(df.head(10), use_container_width=True)
+    st.dataframe(df.head(10), width="stretch")
 
     # Datentypen
     st.subheader("🔍 Datentyp-Information")
@@ -152,21 +151,21 @@ def show_data_overview(df):
     dtype_info = pd.DataFrame(
         {
             "Spalte": df.columns,
-            "Datentyp": df.dtypes,
+            "Datentyp": df.dtypes.astype(str),
             "Nicht-Null Werte": df.count(),
             "Fehlende Werte": df.isnull().sum(),
             "Eindeutige Werte": df.nunique(),
         }
     )
 
-    st.dataframe(dtype_info, use_container_width=True)
+    st.dataframe(dtype_info, width="stretch")
 
     # Statistische Zusammenfassung
     st.subheader("📈 Statistische Zusammenfassung")
 
     numeric_cols = df.select_dtypes(include=[np.number]).columns
     if not numeric_cols.empty:
-        st.dataframe(df[numeric_cols].describe(), use_container_width=True)
+        st.dataframe(df[numeric_cols].describe(), width="stretch")
     else:
         st.info("Keine numerischen Spalten gefunden.")
 
@@ -203,7 +202,7 @@ def show_data_exploration(df):
             if viz_type == "Histogramm":
                 col = st.selectbox("Spalte:", selected_numeric)
                 fig = px.histogram(df, x=col, title=f"Verteilung: {col}")
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width="stretch")
 
             elif viz_type == "Box Plot":
                 col = st.selectbox("Spalte:", selected_numeric)
@@ -212,7 +211,7 @@ def show_data_exploration(df):
                     fig = px.box(df, y=col, x=group_col, title=f"Box Plot: {col}")
                 else:
                     fig = px.box(df, y=col, title=f"Box Plot: {col}")
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width="stretch")
 
             elif viz_type == "Scatter Plot" and len(selected_numeric) >= 2:
                 col1 = st.selectbox("X-Achse:", selected_numeric)
@@ -228,7 +227,7 @@ def show_data_exploration(df):
                     color=color_col,
                     title=f"Scatter Plot: {col1} vs {col2}",
                 )
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width="stretch")
 
             elif viz_type == "Korrelationsmatrix":
                 corr_matrix = df[selected_numeric].corr()
@@ -238,7 +237,7 @@ def show_data_exploration(df):
                     color_continuous_scale="RdBu",
                     aspect="auto",
                 )
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(fig, width="stretch")
 
             elif viz_type == "Zeitreihe":
                 date_cols = df.select_dtypes(include=["datetime64"]).columns.tolist()
@@ -249,7 +248,7 @@ def show_data_exploration(df):
                     fig = px.line(
                         df, x=date_col, y=value_col, title=f"Zeitreihe: {value_col}"
                     )
-                    st.plotly_chart(fig, use_container_width=True)
+                    st.plotly_chart(fig, width="stretch")
                 else:
                     st.warning("Keine Zeitstempel-Spalten gefunden.")
 
@@ -270,7 +269,7 @@ def show_data_exploration(df):
             )
             fig_bar.update_xaxes(title=selected_categorical)
             fig_bar.update_yaxes(title="Anzahl")
-            st.plotly_chart(fig_bar, use_container_width=True)
+            st.plotly_chart(fig_bar, width="stretch")
 
         with col2:
             fig_pie = px.pie(
@@ -278,7 +277,7 @@ def show_data_exploration(df):
                 names=value_counts.index,
                 title=f"Verteilung: {selected_categorical}",
             )
-            st.plotly_chart(fig_pie, use_container_width=True)
+            st.plotly_chart(fig_pie, width="stretch")
 
 
 def show_data_cleaning(df):
@@ -368,7 +367,7 @@ def show_data_cleaning(df):
             fig_box = px.box(
                 cleaned_df, y=outlier_col, title=f"Ausreißer in {outlier_col}"
             )
-            st.plotly_chart(fig_box, use_container_width=True)
+            st.plotly_chart(fig_box, width="stretch")
 
             if st.checkbox(f"Ausreißer in {outlier_col} entfernen"):
                 cleaned_df = cleaned_df[
@@ -434,7 +433,7 @@ def show_export_options(df):
     # Vorschau
     st.markdown("### 👀 Export-Vorschau")
     st.write(f"Zeilen: {len(final_df)}, Spalten: {len(final_df.columns)}")
-    st.dataframe(final_df.head(), use_container_width=True)
+    st.dataframe(final_df.head(), width="stretch")
 
     # Download-Buttons
     col1, col2, col3 = st.columns(3)

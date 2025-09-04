@@ -10,13 +10,16 @@ Dieses Beispiel zeigt eine vollständige CRUD-Anwendung mit PyQt:
 - Datenvalidierung
 - Export-Funktionen
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
+import os
 import sqlite3
 import sys
+import tempfile
 from datetime import datetime, timedelta
 
+import numpy as np
 import pandas as pd
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
@@ -44,18 +47,27 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+# SQLite datetime adapter setup
+sqlite3.register_adapter(datetime, lambda dt: dt.isoformat())
+sqlite3.register_converter("DATETIME", lambda b: datetime.fromisoformat(b.decode()))
+sqlite3.register_converter("DATE", lambda b: datetime.fromisoformat(b.decode()).date())
+
 
 class DatabaseManager:
     """Manager für Datenbankoperationen."""
 
-    def __init__(self, db_path=":memory:"):
-        self.db_path = db_path
+    def __init__(self, db_path=None):
+        # Verwende eine persistente Datei statt In-Memory-DB für bessere Stabilität
+        if db_path is None:
+            self.db_path = os.path.join(tempfile.gettempdir(), "bystronic_demo.db")
+        else:
+            self.db_path = db_path
         self.init_database()
 
     def init_database(self):
         """Initialisiert die Datenbank mit Beispieltabellen."""
         try:
-            conn = sqlite3.connect(self.db_path)
+            conn = sqlite3.connect(self.db_path, detect_types=sqlite3.PARSE_DECLTYPES)
             cursor = conn.cursor()
 
             # Maschinen-Tabelle
@@ -126,13 +138,20 @@ class DatabaseManager:
 
             conn.commit()
 
+            # Prüfe ob Tabellen erstellt wurden
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+            tables = cursor.fetchall()
+            print(f"Erstellte Tabellen: {[table[0] for table in tables]}")
+
             # Beispieldaten einfügen, falls Tabellen leer sind
             self.insert_sample_data(conn)
 
             conn.close()
+            print(f"Datenbank erfolgreich initialisiert: {self.db_path}")
 
         except sqlite3.Error as e:
-            print(f"Datenbankfehler: {e}")
+            print(f"Datenbankfehler bei Initialisierung: {e}")
+            raise
 
     def insert_sample_data(self, conn):
         """Fügt Beispieldaten ein."""
@@ -166,7 +185,6 @@ class DatabaseManager:
         )
 
         # Beispiel-Produktionsdaten
-        import numpy as np
 
         np.random.seed(42)
 
@@ -234,7 +252,7 @@ class DatabaseManager:
     def execute_query(self, query, params=None):
         """Führt eine SQL-Abfrage aus."""
         try:
-            conn = sqlite3.connect(self.db_path)
+            conn = sqlite3.connect(self.db_path, detect_types=sqlite3.PARSE_DECLTYPES)
             cursor = conn.cursor()
 
             if params:
@@ -344,7 +362,7 @@ class EditRecordDialog(QDialog):
             try:
                 date = datetime.fromisoformat(str(self.record_data["install_date"]))
                 self.input_widgets["install_date"].setDateTime(date)
-            except:
+            except (ValueError, TypeError):
                 self.input_widgets["install_date"].setDateTime(datetime.now())
         else:
             self.input_widgets["install_date"].setDateTime(datetime.now())
@@ -376,7 +394,7 @@ class EditRecordDialog(QDialog):
             try:
                 timestamp = datetime.fromisoformat(str(self.record_data["timestamp"]))
                 self.input_widgets["timestamp"].setDateTime(timestamp)
-            except:
+            except (ValueError, TypeError):
                 self.input_widgets["timestamp"].setDateTime(datetime.now())
         else:
             self.input_widgets["timestamp"].setDateTime(datetime.now())
@@ -469,8 +487,7 @@ class DatenbankBrowser(QMainWindow):
         self.setGeometry(100, 100, 1200, 800)
 
         # Datenbankmanager
-        self.db_path = db_path or ":memory:"
-        self.db_manager = DatabaseManager(self.db_path)
+        self.db_manager = DatabaseManager(db_path)
 
         # Aktuelle Tabelle und Daten
         self.current_table = "machines"
@@ -646,6 +663,20 @@ class DatenbankBrowser(QMainWindow):
     def load_table_data(self):
         """Lädt die Daten der aktuellen Tabelle."""
         if not self.current_table:
+            return
+
+        # Prüfe zuerst, ob die Tabelle existiert
+        check_query = "SELECT name FROM sqlite_master WHERE type='table' AND name=?"
+        table_exists, _ = self.db_manager.execute_query(
+            check_query, [self.current_table]
+        )
+
+        if not table_exists:
+            QMessageBox.warning(
+                self,
+                "Fehler",
+                f"Tabelle '{self.current_table}' existiert nicht in der Datenbank",
+            )
             return
 
         query = f"SELECT * FROM {self.current_table}"

@@ -11,7 +11,7 @@ Dieses Beispiel zeigt moderne UI-Design-Konzepte:
 - Responsive Design
 - Modern Material Design Elemente
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 import sys
@@ -135,7 +135,6 @@ class ModernCard(QFrame):
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 16px;
-            backdrop-filter: blur(20px);
         }
         """
 

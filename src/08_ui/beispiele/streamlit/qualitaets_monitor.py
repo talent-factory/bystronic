@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Qualitäts-Monitor mit Streamlit
 ===============================
@@ -10,9 +9,9 @@ Echtzeit-Qualitätskontrolle und -überwachung für Bystronic-Maschinen:
 - Prüfprotokoll-Management
 - Korrelationsanalysen
 
-Starten mit: streamlit run qualitaets_monitor.py
+Starten mit: uv run streamlit run src/08_ui/beispiele/streamlit/qualitaets_monitor.py
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 from datetime import datetime, timedelta
@@ -124,7 +123,7 @@ def show_quality_overview(df):
 
     # Stündliche Auswertung
     hourly_quality = (
-        df.groupby(df["timestamp"].dt.floor("H"))
+        df.groupby(df["timestamp"].dt.floor("h"))
         .agg(
             {
                 "pass_fail": lambda x: (x == "Pass").mean() * 100,
@@ -148,7 +147,7 @@ def show_quality_overview(df):
     fig_trend.add_hline(
         y=95, line_dash="dash", line_color="red", annotation_text="Zielwert"
     )
-    st.plotly_chart(fig_trend, use_container_width=True)
+    st.plotly_chart(fig_trend, width="stretch")
 
     # Verteilungen
     col1, col2 = st.columns(2)
@@ -169,7 +168,7 @@ def show_quality_overview(df):
         fig_dist.add_vline(
             x=100.3, line_dash="dot", line_color="red", annotation_text="Obergrenze"
         )
-        st.plotly_chart(fig_dist, use_container_width=True)
+        st.plotly_chart(fig_dist, width="stretch")
 
     with col2:
         fig_scatter = px.scatter(
@@ -179,7 +178,7 @@ def show_quality_overview(df):
             color="pass_fail",
             title="Korrelation Maße X/Y",
         )
-        st.plotly_chart(fig_scatter, use_container_width=True)
+        st.plotly_chart(fig_scatter, width="stretch")
 
 
 def show_spc_charts(df):
@@ -213,7 +212,7 @@ def show_spc_charts(df):
     fig_xbar.update_layout(
         title=f"X-Chart für {parameter}", xaxis_title="Zeit", yaxis_title="Wert"
     )
-    st.plotly_chart(fig_xbar, use_container_width=True)
+    st.plotly_chart(fig_xbar, width="stretch")
 
     # Moving Range Chart
     moving_range = np.abs(np.diff(data))
@@ -238,7 +237,7 @@ def show_spc_charts(df):
         xaxis_title="Zeit",
         yaxis_title="Moving Range",
     )
-    st.plotly_chart(fig_mr, use_container_width=True)
+    st.plotly_chart(fig_mr, width="stretch")
 
     # Prozessfähigkeitsanalyse
     st.subheader("📊 Prozessfähigkeit")
@@ -282,7 +281,7 @@ def show_spc_charts(df):
             x=lsl, line_color="red", line_dash="dash", annotation_text="USG"
         )
         fig_hist.add_vline(x=mean_val, line_color="green", annotation_text="Mittelwert")
-        st.plotly_chart(fig_hist, use_container_width=True)
+        st.plotly_chart(fig_hist, width="stretch")
 
 
 def show_detailed_analysis(df):
@@ -301,7 +300,7 @@ def show_detailed_analysis(df):
         color_continuous_scale="RdBu",
         aspect="auto",
     )
-    st.plotly_chart(fig_corr, use_container_width=True)
+    st.plotly_chart(fig_corr, width="stretch")
 
     # Pareto-Analyse der Fehlerursachen
     st.markdown("### 📊 Pareto-Analyse")
@@ -353,7 +352,7 @@ def show_detailed_analysis(df):
         fig_pareto.update_layout(title="Pareto-Diagramm Fehlerursachen")
         fig_pareto.update_yaxes(title_text="Anzahl", secondary_y=False)
         fig_pareto.update_yaxes(title_text="Kumulativ %", secondary_y=True)
-        st.plotly_chart(fig_pareto, use_container_width=True)
+        st.plotly_chart(fig_pareto, width="stretch")
     else:
         st.success("Keine Fehlerteile im gewählten Zeitraum!")
 
@@ -381,13 +380,13 @@ def show_detailed_analysis(df):
         columns={"pass_fail_<lambda>": "Gutteile_Rate"}
     )
 
-    st.dataframe(machine_quality, use_container_width=True)
+    st.dataframe(machine_quality, width="stretch")
 
     # Box-Plots für Maschinen-Vergleich
     fig_box = px.box(
         df, x="machine", y="dimension_x", title="Maßhaltigkeit nach Maschine"
     )
-    st.plotly_chart(fig_box, use_container_width=True)
+    st.plotly_chart(fig_box, width="stretch")
 
 
 def show_inspection_log(df):
@@ -428,9 +427,9 @@ def show_inspection_log(df):
         else:
             return "background-color: #f8d7da"
 
-    styled_df = display_df.style.applymap(color_pass_fail, subset=["pass_fail"])
+    styled_df = display_df.style.map(color_pass_fail, subset=["pass_fail"])
 
-    st.dataframe(styled_df, use_container_width=True)
+    st.dataframe(styled_df, width="stretch")
 
     # Export-Funktionen
     st.subheader("📤 Export-Funktionen")

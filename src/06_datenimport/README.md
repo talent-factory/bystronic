@@ -1,6 +1,6 @@
 # 📊 Modul 06: Datenimport und -export
 
-**Python Grundkurs für Bystronic-Entwickler - Modul 06**
+## Python Grundkurs für Bystronic-Entwickler - Modul 06
 
 ---
 

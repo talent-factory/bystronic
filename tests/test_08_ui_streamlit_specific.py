@@ -5,7 +5,7 @@ Spezifische Tests für Streamlit-Komponenten in Modul 08
 
 Detaillierte Tests für einzelne Streamlit-Beispiele.
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 import json

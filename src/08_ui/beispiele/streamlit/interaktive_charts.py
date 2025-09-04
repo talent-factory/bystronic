@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Interaktive Charts mit Streamlit und Plotly
 ===========================================
@@ -10,9 +9,9 @@ Erweiterte interaktive Visualisierungen für industrielle Daten:
 - Custom Widgets
 - Advanced Plotly Features
 
-Starten mit: streamlit run interaktive_charts.py
+Starten mit: uv run streamlit run src/08_ui/beispiele/streamlit/interaktive_charts.py
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 import time
@@ -37,7 +36,7 @@ def main():
         np.random.seed(42)
 
         # Zeitreihen-Daten
-        timestamps = pd.date_range(start="2024-09-01", periods=168, freq="H")  # 1 Woche
+        timestamps = pd.date_range(start="2024-09-01", periods=168, freq="h")  # 1 Woche
         machines = ["Laser_1", "Laser_2", "Stanze_1", "Biegemaschine"]
 
         data = []
@@ -181,8 +180,8 @@ def show_interactive_dashboard(df):
                         line={"color": colors[i % len(colors)]},
                         hovertemplate=f"<b>{param}</b><br>"
                         + "Zeit: %{x}<br>"
-                        + f"Normalisiert: %{y:.1f}<br>"
-                        + f"Original: {df[param].iloc[0]:.1f}<extra></extra>",
+                        + "Normalisiert: %{y}<br>"
+                        + "<extra></extra>",
                     )
                 )
 
@@ -194,7 +193,7 @@ def show_interactive_dashboard(df):
                 height=400,
             )
 
-            st.plotly_chart(fig_multi, use_container_width=True)
+            st.plotly_chart(fig_multi, width="stretch")
 
     with col_right:
         # Maschinen-Performance Radar Chart
@@ -242,7 +241,7 @@ def show_interactive_dashboard(df):
             height=400,
         )
 
-        st.plotly_chart(fig_radar, use_container_width=True)
+        st.plotly_chart(fig_radar, width="stretch")
 
     # Korrelations-Heatmap mit Interaktivität
     st.markdown("### 🔥 Parameter-Korrelationen")
@@ -266,7 +265,7 @@ def show_interactive_dashboard(df):
     )
 
     fig_heatmap.update_layout(height=400)
-    st.plotly_chart(fig_heatmap, use_container_width=True)
+    st.plotly_chart(fig_heatmap, width="stretch")
 
 
 def show_time_series_analysis(df):
@@ -295,7 +294,7 @@ def show_time_series_analysis(df):
     # Daten aggregieren
     if aggregation == "Stündlich":
         df_agg = (
-            df.groupby([df["timestamp"].dt.floor("H"), "machine"])[analysis_param]
+            df.groupby([df["timestamp"].dt.floor("h"), "machine"])[analysis_param]
             .mean()
             .reset_index()
         )
@@ -341,7 +340,7 @@ def show_time_series_analysis(df):
                 )
 
         fig_ts.update_layout(height=500, hovermode="x unified")
-        st.plotly_chart(fig_ts, use_container_width=True)
+        st.plotly_chart(fig_ts, width="stretch")
 
     else:  # Schichtweise Analyse
         fig_shift = px.bar(
@@ -353,7 +352,7 @@ def show_time_series_analysis(df):
             barmode="group",
         )
         fig_shift.update_layout(height=400)
-        st.plotly_chart(fig_shift, use_container_width=True)
+        st.plotly_chart(fig_shift, width="stretch")
 
     # Statistische Analyse
     col1, col2 = st.columns(2)
@@ -369,7 +368,7 @@ def show_time_series_analysis(df):
             box=True,
             title=f"Verteilung: {analysis_param.replace('_', ' ').title()}",
         )
-        st.plotly_chart(fig_dist, use_container_width=True)
+        st.plotly_chart(fig_dist, width="stretch")
 
     with col2:
         st.markdown("### 🎯 Control Chart")
@@ -415,7 +414,7 @@ def show_time_series_analysis(df):
             yaxis_title=analysis_param.replace("_", " ").title(),
         )
 
-        st.plotly_chart(fig_control, use_container_width=True)
+        st.plotly_chart(fig_control, width="stretch")
 
 
 def show_drill_down_analysis(df):
@@ -444,7 +443,7 @@ def show_drill_down_analysis(df):
         title=f"Drill-Down: {drill_param.replace('_', ' ').title()} nach Maschine → Operator → Schicht",
     )
     fig_sunburst.update_layout(height=500)
-    st.plotly_chart(fig_sunburst, use_container_width=True)
+    st.plotly_chart(fig_sunburst, width="stretch")
 
     # Interactive Treemap
     st.markdown("### 🗺️ Treemap Analyse")
@@ -456,7 +455,7 @@ def show_drill_down_analysis(df):
         title=f"Treemap: {drill_param.replace('_', ' ').title()}",
     )
     fig_treemap.update_layout(height=400)
-    st.plotly_chart(fig_treemap, use_container_width=True)
+    st.plotly_chart(fig_treemap, width="stretch")
 
     # Dynamische Filter-Interaktion
     st.markdown("### 🎛️ Dynamische Filter")
@@ -508,7 +507,7 @@ def show_drill_down_analysis(df):
                 hover_data=["machine", "operator", "shift"],
                 title="Effizienz vs. Qualität (gefilterte Daten)",
             )
-            st.plotly_chart(fig_detail_scatter, use_container_width=True)
+            st.plotly_chart(fig_detail_scatter, width="stretch")
 
     with detail_col2:
         if len(drill_filtered) > 0:
@@ -518,7 +517,7 @@ def show_drill_down_analysis(df):
                 color="machine",
                 title=f"Verteilung {drill_param} (gefilterte Daten)",
             )
-            st.plotly_chart(fig_detail_hist, use_container_width=True)
+            st.plotly_chart(fig_detail_hist, width="stretch")
 
     # Detaillierte Statistiken
     if len(drill_filtered) > 0:
@@ -542,7 +541,7 @@ def show_drill_down_analysis(df):
             "_".join(col).strip() for col in detail_stats.columns.values
         ]
 
-        st.dataframe(detail_stats, use_container_width=True)
+        st.dataframe(detail_stats, width="stretch")
     else:
         st.warning("Keine Daten für die gewählten Filter vorhanden.")
 
@@ -584,7 +583,7 @@ def show_animated_charts(df):
         )
 
         fig_animated.update_layout(height=500)
-        st.plotly_chart(fig_animated, use_container_width=True)
+        st.plotly_chart(fig_animated, width="stretch")
 
     # Racing Bar Chart
     st.markdown("### 🏁 Racing Bar Chart")
@@ -592,7 +591,7 @@ def show_animated_charts(df):
     if st.button("🏁 Racing Bars starten", key="start_racing"):
         # Stündliche Produktion für Racing Chart
         hourly_production = (
-            df.groupby([df["timestamp"].dt.floor("H"), "machine"])["parts_per_hour"]
+            df.groupby([df["timestamp"].dt.floor("h"), "machine"])["parts_per_hour"]
             .sum()
             .reset_index()
         )
@@ -613,7 +612,7 @@ def show_animated_charts(df):
         )
 
         fig_racing.update_layout(height=400)
-        st.plotly_chart(fig_racing, use_container_width=True)
+        st.plotly_chart(fig_racing, width="stretch")
 
     # Echtzeit-Simulation
     st.markdown("### ⚡ Echtzeit-Simulation")
@@ -675,7 +674,7 @@ def show_animated_charts(df):
                     color_continuous_scale="RdYlBu_r",
                 )
                 fig_live.update_layout(height=400)
-                st.plotly_chart(fig_live, use_container_width=True)
+                st.plotly_chart(fig_live, width="stretch")
 
             # Warten vor nächstem Update
             time.sleep(1)
@@ -701,7 +700,7 @@ def show_animated_charts(df):
         )
 
         fig_3d.update_layout(height=600)
-        st.plotly_chart(fig_3d, use_container_width=True)
+        st.plotly_chart(fig_3d, width="stretch")
 
 
 if __name__ == "__main__":

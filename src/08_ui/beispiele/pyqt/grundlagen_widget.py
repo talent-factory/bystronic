@@ -9,7 +9,7 @@ Dieses Beispiel demonstriert die grundlegenden PyQt/PySide-Konzepte:
 - Event-Handling und Signals/Slots
 - Grundlegende Widget-Typen
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 import sys

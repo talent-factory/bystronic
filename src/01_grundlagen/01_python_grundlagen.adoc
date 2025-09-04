@@ -12,7 +12,7 @@
 
 == Willkommen bei Python! 🐍
 
-Herzlich willkommen zum Python Grundkurs für Bystronic-Entwickler! In diesem ersten Kapitel lernen Sie die Grundlagen der Python-Programmierung kennen und richten Ihre Entwicklungsumgebung ein.
+Herzlich willkommen zum Python-Kurs von Daniel Senften! In diesem ersten Kapitel lernen Sie die Grundlagen der Python-Programmierung kennen und richten Ihre Entwicklungsumgebung ein.
 
 === Warum Python?
 

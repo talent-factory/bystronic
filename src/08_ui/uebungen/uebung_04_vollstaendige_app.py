@@ -15,7 +15,7 @@ Schwierigkeitsgrad: ⭐⭐⭐⭐⭐ (Expert)
 Diese Übung kombiniert alle gelernten Konzepte in einer vollständigen Anwendung.
 Sie können zwischen PyQt und Streamlit wählen oder beide implementieren.
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 import sys
@@ -413,9 +413,9 @@ def streamlit_main():
     # - Export-Funktionen
     # - Session State Management
 
-    st.set_page_config(
-        page_title="Bystronic Produktionsmanagement", page_icon="🏭", layout="wide"
-    )
+    # st.set_page_config(
+    #     page_title="Bystronic Produktionsmanagement", page_icon="🏭", layout="wide"
+    # )
 
     # st.title("🏭 Bystronic Produktionsmanagement")
     # st.markdown("**Vollständige Produktionsmanagement-Lösung**")

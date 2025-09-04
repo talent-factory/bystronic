@@ -5,7 +5,7 @@ Test-Utilities für Modul 08 - UI-Entwicklung
 
 Hilfsfunktionen und Fixtures für UI-Tests mit uv Package Manager.
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 import tempfile

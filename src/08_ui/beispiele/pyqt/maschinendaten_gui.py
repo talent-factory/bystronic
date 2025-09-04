@@ -11,7 +11,7 @@ Dieses Beispiel zeigt eine realistische industrielle GUI für die
 - Alarm-Management
 - Wartungsplanung
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 import sqlite3

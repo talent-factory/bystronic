@@ -1,7 +1,6 @@
-#!/usr/bin/env python3
 """
-Erste Streamlit Web-App - Grundlagen
-====================================
+Erste Streamlit Web-App
+======================
 
 Dieses Beispiel zeigt die Grundlagen von Streamlit:
 - Seitenlayout und Komponenten
@@ -10,9 +9,9 @@ Dieses Beispiel zeigt die Grundlagen von Streamlit:
 - Session State
 - Multi-Page Apps
 
-Starten mit: streamlit run erste_webapp.py
+Starten mit: uv run streamlit run src/08_ui/beispiele/streamlit/erste_webapp.py
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 import time
@@ -310,7 +309,7 @@ def show_visualization_demo():
     @st.cache_data
     def generate_production_data():
         """Generiert Beispiel-Produktionsdaten."""
-        dates = pd.date_range(start="2024-09-01", end="2024-09-04", freq="H")
+        dates = pd.date_range(start="2024-09-01", end="2024-09-04", freq="h")
 
         data = {
             "timestamp": dates,
@@ -341,7 +340,7 @@ def show_visualization_demo():
             labels={"production_rate": "Teile/Stunde", "timestamp": "Zeit"},
         )
         fig_line.update_layout(height=400)
-        st.plotly_chart(fig_line, use_container_width=True)
+        st.plotly_chart(fig_line, width="stretch")
 
     with chart_col2:
         # Streudiagramm - Temperatur vs Qualität
@@ -355,7 +354,7 @@ def show_visualization_demo():
             labels={"temperature": "Temperatur [°C]", "quality_index": "Qualität [%]"},
         )
         fig_scatter.update_layout(height=400)
-        st.plotly_chart(fig_scatter, use_container_width=True)
+        st.plotly_chart(fig_scatter, width="stretch")
 
     # Histogramm und Boxplot
     hist_col1, hist_col2 = st.columns(2)
@@ -370,7 +369,7 @@ def show_visualization_demo():
             labels={"quality_index": "Qualitätsindex [%]", "count": "Häufigkeit"},
         )
         fig_hist.update_layout(height=350)
-        st.plotly_chart(fig_hist, use_container_width=True)
+        st.plotly_chart(fig_hist, width="stretch")
 
     with hist_col2:
         # Boxplot
@@ -382,7 +381,7 @@ def show_visualization_demo():
             labels={"production_rate": "Teile/Stunde", "machine": "Maschine"},
         )
         fig_box.update_layout(height=350)
-        st.plotly_chart(fig_box, use_container_width=True)
+        st.plotly_chart(fig_box, width="stretch")
 
     # Heatmap
     st.subheader("🔥 Korrelations-Heatmap")
@@ -397,7 +396,7 @@ def show_visualization_demo():
         aspect="auto",
     )
     fig_heatmap.update_layout(height=400)
-    st.plotly_chart(fig_heatmap, use_container_width=True)
+    st.plotly_chart(fig_heatmap, width="stretch")
 
     # Daten-Tabelle
     st.subheader("📋 Rohdaten")
@@ -434,7 +433,7 @@ def show_visualization_demo():
     display_df["temperature"] = display_df["temperature"].round(1)
     display_df["quality_index"] = display_df["quality_index"].round(2)
 
-    st.dataframe(display_df, use_container_width=True)
+    st.dataframe(display_df, width="stretch")
 
     # Download-Button
     csv_data = display_df.to_csv(index=False)
@@ -661,7 +660,7 @@ def show_layout_demo():
                 "Toleranz": ["±3°C", "±3°C", "±0.2", "±10A", "±0.5 bar", "±0.3mm"],
             }
         )
-        st.dataframe(param_data, use_container_width=True)
+        st.dataframe(param_data, width="stretch")
 
     with st.expander("📈 Produktionsstatistiken"):
         st.write("Erweiterte Statistiken für die letzte Woche:")
@@ -816,19 +815,19 @@ def show_realtime_demo():
         fig_temp = px.line(
             hist_data, x="timestamp", y="temperature", title="Temperaturverlauf"
         )
-        st.plotly_chart(fig_temp, use_container_width=True)
+        st.plotly_chart(fig_temp, width="stretch")
 
     with chart_tab2:
         fig_press = px.line(
             hist_data, x="timestamp", y="pressure", title="Druckverlauf"
         )
-        st.plotly_chart(fig_press, use_container_width=True)
+        st.plotly_chart(fig_press, width="stretch")
 
     with chart_tab3:
         fig_prod = px.line(
             hist_data, x="timestamp", y="production_rate", title="Produktionsrate"
         )
-        st.plotly_chart(fig_prod, use_container_width=True)
+        st.plotly_chart(fig_prod, width="stretch")
 
 
 if __name__ == "__main__":

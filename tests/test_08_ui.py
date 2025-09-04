@@ -5,7 +5,7 @@ Tests für Modul 08 - UI-Entwicklung
 
 Umfassende Tests für PyQt und Streamlit Beispiele.
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 import os

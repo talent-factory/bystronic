@@ -5,7 +5,7 @@ Spezifische Tests für PyQt-Komponenten in Modul 08
 
 Detaillierte Tests für einzelne PyQt-Beispiele.
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 import sys

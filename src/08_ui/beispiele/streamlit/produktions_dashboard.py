@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Produktions-Dashboard mit Streamlit
 ==================================
@@ -10,9 +9,9 @@ Ein vollständiges Produktionsüberwachungs-Dashboard für Bystronic-Maschinen:
 - Qualitätskontrolle
 - Alarm-Management
 
-Starten mit: streamlit run produktions_dashboard.py
+Starten mit: uv run streamlit run src/08_ui/beispiele/streamlit/produktions_dashboard.py
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 import time
@@ -423,7 +422,7 @@ def show_overview(machine_df, orders_df, kpis):
 
     # Stundenweise Aggregation
     hourly_production = (
-        machine_df.groupby([machine_df["timestamp"].dt.floor("H"), "machine"])[
+        machine_df.groupby([machine_df["timestamp"].dt.floor("h"), "machine"])[
             "parts_produced"
         ]
         .sum()
@@ -439,7 +438,7 @@ def show_overview(machine_df, orders_df, kpis):
         labels={"parts_produced": "Produzierte Teile", "timestamp": "Zeit"},
     )
     fig_production.update_layout(height=400)
-    st.plotly_chart(fig_production, use_container_width=True)
+    st.plotly_chart(fig_production, width="stretch")
 
     # Temperatur- und Leistungsübersicht
     temp_col, power_col = st.columns(2)
@@ -459,7 +458,7 @@ def show_overview(machine_df, orders_df, kpis):
         fig_temp.add_hline(
             y=70, line_dash="dash", line_color="red", annotation_text="Warnschwelle"
         )
-        st.plotly_chart(fig_temp, use_container_width=True)
+        st.plotly_chart(fig_temp, width="stretch")
 
     with power_col:
         st.subheader("⚡ Leistungsverteilung")
@@ -473,7 +472,7 @@ def show_overview(machine_df, orders_df, kpis):
             names="machine",
             title="Leistungsverteilung",
         )
-        st.plotly_chart(fig_power, use_container_width=True)
+        st.plotly_chart(fig_power, width="stretch")
 
 
 def show_machine_status(machine_df):
@@ -598,7 +597,7 @@ def show_machine_status(machine_df):
                     )
 
                     fig_history.update_layout(height=400, showlegend=False)
-                    st.plotly_chart(fig_history, use_container_width=True)
+                    st.plotly_chart(fig_history, width="stretch")
 
             st.markdown("---")
 
@@ -639,7 +638,7 @@ def show_machine_status(machine_df):
         labels={comparison_metric: metric_labels[comparison_metric]},
     )
     fig_comparison.update_layout(height=500)
-    st.plotly_chart(fig_comparison, use_container_width=True)
+    st.plotly_chart(fig_comparison, width="stretch")
 
 
 def show_production_orders(orders_df):
@@ -707,7 +706,7 @@ def show_production_orders(orders_df):
             names="status",
             title="Aufträge nach Status",
         )
-        st.plotly_chart(fig_status, use_container_width=True)
+        st.plotly_chart(fig_status, width="stretch")
 
     with col2:
         fig_completion = px.bar(
@@ -716,7 +715,7 @@ def show_production_orders(orders_df):
             y="Completion Rate [%]",
             title="Completion Rate nach Status",
         )
-        st.plotly_chart(fig_completion, use_container_width=True)
+        st.plotly_chart(fig_completion, width="stretch")
 
     # Detaillierte Auftragstabelle
     st.subheader("📝 Detaillierte Auftragsliste")
@@ -758,11 +757,11 @@ def show_production_orders(orders_df):
         }
         return colors.get(val, "")
 
-    styled_orders = display_orders.style.applymap(
-        color_priority, subset=["priority"]
-    ).applymap(color_status, subset=["status"])
+    styled_orders = display_orders.style.map(color_priority, subset=["priority"]).map(
+        color_status, subset=["status"]
+    )
 
-    st.dataframe(styled_orders, use_container_width=True)
+    st.dataframe(styled_orders, width="stretch")
 
     # Produktionsplanung
     st.subheader("📅 Produktionsplanung")
@@ -783,7 +782,7 @@ def show_production_orders(orders_df):
             labels={"machine_assigned": "Maschine"},
         )
         fig_gantt.update_layout(height=400)
-        st.plotly_chart(fig_gantt, use_container_width=True)
+        st.plotly_chart(fig_gantt, width="stretch")
     else:
         st.info("Keine Aufträge für Planung verfügbar")
 
@@ -841,7 +840,7 @@ def show_analytics(machine_df, orders_df):
 
     # Stündliche Aggregation für KPIs
     hourly_kpis = (
-        filtered_analytics.groupby(filtered_analytics["timestamp"].dt.floor("H"))
+        filtered_analytics.groupby(filtered_analytics["timestamp"].dt.floor("h"))
         .agg(
             {
                 "parts_produced": "sum",
@@ -859,25 +858,25 @@ def show_analytics(machine_df, orders_df):
         fig_production_trend = px.line(
             hourly_kpis, x="timestamp", y="parts_produced", title="Produktionstrend"
         )
-        st.plotly_chart(fig_production_trend, use_container_width=True)
+        st.plotly_chart(fig_production_trend, width="stretch")
 
         fig_quality_trend = px.line(
             hourly_kpis, x="timestamp", y="quality_index", title="Qualitätstrend"
         )
         fig_quality_trend.add_hline(y=95, line_dash="dash", line_color="red")
-        st.plotly_chart(fig_quality_trend, use_container_width=True)
+        st.plotly_chart(fig_quality_trend, width="stretch")
 
     with kpi_col2:
         fig_temp_trend = px.line(
             hourly_kpis, x="timestamp", y="temperature", title="Temperaturtrend"
         )
         fig_temp_trend.add_hline(y=70, line_dash="dash", line_color="red")
-        st.plotly_chart(fig_temp_trend, use_container_width=True)
+        st.plotly_chart(fig_temp_trend, width="stretch")
 
         fig_power_trend = px.line(
             hourly_kpis, x="timestamp", y="power_consumption", title="Leistungstrend"
         )
-        st.plotly_chart(fig_power_trend, use_container_width=True)
+        st.plotly_chart(fig_power_trend, width="stretch")
 
     # Korrelationsanalyse
     st.subheader("🔍 Korrelationsanalyse")
@@ -898,7 +897,7 @@ def show_analytics(machine_df, orders_df):
         color_continuous_scale="RdBu",
         aspect="auto",
     )
-    st.plotly_chart(fig_correlation, use_container_width=True)
+    st.plotly_chart(fig_correlation, width="stretch")
 
     # Maschinenvergleich
     st.subheader("⚖️ Maschinenvergleich")
@@ -927,7 +926,7 @@ def show_analytics(machine_df, orders_df):
         "Ø Geschwindigkeit [m/min]",
     ]
 
-    st.dataframe(machine_comparison, use_container_width=True)
+    st.dataframe(machine_comparison, width="stretch")
 
     # Top-Performer und Problembereiche
     perf_col1, perf_col2 = st.columns(2)
@@ -1042,7 +1041,7 @@ def show_alarms(machine_df):
                 color="status",
                 title="Alarme nach Maschine (24h)",
             )
-            st.plotly_chart(fig_alarm_machine, use_container_width=True)
+            st.plotly_chart(fig_alarm_machine, width="stretch")
 
         with stat_col2:
             alarm_summary = alarm_stats.groupby("status")["count"].sum().reset_index()
@@ -1052,14 +1051,14 @@ def show_alarms(machine_df):
                 names="status",
                 title="Alarmverteilung (24h)",
             )
-            st.plotly_chart(fig_alarm_summary, use_container_width=True)
+            st.plotly_chart(fig_alarm_summary, width="stretch")
 
     # Alarm-Verlauf
     st.subheader("📈 Alarm-Verlauf")
 
     # Stündliche Alarmzählung
     hourly_alarms = (
-        machine_df.groupby([machine_df["timestamp"].dt.floor("H"), "status"])
+        machine_df.groupby([machine_df["timestamp"].dt.floor("h"), "status"])
         .size()
         .reset_index(name="alarm_count")
     )
@@ -1074,7 +1073,7 @@ def show_alarms(machine_df):
             color="status",
             title="Alarm-Häufigkeit über Zeit",
         )
-        st.plotly_chart(fig_alarm_trend, use_container_width=True)
+        st.plotly_chart(fig_alarm_trend, width="stretch")
     else:
         st.info("Keine Alarme im gewählten Zeitraum")
 
@@ -1162,7 +1161,7 @@ def show_settings():
     }
 
     users_df = pd.DataFrame(users_data)
-    st.dataframe(users_df, use_container_width=True)
+    st.dataframe(users_df, width="stretch")
 
     # Backup und Export
     st.subheader("💾 Backup und Export")

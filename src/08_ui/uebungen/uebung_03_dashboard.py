@@ -12,9 +12,9 @@ Lernziele:
 
 Schwierigkeitsgrad: ⭐⭐⭐⭐☆ (Fortgeschritten)
 
-Starten mit: streamlit run uebung_03_dashboard.py
+Starten mit: uv run streamlit run src/08_ui/uebungen/uebung_03_dashboard.py
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 import pandas as pd

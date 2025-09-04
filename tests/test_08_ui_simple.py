@@ -5,7 +5,7 @@ Einfache Tests für Modul 08 - UI-Entwicklung
 
 Funktionsfähige Tests mit uv Package Manager und robuster Dependency-Behandlung.
 
-Autor: Python Grundkurs für Bystronic-Entwickler
+Autor: Daniel Senften
 """
 
 import os
