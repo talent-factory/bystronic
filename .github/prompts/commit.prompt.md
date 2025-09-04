@@ -1,10 +1,11 @@
----
-mode: agent
----
+______________________________________________________________________
+
+## mode: agent
 
 # Copilot Command: Commit
 
-Dieser Befehl hilft dabei, professionelle Git-Commits mit automatischen Qualitätschecks und konventionellen Commit-Nachrichten zu erstellen.
+Dieser Befehl hilft dabei, professionelle Git-Commits mit automatischen
+Qualitätschecks und konventionellen Commit-Nachrichten zu erstellen.
 
 Bitte darauf achten, dass der komplette Commit in Deutsch verfasst wird.
 
@@ -27,22 +28,28 @@ Mit Optionen:
 ## Funktionalität
 
 1. **Automatische Pre-Commit-Checks** (ausser mit `--no-verify`):
+
    - **Java-Projekte**: Maven/Gradle Builds, Checkstyle, SpotBugs
    - **Python-Projekte**: Ruff/Flake8 Linting, Black Formatierung, pytest
-   - **React/Node.js-Projekte**: ESLint, Prettier, TypeScript-Checks, Jest/Vitest Tests
-   - **Dokumentation**: LaTeX-Kompilierung, Markdown-Validierung, AsciiDoc-Rendering
+   - **React/Node.js-Projekte**: ESLint, Prettier, TypeScript-Checks,
+     Jest/Vitest Tests
+   - **Dokumentation**: LaTeX-Kompilierung, Markdown-Validierung,
+     AsciiDoc-Rendering
 
-2. **Intelligente Staging-Verwaltung**:
+1. **Intelligente Staging-Verwaltung**:
+
    - Prüft gestakte Dateien mit `git status`
    - Fügt automatisch alle Änderungen hinzu, falls nichts gestakt ist
    - Zeigt Übersicht der zu committenden Änderungen
 
-3. **Diff-Analyse und Commit-Optimierung**:
+1. **Diff-Analyse und Commit-Optimierung**:
+
    - Analysiert `git diff` um Änderungsumfang zu verstehen
    - Erkennt mehrere logische Änderungen und schlägt Aufteilung vor
    - Erstellt atomare Commits für bessere Git-Historie
 
-4. **Konventionelle Commit-Nachrichten**:
+1. **Konventionelle Commit-Nachrichten**:
+
    - Verwendet Emoji Conventional Commit Format
    - Automatische Typerkennung basierend auf Änderungen
    - Deutsche und englische Beschreibungen möglich
@@ -108,7 +115,8 @@ Mit Optionen:
 - **Linting bestanden**: Code folgt Projektstandards
 - **Tests erfolgreich**: Alle Tests laufen durch
 - **Build erfolgreich**: Projekt kompiliert ohne Fehler
-- **Dokumentation aktuell**: README, Kommentare, Docs sind auf dem neuesten Stand
+- **Dokumentation aktuell**: README, Kommentare, Docs sind auf dem neuesten
+  Stand
 
 ### Projektspezifische Checks
 
@@ -119,11 +127,11 @@ Mit Optionen:
 ## Beispiel-Workflow
 
 1. **Automatische Erkennung**: Projekttyp wird automatisch erkannt
-2. **Pre-Commit-Checks**: Entsprechende Tools werden ausgeführt
-3. **Staging-Analyse**: Zeigt zu committende Dateien
-4. **Diff-Review**: Analysiert Änderungen und schlägt Commit-Struktur vor
-5. **Commit-Erstellung**: Generiert professionelle Commit-Nachricht
-6. **Push-Option**: Bietet automatischen Push zum Remote-Repository
+1. **Pre-Commit-Checks**: Entsprechende Tools werden ausgeführt
+1. **Staging-Analyse**: Zeigt zu committende Dateien
+1. **Diff-Review**: Analysiert Änderungen und schlägt Commit-Struktur vor
+1. **Commit-Erstellung**: Generiert professionelle Commit-Nachricht
+1. **Push-Option**: Bietet automatischen Push zum Remote-Repository
 
 ## Fehlerbehebung
 

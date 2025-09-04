@@ -2,7 +2,10 @@
 
 ## 🎯 Übersicht
 
-Diese Test-Suite überprüft alle Funktionalitäten des Datenimport-Moduls (Modul 06) des Python Grundkurses für Bystronic-Entwickler. Die Tests decken CSV-Import mit komplexen Strukturen, Excel-Verarbeitung, JSON-Datenverarbeitung, Datenbereinigung und Export-Funktionen ab.
+Diese Test-Suite überprüft alle Funktionalitäten des Datenimport-Moduls (Modul
+06\) des Python Grundkurses für Bystronic-Entwickler. Die Tests decken CSV-Import
+mit komplexen Strukturen, Excel-Verarbeitung, JSON-Datenverarbeitung,
+Datenbereinigung und Export-Funktionen ab.
 
 ## 📋 Test-Kategorien
 
@@ -213,10 +216,10 @@ def test_multi_format_export(self):
 **Pipeline-Schritte**:
 
 1. **Daten-Import**: CSV mit komplexen Strukturen
-2. **Datenbereinigung**: NaN-Behandlung, Duplikate entfernen
-3. **Aggregation**: Maschinenbezogene Statistiken
-4. **Export**: CSV + JSON mit Metadaten
-5. **Verification**: Vollständigkeitsprüfung
+1. **Datenbereinigung**: NaN-Behandlung, Duplikate entfernen
+1. **Aggregation**: Maschinenbezogene Statistiken
+1. **Export**: CSV + JSON mit Metadaten
+1. **Verification**: Vollständigkeitsprüfung
 
 **Wichtiger Test**:
 
@@ -282,9 +285,9 @@ import pyarrow as pa  # Wird graceful gehandhabt wenn nicht verfügbar
 ### CSV-Test-Strukturen
 
 1. **Standard CSV**: Komma-getrennt, UTF-8
-2. **Deutsches Format**: Semikolon-getrennt, Komma als Dezimaltrenner
-3. **Tab-Format**: Tab-getrennt, für technische Daten
-4. **Problematische Daten**: Fehlende Werte, Encoding-Probleme
+1. **Deutsches Format**: Semikolon-getrennt, Komma als Dezimaltrenner
+1. **Tab-Format**: Tab-getrennt, für technische Daten
+1. **Problematische Daten**: Fehlende Werte, Encoding-Probleme
 
 ### Bystronic CSV Spezial-Format
 
@@ -330,20 +333,21 @@ Name    TEMP_001    Name    VIBR_001    Name    POWER_001
 
 ### Performance-Benchmarks
 
-- **CSV-Import (1MB)**: <2 Sekunden
-- **Excel Multi-Sheet**: <5 Sekunden
-- **JSON Normalization**: <1 Sekunde
-- **Data Cleaning (10k Zeilen)**: <3 Sekunden
+- **CSV-Import (1MB)**: \<2 Sekunden
+- **Excel Multi-Sheet**: \<5 Sekunden
+- **JSON Normalization**: \<1 Sekunde
+- **Data Cleaning (10k Zeilen)**: \<3 Sekunden
 
 ## 🛡️ Fehlerbehandlung
 
 ### Getestete Fehlerszenarien
 
-1. **Datei nicht gefunden**: Graceful handling mit aussagekräftigen Fehlermeldungen
-2. **Encoding-Probleme**: Automatische Encoding-Erkennung und Fallbacks
-3. **Ungültige Datenstrukturen**: Robuste Parser mit Validierung
-4. **Memory-Probleme**: Chunked Processing und Streaming
-5. **Korrupte Daten**: Datenvalidierung und Bereinigung
+1. **Datei nicht gefunden**: Graceful handling mit aussagekräftigen
+   Fehlermeldungen
+1. **Encoding-Probleme**: Automatische Encoding-Erkennung und Fallbacks
+1. **Ungültige Datenstrukturen**: Robuste Parser mit Validierung
+1. **Memory-Probleme**: Chunked Processing und Streaming
+1. **Korrupte Daten**: Datenvalidierung und Bereinigung
 
 ### Logging und Debugging
 
@@ -384,4 +388,6 @@ pytest-watch tests/test_06_datenimport.py
 - **Performance-Tests**: Überwachung der Verarbeitungszeiten
 - **Datenvalidierung**: Sicherstellung korrekter Datenverarbeitung
 
-Diese umfassende Test-Suite stellt sicher, dass alle Komponenten des Datenimport-Moduls korrekt funktionieren und industrielle Anforderungen erfüllen.
+Diese umfassende Test-Suite stellt sicher, dass alle Komponenten des
+Datenimport-Moduls korrekt funktionieren und industrielle Anforderungen
+erfüllen.

@@ -2,11 +2,14 @@
 
 ## Python Grundkurs für Bystronic-Entwickler - Modul 06
 
----
+______________________________________________________________________
 
 ## 🎯 Übersicht
 
-Dieses Modul behandelt den professionellen Import und Export von Daten in verschiedenen Formaten, mit speziellem Fokus auf industrielle Anwendungen bei Bystronic. Von einfachen CSV-Dateien bis zu komplexen IoT-Sensordaten und APIs - hier lernen Sie alle wichtigen Techniken für die Datenverarbeitung.
+Dieses Modul behandelt den professionellen Import und Export von Daten in
+verschiedenen Formaten, mit speziellem Fokus auf industrielle Anwendungen bei
+Bystronic. Von einfachen CSV-Dateien bis zu komplexen IoT-Sensordaten und APIs -
+hier lernen Sie alle wichtigen Techniken für die Datenverarbeitung.
 
 ## 📚 Lernziele
 
@@ -260,10 +263,10 @@ main()  # Startet interaktive Übungen mit 5 Aufgaben
 **Übungsinhalt:**
 
 1. **Grundlegender CSV-Import** - Standard-Dateien laden
-2. **Verschiedene Trennzeichen** - Komma, Semikolon, Tab
-3. **Fehlende Werte behandeln** - dropna(), fillna() Strategien
-4. **Datenvalidierung** - Unrealistische Werte erkennen und korrigieren
-5. **Visualisierung** - Analysierte Daten grafisch darstellen
+1. **Verschiedene Trennzeichen** - Komma, Semikolon, Tab
+1. **Fehlende Werte behandeln** - dropna(), fillna() Strategien
+1. **Datenvalidierung** - Unrealistische Werte erkennen und korrigieren
+1. **Visualisierung** - Analysierte Daten grafisch darstellen
 
 ## 🔍 Performance-Tipps
 
@@ -433,7 +436,7 @@ Nach erfolgreichem Abschluss dieses Moduls sind Sie bereit für:
 - **Modul 08**: GUI-Entwicklung mit PyQt/PySide und Streamlit
 - **Modul 09**: Vollständige Praxisprojekte mit echter Datenverarbeitung
 
----
+______________________________________________________________________
 
 **Viel Erfolg beim Datenimport und -export!** 🚀
 

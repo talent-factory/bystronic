@@ -1,26 +1,36 @@
 # Kapitel 2: Datentypen und Datenstrukturen
 
-Willkommen zum zweiten Kapitel des Python Grundkurses für Bystronic-Entwickler! 📊
+Willkommen zum zweiten Kapitel des Python Grundkurses für Bystronic-Entwickler!
+📊
 
 ## 📚 Inhalte dieses Kapitels
 
 ### Hauptdokumentation
 
-- **[02_datentypen.ipynb](02_datentypen.ipynb)** - Interaktives Jupyter Notebook mit allen Datentypen
+- **[02_datentypen.ipynb](02_datentypen.ipynb)** - Interaktives Jupyter Notebook
+  mit allen Datentypen
 
 ### 💡 Beispiele
 
-- **[numbers_demo.py](beispiele/numbers_demo.py)** - Zahlen und mathematische Operationen
-- **[strings_demo.py](beispiele/strings_demo.py)** - String-Manipulation und Formatierung
-- **[collections_demo.py](beispiele/collections_demo.py)** - Listen, Dictionaries, Sets und Tupel
-- **[vba_collections_comparison.py](beispiele/vba_collections_comparison.py)** - VBA vs Python Collections
+- **[numbers_demo.py](beispiele/numbers_demo.py)** - Zahlen und mathematische
+  Operationen
+- **[strings_demo.py](beispiele/strings_demo.py)** - String-Manipulation und
+  Formatierung
+- **[collections_demo.py](beispiele/collections_demo.py)** - Listen,
+  Dictionaries, Sets und Tupel
+- **[vba_collections_comparison.py](beispiele/vba_collections_comparison.py)** -
+  VBA vs Python Collections
 
 ### 🎯 Übungen
 
-- **[Übung 1: Zahlenoperationen](uebungen/uebung_01_zahlen.py)** - Arbeiten mit int, float, complex
-- **[Übung 2: String-Verarbeitung](uebungen/uebung_02_strings.py)** - Textmanipulation und Formatierung
-- **[Übung 3: Listen und Dictionaries](uebungen/uebung_03_collections.py)** - Datenstrukturen beherrschen
-- **[Übung 4: Datenkonvertierung](uebungen/uebung_04_conversion.py)** - Type Casting und Validierung
+- **[Übung 1: Zahlenoperationen](uebungen/uebung_01_zahlen.py)** - Arbeiten mit
+  int, float, complex
+- **[Übung 2: String-Verarbeitung](uebungen/uebung_02_strings.py)** -
+  Textmanipulation und Formatierung
+- **[Übung 3: Listen und Dictionaries](uebungen/uebung_03_collections.py)** -
+  Datenstrukturen beherrschen
+- **[Übung 4: Datenkonvertierung](uebungen/uebung_04_conversion.py)** - Type
+  Casting und Validierung
 
 ## 🚀 Schnellstart
 
@@ -75,14 +85,13 @@ uv run python src/02_datentypen/uebungen/uebung_04_conversion.py
 
 Nach diesem Kapitel können Sie:
 
-✅ **Zahlentypen**: int, float, complex verstehen und verwenden
-✅ **Strings**: Texte manipulieren, formatieren und durchsuchen
-✅ **Listen**: Dynamische Arrays erstellen und bearbeiten
-✅ **Dictionaries**: Key-Value-Paare für strukturierte Daten nutzen
-✅ **Sets**: Eindeutige Elemente verwalten und Mengenoperationen durchführen
-✅ **Tupel**: Unveränderliche Datenstrukturen verwenden
-✅ **Konvertierung**: Zwischen Datentypen wechseln und validieren
-✅ **Collections**: Komplexe Datenstrukturen verschachteln
+✅ **Zahlentypen**: int, float, complex verstehen und verwenden ✅ **Strings**:
+Texte manipulieren, formatieren und durchsuchen ✅ **Listen**: Dynamische Arrays
+erstellen und bearbeiten ✅ **Dictionaries**: Key-Value-Paare für strukturierte
+Daten nutzen ✅ **Sets**: Eindeutige Elemente verwalten und Mengenoperationen
+durchführen ✅ **Tupel**: Unveränderliche Datenstrukturen verwenden ✅
+**Konvertierung**: Zwischen Datentypen wechseln und validieren ✅
+**Collections**: Komplexe Datenstrukturen verschachteln
 
 ## 🔧 Datentypen-Übersicht
 
@@ -254,9 +263,9 @@ fehlerhafte_teile = [m for m in messungen if not m["ok"]]
 
 ## ➡️ Nächste Schritte
 
-Nach erfolgreichem Abschluss dieses Kapitels:
-**→ [Kapitel 3: NumPy für numerische Berechnungen](../03_numpy/README.md)**
+Nach erfolgreichem Abschluss dieses Kapitels: **→
+[Kapitel 3: NumPy für numerische Berechnungen](../03_numpy/README.md)**
 
----
+______________________________________________________________________
 
 ## Dieses Kapitel ist Teil des Python Grundkurses für Bystronic-Entwickler

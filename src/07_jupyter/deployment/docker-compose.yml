@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  jupyter:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - jupyter_data:/home/jovyan/.jupyter
+      - ./data:/home/jovyan/data:ro
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=bystronic-secure-token
+    restart: unless-stopped
+    networks:
+      - bystronic-net
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - jupyter
+    restart: unless-stopped
+    networks:
+      - bystronic-net
+
+  jupyterhub:
+    image: jupyterhub/jupyterhub:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./jupyterhub_config.py:/srv/jupyterhub/jupyterhub_config.py:ro
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      - jupyterhub_data:/srv/jupyterhub
+    environment:
+      - DOCKER_JUPYTER_IMAGE=jupyter/datascience-notebook:latest
+    restart: unless-stopped
+    networks:
+      - bystronic-net
+
+volumes:
+  jupyter_data:
+  jupyterhub_data:
+
+networks:
+  bystronic-net:
+    driver: bridge

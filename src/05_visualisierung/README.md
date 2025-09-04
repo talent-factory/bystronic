@@ -1,28 +1,40 @@
 # Kapitel 5: Visualisierung mit Python
 
-Willkommen zum fünften Kapitel des Python Grundkurses für Bystronic-Entwickler! 📊📈🎨
+Willkommen zum fünften Kapitel des Python Grundkurses für Bystronic-Entwickler!
+📊📈🎨
 
 ## 📚 Inhalte dieses Kapitels
 
 ### Hauptdokumentation
 
-- **[05_visualisierung.ipynb](05_visualisierung.ipynb)** - Interaktives Jupyter Notebook mit Visualisierungs-Grundlagen
+- **[05_visualisierung.ipynb](05_visualisierung.ipynb)** - Interaktives Jupyter
+  Notebook mit Visualisierungs-Grundlagen
 
 ### 💡 Beispiele
 
-- **[matplotlib_grundlagen.py](beispiele/matplotlib_grundlagen.py)** - Matplotlib-Grundlagen und 2D-Diagramme
-- **[interaktive_plots.py](beispiele/interaktive_plots.py)** - Interaktive Visualisierungen mit Widgets
-- **[3d_visualisierung.py](beispiele/3d_visualisierung.py)** - 3D-Plots und räumliche Darstellungen
-- **[seaborn_statistik.py](beispiele/seaborn_statistik.py)** - Statistische Visualisierungen mit Seaborn
-- **[plotly_dashboards.py](beispiele/plotly_dashboards.py)** - Moderne Web-Visualisierungen mit Plotly
-- **[maschinendaten_viz.py](beispiele/maschinendaten_viz.py)** - Industrielle Datenvisualisierung
+- **[matplotlib_grundlagen.py](beispiele/matplotlib_grundlagen.py)** -
+  Matplotlib-Grundlagen und 2D-Diagramme
+- **[interaktive_plots.py](beispiele/interaktive_plots.py)** - Interaktive
+  Visualisierungen mit Widgets
+- **[3d_visualisierung.py](beispiele/3d_visualisierung.py)** - 3D-Plots und
+  räumliche Darstellungen
+- **[seaborn_statistik.py](beispiele/seaborn_statistik.py)** - Statistische
+  Visualisierungen mit Seaborn
+- **[plotly_dashboards.py](beispiele/plotly_dashboards.py)** - Moderne
+  Web-Visualisierungen mit Plotly
+- **[maschinendaten_viz.py](beispiele/maschinendaten_viz.py)** - Industrielle
+  Datenvisualisierung
 
 ### 🎯 Übungen
 
-- **[Übung 1: Grundlagen](uebungen/uebung_01_grundlagen.py)** - Erste Schritte mit Matplotlib
-- **[Übung 2: Statistische Plots](uebungen/uebung_02_statistik.py)** - Histogramme, Boxplots, Scatterplots
-- **[Übung 3: 3D und Animation](uebungen/uebung_03_3d_animation.py)** - 3D-Visualisierungen und Animationen
-- **[Übung 4: Dashboard-Entwicklung](uebungen/uebung_04_dashboards.py)** - Interaktive Dashboards erstellen
+- **[Übung 1: Grundlagen](uebungen/uebung_01_grundlagen.py)** - Erste Schritte
+  mit Matplotlib
+- **[Übung 2: Statistische Plots](uebungen/uebung_02_statistik.py)** -
+  Histogramme, Boxplots, Scatterplots
+- **[Übung 3: 3D und Animation](uebungen/uebung_03_3d_animation.py)** -
+  3D-Visualisierungen und Animationen
+- **[Übung 4: Dashboard-Entwicklung](uebungen/uebung_04_dashboards.py)** -
+  Interaktive Dashboards erstellen
 
 ## 🚀 Schnellstart
 
@@ -83,14 +95,13 @@ uv run python src/05_visualisierung/uebungen/uebung_04_dashboards.py
 
 Nach diesem Kapitel können Sie:
 
-✅ **Matplotlib**: 2D-Diagramme, Subplots und Anpassungen erstellen
-✅ **Seaborn**: Statistische Visualisierungen und moderne Plot-Stile
-✅ **Plotly**: Interaktive Web-Visualisierungen und Dashboards
-✅ **3D-Plots**: Räumliche Darstellungen und 3D-Animationen
-✅ **Interaktivität**: Widgets, Zoom, Pan und dynamische Updates
-✅ **Styling**: Professionelle Layouts, Farben und Themes
-✅ **Export**: Grafiken in verschiedenen Formaten speichern
-✅ **Performance**: Große Datensätze effizient visualisieren
+✅ **Matplotlib**: 2D-Diagramme, Subplots und Anpassungen erstellen ✅
+**Seaborn**: Statistische Visualisierungen und moderne Plot-Stile ✅ **Plotly**:
+Interaktive Web-Visualisierungen und Dashboards ✅ **3D-Plots**: Räumliche
+Darstellungen und 3D-Animationen ✅ **Interaktivität**: Widgets, Zoom, Pan und
+dynamische Updates ✅ **Styling**: Professionelle Layouts, Farben und Themes ✅
+**Export**: Grafiken in verschiedenen Formaten speichern ✅ **Performance**:
+Große Datensätze effizient visualisieren
 
 ## 🎨 Visualisierungs-Bibliotheken
 
@@ -115,9 +126,12 @@ plt.show()
 **📖 Matplotlib Ressourcen:**
 
 - **Homepage**: [https://matplotlib.org/](https://matplotlib.org/)
-- **Dokumentation**: [https://matplotlib.org/stable/contents.html](https://matplotlib.org/stable/contents.html)
-- **Gallery**: [https://matplotlib.org/stable/gallery/index.html](https://matplotlib.org/stable/gallery/index.html)
-- **Tutorials**: [https://matplotlib.org/stable/tutorials/index.html](https://matplotlib.org/stable/tutorials/index.html)
+- **Dokumentation**:
+  [https://matplotlib.org/stable/contents.html](https://matplotlib.org/stable/contents.html)
+- **Gallery**:
+  [https://matplotlib.org/stable/gallery/index.html](https://matplotlib.org/stable/gallery/index.html)
+- **Tutorials**:
+  [https://matplotlib.org/stable/tutorials/index.html](https://matplotlib.org/stable/tutorials/index.html)
 
 ### Seaborn - Statistische Visualisierung
 
@@ -137,9 +151,12 @@ plt.show()
 **📖 Seaborn Ressourcen:**
 
 - **Homepage**: [https://seaborn.pydata.org/](https://seaborn.pydata.org/)
-- **API Reference**: [https://seaborn.pydata.org/api.html](https://seaborn.pydata.org/api.html)
-- **Gallery**: [https://seaborn.pydata.org/examples/index.html](https://seaborn.pydata.org/examples/index.html)
-- **Tutorial**: [https://seaborn.pydata.org/tutorial.html](https://seaborn.pydata.org/tutorial.html)
+- **API Reference**:
+  [https://seaborn.pydata.org/api.html](https://seaborn.pydata.org/api.html)
+- **Gallery**:
+  [https://seaborn.pydata.org/examples/index.html](https://seaborn.pydata.org/examples/index.html)
+- **Tutorial**:
+  [https://seaborn.pydata.org/tutorial.html](https://seaborn.pydata.org/tutorial.html)
 
 ### Plotly - Interaktive Visualisierungen
 
@@ -157,7 +174,8 @@ fig.show()
 **📖 Plotly Ressourcen:**
 
 - **Homepage**: [https://plotly.com/python/](https://plotly.com/python/)
-- **Dokumentation**: [https://plotly.com/python-api-reference/](https://plotly.com/python-api-reference/)
+- **Dokumentation**:
+  [https://plotly.com/python-api-reference/](https://plotly.com/python-api-reference/)
 - **Gallery**: [https://plotly.com/python/](https://plotly.com/python/)
 - **Dash Framework**: [https://dash.plotly.com/](https://dash.plotly.com/)
 
@@ -279,24 +297,33 @@ Bevor Sie zum nächsten Kapitel wechseln:
 
 ### NumPy & Pandas Integration
 
-- **NumPy Plotting**: [https://numpy.org/doc/stable/user/quickstart.html#plotting](https://numpy.org/doc/stable/user/quickstart.html#plotting)
-- **Pandas Plotting**: [https://pandas.pydata.org/docs/user_guide/visualization.html](https://pandas.pydata.org/docs/user_guide/visualization.html)
+- **NumPy Plotting**:
+  [https://numpy.org/doc/stable/user/quickstart.html#plotting](https://numpy.org/doc/stable/user/quickstart.html#plotting)
+- **Pandas Plotting**:
+  [https://pandas.pydata.org/docs/user_guide/visualization.html](https://pandas.pydata.org/docs/user_guide/visualization.html)
 
 ### Erweiterte Bibliotheken
 
-- **Bokeh**: [https://bokeh.org/](https://bokeh.org/) - Web-native interaktive Visualisierungen
-- **Altair**: [https://altair-viz.github.io/](https://altair-viz.github.io/) - Grammar of Graphics für Python
-- **Holoviews**: [https://holoviews.org/](https://holoviews.org/) - Hochdimensionale Datenvisualisierung
+- **Bokeh**: [https://bokeh.org/](https://bokeh.org/) - Web-native interaktive
+  Visualisierungen
+- **Altair**: [https://altair-viz.github.io/](https://altair-viz.github.io/) -
+  Grammar of Graphics für Python
+- **Holoviews**: [https://holoviews.org/](https://holoviews.org/) -
+  Hochdimensionale Datenvisualisierung
 
 ### Specialized Tools
 
-- **Mayavi**: [https://docs.enthought.com/mayavi/mayavi/](https://docs.enthought.com/mayavi/mayavi/) - 3D wissenschaftliche Visualisierung
-- **PyVista**: [https://pyvista.org/](https://pyvista.org/) - 3D Plotting und Mesh-Analyse
+- **Mayavi**:
+  [https://docs.enthought.com/mayavi/mayavi/](https://docs.enthought.com/mayavi/mayavi/)
+  \- 3D wissenschaftliche Visualisierung
+- **PyVista**: [https://pyvista.org/](https://pyvista.org/) - 3D Plotting und
+  Mesh-Analyse
 
 ## ➡️ Nächste Schritte
 
-Nach erfolgreichem Abschluss dieses Kapitels:
-**→ [Kapitel 6: Datenimport und -export](../06_datenimport/README.md)**
+Nach erfolgreichem Abschluss dieses Kapitels: **→
+[Kapitel 6: Datenimport und -export](../06_datenimport/README.md)**
 
----
+______________________________________________________________________
+
 *Dieses Kapitel ist Teil des Python Grundkurses für Bystronic-Entwickler*

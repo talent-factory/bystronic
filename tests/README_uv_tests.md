@@ -88,7 +88,8 @@ uv sync --all-extras
 
 ## Test-Konfiguration
 
-Die Tests sind so konfiguriert, dass sie automatisch übersprungen werden, wenn Dependencies fehlen:
+Die Tests sind so konfiguriert, dass sie automatisch übersprungen werden, wenn
+Dependencies fehlen:
 
 - `@requires_data()` - Benötigt pandas, numpy
 - `@requires_ui()` - Benötigt PySide6
@@ -146,7 +147,8 @@ uv run pytest tests/test_08_ui_simple.py --cov=tests --no-cov-report
 
 ## GitHub Actions Integration
 
-Die Tests sind für GitHub Actions konfiguriert (siehe `.github/workflows/ui-tests.yml`):
+Die Tests sind für GitHub Actions konfiguriert (siehe
+`.github/workflows/ui-tests.yml`):
 
 - Läuft auf Python 3.11, 3.12, 3.13
 - Verwendet uv für Dependency-Management
@@ -198,10 +200,10 @@ tests/
 ## Best Practices
 
 1. **Dependency-Checks**: Verwende die bereitgestellten Decorators
-2. **Mock-Strategien**: Nutze die Test-Utilities für konsistente Mocks
-3. **Isolation**: Jeder Test ist unabhängig und wiederholbar
-4. **Performance**: Verwende `tmp_path` für temporäre Dateien
-5. **Dokumentation**: Aussagekräftige Test-Namen und Docstrings
+1. **Mock-Strategien**: Nutze die Test-Utilities für konsistente Mocks
+1. **Isolation**: Jeder Test ist unabhängig und wiederholbar
+1. **Performance**: Verwende `tmp_path` für temporäre Dateien
+1. **Dokumentation**: Aussagekräftige Test-Namen und Docstrings
 
 ## Beispiel-Test erstellen
 
@@ -222,4 +224,5 @@ class TestMyFeature:
         assert all('processed' in item for item in result)
 ```
 
-Diese Struktur gewährleistet robuste, wartbare Tests die mit uv optimal funktionieren.
+Diese Struktur gewährleistet robuste, wartbare Tests die mit uv optimal
+funktionieren.

@@ -1,0 +1,268 @@
+= Markdown-Formatierung Richtlinien
+Daniel Senften
+:toc: left
+:toclevels: 3
+:sectnums:
+:icons: font
+:source-highlighter: highlightjs
+
+== Automatische Markdown-Formatierung
+
+=== Übersicht
+
+Das Bystronic-Projekt verwendet automatische Markdown-Formatierung durch pre-commit hooks, um konsistente Dokumentation sicherzustellen.
+
+=== Konfiguration
+
+==== Pre-commit Hooks
+
+Die `.pre-commit-config.yaml` enthält:
+
+[source,yaml]
+----
+- repo: https://github.com/igorshubovych/markdownlint-cli
+  rev: v0.43.0
+  hooks:
+    - id: markdownlint
+      args: [--fix]
+      files: \.(md|markdown)$
+
+- repo: https://github.com/executablebooks/mdformat
+  rev: 0.7.21
+  hooks:
+    - id: mdformat
+      additional_dependencies:
+        - mdformat-gfm
+        - mdformat-tables
+      args: [--wrap=80]
+----
+
+==== Markdownlint-Konfiguration
+
+Die `.markdownlint.json` definiert Linting-Regeln:
+
+[source,json]
+----
+{
+  "default": true,
+  "MD013": {
+    "line_length": 120,
+    "code_blocks": false,
+    "tables": false
+  },
+  "MD024": {
+    "siblings_only": true
+  },
+  "MD033": {
+    "allowed_elements": ["br", "kbd", "sub", "sup"]
+  },
+  "MD041": false,
+  "MD046": {
+    "style": "fenced"
+  }
+}
+----
+
+=== Automatische Korrekturen
+
+==== MD032 - Listen mit Leerzeilen
+
+*Problem:*
+[source,markdown]
+----
+**Getestete Module:**
+- `jupyter_widgets_demo.py`
+- `jupyter_extensions_demo.py`
+**Test-Kategorien:**
+----
+
+*Automatische Korrektur:*
+[source,markdown]
+----
+**Getestete Module:**
+
+- `jupyter_widgets_demo.py`
+- `jupyter_extensions_demo.py`
+
+**Test-Kategorien:**
+----
+
+==== MD022 - Überschriften mit Leerzeilen
+
+*Problem:*
+[source,markdown]
+----
+### Überschrift
+Direkt folgender Text ohne Leerzeile
+----
+
+*Automatische Korrektur:*
+[source,markdown]
+----
+### Überschrift
+
+Direkt folgender Text mit Leerzeile
+----
+
+==== MD031 - Code-Blöcke mit Leerzeilen
+
+*Problem:*
+[source,markdown]
+----
+Text vor Code-Block
+```bash
+code here
+```
+Text nach Code-Block
+----
+
+*Automatische Korrektur:*
+[source,markdown]
+----
+Text vor Code-Block
+
+```bash
+code here
+```
+
+Text nach Code-Block
+----
+
+=== Verwendung
+
+==== Installation
+
+[source,bash]
+----
+# Pre-commit hooks installieren
+uv run pre-commit install
+----
+
+==== Automatische Formatierung
+
+[source,bash]
+----
+# Alle Markdown-Dateien formatieren
+uv run pre-commit run markdownlint --all-files
+uv run pre-commit run mdformat --all-files
+
+# Einzelne Datei formatieren
+uv run pre-commit run markdownlint --files docs/example.md
+uv run pre-commit run mdformat --files docs/example.md
+----
+
+==== Bei Git-Commits
+
+Die Hooks laufen automatisch bei jedem `git commit`:
+
+[source,bash]
+----
+# Normaler Commit - Hooks laufen automatisch
+git add .
+git commit -m "docs: Update documentation"
+
+# Hooks überspringen (nur in Ausnahmefällen)
+git commit --no-verify -m "docs: Emergency fix"
+----
+
+=== Workflow-Integration
+
+==== Windsurf Workflow
+
+Der `/markdown-formatting` Workflow automatisiert die Formatierung:
+
+[source,bash]
+----
+# Workflow ausführen
+/markdown-formatting
+----
+
+==== CI/CD Integration
+
+Die pre-commit hooks laufen auch in der CI/CD-Pipeline und stellen sicher, dass alle Markdown-Dateien korrekt formatiert sind.
+
+=== Fehlerbehebung
+
+==== Häufige Probleme
+
+*Problem: Hook schlägt fehl*
+[source,bash]
+----
+# Hook-Umgebung neu installieren
+uv run pre-commit clean
+uv run pre-commit install --install-hooks
+----
+
+*Problem: Formatierung überschreibt gewünschte Struktur*
+[source,bash]
+----
+# Spezifische Regeln in .markdownlint.json deaktivieren
+{
+  "MD032": false  // Listen-Leerzeilen deaktivieren
+}
+----
+
+==== Debug-Modus
+
+[source,bash]
+----
+# Verbose Output für Debugging
+uv run pre-commit run markdownlint --files file.md --verbose
+----
+
+=== Best Practices
+
+==== Für Entwickler
+
+. *Immer pre-commit hooks verwenden* - Installieren Sie die hooks nach dem Klonen
+. *Regelmäßig formatieren* - Lassen Sie die Tools die Formatierung übernehmen
+. *Nicht manuell formatieren* - Vertrauen Sie auf die automatischen Tools
+. *Bei Konflikten* - Passen Sie `.markdownlint.json` an, nicht die Dateien
+
+==== Für Dokumentation
+
+. *Konsistente Struktur* - Verwenden Sie einheitliche Überschriften-Hierarchien
+. *Aussagekräftige Listen* - Nutzen Sie Leerzeilen für bessere Lesbarkeit
+. *Code-Blöcke* - Immer mit Sprach-Tags für Syntax-Highlighting
+. *Tabellen* - Lassen Sie mdformat die Ausrichtung übernehmen
+
+=== Erweiterungen
+
+==== Zusätzliche Plugins
+
+Weitere mdformat-Plugins können hinzugefügt werden:
+
+[source,yaml]
+----
+additional_dependencies:
+  - mdformat-gfm          # GitHub Flavored Markdown
+  - mdformat-tables       # Tabellen-Formatierung
+  - mdformat-footnote     # Fußnoten-Support
+  - mdformat-frontmatter  # YAML Frontmatter
+----
+
+==== Custom Rules
+
+Eigene markdownlint-Regeln können in `.markdownlint.json` definiert werden:
+
+[source,json]
+----
+{
+  "custom-rule": {
+    "description": "Custom rule description",
+    "tags": ["custom"],
+    "function": "path/to/custom-rule.js"
+  }
+}
+----
+
+== Zusammenfassung
+
+Die automatische Markdown-Formatierung stellt sicher, dass:
+
+* *MD032-Fehler automatisch behoben werden* - Listen sind immer korrekt formatiert
+* *Konsistente Dokumentation* - Alle Markdown-Dateien folgen den gleichen Standards
+* *Keine manuelle Arbeit* - Entwickler müssen sich nicht um Formatierung kümmern
+* *Qualitätssicherung* - Pre-commit hooks verhindern schlecht formatierte Commits
+
+Mit dieser Konfiguration werden MD032 und andere Markdown-Linting-Probleme automatisch und ohne manuelle Intervention gelöst.

@@ -1,0 +1,578 @@
+= Jupyter Notebooks: Erweiterte Funktionen und Deployment
+Daniel Senften
+:toc: left
+:toclevels: 3
+:sectnums:
+:icons: font
+:source-highlighter: highlightjs
+:experimental:
+
+== Einführung
+
+Jupyter Notebooks sind ein mächtiges Werkzeug für interaktive Datenanalyse, Prototyping und Dokumentation. In diesem Modul konzentrieren wir uns auf die erweiterten Funktionen von Jupyter und deren professionelle Bereitstellung für Endanwender.
+
+== Lernziele
+
+Nach diesem Modul können Sie:
+
+* Erweiterte Jupyter-Features nutzen (Widgets, Extensions, Magic Commands)
+* Jupyter Notebooks für Produktionsumgebungen konfigurieren
+* Notebooks für Endanwender bereitstellen (JupyterHub, Binder, etc.)
+* Sicherheitsaspekte bei der Notebook-Bereitstellung beachten
+* Performance-Optimierungen implementieren
+
+== Jupyter Notebook Architektur
+
+=== Kernkomponenten
+
+[source,text]
+----
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Browser       │◄──►│  Jupyter Server │◄──►│   Python Kernel │
+│   (Frontend)    │    │   (Tornado)     │    │   (IPython)     │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         │                       │                       │
+    WebSocket                 HTTP API              ZeroMQ Protocol
+    Connection              REST Endpoints          Message Passing
+----
+
+=== Jupyter Ecosystem
+
+* *JupyterLab*: Moderne, erweiterbare Entwicklungsumgebung
+* *JupyterHub*: Multi-User-Server für Teams und Organisationen
+* *Voilà*: Konvertierung von Notebooks zu Web-Anwendungen
+* *Binder*: Cloud-basierte Notebook-Bereitstellung
+* *nbconvert*: Konvertierung in verschiedene Formate
+
+== Erweiterte Jupyter Features
+
+=== Magic Commands
+
+Jupyter bietet mächtige Magic Commands für verschiedene Aufgaben:
+
+[source,python]
+----
+# Line Magic (%)
+%time result = expensive_function()
+%matplotlib inline
+%load_ext autoreload
+%autoreload 2
+
+# Cell Magic (%%)
+%%time
+# Misst die Ausführungszeit der gesamten Zelle
+for i in range(1000000):
+    pass
+
+%%writefile script.py
+# Schreibt Zelleninhalt in Datei
+def hello():
+    print("Hello from script!")
+
+%%bash
+# Führt Bash-Befehle aus
+ls -la
+pwd
+----
+
+=== Jupyter Widgets (ipywidgets)
+
+Interaktive Widgets für bessere Benutzererfahrung:
+
+[source,python]
+----
+import ipywidgets as widgets
+from IPython.display import display
+
+# Einfache Widgets
+slider = widgets.IntSlider(value=50, min=0, max=100)
+text = widgets.Text(value='Hello World')
+button = widgets.Button(description='Klick mich!')
+
+# Widget-Interaktionen
+@widgets.interact
+def plot_function(frequency=(1, 10, 0.1), amplitude=(0.1, 2.0, 0.1)):
+    x = np.linspace(0, 4*np.pi, 100)
+    y = amplitude * np.sin(frequency * x)
+    plt.plot(x, y)
+    plt.show()
+
+# Layout und Styling
+widgets.VBox([
+    widgets.HBox([slider, text]),
+    button
+])
+----
+
+=== Jupyter Extensions
+
+Nützliche Extensions für erweiterte Funktionalität:
+
+[source,bash]
+----
+# JupyterLab Extensions installieren
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+jupyter labextension install @jupyterlab/toc
+jupyter labextension install @jupyterlab/git
+
+# Notebook Extensions (klassisches Interface)
+pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+jupyter nbextension enable --py widgetsnbextension
+----
+
+== Jupyter für Produktionsumgebungen
+
+=== Konfiguration und Sicherheit
+
+[source,python]
+----
+# jupyter_notebook_config.py
+c = get_config()
+
+# Sicherheitseinstellungen
+c.NotebookApp.token = 'your-secure-token'
+c.NotebookApp.password = 'sha1:...'  # Gehashtes Passwort
+c.NotebookApp.certfile = '/path/to/cert.pem'
+c.NotebookApp.keyfile = '/path/to/key.key'
+
+# Netzwerk-Konfiguration
+c.NotebookApp.ip = '0.0.0.0'  # Alle Interfaces
+c.NotebookApp.port = 8888
+c.NotebookApp.allow_remote_access = True
+
+# Arbeitsverzeichnis
+c.NotebookApp.notebook_dir = '/opt/notebooks'
+
+# Kernel-Management
+c.MappingKernelManager.cull_idle_timeout = 3600  # 1 Stunde
+c.MappingKernelManager.cull_interval = 300       # 5 Minuten
+----
+
+=== Docker-basierte Bereitstellung
+
+[source,dockerfile]
+----
+# Dockerfile für Jupyter-Deployment
+FROM jupyter/scipy-notebook:latest
+
+USER root
+
+# System-Abhängigkeiten
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+USER $NB_UID
+
+# Python-Pakete installieren
+COPY requirements.txt /tmp/
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
+# Notebooks und Konfiguration kopieren
+COPY notebooks/ /home/jovyan/work/
+COPY jupyter_notebook_config.py /home/jovyan/.jupyter/
+
+# JupyterLab Extensions
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
+
+EXPOSE 8888
+
+CMD ["start-notebook.sh", "--NotebookApp.token=''"]
+----
+
+=== JupyterHub für Multi-User-Umgebungen
+
+[source,python]
+----
+# jupyterhub_config.py
+c = get_config()
+
+# Authenticator
+c.JupyterHub.authenticator_class = 'ldapauthenticator.LDAPAuthenticator'
+c.LDAPAuthenticator.server_address = 'ldap.company.com'
+c.LDAPAuthenticator.bind_dn_template = 'uid={username},ou=people,dc=company,dc=com'
+
+# Spawner für Docker
+c.JupyterHub.spawner_class = 'dockerspawner.DockerSpawner'
+c.DockerSpawner.image = 'jupyter/datascience-notebook:latest'
+c.DockerSpawner.remove_containers = True
+
+# Resource-Limits
+c.DockerSpawner.mem_limit = '2G'
+c.DockerSpawner.cpu_limit = 1.0
+
+# Persistent Storage
+c.DockerSpawner.volumes = {
+    '/opt/shared': '/home/jovyan/shared',
+    'jupyterhub-user-{username}': '/home/jovyan/work'
+}
+----
+
+== Notebook-Bereitstellung für Endanwender
+
+=== Voilà: Notebooks als Web-Apps
+
+[source,python]
+----
+# Installation
+pip install voila
+
+# Notebook als Web-App bereitstellen
+voila notebook.ipynb --port=8866 --no-browser
+
+# Mit Template
+voila notebook.ipynb --template=material
+
+# Produktions-Deployment
+voila notebooks/ --port=8866 --Voila.ip=0.0.0.0 \
+      --VoilaConfiguration.file_whitelist="['.*\.ipynb']"
+----
+
+=== Binder für Cloud-Deployment
+
+[source,yaml]
+----
+# environment.yml für Binder
+name: bystronic-notebooks
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - jupyter
+  - pandas
+  - numpy
+  - matplotlib
+  - plotly
+  - streamlit
+  - pip
+  - pip:
+    - voila
+    - ipywidgets
+----
+
+[source,text]
+----
+# requirements.txt für Binder
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+plotly>=5.14.0
+streamlit>=1.28.0
+voila>=0.5.0
+ipywidgets>=8.0.0
+----
+
+=== Notebook-Sicherheit für Produktionsumgebungen
+
+[source,python]
+----
+# Sicherheits-Middleware
+import nbformat
+from nbconvert.preprocessors import Preprocessor
+
+class SecurityPreprocessor(Preprocessor):
+    """Entfernt potentiell gefährliche Zellen"""
+
+    def preprocess_cell(self, cell, resources, index):
+        if cell.cell_type == 'code':
+            # Gefährliche Befehle blockieren
+            dangerous_patterns = [
+                'import os',
+                'subprocess',
+                '!rm',
+                '!sudo',
+                'eval(',
+                'exec('
+            ]
+
+            for pattern in dangerous_patterns:
+                if pattern in cell.source:
+                    cell.source = f"# BLOCKED: {pattern} nicht erlaubt"
+
+        return cell, resources
+
+# Notebook validieren
+def validate_notebook(notebook_path):
+    with open(notebook_path, 'r') as f:
+        nb = nbformat.read(f, as_version=4)
+
+    preprocessor = SecurityPreprocessor()
+    nb, _ = preprocessor.preprocess(nb, {})
+
+    return nb
+----
+
+== Performance-Optimierung
+
+=== Memory Management
+
+[source,python]
+----
+# Memory Profiling
+%load_ext memory_profiler
+%memit expensive_function()
+
+# Garbage Collection
+import gc
+gc.collect()
+
+# Memory-effiziente Datenverarbeitung
+def process_large_dataset(file_path, chunk_size=10000):
+    """Verarbeitet große Datasets in Chunks"""
+    for chunk in pd.read_csv(file_path, chunksize=chunk_size):
+        # Verarbeitung pro Chunk
+        processed_chunk = chunk.apply(some_function)
+        yield processed_chunk
+
+        # Memory cleanup
+        del chunk
+        gc.collect()
+----
+
+=== Parallel Processing
+
+[source,python]
+----
+# Multiprocessing in Notebooks
+from multiprocessing import Pool
+from functools import partial
+
+def parallel_computation(data_chunks, n_processes=4):
+    """Parallele Verarbeitung von Daten"""
+    with Pool(processes=n_processes) as pool:
+        results = pool.map(process_chunk, data_chunks)
+    return results
+
+# Dask für große Datasets
+import dask.dataframe as dd
+
+# Dask DataFrame für große CSV-Dateien
+df = dd.read_csv('large_dataset.csv')
+result = df.groupby('category').value.mean().compute()
+----
+
+== Deployment-Strategien
+
+=== On-Premise Deployment
+
+[source,bash]
+----
+# Systemd Service für Jupyter
+# /etc/systemd/system/jupyter.service
+[Unit]
+Description=Jupyter Notebook Server
+After=network.target
+
+[Service]
+Type=simple
+User=jupyter
+WorkingDirectory=/opt/notebooks
+ExecStart=/opt/miniconda/bin/jupyter notebook --config=/etc/jupyter/jupyter_notebook_config.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+# Service aktivieren
+sudo systemctl enable jupyter
+sudo systemctl start jupyter
+----
+
+=== Cloud Deployment (AWS/Azure)
+
+[source,yaml]
+----
+# docker-compose.yml für Cloud-Deployment
+version: '3.8'
+
+services:
+  jupyter:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - jupyter_data:/home/jovyan/.jupyter
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - jupyter
+    restart: unless-stopped
+
+volumes:
+  jupyter_data:
+----
+
+=== Kubernetes Deployment
+
+[source,yaml]
+----
+# jupyter-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jupyter-notebook
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jupyter
+  template:
+    metadata:
+      labels:
+        app: jupyter
+    spec:
+      containers:
+      - name: jupyter
+        image: bystronic/jupyter-notebook:latest
+        ports:
+        - containerPort: 8888
+        env:
+        - name: JUPYTER_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: jupyter-secret
+              key: token
+        volumeMounts:
+        - name: notebooks
+          mountPath: /home/jovyan/work
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+      volumes:
+      - name: notebooks
+        persistentVolumeClaim:
+          claimName: jupyter-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jupyter-service
+spec:
+  selector:
+    app: jupyter
+  ports:
+  - port: 80
+    targetPort: 8888
+  type: LoadBalancer
+----
+
+== Best Practices
+
+=== Notebook-Organisation
+
+[source,text]
+----
+notebooks/
+├── 01_data_exploration/
+│   ├── exploratory_analysis.ipynb
+│   └── data_quality_check.ipynb
+├── 02_modeling/
+│   ├── feature_engineering.ipynb
+│   └── model_training.ipynb
+├── 03_reporting/
+│   ├── executive_summary.ipynb
+│   └── technical_report.ipynb
+├── templates/
+│   ├── analysis_template.ipynb
+│   └── report_template.ipynb
+└── shared/
+    ├── utils.py
+    └── config.py
+----
+
+=== Code-Qualität in Notebooks
+
+[source,python]
+----
+# Notebook-Testing mit pytest
+def test_data_processing():
+    """Test für Datenverarbeitungsfunktionen"""
+    sample_data = pd.DataFrame({
+        'value': [1, 2, 3, 4, 5],
+        'category': ['A', 'B', 'A', 'B', 'A']
+    })
+
+    result = process_data(sample_data)
+
+    assert len(result) == 5
+    assert 'processed_value' in result.columns
+
+# Notebook-Linting
+# .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.7.0
+    hooks:
+      - id: nbqa-black
+      - id: nbqa-isort
+      - id: nbqa-flake8
+----
+
+== Monitoring und Logging
+
+=== Notebook-Monitoring
+
+[source,python]
+----
+import logging
+from datetime import datetime
+
+# Logging-Konfiguration
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('/var/log/jupyter/notebook.log'),
+        logging.StreamHandler()
+    ]
+)
+
+logger = logging.getLogger(__name__)
+
+# Usage Tracking
+def track_notebook_usage(notebook_name, user_id):
+    """Verfolgt Notebook-Nutzung"""
+    logger.info(f"Notebook {notebook_name} gestartet von User {user_id}")
+
+    # Metriken sammeln
+    metrics = {
+        'timestamp': datetime.now().isoformat(),
+        'notebook': notebook_name,
+        'user': user_id,
+        'action': 'start'
+    }
+
+    # An Monitoring-System senden
+    send_metrics(metrics)
+----
+
+== Zusammenfassung
+
+Jupyter Notebooks bieten mächtige Möglichkeiten für interaktive Datenanalyse und können professionell für Endanwender bereitgestellt werden. Die wichtigsten Aspekte sind:
+
+* *Erweiterte Features*: Widgets, Magic Commands, Extensions
+* *Sicherheit*: Authentifizierung, Autorisierung, Code-Validierung
+* *Performance*: Memory Management, Parallel Processing
+* *Deployment*: Docker, Kubernetes, Cloud-Plattformen
+* *Monitoring*: Logging, Metriken, Usage Tracking
+
+Mit der richtigen Konfiguration und den passenden Tools können Jupyter Notebooks erfolgreich in Produktionsumgebungen eingesetzt werden.

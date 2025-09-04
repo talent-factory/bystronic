@@ -1,27 +1,38 @@
 # Kapitel 3: NumPy für numerische Berechnungen
 
-Willkommen zum dritten Kapitel des Python Grundkurses für Bystronic-Entwickler! 🔢📐
+Willkommen zum dritten Kapitel des Python Grundkurses für Bystronic-Entwickler!
+🔢📐
 
 ## 📚 Inhalte dieses Kapitels
 
 ### Hauptdokumentation
 
-- **[03_numpy.ipynb](03_numpy.ipynb)** - Interaktives Jupyter Notebook mit NumPy-Grundlagen
+- **[03_numpy.ipynb](03_numpy.ipynb)** - Interaktives Jupyter Notebook mit
+  NumPy-Grundlagen
 
 ### 💡 Beispiele
 
-- **[arrays_demo.py](beispiele/arrays_demo.py)** - Array-Erstellung und grundlegende Operationen
-- **[mathematical_operations.py](beispiele/mathematical_operations.py)** - Mathematische Funktionen und Berechnungen
-- **[array_manipulation.py](beispiele/array_manipulation.py)** - Reshaping, Slicing und Indexing
-- **[linear_algebra.py](beispiele/linear_algebra.py)** - Lineare Algebra Operationen
-- **[vba_vs_numpy.py](beispiele/vba_vs_numpy.py)** - Vergleich Excel/VBA zu NumPy
+- **[arrays_demo.py](beispiele/arrays_demo.py)** - Array-Erstellung und
+  grundlegende Operationen
+- **[mathematical_operations.py](beispiele/mathematical_operations.py)** -
+  Mathematische Funktionen und Berechnungen
+- **[array_manipulation.py](beispiele/array_manipulation.py)** - Reshaping,
+  Slicing und Indexing
+- **[linear_algebra.py](beispiele/linear_algebra.py)** - Lineare Algebra
+  Operationen
+- **[vba_vs_numpy.py](beispiele/vba_vs_numpy.py)** - Vergleich Excel/VBA zu
+  NumPy
 
 ### 🎯 Übungen
 
-- **[Übung 1: Array-Grundlagen](uebungen/uebung_01_arrays.py)** - Erstellen und Manipulieren von Arrays
-- **[Übung 2: Mathematische Operationen](uebungen/uebung_02_math.py)** - Berechnungen mit NumPy
-- **[Übung 3: Datenanalyse](uebungen/uebung_03_analysis.py)** - Statistische Auswertungen
-- **[Übung 4: Lineare Algebra](uebungen/uebung_04_linalg.py)** - Matrix-Operationen und Geometrie
+- **[Übung 1: Array-Grundlagen](uebungen/uebung_01_arrays.py)** - Erstellen und
+  Manipulieren von Arrays
+- **[Übung 2: Mathematische Operationen](uebungen/uebung_02_math.py)** -
+  Berechnungen mit NumPy
+- **[Übung 3: Datenanalyse](uebungen/uebung_03_analysis.py)** - Statistische
+  Auswertungen
+- **[Übung 4: Lineare Algebra](uebungen/uebung_04_linalg.py)** -
+  Matrix-Operationen und Geometrie
 
 ## 🚀 Schnellstart
 
@@ -79,14 +90,14 @@ uv run python src/03_numpy/uebungen/uebung_04_linalg.py
 
 Nach diesem Kapitel können Sie:
 
-✅ **Arrays**: NumPy-Arrays erstellen, manipulieren und verwenden
-✅ **Datentypen**: Numerische Datentypen verstehen und optimal nutzen
-✅ **Operationen**: Vektorisierte mathematische Operationen durchführen
-✅ **Broadcasting**: Array-Operationen mit verschiedenen Shapes
-✅ **Indexing**: Erweiterte Indexierung und Slicing-Techniken
-✅ **Lineare Algebra**: Matrix-Operationen und geometrische Berechnungen
-✅ **Performance**: Effiziente numerische Berechnungen implementieren
-✅ **Integration**: NumPy mit anderen Libraries (pandas, matplotlib) nutzen
+✅ **Arrays**: NumPy-Arrays erstellen, manipulieren und verwenden ✅
+**Datentypen**: Numerische Datentypen verstehen und optimal nutzen ✅
+**Operationen**: Vektorisierte mathematische Operationen durchführen ✅
+**Broadcasting**: Array-Operationen mit verschiedenen Shapes ✅ **Indexing**:
+Erweiterte Indexierung und Slicing-Techniken ✅ **Lineare Algebra**:
+Matrix-Operationen und geometrische Berechnungen ✅ **Performance**: Effiziente
+numerische Berechnungen implementieren ✅ **Integration**: NumPy mit anderen
+Libraries (pandas, matplotlib) nutzen
 
 ## 🔧 NumPy-Kernkonzepte
 
@@ -239,7 +250,8 @@ print(f"Ausreisser: {len(ausreisser)} von {len(messwerte)}")
 
 Bevor Sie zum nächsten Kapitel wechseln:
 
-- [ ] Können Sie NumPy-Arrays erstellen und grundlegende Operationen durchführen?
+- [ ] Können Sie NumPy-Arrays erstellen und grundlegende Operationen
+  durchführen?
 - [ ] Verstehen Sie den Unterschied zwischen NumPy-Arrays und Python-Listen?
 - [ ] Können Sie vektorisierte Operationen anwenden?
 - [ ] Beherrschen Sie Array-Indexing und Slicing?
@@ -252,12 +264,14 @@ Bevor Sie zum nächsten Kapitel wechseln:
 
 - **NumPy Documentation**: <https://numpy.org/doc/stable/>
 - **NumPy Quickstart**: <https://numpy.org/doc/stable/user/quickstart.html>
-- **From Python to NumPy**: <https://www.labri.fr/perso/nrougier/from-python-to-numpy/>
+- **From Python to NumPy**:
+  <https://www.labri.fr/perso/nrougier/from-python-to-numpy/>
 
 ## ➡️ Nächste Schritte
 
-Nach erfolgreichem Abschluss dieses Kapitels:
-**→ [Kapitel 4: Pandas für Datenanalyse](../04_pandas/README.md)**
+Nach erfolgreichem Abschluss dieses Kapitels: **→
+[Kapitel 4: Pandas für Datenanalyse](../04_pandas/README.md)**
 
----
+______________________________________________________________________
+
 *Dieses Kapitel ist Teil des Python Grundkurses für Bystronic-Entwickler*

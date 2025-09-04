@@ -82,7 +82,7 @@ def test_mathematical_calculations(self):
     schnittlaenge = 100  # mm
     schnittgeschwindigkeit = 15.75  # m/min
     expected_zeit = (schnittlaenge / 1000) / schnittgeschwindigkeit
-    
+
     assert abs(expected_zeit - 0.00635) < 0.001
 ----
 
@@ -105,7 +105,7 @@ def test_dataframe_operations(self):
         "Maschine": ["Laser_01", "Laser_02"],
         "Produktionszeit_h": [2450.5, 1890.2]
     })
-    
+
     filtered = df[df["Produktionszeit_h"] > 2000]
     assert len(filtered) == 1
 ----
@@ -224,17 +224,17 @@ def test_data_loading(mock_read_csv):
 ----
 class TestMeineKlasse:
     """Tests für MeineKlasse"""
-    
+
     def test_funktion_existiert(self):
         """Testet, ob die Funktion existiert"""
         assert hasattr(mein_modul, 'meine_funktion')
         assert callable(mein_modul.meine_funktion)
-    
+
     def test_funktion_logik(self):
         """Testet die Funktionslogik"""
         result = mein_modul.meine_funktion(input_wert)
         assert result == erwarteter_wert
-    
+
     def test_edge_cases(self):
         """Testet Grenzfälle"""
         with pytest.raises(ValueError):

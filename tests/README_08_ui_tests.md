@@ -1,6 +1,7 @@
 # Tests für Modul 08 - UI-Entwicklung
 
-Umfassende Testdokumentation für PyQt und Streamlit Beispiele im Bystronic Python-Grundkurs.
+Umfassende Testdokumentation für PyQt und Streamlit Beispiele im Bystronic
+Python-Grundkurs.
 
 ## Übersicht
 
@@ -26,7 +27,8 @@ Die Tests für Modul 08 sind in drei Hauptdateien organisiert:
 #### TestDatenbankBrowser
 
 - **Datenbank-Initialisierung**: Erstellt temporäre SQLite-Datenbank
-- **Tabellen-Erstellung**: Validiert Schema für machines, production_data, maintenance
+- **Tabellen-Erstellung**: Validiert Schema für machines, production_data,
+  maintenance
 - **Query-Ausführung**: Testet SQL-Abfragen und Fehlerbehandlung
 - **Beispieldaten**: Überprüft Einfügung von Testdaten
 
@@ -48,7 +50,8 @@ Die Tests für Modul 08 sind in drei Hauptdateien organisiert:
 
 #### TestDiagrammViewer
 
-- **Chart-Erstellung**: Testet verschiedene Diagrammtypen (Line, Bar, Scatter, Pie)
+- **Chart-Erstellung**: Testet verschiedene Diagrammtypen (Line, Bar, Scatter,
+  Pie)
 - **Datenladung**: Validiert CSV-Import für Visualisierung
 - **Chart-Export**: Prüft PNG-Export-Funktionalität
 - **Chart-Widget**: Testet benutzerdefinierte Chart-Komponenten
@@ -243,9 +246,9 @@ def test_large_dataset_performance():
 ### Häufige Probleme
 
 1. **PyQt nicht verfügbar**: Tests werden automatisch übersprungen
-2. **Display-Probleme**: Verwendung von Xvfb in CI-Umgebungen
-3. **Timing-Issues**: QTest.qWait() für asynchrone Operationen
-4. **Memory-Leaks**: Explizites Widget-Cleanup in Fixtures
+1. **Display-Probleme**: Verwendung von Xvfb in CI-Umgebungen
+1. **Timing-Issues**: QTest.qWait() für asynchrone Operationen
+1. **Memory-Leaks**: Explizites Widget-Cleanup in Fixtures
 
 ### Debug-Optionen
 
@@ -276,7 +279,7 @@ python -m pytest tests/test_08_ui.py -x
            assert expected_behavior()
    ```
 
-2. **Fixtures erweitern**:
+1. **Fixtures erweitern**:
 
    ```python
    @pytest.fixture
@@ -284,7 +287,7 @@ python -m pytest tests/test_08_ui.py -x
        return generate_complex_test_data()
    ```
 
-3. **Mock-Strategien anpassen**:
+1. **Mock-Strategien anpassen**:
 
    ```python
    @patch('module.external_dependency')
@@ -332,6 +335,9 @@ python -m pytest --junit-xml=test-results.xml
 python -m pytest --json-report --json-report-file=report.json
 ```
 
----
+______________________________________________________________________
 
-**Hinweis**: Diese Tests sind speziell für den Bystronic Python-Grundkurs entwickelt und demonstrieren professionelle Test-Techniken für UI-Anwendungen. Sie dienen sowohl der Qualitätssicherung als auch als Lernmaterial für die Kursteilnehmer.
+**Hinweis**: Diese Tests sind speziell für den Bystronic Python-Grundkurs
+entwickelt und demonstrieren professionelle Test-Techniken für UI-Anwendungen.
+Sie dienen sowohl der Qualitätssicherung als auch als Lernmaterial für die
+Kursteilnehmer.

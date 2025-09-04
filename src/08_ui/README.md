@@ -1,37 +1,53 @@
 # Kapitel 8: Benutzeroberflächen mit Python
 
-Willkommen zum achten Kapitel des Python Grundkurses für Bystronic-Entwickler! 🖥️🎨🔧
+Willkommen zum achten Kapitel des Python Grundkurses für Bystronic-Entwickler!
+🖥️🎨🔧
 
 ## 📚 Inhalte dieses Kapitels
 
 ### Hauptdokumentation
 
-- **[08_ui.ipynb](08_ui.ipynb)** - Interaktives Jupyter Notebook mit UI-Entwicklungs-Grundlagen
+- **[08_ui.ipynb](08_ui.ipynb)** - Interaktives Jupyter Notebook mit
+  UI-Entwicklungs-Grundlagen
 
 ### 💡 Beispiele
 
 #### PyQt/PySide (Desktop GUI)
 
-- **[grundlagen_widget.py](beispiele/pyqt/grundlagen_widget.py)** - Erste Widgets und Layouts
-- **[maschinendaten_gui.py](beispiele/pyqt/maschinendaten_gui.py)** - Industrielle Datenerfassung GUI
-- **[diagramm_viewer.py](beispiele/pyqt/diagramm_viewer.py)** - Matplotlib-Integration in GUI
-- **[datenbank_browser.py](beispiele/pyqt/datenbank_browser.py)** - Datenbank-CRUD-Interface
-- **[moderne_ui.py](beispiele/pyqt/moderne_ui.py)** - Moderne UI-Elemente und Styling
+- **[grundlagen_widget.py](beispiele/pyqt/grundlagen_widget.py)** - Erste
+  Widgets und Layouts
+- **[maschinendaten_gui.py](beispiele/pyqt/maschinendaten_gui.py)** -
+  Industrielle Datenerfassung GUI
+- **[diagramm_viewer.py](beispiele/pyqt/diagramm_viewer.py)** -
+  Matplotlib-Integration in GUI
+- **[datenbank_browser.py](beispiele/pyqt/datenbank_browser.py)** -
+  Datenbank-CRUD-Interface
+- **[moderne_ui.py](beispiele/pyqt/moderne_ui.py)** - Moderne UI-Elemente und
+  Styling
 
 #### Streamlit (Web-Dashboards)
 
-- **[erste_webapp.py](beispiele/streamlit/erste_webapp.py)** - Grundlagen von Streamlit
-- **[produktions_dashboard.py](beispiele/streamlit/produktions_dashboard.py)** - Produktionsübersicht-Dashboard
-- **[qualitaets_monitor.py](beispiele/streamlit/qualitaets_monitor.py)** - Echtzeit-Qualitätskontrolle
-- **[daten_upload.py](beispiele/streamlit/daten_upload.py)** - Datei-Upload und -verarbeitung
-- **[interaktive_charts.py](beispiele/streamlit/interaktive_charts.py)** - Dynamische Diagramme
+- **[erste_webapp.py](beispiele/streamlit/erste_webapp.py)** - Grundlagen von
+  Streamlit
+- **[produktions_dashboard.py](beispiele/streamlit/produktions_dashboard.py)** -
+  Produktionsübersicht-Dashboard
+- **[qualitaets_monitor.py](beispiele/streamlit/qualitaets_monitor.py)** -
+  Echtzeit-Qualitätskontrolle
+- **[daten_upload.py](beispiele/streamlit/daten_upload.py)** - Datei-Upload und
+  -verarbeitung
+- **[interaktive_charts.py](beispiele/streamlit/interaktive_charts.py)** -
+  Dynamische Diagramme
 
 ### 🎯 Übungen
 
-- **[Übung 1: GUI-Grundlagen](uebungen/uebung_01_grundlagen.py)** - Erste PyQt-Anwendung erstellen
-- **[Übung 2: Maschinendaten-Interface](uebungen/uebung_02_maschinen_ui.py)** - Industrielle Benutzeroberfläche
-- **[Übung 3: Streamlit-Dashboard](uebungen/uebung_03_dashboard.py)** - Web-Dashboard entwickeln
-- **[Übung 4: Vollständige Anwendung](uebungen/uebung_04_vollstaendige_app.py)** - Komplette UI-Anwendung
+- **[Übung 1: GUI-Grundlagen](uebungen/uebung_01_grundlagen.py)** - Erste
+  PyQt-Anwendung erstellen
+- **[Übung 2: Maschinendaten-Interface](uebungen/uebung_02_maschinen_ui.py)** -
+  Industrielle Benutzeroberfläche
+- **[Übung 3: Streamlit-Dashboard](uebungen/uebung_03_dashboard.py)** -
+  Web-Dashboard entwickeln
+- **[Übung 4: Vollständige Anwendung](uebungen/uebung_04_vollstaendige_app.py)**
+  \- Komplette UI-Anwendung
 
 ## 🚀 Schnellstart
 
@@ -111,14 +127,14 @@ uv run python src/08_ui/uebungen/uebung_04_vollstaendige_app.py
 
 Nach diesem Kapitel können Sie:
 
-✅ **PyQt/PySide**: Desktop-GUI-Anwendungen mit modernen Widgets entwickeln
-✅ **Layouts**: Flexible und responsive Benutzeroberflächen gestalten
-✅ **Events**: Benutzerinteraktionen verarbeiten und auf Ereignisse reagieren
-✅ **Streamlit**: Schnell Web-Dashboards für Datenvisualisierung erstellen
-✅ **Integration**: Matplotlib, Plotly und Pandas in UIs einbinden
-✅ **Styling**: Professionelle und ansprechende Benutzeroberflächen designen
-✅ **Datenverarbeitung**: Echtzeitdaten in UIs anzeigen und aktualisieren
-✅ **Deployment**: UI-Anwendungen verteilen und bereitstellen
+✅ **PyQt/PySide**: Desktop-GUI-Anwendungen mit modernen Widgets entwickeln ✅
+**Layouts**: Flexible und responsive Benutzeroberflächen gestalten ✅ **Events**:
+Benutzerinteraktionen verarbeiten und auf Ereignisse reagieren ✅ **Streamlit**:
+Schnell Web-Dashboards für Datenvisualisierung erstellen ✅ **Integration**:
+Matplotlib, Plotly und Pandas in UIs einbinden ✅ **Styling**: Professionelle und
+ansprechende Benutzeroberflächen designen ✅ **Datenverarbeitung**: Echtzeitdaten
+in UIs anzeigen und aktualisieren ✅ **Deployment**: UI-Anwendungen verteilen und
+bereitstellen
 
 ## 🖥️ PyQt/PySide - Desktop-GUIs
 
@@ -166,9 +182,12 @@ if __name__ == "__main__":
 
 **📖 PyQt Ressourcen:**
 
-- **PySide6 Dokumentation**: [https://doc.qt.io/qtforpython/](https://doc.qt.io/qtforpython/)
-- **Qt Widgets**: [https://doc.qt.io/qt-6/qtwidgets-module.html](https://doc.qt.io/qt-6/qtwidgets-module.html)
-- **Qt Designer**: [https://doc.qt.io/qt-6/qtdesigner-manual.html](https://doc.qt.io/qt-6/qtdesigner-manual.html)
+- **PySide6 Dokumentation**:
+  [https://doc.qt.io/qtforpython/](https://doc.qt.io/qtforpython/)
+- **Qt Widgets**:
+  [https://doc.qt.io/qt-6/qtwidgets-module.html](https://doc.qt.io/qt-6/qtwidgets-module.html)
+- **Qt Designer**:
+  [https://doc.qt.io/qt-6/qtdesigner-manual.html](https://doc.qt.io/qt-6/qtdesigner-manual.html)
 
 ### Moderne UI-Komponenten
 
@@ -270,7 +289,8 @@ st.plotly_chart(fig, use_container_width=True)
 - **Homepage**: [https://streamlit.io/](https://streamlit.io/)
 - **Dokumentation**: [https://docs.streamlit.io/](https://docs.streamlit.io/)
 - **Gallery**: [https://streamlit.io/gallery](https://streamlit.io/gallery)
-- **Components**: [https://streamlit.io/components](https://streamlit.io/components)
+- **Components**:
+  [https://streamlit.io/components](https://streamlit.io/components)
 
 ### Erweiterte Features
 
@@ -642,26 +662,31 @@ Bevor Sie zum nächsten Kapitel wechseln:
 ### PyQt/PySide Erweitert
 
 - **Qt Documentation**: [https://doc.qt.io/](https://doc.qt.io/)
-- **Qt Designer Tutorial**: [https://realpython.com/qt-designer-python/](https://realpython.com/qt-designer-python/)
+- **Qt Designer Tutorial**:
+  [https://realpython.com/qt-designer-python/](https://realpython.com/qt-designer-python/)
 - **Advanced PyQt**: [https://www.pythonguis.com/](https://www.pythonguis.com/)
 
 ### Streamlit Ecosystem
 
-- **Streamlit Components**: [https://streamlit.io/components](https://streamlit.io/components)
+- **Streamlit Components**:
+  [https://streamlit.io/components](https://streamlit.io/components)
 - **Streamlit Cloud**: [https://streamlit.io/cloud](https://streamlit.io/cloud)
-- **Advanced Streamlit**: [https://streamlit-tutorial.readthedocs.io/](https://streamlit-tutorial.readthedocs.io/)
+- **Advanced Streamlit**:
+  [https://streamlit-tutorial.readthedocs.io/](https://streamlit-tutorial.readthedocs.io/)
 
 ### Alternative UI-Frameworks
 
-- **Dash by Plotly**: [https://dash.plotly.com/](https://dash.plotly.com/) - Web-Apps für Datenvisualisierung
+- **Dash by Plotly**: [https://dash.plotly.com/](https://dash.plotly.com/) -
+  Web-Apps für Datenvisualisierung
 - **Flask + Bootstrap**: Klassische Web-Entwicklung
 - **FastAPI + React**: Moderne API + Frontend-Kombination
 - **Kivy**: Mobile und Desktop-Apps mit Python
 
 ## ➡️ Nächste Schritte
 
-Nach erfolgreichem Abschluss dieses Kapitels:
-**→ [Kapitel 9: Praxisprojekte](../09_projekte/README.md)**
+Nach erfolgreichem Abschluss dieses Kapitels: **→
+[Kapitel 9: Praxisprojekte](../09_projekte/README.md)**
 
----
+______________________________________________________________________
+
 *Dieses Kapitel ist Teil des Python Grundkurses für Bystronic-Entwickler*

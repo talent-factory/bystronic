@@ -1,6 +1,7 @@
 # NumPy Tests - test_03_numpy.py
 
-Diese Test-Suite validiert die Funktionalität aller NumPy-Beispiele und demonstriert bewährte Test-Patterns für numerische Berechnungen.
+Diese Test-Suite validiert die Funktionalität aller NumPy-Beispiele und
+demonstriert bewährte Test-Patterns für numerische Berechnungen.
 
 ## 📋 Test-Übersicht
 
@@ -8,14 +9,16 @@ Diese Test-Suite validiert die Funktionalität aller NumPy-Beispiele und demonst
 
 - ✅ **Modul-Import**: Grundlegende Importfähigkeit
 - ✅ **Main-Funktion**: Existenz und Ausführbarkeit
-- ✅ **Array-Erstellung**: Verschiedene Erstellungsmethoden (zeros, ones, arange, linspace)
+- ✅ **Array-Erstellung**: Verschiedene Erstellungsmethoden (zeros, ones, arange,
+  linspace)
 - ✅ **2D-Arrays**: Mehrdimensionale Operationen und Boolean-Indexing
 - ✅ **Koordinatenberechnungen**: Geometrische Berechnungen für CNC-Anwendungen
 
 ### **TestMathematicalOperations** (7 Tests)
 
 - ✅ **Vektorisierte Operationen**: Grundrechenarten mit Arrays
-- ✅ **Trigonometrische Funktionen**: sin, cos, tan und trigonometrische Identitäten
+- ✅ **Trigonometrische Funktionen**: sin, cos, tan und trigonometrische
+  Identitäten
 - ✅ **Statistische Funktionen**: Mittelwert, Standardabweichung, Perzentile
 - ✅ **Prozessfähigkeit**: Cp/Cpk-Berechnungen für Qualitätskontrolle
 - ✅ **Exponentialfunktionen**: exp, log, ln für technische Berechnungen
@@ -37,7 +40,8 @@ Diese Test-Suite validiert die Funktionalität aller NumPy-Beispiele und demonst
 - ✅ **Lineare Gleichungssysteme**: Lösung von A @ x = b Systemen
 - ✅ **Matrix-Inversion**: Berechnung und Verifikation von A^(-1)
 - ✅ **Eigenwerte/Eigenvektoren**: Berechnung und Verifikation (A @ v = λ @ v)
-- ✅ **Geometrische Transformationen**: Rotation, Translation, Koordinatentransformation
+- ✅ **Geometrische Transformationen**: Rotation, Translation,
+  Koordinatentransformation
 - ✅ **QR-Zerlegung**: Orthogonalisierung und Rekonstruktion
 - ✅ **SVD**: Singulärwertzerlegung für Dimensionsreduktion
 
@@ -162,11 +166,14 @@ Die Tests verwenden folgende Bibliotheken:
 
 Diese Tests gewährleisten:
 
-1. **Funktionale Korrektheit**: Alle mathematischen Operationen liefern erwartete Ergebnisse
-2. **Numerische Stabilität**: Robuster Umgang mit Edge Cases und speziellen Werten
-3. **Performance-Validierung**: Verifikation der vektorisierten Operationen
-4. **Industrielle Anwendbarkeit**: Tests basieren auf realen Bystronic-Anwendungsfällen
-5. **Lehrwert**: Tests dienen als Referenz für Best Practices
+1. **Funktionale Korrektheit**: Alle mathematischen Operationen liefern
+   erwartete Ergebnisse
+1. **Numerische Stabilität**: Robuster Umgang mit Edge Cases und speziellen
+   Werten
+1. **Performance-Validierung**: Verifikation der vektorisierten Operationen
+1. **Industrielle Anwendbarkeit**: Tests basieren auf realen
+   Bystronic-Anwendungsfällen
+1. **Lehrwert**: Tests dienen als Referenz für Best Practices
 
 ## 🎓 Lernziele der Tests
 
@@ -176,4 +183,5 @@ Diese Tests gewährleisten:
 - **Edge-Case-Testing**: Robuste Behandlung von Grenzfällen
 - **Performance-Testing**: Konzepte für Geschwindigkeits-Vergleiche
 
-Diese Tests sind ein integraler Bestandteil des NumPy-Lernmoduls und demonstrieren professionelle Test-Praktiken für numerische Software! 🧪✨
+Diese Tests sind ein integraler Bestandteil des NumPy-Lernmoduls und
+demonstrieren professionelle Test-Praktiken für numerische Software! 🧪✨

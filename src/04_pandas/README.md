@@ -1,27 +1,38 @@
 # Kapitel 4: Pandas für Datenanalyse
 
-Willkommen zum vierten Kapitel des Python Grundkurses für Bystronic-Entwickler! 🐼📊
+Willkommen zum vierten Kapitel des Python Grundkurses für Bystronic-Entwickler!
+🐼📊
 
 ## 📚 Inhalte dieses Kapitels
 
 ### Hauptdokumentation
 
-- **[04_pandas.ipynb](04_pandas.ipynb)** - Interaktives Jupyter Notebook mit Pandas-Grundlagen
+- **[04_pandas.ipynb](04_pandas.ipynb)** - Interaktives Jupyter Notebook mit
+  Pandas-Grundlagen
 
 ### 💡 Beispiele
 
-- **[dataframe_basics.py](beispiele/dataframe_basics.py)** - DataFrame-Erstellung und grundlegende Operationen
-- **[data_import_export.py](beispiele/data_import_export.py)** - Daten aus CSV, Excel und anderen Quellen laden
-- **[data_cleaning.py](beispiele/data_cleaning.py)** - Datenbereinigung und -validierung
-- **[data_analysis.py](beispiele/data_analysis.py)** - Statistische Analysen und Gruppierungen
-- **[vba_vs_pandas.py](beispiele/vba_vs_pandas.py)** - Vergleich Excel/VBA zu Pandas
+- **[dataframe_basics.py](beispiele/dataframe_basics.py)** -
+  DataFrame-Erstellung und grundlegende Operationen
+- **[data_import_export.py](beispiele/data_import_export.py)** - Daten aus CSV,
+  Excel und anderen Quellen laden
+- **[data_cleaning.py](beispiele/data_cleaning.py)** - Datenbereinigung und
+  -validierung
+- **[data_analysis.py](beispiele/data_analysis.py)** - Statistische Analysen und
+  Gruppierungen
+- **[vba_vs_pandas.py](beispiele/vba_vs_pandas.py)** - Vergleich Excel/VBA zu
+  Pandas
 
 ### 🎯 Übungen
 
-- **[Übung 1: DataFrame-Grundlagen](uebungen/uebung_01_dataframe_basics.py)** - Erstellen und Manipulieren von DataFrames
-- **[Übung 2: Datenimport](uebungen/uebung_02_data_import.py)** - Laden verschiedener Datenformate
-- **[Übung 3: Datenbereinigung](uebungen/uebung_03_data_cleaning.py)** - Umgang mit fehlenden und fehlerhaften Daten
-- **[Übung 4: Datenanalyse](uebungen/uebung_04_data_analysis.py)** - Statistische Auswertungen und Visualisierungen
+- **[Übung 1: DataFrame-Grundlagen](uebungen/uebung_01_dataframe_basics.py)** -
+  Erstellen und Manipulieren von DataFrames
+- **[Übung 2: Datenimport](uebungen/uebung_02_data_import.py)** - Laden
+  verschiedener Datenformate
+- **[Übung 3: Datenbereinigung](uebungen/uebung_03_data_cleaning.py)** - Umgang
+  mit fehlenden und fehlerhaften Daten
+- **[Übung 4: Datenanalyse](uebungen/uebung_04_data_analysis.py)** -
+  Statistische Auswertungen und Visualisierungen
 
 ## 🚀 Schnellstart
 
@@ -79,14 +90,14 @@ uv run python src/04_pandas/uebungen/uebung_04_data_analysis.py
 
 Nach diesem Kapitel können Sie:
 
-✅ **DataFrames**: Erstellen, manipulieren und durchsuchen von tabellarischen Daten
-✅ **Datenimport**: CSV, Excel, JSON und andere Formate laden und speichern
-✅ **Datenbereinigung**: Fehlende Werte, Duplikate und inkonsistente Daten behandeln
-✅ **Indexing**: Zeilen und Spalten effizient auswählen und filtern
-✅ **Aggregation**: Daten gruppieren und statistische Kennzahlen berechnen
-✅ **Zeitreihen**: Datum und Zeit-basierte Daten analysieren
-✅ **Joins**: Mehrere DataFrames zusammenführen
-✅ **Visualisierung**: Grundlegende Diagramme direkt aus Pandas erstellen
+✅ **DataFrames**: Erstellen, manipulieren und durchsuchen von tabellarischen
+Daten ✅ **Datenimport**: CSV, Excel, JSON und andere Formate laden und speichern
+✅ **Datenbereinigung**: Fehlende Werte, Duplikate und inkonsistente Daten
+behandeln ✅ **Indexing**: Zeilen und Spalten effizient auswählen und filtern ✅
+**Aggregation**: Daten gruppieren und statistische Kennzahlen berechnen ✅
+**Zeitreihen**: Datum und Zeit-basierte Daten analysieren ✅ **Joins**: Mehrere
+DataFrames zusammenführen ✅ **Visualisierung**: Grundlegende Diagramme direkt
+aus Pandas erstellen
 
 ## 🔧 Pandas-Kernkonzepte
 
@@ -302,14 +313,18 @@ df_result = pd.concat(data_chunks, ignore_index=True)
 ## 📝 Zusätzliche Ressourcen
 
 - **Pandas Documentation**: <https://pandas.pydata.org/docs/>
-- **10 Minutes to Pandas**: <https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html>
-- **Pandas Cookbook**: <https://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html>
-- **Real Python Pandas Tutorials**: <https://realpython.com/learning-paths/pandas-data-science/>
+- **10 Minutes to Pandas**:
+  <https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html>
+- **Pandas Cookbook**:
+  <https://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html>
+- **Real Python Pandas Tutorials**:
+  <https://realpython.com/learning-paths/pandas-data-science/>
 
 ## ➡️ Nächste Schritte
 
-Nach erfolgreichem Abschluss dieses Kapitels:
-**→ [Kapitel 5: Datenvisualisierung mit Matplotlib](../05_visualisierung/README.md)**
+Nach erfolgreichem Abschluss dieses Kapitels: **→
+[Kapitel 5: Datenvisualisierung mit Matplotlib](../05_visualisierung/README.md)**
 
----
+______________________________________________________________________
+
 *Dieses Kapitel ist Teil des Python Grundkurses für Bystronic-Entwickler*

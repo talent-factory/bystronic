@@ -2,7 +2,8 @@
 
 ## Projektübersicht
 
-Dieses Projekt ist ein umfassender Python-Grundkurs für Bystronic-Entwickler mit Fokus auf Datenanalyse und praktische Anwendungen.
+Dieses Projekt ist ein umfassender Python-Grundkurs für Bystronic-Entwickler mit
+Fokus auf Datenanalyse und praktische Anwendungen.
 
 ## Wichtige Befehle
 
@@ -53,16 +54,17 @@ Zusätzliche Verzeichnisse:
 ## Kursziele
 
 1. **Grundlagen**: Python-Syntax, Programmstruktur, VS Code Setup
-2. **Datentypen**: Listen, Dictionaries, Sets, etc.
-3. **Libraries**: NumPy, Pandas, Matplotlib schwerpunktmässig
-4. **Datenanalyse**: Grosse Datenmengen verarbeiten und visualisieren
-5. **Import/Export**: CSV, Excel, JSON, Datenbanken
-6. **UI**: Einfache Benutzeroberflächen erstellen
-7. **KI-Integration**: Programmieren mit KI-Unterstützung
+1. **Datentypen**: Listen, Dictionaries, Sets, etc.
+1. **Libraries**: NumPy, Pandas, Matplotlib schwerpunktmässig
+1. **Datenanalyse**: Grosse Datenmengen verarbeiten und visualisieren
+1. **Import/Export**: CSV, Excel, JSON, Datenbanken
+1. **UI**: Einfache Benutzeroberflächen erstellen
+1. **KI-Integration**: Programmieren mit KI-Unterstützung
 
 ## Zielgruppe
 
-Bystronic-Entwickler, die von VBA zu Python wechseln möchten und sich auf Datenanalyse konzentrieren wollen.
+Bystronic-Entwickler, die von VBA zu Python wechseln möchten und sich auf
+Datenanalyse konzentrieren wollen.
 
 ## Technische Details
 

@@ -1,19 +1,24 @@
 # Pandas Tests - test_04_pandas.py
 
-Diese Test-Suite validiert die Funktionalität der Pandas-Beispiele und demonstriert bewährte Test-Patterns für Datenanalyse-Code und DataFrame-Operationen.
+Diese Test-Suite validiert die Funktionalität der Pandas-Beispiele und
+demonstriert bewährte Test-Patterns für Datenanalyse-Code und
+DataFrame-Operationen.
 
 ## 📋 Test-Übersicht
 
 ### **TestDataFrameBasics** (4 Tests)
 
 - ✅ **Modul-Import**: Erfolgreiche Importierbarkeit des dataframe_basics Moduls
-- ✅ **DataFrame-Erstellung**: Validiert korrekte DataFrame-Erstellung mit Maschinendaten
-- ✅ **DataFrame-Operationen**: Filterung, Sortierung, Spalten-Hinzufügung und -Berechnung
+- ✅ **DataFrame-Erstellung**: Validiert korrekte DataFrame-Erstellung mit
+  Maschinendaten
+- ✅ **DataFrame-Operationen**: Filterung, Sortierung, Spalten-Hinzufügung und
+  -Berechnung
 - ✅ **Aggregations-Operationen**: Gruppierung und statistische Berechnungen
 
 ### **TestDataImportExport** (3 Tests)
 
-- ✅ **Modul-Import**: Erfolgreiche Importierbarkeit des data_import_export Moduls
+- ✅ **Modul-Import**: Erfolgreiche Importierbarkeit des data_import_export
+  Moduls
 - ✅ **CSV-Operationen**: Import/Export-Roundtrip mit Integritätsprüfung
 - ✅ **JSON-Operationen**: JSON-Serialisierung und -Deserialisierung
 
@@ -28,12 +33,15 @@ Diese Test-Suite validiert die Funktionalität der Pandas-Beispiele und demonstr
 
 - ✅ **Modul-Import**: Erfolgreiche Importierbarkeit des data_analysis Moduls
 - ✅ **Deskriptive Statistiken**: Grundstatistiken für numerische Spalten
-- ✅ **Maschinen-Performance**: Komplexe Analyse von Maschinenlaufzeiten und -effizienz
-- ✅ **Produktionsdaten-Analyse**: Zeitreihen-Analyse mit Gruppierungen und Aggregationen
+- ✅ **Maschinen-Performance**: Komplexe Analyse von Maschinenlaufzeiten und
+  -effizienz
+- ✅ **Produktionsdaten-Analyse**: Zeitreihen-Analyse mit Gruppierungen und
+  Aggregationen
 
 ### **Einzelne Test-Funktionen** (2 Tests)
 
-- ✅ **Pandas-Version-Kompatibilität**: Überprüft kompatible Pandas-Installation (≥1.0)
+- ✅ **Pandas-Version-Kompatibilität**: Überprüft kompatible Pandas-Installation
+  (≥1.0)
 - ✅ **Datei-Existenz**: Validiert Verfügbarkeit aller Beispieldateien
 
 ## 🚀 Tests ausführen
@@ -149,15 +157,19 @@ def test_groupby_operations(self):
 Diese Tests gewährleisten:
 
 1. **Datenintegrität**: DataFrames behalten ihre Struktur und Inhalte
-2. **I/O-Robustheit**: Sichere Import/Export-Operationen für verschiedene Formate
-3. **Data Cleaning**: Zuverlässige Behandlung von fehlenden und fehlerhaften Daten
-4. **Analytical Correctness**: Korrekte statistische und aggregierte Berechnungen
-5. **Performance Tracking**: Validierung industrieller KPIs und Metriken
-6. **Version Compatibility**: Kompatibilität mit aktuellen Pandas-Versionen
+1. **I/O-Robustheit**: Sichere Import/Export-Operationen für verschiedene
+   Formate
+1. **Data Cleaning**: Zuverlässige Behandlung von fehlenden und fehlerhaften
+   Daten
+1. **Analytical Correctness**: Korrekte statistische und aggregierte
+   Berechnungen
+1. **Performance Tracking**: Validierung industrieller KPIs und Metriken
+1. **Version Compatibility**: Kompatibilität mit aktuellen Pandas-Versionen
 
 ## 🎓 Lernziele der Tests
 
-- **DataFrame-Operationen**: Grundlegende und erweiterte DataFrame-Manipulationen
+- **DataFrame-Operationen**: Grundlegende und erweiterte
+  DataFrame-Manipulationen
 - **Data I/O**: Sichere Datenimport/-export-Patterns für CSV, JSON, Excel
 - **Data Cleaning**: Professionelle Datenbereinigung und -validierung
 - **Statistical Analysis**: Deskriptive Statistiken und Aggregationen
@@ -165,4 +177,5 @@ Diese Tests gewährleisten:
 - **Time Series**: Zeitreihenanalyse für Produktionsdaten
 - **Quality Assurance**: Test-Patterns für reproduzierbare Datenanalyse
 
-Diese Tests sind essentiell für verlässliche Datenanalyse-Pipelines in der industriellen Anwendung! 📊✨
+Diese Tests sind essentiell für verlässliche Datenanalyse-Pipelines in der
+industriellen Anwendung! 📊✨
