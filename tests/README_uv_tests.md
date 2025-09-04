@@ -185,7 +185,7 @@ uv run pytest tests/test_08_ui_simple.py --lf
 
 ## Test-Struktur
 
-```
+```text
 tests/
 ├── test_08_ui.py                    # Ursprüngliche umfassende Tests
 ├── test_08_ui_pyqt_specific.py      # PyQt-spezifische Tests

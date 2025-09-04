@@ -258,4 +258,5 @@ Nach erfolgreichem Abschluss dieses Kapitels:
 **→ [Kapitel 3: NumPy für numerische Berechnungen](../03_numpy/README.md)**
 
 ---
-*Dieses Kapitel ist Teil des Python Grundkurses für Bystronic-Entwickler*
+
+## Dieses Kapitel ist Teil des Python Grundkurses für Bystronic-Entwickler
