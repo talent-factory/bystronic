@@ -145,7 +145,7 @@ def test_json_pandas_normalization(self):
 ```python
 {
     'Produktion': [1000, -50, 1200, np.nan, 2000],    # Negative Werte, NaN
-    'Temperatur': [22.5, 150.0, 23.1, 22.8, -999],   # Unrealistische Werte  
+    'Temperatur': [22.5, 150.0, 23.1, 22.8, -999],   # Unrealistische Werte
     'Verfügbarkeit': [85.2, 120.0, 88.5, 92.1, -10], # >100%, negative Werte
 }
 ```
@@ -296,7 +296,7 @@ Name    TEMP_001    Name    VIBR_001    Name    POWER_001
 
 ### Coverage-Ziele:
 - **CSV-Import**: >95% Line Coverage
-- **Excel-Handling**: >90% Line Coverage  
+- **Excel-Handling**: >90% Line Coverage
 - **JSON-Processing**: >95% Line Coverage
 - **Data Cleaning**: >90% Line Coverage
 - **Export Functions**: >95% Line Coverage
