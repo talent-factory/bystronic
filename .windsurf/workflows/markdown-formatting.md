@@ -1,10 +1,11 @@
----
-description: Automatische Markdown-Formatierung und Linting
----
+______________________________________________________________________
+
+## description: Automatische Markdown-Formatierung und Linting
 
 # Automatische Markdown-Formatierung
 
-Dieses Workflow stellt sicher, dass alle Markdown-Dateien automatisch korrekt formatiert werden.
+Dieses Workflow stellt sicher, dass alle Markdown-Dateien automatisch korrekt
+formatiert werden.
 
 ## 1. Pre-commit Hooks installieren
 
@@ -33,7 +34,7 @@ uv run pre-commit run mdformat --files path/to/file.md
 Die pre-commit hooks laufen automatisch bei jedem `git commit` und:
 
 - Korrigieren MD032 (Listen mit Leerzeilen umgeben)
-- Korrigieren MD022 (Überschriften mit Leerzeilen umgeben)  
+- Korrigieren MD022 (Überschriften mit Leerzeilen umgeben)
 - Korrigieren MD031 (Code-Blöcke mit Leerzeilen umgeben)
 - Formatieren Zeilenlänge auf 80 Zeichen
 - Standardisieren Tabellen-Formatierung
