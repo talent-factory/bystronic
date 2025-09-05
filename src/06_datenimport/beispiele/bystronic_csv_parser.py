@@ -245,6 +245,57 @@ class BystronicCSVParser:
 
         return structure_info
 
+    def validate_data(self, data):
+        """
+        Validiert die geparsten Daten
+
+        Parameters:
+        -----------
+        data : pd.DataFrame
+            Die zu validierenden Daten
+
+        Returns:
+        --------
+        pd.DataFrame
+            Validierte und bereinigte Daten
+        """
+        if data is None or data.empty:
+            print("⚠️ Keine Daten zur Validierung vorhanden")
+            return data
+
+        print("🔍 Validiere Daten...")
+
+        # Kopie erstellen um Original nicht zu verändern
+        data = data.copy()
+
+        # Entferne leere Zeilen
+        initial_rows = len(data)
+        data = data.dropna(how="all")
+
+        if len(data) < initial_rows:
+            print(f"  📊 {initial_rows - len(data)} leere Zeilen entfernt")
+
+        # Prüfe auf numerische Spalten und konvertiere sie
+        for col in data.columns:
+            if data[col].dtype == "object":
+                # Versuche numerische Konvertierung
+                numeric_data = pd.to_numeric(data[col], errors="coerce")
+                if not numeric_data.isna().all():
+                    data[col] = numeric_data
+
+        # Behandle extreme Werte für bekannte Spalten
+        if "temperature" in data.columns:
+            # Temperatur sollte zwischen -100 und 200 Grad liegen
+            data.loc[data["temperature"] < -100, "temperature"] = np.nan
+            data.loc[data["temperature"] > 200, "temperature"] = np.nan
+
+        if "pressure" in data.columns:
+            # Druck kann nicht negativ sein
+            data.loc[data["pressure"] < 0, "pressure"] = 0
+
+        print(f"✅ Datenvalidierung abgeschlossen: {len(data)} Zeilen validiert")
+        return data
+
     def parse_metadata(self, file_path: str, structure_info: dict) -> dict:
         """
         Extrahiert Metadaten aus der CSV-Datei
@@ -327,8 +378,17 @@ class BystronicCSVParser:
         """
         print(f"🚀 Starte komplexes CSV-Parsing: {Path(file_path).name}")
 
-        # Struktur analysieren
-        structure_info = self.analyze_structure(file_path, encoding, delimiter)
+        # Prüfe ob Datei existiert
+        if not Path(file_path).exists():
+            print(f"❌ Datei nicht gefunden: {file_path}")
+            return None
+
+        try:
+            # Struktur analysieren
+            structure_info = self.analyze_structure(file_path, encoding, delimiter)
+        except Exception as e:
+            print(f"❌ Fehler bei Strukturanalyse: {e}")
+            return None
 
         # Metadaten extrahieren
         metadata = self.parse_metadata(file_path, structure_info)

@@ -67,6 +67,16 @@ def create_interactive_dashboard(data: pd.DataFrame) -> widgets.Widget | None:
         print("⚠️ ipywidgets nicht verfügbar - Dashboard kann nicht erstellt werden")
         return None
 
+    # Prüfe ob Daten vorhanden und gültig sind
+    required_columns = ["Maschine", "Status"]
+    if (
+        data is None
+        or data.empty
+        or not all(col in data.columns for col in required_columns)
+    ):
+        print("⚠️ Keine gültigen Maschinendaten - Dashboard kann nicht erstellt werden")
+        return None
+
     # Widget-Definitionen
     machine_dropdown = widgets.Dropdown(
         options=["Alle"] + list(data["Maschine"].unique()),
@@ -74,9 +84,18 @@ def create_interactive_dashboard(data: pd.DataFrame) -> widgets.Widget | None:
         description="Maschine:",
     )
 
+    # Verfügbare Parameter basierend auf vorhandenen Spalten
+    available_params = [
+        col
+        for col in ["Temperatur", "Effizienz", "Produktionszeit"]
+        if col in data.columns
+    ]
+    if not available_params:
+        available_params = ["Wert"]  # Fallback
+
     parameter_dropdown = widgets.Dropdown(
-        options=["Temperatur", "Effizienz", "Produktionszeit"],
-        value="Temperatur",
+        options=available_params,
+        value=available_params[0],
         description="Parameter:",
     )
 

@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-09-05T09:32:59.216445",
+  "scores": {
+    "programming_experience": 10,
+    "python_knowledge": 10,
+    "ai_experience": 10,
+    "time_availability": 10,
+    "learning_goals": 10
+  },
+  "final_score": 10.0,
+  "recommended_path": "🔴 Advanced",
+  "responses": {
+    "programming_q1": {
+      "answer": "Experte - ich bin professioneller Softwareentwickler",
+      "score": 10
+    },
+    "programming_q2": {
+      "answer": "VBA + eine weitere Sprache (SQL, etc.)",
+      "score": 3
+    },
+    "python_q1": {
+      "answer": "Ja, komplexe Anwendungen entwickelt",
+      "score": 10
+    },
+    "python_q2": {
+      "answer": "Decorators, Generators, async/await",
+      "score": 10
+    },
+    "ai_q1": {
+      "answer": "Ja, täglich für komplexe Entwicklung",
+      "score": 8
+    },
+    "ai_q2": {
+      "answer": "Experte - ich kann KI optimal für Entwicklung nutzen",
+      "score": 10
+    },
+    "time_availability": {
+      "answer": "10+ Stunden (sehr viel Zeit)",
+      "score": 10
+    },
+    "learning_goals": {
+      "answer": "Experte werden, andere mentorieren",
+      "score": 10
+    }
+  }
+}

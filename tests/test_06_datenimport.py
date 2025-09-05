@@ -384,7 +384,9 @@ class TestExcelVerarbeitung:
         assert "total_production" in kpis
         assert "avg_availability" in kpis
         assert "daily_average" in kpis
-        assert isinstance(kpis["total_production"], int | float)
+        assert isinstance(
+            kpis["total_production"], (int, float, np.integer, np.floating)
+        )
         assert 0 <= kpis["avg_availability"] <= 100
 
     def test_excel_export(self):
@@ -675,15 +677,18 @@ class TestDatenbereinigung:
 
     def test_data_type_optimization(self):
         """Test der Datentyp-Optimierung"""
+        # Erstelle Listen mit exakt 100 Elementen
+        kategorien = (["A", "B", "C"] * 34)[:100]  # Schneide auf 100 ab
+        status_list = ([True, False] * 50)[:100]  # Schneide auf 100 ab
+
         df = pd.DataFrame(
             {
                 "ID": range(100),
-                "Kategorie": ["A", "B", "C"] * 34,  # 102 Werte, aber nur 100 benötigt
+                "Kategorie": kategorien,
                 "Wert": np.random.randn(100),
-                "Status": [True, False] * 50,
+                "Status": status_list,
             }
         )
-        df = df.iloc[:100]  # Nur erste 100 Zeilen
 
         # Memory usage vor Optimierung
         memory_before = df.memory_usage(deep=True).sum()
@@ -908,6 +913,28 @@ class TestIntegration:
 
         # JSON Export mit Metadaten
         json_output = self.temp_dir / "output_stats.json"
+
+        # Konvertiere daily_stats zu einem JSON-serialisierbaren Format
+        daily_stats_dict = {}
+        for machine in daily_stats.index:
+            daily_stats_dict[machine] = {
+                "produktion_mean": float(
+                    daily_stats.loc[machine, ("Produktion", "mean")]
+                ),
+                "produktion_sum": float(
+                    daily_stats.loc[machine, ("Produktion", "sum")]
+                ),
+                "produktion_count": int(
+                    daily_stats.loc[machine, ("Produktion", "count")]
+                ),
+                "temperatur_mean": float(
+                    daily_stats.loc[machine, ("Temperatur", "mean")]
+                ),
+                "temperatur_std": float(
+                    daily_stats.loc[machine, ("Temperatur", "std")]
+                ),
+            }
+
         export_data = {
             "metadata": {
                 "processing_date": pd.Timestamp.now().isoformat(),
@@ -915,7 +942,7 @@ class TestIntegration:
                 "output_rows": len(df_clean),
                 "machines": sorted(df_clean["Maschine"].unique().tolist()),
             },
-            "daily_stats": daily_stats.to_dict(),
+            "daily_stats": daily_stats_dict,
         }
 
         with open(json_output, "w", encoding="utf-8") as f:
