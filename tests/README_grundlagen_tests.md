@@ -3,6 +3,11 @@
 Diese Test-Suite validiert die Funktionalität der Python-Grundlagen-Beispiele
 und demonstriert bewährte Test-Patterns für Python-Anfänger.
 
+**🔄 AKTUALISIERT für neue adaptive Struktur:**
+- Tests angepasst für `examples/` statt `beispiele/`
+- Neue Assessment-Tests hinzugefügt
+- Kompatibel mit 3-Tier-Lernsystem
+
 ## 📋 Test-Übersicht
 
 ### **TestHelloWorld** (4 Tests)
@@ -131,3 +136,35 @@ Diese Tests gewährleisten:
 
 Diese Tests sind der Einstiegspunkt für das Erlernen von Test-Driven Development
 in Python! 🐍✨
+
+## 🆕 Assessment-Tests
+
+### **test_01_grundlagen_assessments.py**
+
+Zusätzliche Tests für die neuen Assessment-Tools:
+
+- ✅ **LearningPathAssessment**: Tests für Eingangsassessment und Lernpfad-Bestimmung
+- ✅ **MicroAssessmentQuiz**: Tests für interaktives Quiz-System
+- ✅ **MicroAssessmentChallenges**: Tests für praktische Code-Challenges
+- ✅ **MicroAssessmentReflection**: Tests für Selbstreflexions-Tool
+- ✅ **MicroAssessmentDashboard**: Tests für zentrales Dashboard
+
+### Assessment-Tests ausführen
+
+```bash
+uv run python -m pytest tests/test_01_grundlagen_assessments.py -v
+```
+
+### Alle Grundlagen-Tests zusammen
+
+```bash
+uv run python -m pytest tests/test_01_grundlagen*.py -v
+```
+
+## 📊 Test-Abdeckung
+
+Die Tests decken jetzt ab:
+- **Beispiele** (`examples/`): hello_world.py, vba_vs_python.py
+- **Assessment-Tools** (`assessments/`): 5 interaktive Tools
+- **Struktur-Validierung**: Neue adaptive Verzeichnisstruktur
+- **Integration**: Zusammenspiel aller Komponenten

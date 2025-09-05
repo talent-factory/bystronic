@@ -29,6 +29,7 @@ uebung_*_ergebnisse.csv
 
 # Neue Datenstruktur - Generierte Dateien
 data/generated/
+data/generated/*
 
 # JSON-Protokolle und Reports
 bereinigungsprotokoll.json
