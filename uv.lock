@@ -258,6 +258,7 @@ test = [
 ]
 ui = [
     { name = "dash" },
+    { name = "matplotlib" },
     { name = "openpyxl" },
     { name = "plotly" },
     { name = "pyside6" },
@@ -282,6 +283,7 @@ requires-dist = [
     { name = "dash", marker = "extra == 'ui'", specifier = ">=2.14.0" },
     { name = "jupyter", specifier = ">=1.1.1" },
     { name = "matplotlib", specifier = ">=3.8.0" },
+    { name = "matplotlib", marker = "extra == 'ui'", specifier = ">=3.10.0" },
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.7.0" },
     { name = "numpy", specifier = ">=1.26.0" },
     { name = "openpyxl", specifier = ">=3.1.0" },

@@ -46,8 +46,12 @@ sys.path.append(
 )
 
 if PYQT_AVAILABLE:
-    from datenbank_browser import DatenbankBrowser as DatabaseBrowser
-    from grundlagen_widget import GrundlagenWidget
+    try:
+        from datenbank_browser import DatenbankBrowser as DatabaseBrowser
+        from grundlagen_widget import GrundlagenWidget
+    except ImportError as e:
+        PYQT_AVAILABLE = False
+        print(f"Warning: Could not import PyQt modules: {e}")
 
 
 class TestPyQTGrundlagen:

@@ -27,19 +27,18 @@ jobs:
     - name: Install dependencies
       run: |
         uv sync --all-extras
-        uv add --group test pytest-xvfb
 
     - name: Setup virtual display for GUI tests
       run: |
         sudo apt-get update
-        sudo apt-get install -y xvfb libgl1-mesa-glx libegl1-mesa libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
-      env:
-        QT_QPA_PLATFORM: offscreen
-        DISPLAY: ":99"
+        sudo apt-get install -y xvfb libgl1-mesa-glx libegl1-mesa libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 libfontconfig1 libfreetype6
 
     - name: Run UI utility tests
       run: |
-        uv run pytest tests/test_08_ui_utils.py -v --tb=short
+        xvfb-run -a uv run pytest tests/test_08_ui_utils.py -v --tb=short
+      env:
+        QT_QPA_PLATFORM: offscreen
+        DISPLAY: ":99"
 
     - name: Run simple UI tests
       run: |
@@ -50,7 +49,10 @@ jobs:
 
     - name: Run basic UI tests (without GUI)
       run: |
-        uv run pytest tests/test_08_ui.py::TestUIUtilities -v --tb=short
+        xvfb-run -a uv run pytest tests/test_08_ui.py::TestUIUtilities -v --tb=short
+      env:
+        QT_QPA_PLATFORM: offscreen
+        DISPLAY: ":99"
 
     - name: Run Streamlit tests
       run: |

@@ -33,6 +33,7 @@ ui = [
     "openpyxl>=3.1.0",
     "plotly>=5.17.0",
     "dash>=2.14.0",
+    "matplotlib>=3.10.0",
 ]
 
 test = [
@@ -105,7 +106,6 @@ addopts = [
     "--strict-config",
     "--cov=src",
     "--cov-report=term-missing",
-    "--cov-report=html",
     "--cov-report=xml",
 ]
 

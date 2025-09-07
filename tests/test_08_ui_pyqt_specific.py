@@ -32,10 +32,15 @@ sys.path.append(
     str(Path(__file__).parent.parent / "src" / "08_ui" / "beispiele" / "pyqt")
 )
 
+# Conditional imports - nur wenn PyQt verfügbar ist
 if PYQT_AVAILABLE:
-    from diagramm_viewer import DiagrammViewer, MaschinendatenPlot
-    from maschinendaten_gui import MaschinendatenGUI, MaschinendatenWorker
-    from moderne_ui import ModernButton, ModernCard, ModernDashboard
+    try:
+        from diagramm_viewer import DiagrammViewer, MaschinendatenPlot
+        from maschinendaten_gui import MaschinendatenGUI, MaschinendatenWorker
+        from moderne_ui import ModernButton, ModernCard, ModernDashboard
+    except ImportError as e:
+        PYQT_AVAILABLE = False
+        print(f"Warning: Could not import PyQt modules: {e}")
 
 
 @pytest.mark.skipif(not PYQT_AVAILABLE, reason="PyQt/PySide nicht verfügbar")
