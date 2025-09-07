@@ -175,6 +175,22 @@ Sie werden in der Lage sein:
 - Mit KI-Tools effizient zu programmieren
 - Komplexe Datenprobleme zu lösen
 
+## 🔧 Entwicklungstools
+
+Das Projekt verfügt über professionelle Entwicklungstools:
+
+```bash
+make help              # Zeige alle verfügbaren Kommandos
+make dev-install       # Installiere alle Dependencies
+make format            # Code formatieren
+make lint              # Code prüfen
+make test              # Tests ausführen
+make notebook          # Jupyter Notebook starten
+make commit            # Professioneller Git-Commit mit Checks
+```
+
+Siehe `docs/commit-guide.md` für Details zum Git-Commit-System.
+
 ## 📞 Support und Ressourcen
 
 - **Kursleiter**: [Kontaktinformationen]
