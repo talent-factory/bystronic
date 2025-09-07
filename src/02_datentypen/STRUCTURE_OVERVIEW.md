@@ -7,7 +7,7 @@ allen pädagogischen Verbesserungen für Datentypen und Datenstrukturen.
 
 ## 🗂️ Verzeichnisstruktur
 
-```
+```text
 src/02_datentypen/
 ├── README.md                           # 🔄 AKTUALISIERT - Haupt-Dokumentation
 ├── STRUCTURE_OVERVIEW.md               # 🆕 NEU - Diese Übersicht

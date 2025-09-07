@@ -20,7 +20,7 @@ uv run python src/02_datentypen/assessments/learning_path_assessment.py
 **Dauer:** 15-25 Minuten pro Übung  
 **Fokus:** Grundlagen verstehen, praktische Anwendung
 
-#### Übungen:
+#### Übungen
 
 - **[uebung_01_zahlen_beginner.py](beginner/uebung_01_zahlen_beginner.py)** - Grundlagen der Zahlentypen
 - **[uebung_02_strings_beginner.py](beginner/uebung_02_strings_beginner.py)** - Einfache String-Operationen
@@ -28,11 +28,11 @@ uv run python src/02_datentypen/assessments/learning_path_assessment.py
 
 ### 🟡 Intermediate-Pfad (41-70 Punkte)
 
-**Zielgruppe:** Programmiererfahrung vorhanden, erweiterte Datenverarbeitung  
-**Dauer:** 25-40 Minuten pro Übung  
+**Zielgruppe:** Programmiererfahrung vorhanden, erweiterte Datenverarbeitung
+**Dauer:** 25-40 Minuten pro Übung
 **Fokus:** Funktionale Programmierung, Statistik, Fehlerbehandlung
 
-#### Übungen:
+#### Übungen
 
 - **[uebung_01_zahlen_intermediate.py](intermediate/uebung_01_zahlen_intermediate.py)** - Erweiterte Zahlenoperationen
 - **[uebung_02_strings_intermediate.py](intermediate/uebung_02_strings_intermediate.py)** - String-Verarbeitung und Regex
@@ -40,11 +40,11 @@ uv run python src/02_datentypen/assessments/learning_path_assessment.py
 
 ### 🔴 Advanced-Pfad (71-100 Punkte)
 
-**Zielgruppe:** Erfahrene Entwickler, professionelle Systeme  
-**Dauer:** 45-60 Minuten pro Übung  
+**Zielgruppe:** Erfahrene Entwickler, professionelle Systeme
+**Dauer:** 45-60 Minuten pro Übung
 **Fokus:** OOP, Design Patterns, Enterprise-Standards
 
-#### Übungen:
+#### Übungen
 
 - **[uebung_01_zahlen_advanced.py](advanced/uebung_01_zahlen_advanced.py)** - OOP-Zahlenverarbeitung
 - **[uebung_02_strings_advanced.py](advanced/uebung_02_strings_advanced.py)** - Enterprise String-Processing
