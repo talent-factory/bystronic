@@ -1,97 +1,155 @@
-# Kapitel 2: Datentypen und Datenstrukturen
+# 📊 Kapitel 2: Datentypen und Datenstrukturen
 
-Willkommen zum zweiten Kapitel des Python Grundkurses für Bystronic-Entwickler!
-📊
+**Adaptives Lernsystem für heterogene Lerngruppen**
 
-## 📚 Inhalte dieses Kapitels
+Willkommen zum zweiten Kapitel des Python Grundkurses für Bystronic-Entwickler! Dieses Kapitel verwendet ein **3-stufiges adaptives Lernsystem**, das sich an Ihr Vorwissen anpasst.
 
-### Hauptdokumentation
+## 🎯 Adaptive Lernpfade
 
-- **[02_datentypen.ipynb](02_datentypen.ipynb)** - Interaktives Jupyter Notebook
-  mit allen Datentypen
+### 🔍 **Schritt 1: Assessment durchführen**
+```bash
+# Bestimmen Sie Ihren optimalen Lernpfad (5-7 Minuten)
+uv run python src/02_datentypen/assessments/learning_path_assessment.py
+```
 
-### 💡 Beispiele
+### 📚 **Schritt 2: Ihren Lernpfad wählen**
 
-- **[numbers_demo.py](beispiele/numbers_demo.py)** - Zahlen und mathematische
-  Operationen
-- **[strings_demo.py](beispiele/strings_demo.py)** - String-Manipulation und
-  Formatierung
-- **[collections_demo.py](beispiele/collections_demo.py)** - Listen,
-  Dictionaries, Sets und Tupel
-- **[vba_collections_comparison.py](beispiele/vba_collections_comparison.py)** -
-  VBA vs Python Collections
+#### 🟢 **Beginner-Pfad** (0-40 Punkte)
+**Zielgruppe:** Programmier-Einsteiger, erste Schritte mit Datentypen
+**Dauer:** 15-25 Minuten pro Übung
+**Fokus:** Grundlagen verstehen, praktische Anwendung
 
-### 🎯 Übungen
+#### 🟡 **Intermediate-Pfad** (41-70 Punkte)
+**Zielgruppe:** Programmiererfahrung vorhanden, erweiterte Datenverarbeitung
+**Dauer:** 25-40 Minuten pro Übung
+**Fokus:** Funktionale Programmierung, Statistik, Fehlerbehandlung
 
-- **[Übung 1: Zahlenoperationen](uebungen/uebung_01_zahlen.py)** - Arbeiten mit
-  int, float, complex
-- **[Übung 2: String-Verarbeitung](uebungen/uebung_02_strings.py)** -
-  Textmanipulation und Formatierung
-- **[Übung 3: Listen und Dictionaries](uebungen/uebung_03_collections.py)** -
-  Datenstrukturen beherrschen
-- **[Übung 4: Datenkonvertierung](uebungen/uebung_04_conversion.py)** - Type
-  Casting und Validierung
+#### 🔴 **Advanced-Pfad** (71-100 Punkte)
+**Zielgruppe:** Erfahrene Entwickler, professionelle Systeme
+**Dauer:** 45-60 Minuten pro Übung
+**Fokus:** OOP, Design Patterns, Enterprise-Standards
+
+## 📁 Neue Struktur
+
+### 🎓 **Theory & Documentation**
+- **[theory/02_datentypen.ipynb](theory/02_datentypen.ipynb)** - Interaktives Jupyter Notebook
+
+### 💡 **Examples (für alle Levels)**
+- **[numbers_demo.py](examples/numbers_demo.py)** - Zahlen und mathematische Operationen
+- **[strings_demo.py](examples/strings_demo.py)** - String-Manipulation und Formatierung
+- **[collections_demo.py](examples/collections_demo.py)** - Listen, Dictionaries, Sets und Tupel
+- **[vba_collections_comparison.py](examples/vba_collections_comparison.py)** - VBA vs Python Collections
+
+### 🎯 **Adaptive Exercises**
+
+#### 🟢 **Beginner Exercises**
+- **[uebung_01_zahlen_beginner.py](exercises/beginner/uebung_01_zahlen_beginner.py)** - Grundlagen der Zahlentypen
+- **[uebung_02_strings_beginner.py](exercises/beginner/uebung_02_strings_beginner.py)** - Einfache String-Operationen
+- **[uebung_03_collections_beginner.py](exercises/beginner/uebung_03_collections_beginner.py)** - Listen und Dictionaries
+
+#### 🟡 **Intermediate Exercises**
+- **[uebung_01_zahlen_intermediate.py](exercises/intermediate/uebung_01_zahlen_intermediate.py)** - Erweiterte Zahlenoperationen
+- **[uebung_02_strings_intermediate.py](exercises/intermediate/uebung_02_strings_intermediate.py)** - String-Verarbeitung und Regex
+- **[uebung_03_collections_intermediate.py](exercises/intermediate/uebung_03_collections_intermediate.py)** - Komplexe Datenstrukturen
+
+#### 🔴 **Advanced Exercises**
+- **[uebung_01_zahlen_advanced.py](exercises/advanced/uebung_01_zahlen_advanced.py)** - OOP-Zahlenverarbeitung
+- **[uebung_02_strings_advanced.py](exercises/advanced/uebung_02_strings_advanced.py)** - Enterprise String-Processing
+- **[uebung_03_collections_advanced.py](exercises/advanced/uebung_03_collections_advanced.py)** - Design Patterns für Collections
+
+### 🆘 **4-Stufen-Hilfesystem**
+Für jede Übung verfügbar:
+- **Hints:** Erste Hilfestellungen und Tipps
+- **Skeleton:** Code-Gerüst mit Kommentaren
+- **Partial:** Teilweise implementierte Lösung
+- **Complete:** Vollständige Musterlösung mit Erklärungen
 
 ## 🚀 Schnellstart
 
-### 1. Umgebung einrichten
+### 1. Assessment durchführen (EMPFOHLEN)
+```bash
+# Bestimmen Sie Ihren optimalen Lernpfad
+uv run python src/02_datentypen/assessments/learning_path_assessment.py
+```
 
+### 2. Umgebung einrichten
 ```bash
 # Im Projektverzeichnis
 uv sync
 uv shell
 ```
 
-### 2. Jupyter Notebook starten
-
+### 3. Theory studieren (optional)
 ```bash
-# Haupttutorial öffnen
-uv run jupyter notebook src/02_datentypen/02_datentypen.ipynb
+# Jupyter Notebook mit theoretischen Grundlagen
+uv run jupyter notebook src/02_datentypen/theory/02_datentypen.ipynb
 ```
 
-### 3. Beispiele ausführen
-
+### 4. Examples erkunden
 ```bash
 # Zahlen-Beispiele
-uv run python src/02_datentypen/beispiele/numbers_demo.py
+uv run python src/02_datentypen/examples/numbers_demo.py
 
 # String-Beispiele
-uv run python src/02_datentypen/beispiele/strings_demo.py
+uv run python src/02_datentypen/examples/strings_demo.py
 
 # Collections-Beispiele
-uv run python src/02_datentypen/beispiele/collections_demo.py
+uv run python src/02_datentypen/examples/collections_demo.py
 
 # VBA-Vergleich
-uv run python src/02_datentypen/beispiele/vba_collections_comparison.py
+uv run python src/02_datentypen/examples/vba_collections_comparison.py
 ```
 
-### 4. Übungen bearbeiten
+### 5. Adaptive Übungen (nach Assessment-Ergebnis)
 
+#### 🟢 **Beginner-Pfad:**
 ```bash
-# Übung 1 - Zahlenoperationen
-uv run python src/02_datentypen/uebungen/uebung_01_zahlen.py
-
-# Übung 2 - String-Verarbeitung
-uv run python src/02_datentypen/uebungen/uebung_02_strings.py
-
-# Übung 3 - Listen und Dictionaries
-uv run python src/02_datentypen/uebungen/uebung_03_collections.py
-
-# Übung 4 - Datenkonvertierung
-uv run python src/02_datentypen/uebungen/uebung_04_conversion.py
+uv run python src/02_datentypen/exercises/beginner/uebung_01_zahlen_beginner.py
+uv run python src/02_datentypen/exercises/beginner/uebung_02_strings_beginner.py
+uv run python src/02_datentypen/exercises/beginner/uebung_03_collections_beginner.py
 ```
 
-## 📖 Lernziele
+#### 🟡 **Intermediate-Pfad:**
+```bash
+uv run python src/02_datentypen/exercises/intermediate/uebung_01_zahlen_intermediate.py
+uv run python src/02_datentypen/exercises/intermediate/uebung_02_strings_intermediate.py
+uv run python src/02_datentypen/exercises/intermediate/uebung_03_collections_intermediate.py
+```
 
-Nach diesem Kapitel können Sie:
+#### 🔴 **Advanced-Pfad:**
+```bash
+uv run python src/02_datentypen/exercises/advanced/uebung_01_zahlen_advanced.py
+uv run python src/02_datentypen/exercises/advanced/uebung_02_strings_advanced.py
+uv run python src/02_datentypen/exercises/advanced/uebung_03_collections_advanced.py
+```
 
-✅ **Zahlentypen**: int, float, complex verstehen und verwenden ✅ **Strings**:
-Texte manipulieren, formatieren und durchsuchen ✅ **Listen**: Dynamische Arrays
-erstellen und bearbeiten ✅ **Dictionaries**: Key-Value-Paare für strukturierte
-Daten nutzen ✅ **Sets**: Eindeutige Elemente verwalten und Mengenoperationen
-durchführen ✅ **Tupel**: Unveränderliche Datenstrukturen verwenden ✅
-**Konvertierung**: Zwischen Datentypen wechseln und validieren ✅
-**Collections**: Komplexe Datenstrukturen verschachteln
+## 📖 Adaptive Lernziele
+
+### 🟢 **Beginner-Lernziele**
+Nach dem Beginner-Pfad können Sie:
+- ✅ **Grundlegende Zahlentypen** (int, float, bool) verstehen und verwenden
+- ✅ **Einfache String-Operationen** durchführen und f-strings verwenden
+- ✅ **Listen und Dictionaries** erstellen und grundlegend verwenden
+- ✅ **Einfache Datenkonvertierung** zwischen Typen durchführen
+- ✅ **Praktische Berechnungen** für Produktionsdaten durchführen
+
+### 🟡 **Intermediate-Lernziele**
+Nach dem Intermediate-Pfad können Sie zusätzlich:
+- ✅ **Alle Zahlentypen** inklusive complex verwenden
+- ✅ **Erweiterte String-Verarbeitung** mit Regex und Formatierung
+- ✅ **Komplexe Datenstrukturen** verschachteln und manipulieren
+- ✅ **Statistische Berechnungen** und Qualitätskontrolle implementieren
+- ✅ **Robuste Fehlerbehandlung** bei Datenkonvertierung anwenden
+- ✅ **Funktionale Programmierung** mit Datentypen einsetzen
+
+### 🔴 **Advanced-Lernziele**
+Nach dem Advanced-Pfad können Sie zusätzlich:
+- ✅ **Objektorientierte Datenmodellierung** mit Dataclasses und Enums
+- ✅ **Design Patterns** für numerische Berechnungen implementieren
+- ✅ **Performance-Optimierung** und Caching-Strategien anwenden
+- ✅ **Enterprise-Level Fehlerbehandlung** und Logging einsetzen
+- ✅ **Erweiterte statistische Analysen** und Prozessfähigkeitsindizes berechnen
+- ✅ **Professionelle Dokumentation** und Unit Testing durchführen
 
 ## 🔧 Datentypen-Übersicht
 
@@ -261,11 +319,50 @@ fehlerhafte_teile = [m for m in messungen if not m["ok"]]
 - **Built-in Types**: <https://docs.python.org/3/library/stdtypes.html>
 - **Collections Module**: <https://docs.python.org/3/library/collections.html>
 
+## 🎯 Assessment-System
+
+### 📊 **Learning Path Assessment**
+- **Dauer:** 5-7 Minuten
+- **Kategorien:** Datentyp-Grundlagen, Mathematik, Programmierung, Datenstrukturen, Qualitätskontrolle
+- **Ergebnis:** Personalisierte Lernpfad-Empfehlung
+- **Speicherung:** Automatische Ergebnis-Dokumentation
+
+### 🔄 **Micro-Assessments** (in Entwicklung)
+- **Quiz:** Interaktive Wissensprüfung
+- **Challenges:** Praktische Code-Aufgaben
+- **Reflection:** Selbsteinschätzung und Lernfortschritt
+- **Dashboard:** Übersicht über alle Assessment-Ergebnisse
+
+## 🎓 Überprüfen Sie Ihr Verständnis
+
+### 🟢 **Beginner-Checkliste:**
+- [ ] Können Sie int, float und bool unterscheiden und verwenden?
+- [ ] Verstehen Sie f-string Formatierung?
+- [ ] Können Sie einfache Listen und Dictionaries erstellen?
+- [ ] Beherrschen Sie grundlegende Datenkonvertierung?
+- [ ] Haben Sie alle Beginner-Übungen erfolgreich gelöst?
+
+### 🟡 **Intermediate-Checkliste:**
+- [ ] Können Sie mit allen Zahlentypen inklusive complex arbeiten?
+- [ ] Beherrschen Sie erweiterte String-Operationen und Regex?
+- [ ] Können Sie komplexe, verschachtelte Datenstrukturen verwenden?
+- [ ] Verstehen Sie statistische Berechnungen und Qualitätskontrolle?
+- [ ] Können Sie robuste Fehlerbehandlung implementieren?
+- [ ] Haben Sie alle Intermediate-Übungen erfolgreich gelöst?
+
+### 🔴 **Advanced-Checkliste:**
+- [ ] Können Sie objektorientierte Datenmodelle mit Dataclasses erstellen?
+- [ ] Beherrschen Sie Design Patterns für numerische Berechnungen?
+- [ ] Verstehen Sie Performance-Optimierung und Caching?
+- [ ] Können Sie Enterprise-Level Logging und Fehlerbehandlung implementieren?
+- [ ] Beherrschen Sie erweiterte statistische Analysen?
+- [ ] Haben Sie alle Advanced-Übungen erfolgreich gelöst?
+
 ## ➡️ Nächste Schritte
 
-Nach erfolgreichem Abschluss dieses Kapitels: **→
-[Kapitel 3: NumPy für numerische Berechnungen](../03_numpy/README.md)**
+Nach erfolgreichem Abschluss dieses Kapitels:
+**→ [Kapitel 3: NumPy für numerische Berechnungen](../03_numpy/README.md)**
 
-______________________________________________________________________
+---
 
-## Dieses Kapitel ist Teil des Python Grundkurses für Bystronic-Entwickler
+## 📊 Dieses Kapitel ist Teil des adaptiven Python Grundkurses für Bystronic-Entwickler
