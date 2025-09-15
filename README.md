@@ -191,6 +191,28 @@ make commit            # Professioneller Git-Commit mit Checks
 
 Siehe `docs/commit-guide.md` für Details zum Git-Commit-System.
 
+### Setup-Scripts
+
+Für neue Entwickler steht ein automatisiertes Setup-Script zur Verfügung:
+
+#### Windows PowerShell Setup
+
+```powershell
+# Als Administrator ausführen:
+powershell -ExecutionPolicy Bypass -File "scripts/dev_setup_script.ps1"
+```
+
+Das Script installiert automatisch:
+- **Chocolatey** (Package Manager für Windows)
+- **Python 3.x** (neueste Version)
+- **Git** (Versionskontrolle)
+- **uv** (Python Package Manager)
+
+**Wichtige Hinweise:**
+- Script muss als Administrator ausgeführt werden
+- Nach der Installation eine neue PowerShell/CMD-Sitzung starten
+- Alle Tools sind dann systemweit verfügbar
+
 ## 📞 Support und Ressourcen
 
 - **Kursleiter**: [Kontaktinformationen]
