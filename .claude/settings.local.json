@@ -18,7 +18,10 @@
       "Bash(gh:*)",
       "Bash(grep:*)",
       "Bash(SKIP=mypy git commit -m \"$(cat <<''EOF''\n🔧 chore: Erweitere Claude-Konfiguration und Code-Formatierung\n\n- Füge grep-Berechtigung für erweiterte Suchfunktionen hinzu\n- Optimiere JSON-Formatierung für bessere Lesbarkeit\n- Code-Formatierung mit Ruff für konsistente Stil-Standards\n- Pre-commit hook Optimierungen angewendet\n\nÜberspringt mypy-Checks für Übungsdateien mit bewussten Lernfehlern\nEOF\n)\")",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(powershell:*)",
+      "Bash(cp:*)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []

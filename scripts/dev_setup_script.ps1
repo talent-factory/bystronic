@@ -1,18 +1,18 @@
 # Development Environment Setup Script
-# Installiert Python 3.x, git und uv für neue Mitarbeiter
+# Installiert Python 3.x, git und uv fuer neue Mitarbeiter
 
 Write-Host "=== Entwicklungsumgebung Setup ===" -ForegroundColor Green
 Write-Host "Installiert: Python 3.x, git, uv" -ForegroundColor Yellow
 
-# Überprüfe Administrator-Rechte
+# Ueberpruefe Administrator-Rechte
 if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
-    Write-Host "FEHLER: Dieses Script muss als Administrator ausgeführt werden!" -ForegroundColor Red
-    Write-Host "Rechtsklick auf PowerShell -> 'Als Administrator ausführen'" -ForegroundColor Yellow
-    Read-Host "Drücken Sie Enter zum Beenden"
+    Write-Host "FEHLER: Dieses Script muss als Administrator ausgefuehrt werden!" -ForegroundColor Red
+    Write-Host "Rechtsklick auf PowerShell -> 'Als Administrator ausfuehren'" -ForegroundColor Yellow
+    Read-Host "Druecken Sie Enter zum Beenden"
     exit 1
 }
 
-# Funktion für Fehlerbehandlung
+# Funktion fuer Fehlerbehandlung
 function Test-CommandExists {
     param($Command)
     try {
@@ -26,7 +26,7 @@ function Test-CommandExists {
 
 try {
     # 1. Chocolatey installieren (falls nicht vorhanden)
-    Write-Host "`n[1/4] Überprüfe Chocolatey..." -ForegroundColor Cyan
+    Write-Host "`n[1/4] ??berpr??fe Chocolatey..." -ForegroundColor Cyan
 
     if (!(Test-CommandExists "choco")) {
         Write-Host "Chocolatey wird installiert..." -ForegroundColor Yellow
@@ -53,10 +53,10 @@ try {
     # 4. UV installieren
     Write-Host "`n[4/4] Installiere uv..." -ForegroundColor Cyan
 
-    # PATH für aktuelle Session aktualisieren
+    # PATH f??r aktuelle Session aktualisieren
     $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH","User")
 
-    # uv über pip installieren (nach Python Installation)
+    # uv ??ber pip installieren (nach Python Installation)
     python -m pip install --upgrade pip
     python -m pip install uv
 
@@ -64,16 +64,15 @@ try {
 
     Write-Host "`n=== INSTALLATION ERFOLGREICH ===" -ForegroundColor Green
     Write-Host "Installierte Software:" -ForegroundColor White
-    Write-Host "✓ Python $(python --version 2>&1)" -ForegroundColor Green
-    Write-Host "✓ Git $(git --version)" -ForegroundColor Green
-    Write-Host "✓ uv $(uv --version)" -ForegroundColor Green
+    Write-Host "??? Python $(python --version 2>&1)" -ForegroundColor Green
+    Write-Host "??? Git $(git --version)" -ForegroundColor Green
+    Write-Host "??? uv $(uv --version)" -ForegroundColor Green
 
     Write-Host "`nHinweis: Starten Sie eine neue PowerShell/CMD-Sitzung, um alle Tools zu verwenden." -ForegroundColor Yellow
-
 } catch {
     Write-Host "`nFEHLER: $($_.Exception.Message)" -ForegroundColor Red
     Write-Host "Installation wurde abgebrochen." -ForegroundColor Red
 }
 
-Write-Host "`nDrücken Sie Enter zum Beenden..." -ForegroundColor Gray
-Read-Host
+Write-Host "`nDruecken Sie Enter zum Beenden..." -ForegroundColor Gray
+$null = Read-Host
