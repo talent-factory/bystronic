@@ -488,6 +488,8 @@ class DatenbankBrowser(QMainWindow):
 
         # Datenbankmanager
         self.db_manager = DatabaseManager(db_path)
+        # Für Kompatibilität mit Tests
+        self.db_path = self.db_manager.db_path
 
         # Aktuelle Tabelle und Daten
         self.current_table = "machines"
@@ -972,6 +974,10 @@ class DatenbankBrowser(QMainWindow):
                 QMessageBox.warning(
                     self, "Import-Fehler", f"Fehler beim Importieren: {e}"
                 )
+
+
+# Alias für Kompatibilität mit Tests
+DatabaseBrowser = DatenbankBrowser
 
 
 def main():

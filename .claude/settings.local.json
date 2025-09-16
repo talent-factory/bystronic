@@ -15,7 +15,14 @@
       "Bash(git commit:*)",
       "Bash(SKIP=mypy git commit -m \"$(cat <<''EOF''\n📊 feat: Vollständiges Visualisierungs-Modul mit umfangreichen Beispielen\n\n- Matplotlib Grundlagen mit industriellen Anwendungen\n- Interaktive Plots mit Widgets für Echtzeit-Analysen  \n- 3D Visualisierungen für Maschinendaten und Qualitätskontrolle\n- Seaborn für statistische Analysen und Korrelationsmatrizen\n- Plotly Dashboards für interaktive Web-Visualisierungen\n- Maschinendaten-Visualisierung mit Produktions-KPIs\n- Umfassende Übungen mit progressiver Komplexität\n- Industrielle Anwendungsfälle für Bystronic-Umgebung\n\nErweitert Projektabhängigkeiten um scipy>=1.16.1\nAktualisiert .gitignore für HTML-Visualisierungsdateien\nFügt Make-Target für HTML-Cleanup hinzu\nEOF\n)\")",
       "Bash(SKIP=mypy git commit -m \"$(cat <<''EOF''\n📊 feat: Vollständiges Visualisierungs-Modul mit umfangreichen Beispielen\n\n- Matplotlib Grundlagen mit industriellen Anwendungen\n- Interaktive Plots mit Widgets für Echtzeit-Analysen  \n- 3D Visualisierungen für Maschinendaten und Qualitätskontrolle\n- Seaborn für statistische Analysen und Korrelationsmatrizen\n- Plotly Dashboards für interaktive Web-Visualisierungen\n- Maschinendaten-Visualisierung mit Produktions-KPIs\n- Umfassende Übungen mit progressiver Komplexität\n- Industrielle Anwendungsfälle für Bystronic-Umgebung\n\nErweitert Projektabhängigkeiten um scipy>=1.16.1\nAktualisiert .gitignore für HTML-Visualisierungsdateien\nFügt Make-Target für HTML-Cleanup hinzu\nEOF\n)\")",
-      "Bash(gh:*)"
+      "Bash(gh:*)",
+      "Bash(grep:*)",
+      "Bash(SKIP=mypy git commit -m \"$(cat <<''EOF''\n🔧 chore: Erweitere Claude-Konfiguration und Code-Formatierung\n\n- Füge grep-Berechtigung für erweiterte Suchfunktionen hinzu\n- Optimiere JSON-Formatierung für bessere Lesbarkeit\n- Code-Formatierung mit Ruff für konsistente Stil-Standards\n- Pre-commit hook Optimierungen angewendet\n\nÜberspringt mypy-Checks für Übungsdateien mit bewussten Lernfehlern\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(powershell:*)",
+      "Bash(cp:*)",
+      "Bash(rm:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []

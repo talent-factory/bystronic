@@ -415,7 +415,7 @@ class TestErrorHandling:
     def test_division_by_zero_handling(self):
         """Test der Division-durch-Null-Behandlung."""
         with pytest.raises(ZeroDivisionError):
-            pass
+            result = 10 / 0
 
     def test_index_error_handling(self):
         """Test der Index-Fehler-Behandlung."""

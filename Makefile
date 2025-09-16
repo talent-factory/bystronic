@@ -72,3 +72,15 @@ lfs-clean: ## Bereinige Git LFS Cache
 	git lfs prune
 
 ci: lint test ## Continuous Integration Checks
+
+commit: ## Erstelle professionellen Git-Commit mit automatischen Checks
+	@python scripts/commit.py
+
+commit-no-verify: ## Erstelle Git-Commit ohne Pre-Commit-Checks
+	@python scripts/commit.py --no-verify
+
+commit-skip-tests: ## Erstelle Git-Commit ohne Tests
+	@python scripts/commit.py --skip-tests
+
+commit-force: ## Erstelle Git-Commit mit automatischem Force-Push (Vorsicht!)
+	@python scripts/commit.py --force-push

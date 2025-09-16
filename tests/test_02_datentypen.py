@@ -14,7 +14,7 @@ from unittest.mock import patch
 import pytest
 
 # Pfad zu den Beispielen hinzufügen
-beispiele_path = Path(__file__).parent.parent / "src" / "02_datentypen" / "beispiele"
+beispiele_path = Path(__file__).parent.parent / "src" / "02_datentypen" / "examples"
 sys.path.insert(0, str(beispiele_path))
 
 import collections_demo

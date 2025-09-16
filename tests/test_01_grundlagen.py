@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Tests für 01_grundlagen/beispiele
+Tests für 01_grundlagen/examples
 
 Diese Tests validieren die Funktionalität der Grundlagen-Beispiele
 und demonstrieren Test-Patterns für Python-Anfänger.
@@ -13,8 +13,8 @@ from unittest.mock import patch
 import pytest
 
 # Pfad zu den Beispielen hinzufügen
-beispiele_path = Path(__file__).parent.parent / "src" / "01_grundlagen" / "beispiele"
-sys.path.insert(0, str(beispiele_path))
+examples_path = Path(__file__).parent.parent / "src" / "01_grundlagen" / "examples"
+sys.path.insert(0, str(examples_path))
 
 import hello_world
 import vba_vs_python
@@ -175,8 +175,8 @@ def test_module_imports():
 
 def test_example_files_exist():
     """Testet, ob alle Beispieldateien existieren"""
-    hello_world_path = beispiele_path / "hello_world.py"
-    vba_vs_python_path = beispiele_path / "vba_vs_python.py"
+    hello_world_path = examples_path / "hello_world.py"
+    vba_vs_python_path = examples_path / "vba_vs_python.py"
 
     assert hello_world_path.exists(), "hello_world.py nicht gefunden"
     assert vba_vs_python_path.exists(), "vba_vs_python.py nicht gefunden"

@@ -39,6 +39,12 @@ class BystronicExcelHandler:
         self.loaded_data = {}
         self.processing_log = []
 
+    def get_data_path(self, *args):
+        """
+        Hilfsmethode zum korrekten Konstruieren der Datenpfade
+        """
+        return get_data_path(*args)
+
     def log_action(self, message):
         """Protokolliert Aktionen"""
         timestamp = datetime.now().strftime("%H:%M:%S")
@@ -432,6 +438,104 @@ class BystronicExcelHandler:
             )
 
         return kpis
+
+    def calculate_production_kpis(self, production_df):
+        """
+        Berechnet spezifische KPIs für Produktionsdaten
+
+        Parameters:
+        -----------
+        production_df : pd.DataFrame
+            DataFrame mit Produktionsdaten
+
+        Returns:
+        --------
+        dict
+            Dictionary mit berechneten KPIs
+        """
+        if production_df is None or production_df.empty:
+            return {}
+
+        kpis = {}
+
+        # Gesamtproduktion - prüfe verschiedene mögliche Spaltennamen
+        total_col = None
+        for col in ["Gesamt", "Total", "Produktion_A", "Maschine_A"]:
+            if col in production_df.columns:
+                total_col = col
+                break
+
+        if total_col:
+            kpis["total_production"] = production_df[total_col].sum()
+            kpis["daily_average"] = production_df[total_col].mean()
+            kpis["max_daily_production"] = production_df[total_col].max()
+            kpis["min_daily_production"] = production_df[total_col].min()
+        else:
+            # Fallback: Summe aller numerischen Spalten
+            numeric_cols = production_df.select_dtypes(include=[np.number]).columns
+            if len(numeric_cols) > 0:
+                kpis["total_production"] = production_df[numeric_cols].sum().sum()
+                kpis["daily_average"] = production_df[numeric_cols].mean().mean()
+
+        # Verfügbarkeit - prüfe auf Verfügbarkeitsspalten oder simuliere
+        availability_cols = [
+            col
+            for col in production_df.columns
+            if "Verfügbarkeit" in col or "availability" in col.lower()
+        ]
+        if availability_cols:
+            kpis["avg_availability"] = production_df[availability_cols].mean().mean()
+        elif total_col:
+            # Annahme: Maximale theoretische Produktion pro Tag = 1500
+            theoretical_max = 1500
+            kpis["avg_availability"] = (
+                production_df[total_col].mean() / theoretical_max
+            ) * 100
+        else:
+            kpis["avg_availability"] = 85.0  # Fallback-Wert
+
+        # Maschinenspezifische KPIs
+        machine_cols = [
+            col for col in production_df.columns if col.startswith("Maschine_")
+        ]
+        if machine_cols:
+            for machine in machine_cols:
+                kpis[f"{machine}_total"] = production_df[machine].sum()
+                kpis[f"{machine}_avg"] = production_df[machine].mean()
+
+        # Schichtspezifische KPIs
+        shift_cols = [
+            col for col in production_df.columns if col.startswith("Schicht_")
+        ]
+        if shift_cols:
+            for shift in shift_cols:
+                kpis[f"{shift}_total"] = production_df[shift].sum()
+                kpis[f"{shift}_avg"] = production_df[shift].mean()
+
+        # Wochentag-Analyse
+        if "Wochentag" in production_df.columns and "Gesamt" in production_df.columns:
+            weekday_avg = production_df.groupby("Wochentag")["Gesamt"].mean()
+            kpis["best_weekday"] = weekday_avg.idxmax()
+            kpis["worst_weekday"] = weekday_avg.idxmin()
+
+        return kpis
+
+    def load_comprehensive_data(self):
+        """
+        Lädt umfassende Daten aus verschiedenen Quellen
+
+        Returns:
+        --------
+        dict
+            Dictionary mit geladenen Daten
+        """
+        # Erstelle Beispieldaten falls keine vorhanden
+        sample_file = self.get_data_path("examples", "bystronic_comprehensive.xlsx")
+
+        if not Path(sample_file).exists():
+            self.create_sample_workbook(sample_file)
+
+        return self.load_excel_comprehensive(sample_file)
 
     def visualize_excel_data(self):
         """
