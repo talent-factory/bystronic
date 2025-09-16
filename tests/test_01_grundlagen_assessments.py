@@ -9,49 +9,56 @@ und demonstrieren Test-Patterns für interaktive Python-Anwendungen.
 import json
 import sys
 from pathlib import Path
-from unittest.mock import patch, mock_open, MagicMock
-import tempfile
-import os
+from unittest.mock import mock_open, patch
 
 import pytest
 
 # Pfad zu den Assessment-Tools hinzufügen
-assessments_path = Path(__file__).parent.parent / "src" / "01_grundlagen" / "assessments"
+assessments_path = (
+    Path(__file__).parent.parent / "src" / "01_grundlagen" / "assessments"
+)
 sys.path.insert(0, str(assessments_path))
 
 # Importiere Module nur wenn sie existieren
 try:
     import learning_path_assessment
+
     LEARNING_PATH_AVAILABLE = True
 except ImportError:
     LEARNING_PATH_AVAILABLE = False
 
 try:
     import micro_assessment_quiz
+
     QUIZ_AVAILABLE = True
 except ImportError:
     QUIZ_AVAILABLE = False
 
 try:
     import micro_assessment_challenges
+
     CHALLENGES_AVAILABLE = True
 except ImportError:
     CHALLENGES_AVAILABLE = False
 
 try:
     import micro_assessment_reflection
+
     REFLECTION_AVAILABLE = True
 except ImportError:
     REFLECTION_AVAILABLE = False
 
 try:
     import micro_assessment_dashboard
+
     DASHBOARD_AVAILABLE = True
 except ImportError:
     DASHBOARD_AVAILABLE = False
 
 
-@pytest.mark.skipif(not LEARNING_PATH_AVAILABLE, reason="learning_path_assessment module not available")
+@pytest.mark.skipif(
+    not LEARNING_PATH_AVAILABLE, reason="learning_path_assessment module not available"
+)
 class TestLearningPathAssessment:
     """Tests für learning_path_assessment.py"""
 
@@ -61,7 +68,26 @@ class TestLearningPathAssessment:
         assessment = learning_path_assessment.LearningPathAssessment()
         assert assessment is not None
 
-    @patch("builtins.input", side_effect=["1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1"])
+    @patch(
+        "builtins.input",
+        side_effect=[
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+        ],
+    )
     @patch("builtins.print")
     def test_assessment_completion(self, mock_print, mock_input):
         """Testet die vollständige Durchführung des Assessments"""
@@ -86,7 +112,7 @@ class TestLearningPathAssessment:
             "python_knowledge": 3,
             "ai_experience": 2,
             "time_availability": 7,
-            "learning_goals": 6
+            "learning_goals": 6,
         }
 
         final_score, path = assessment.calculate_final_score(test_scores)
@@ -105,7 +131,7 @@ class TestLearningPathAssessment:
             "python_knowledge": 1,
             "ai_experience": 1,
             "time_availability": 1,
-            "learning_goals": 1
+            "learning_goals": 1,
         }
 
         high_scores = {
@@ -113,7 +139,7 @@ class TestLearningPathAssessment:
             "python_knowledge": 10,
             "ai_experience": 10,
             "time_availability": 10,
-            "learning_goals": 10
+            "learning_goals": 10,
         }
 
         low_final_score, low_path = assessment.calculate_final_score(low_scores)
@@ -259,11 +285,13 @@ class TestMicroAssessmentDashboard:
                 "datum": "2024-01-01T12:00:00",
                 "tool": "quiz",
                 "score": 85,
-                "details": {}
+                "details": {},
             }
 
             with patch("pathlib.Path.glob") as mock_glob:
-                with patch("builtins.open", mock_open(read_data=json.dumps(mock_result))):
+                with patch(
+                    "builtins.open", mock_open(read_data=json.dumps(mock_result))
+                ):
                     mock_glob.return_value = [Path("test_result.json")]
                     results = dashboard._lade_alle_ergebnisse()
 
@@ -303,9 +331,9 @@ class TestIntegration:
             micro_assessment_quiz,
             micro_assessment_challenges,
             micro_assessment_reflection,
-            micro_assessment_dashboard
+            micro_assessment_dashboard,
         ]
-        
+
         for module in modules:
             assert module is not None
 
@@ -316,9 +344,9 @@ class TestIntegration:
             "micro_assessment_quiz.py",
             "micro_assessment_challenges.py",
             "micro_assessment_reflection.py",
-            "micro_assessment_dashboard.py"
+            "micro_assessment_dashboard.py",
         ]
-        
+
         for filename in expected_files:
             file_path = assessments_path / filename
             assert file_path.exists(), f"{filename} nicht gefunden"
