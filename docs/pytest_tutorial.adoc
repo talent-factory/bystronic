@@ -1,0 +1,980 @@
+= Pytest: Professionelles Testen in Python
+include::common/header.adoc[]
+
+[abstract]
+== Zusammenfassung
+
+Dieses Tutorial führt Sie in `pytest` ein, das führende Test-Framework für Python. Sie lernen die Grundlagen des Testens, pytest-spezifische Features wie Test-Vorrichtungen (Fixtures), Parametrisierung und Mocking kennen. Das Tutorial enthält praktische Beispiele und Übungen zur Vertiefung des Gelernten.
+
+== Einführung
+
+=== Was ist pytest?
+
+pytest ist ein ausgereiftes, vollständiges Test-Framework für Python, das es ermöglicht, einfache Unit-Tests bis hin zu komplexen funktionalen Tests zu schreiben. Es zeichnet sich durch seine einfache Syntax und mächtigen Features aus.
+
+**Warum pytest verwenden?**
+
+* Einfache und intuitive Syntax
+* Automatische Test-Erkennung
+* Detaillierte Fehlermeldungen
+* Umfangreiche Plugin-Unterstützung
+* Test-Vorrichtungen (Fixtures) für Setup/Teardown
+* Parametrisierte Tests
+* Parallele Testausführung
+
+[IMPORTANT]
+====
+pytest ist nicht nur ein Test-Framework, sondern ein komplettes Ökosystem für Qualitätssicherung in Python-Projekten.
+====
+
+=== Installation und Setup
+
+==== Installation mit pip
+
+[source,bash]
+----
+# Grundinstallation
+pip install pytest
+
+# Mit zusätzlichen Plugins
+pip install pytest pytest-cov pytest-mock pytest-xdist
+----
+
+==== Installation mit uv (empfohlen)
+
+[source,bash]
+----
+# In ein neues Projekt
+uv init pytest-tutorial
+cd pytest-tutorial
+
+# pytest als Entwicklungsabhängigkeit hinzufügen
+uv add --dev pytest pytest-cov pytest-mock
+
+# Projektstruktur erstellen
+mkdir tests src
+touch src/__init__.py tests/__init__.py
+----
+
+==== Projektstruktur
+
+Eine typische pytest-Projektstruktur:
+
+[source]
+----
+mein-projekt/
+├── src/
+│   ├── __init__.py
+│   ├── calculator.py
+│   └── utils.py
+├── tests/
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── test_calculator.py
+│   └── test_utils.py
+├── pyproject.toml
+└── README.md
+----
+
+== Grundlagen des Testens
+
+=== Ihr erster Test
+
+Erstellen wir eine einfache Funktion und den dazugehörigen Test:
+
+**src/calculator.py**
+[source,python]
+----
+def add(a: int, b: int) -> int:
+    """Addiert zwei Zahlen."""
+    return a + b
+
+def subtract(a: int, b: int) -> int:
+    """Subtrahiert b von a."""
+    return a - b
+
+def multiply(a: int, b: int) -> int:
+    """Multipliziert zwei Zahlen."""
+    return a * b
+
+def divide(a: float, b: float) -> float:
+    """Dividiert a durch b."""
+    if b == 0:
+        raise ValueError("Division durch Null ist nicht erlaubt")
+    return a / b
+----
+
+**tests/test_calculator.py**
+[source,python]
+----
+import pytest
+from src.calculator import add, subtract, multiply, divide
+
+def test_add():
+    """Test für die Addition."""
+    assert add(2, 3) == 5
+    assert add(-1, 1) == 0
+    assert add(0, 0) == 0
+
+def test_subtract():
+    """Test für die Subtraktion."""
+    assert subtract(5, 3) == 2
+    assert subtract(0, 5) == -5
+    assert subtract(-2, -3) == 1
+
+def test_multiply():
+    """Test für die Multiplikation."""
+    assert multiply(3, 4) == 12
+    assert multiply(-2, 3) == -6
+    assert multiply(0, 100) == 0
+
+def test_divide():
+    """Test für die Division."""
+    assert divide(10, 2) == 5.0
+    assert divide(7, 2) == 3.5
+
+def test_divide_by_zero():
+    """Test für Division durch Null."""
+    with pytest.raises(ValueError, match="Division durch Null"):
+        divide(10, 0)
+----
+
+=== Tests ausführen
+
+[source,bash]
+----
+# Alle Tests ausführen
+pytest
+
+# Mit detaillierter Ausgabe
+pytest -v
+
+# Nur spezifische Tests
+pytest tests/test_calculator.py
+
+# Tests mit Pattern
+pytest -k "test_add"
+----
+
+== Test-Vorrichtungen (Fixtures)
+
+Test-Vorrichtungen sind eine der mächtigsten Features von pytest. Sie ermöglichen es, Setup- und Teardown-Code zu definieren, der vor und nach Tests ausgeführt wird.
+
+=== Grundlegende Fixtures
+
+[source,python]
+----
+import pytest
+from src.calculator import Calculator
+
+@pytest.fixture
+def calculator():
+    """Test-Vorrichtung: Erstellt eine Calculator-Instanz."""
+    return Calculator()
+
+@pytest.fixture
+def sample_data():
+    """Test-Vorrichtung: Stellt Beispieldaten bereit."""
+    return {
+        'numbers': [1, 2, 3, 4, 5],
+        'operations': ['+', '-', '*', '/'],
+        'results': [15, -5, 120, 0.2]
+    }
+
+def test_calculator_with_fixture(calculator):
+    """Test mit Calculator-Fixture."""
+    result = calculator.add(2, 3)
+    assert result == 5
+
+def test_with_sample_data(sample_data):
+    """Test mit Beispieldaten."""
+    numbers = sample_data['numbers']
+    assert len(numbers) == 5
+    assert sum(numbers) == 15
+----
+
+=== Fixture-Scopes
+
+Fixtures können verschiedene Lebensdauern haben:
+
+[source,python]
+----
+@pytest.fixture(scope="function")  # Standard: Für jeden Test neu
+def function_fixture():
+    return "Wird für jeden Test erstellt"
+
+@pytest.fixture(scope="class")  # Einmal pro Testklasse
+def class_fixture():
+    return "Wird einmal pro Klasse erstellt"
+
+@pytest.fixture(scope="module")  # Einmal pro Modul
+def module_fixture():
+    return "Wird einmal pro Modul erstellt"
+
+@pytest.fixture(scope="session")  # Einmal pro Testsitzung
+def session_fixture():
+    return "Wird einmal pro Session erstellt"
+----
+
+=== Setup und Teardown
+
+[source,python]
+----
+@pytest.fixture
+def database_connection():
+    """Test-Vorrichtung mit Setup und Teardown."""
+    # Setup
+    print("Datenbankverbindung wird hergestellt...")
+    connection = create_test_database()
+
+    yield connection  # Hier wird der Test ausgeführt
+
+    # Teardown
+    print("Datenbankverbindung wird geschlossen...")
+    connection.close()
+    cleanup_test_database()
+
+def test_database_operation(database_connection):
+    """Test mit Datenbank-Fixture."""
+    result = database_connection.execute("SELECT 1")
+    assert result == 1
+----
+
+== Parametrisierte Tests
+
+Parametrisierte Tests ermöglichen es, denselben Test mit verschiedenen Eingabewerten auszuführen:
+
+[source,python]
+----
+import pytest
+from src.calculator import add, multiply
+
+@pytest.mark.parametrize("a,b,expected", [
+    (2, 3, 5),
+    (0, 0, 0),
+    (-1, 1, 0),
+    (10, -5, 5),
+])
+def test_add_parametrized(a, b, expected):
+    """Parametrisierter Test für Addition."""
+    assert add(a, b) == expected
+
+@pytest.mark.parametrize("operation,a,b,expected", [
+    ("add", 2, 3, 5),
+    ("subtract", 5, 3, 2),
+    ("multiply", 4, 3, 12),
+])
+def test_calculator_operations(operation, a, b, expected):
+    """Test verschiedener Calculator-Operationen."""
+    calc = Calculator()
+    result = getattr(calc, operation)(a, b)
+    assert result == expected
+
+# Parametrisierung mit IDs für bessere Lesbarkeit
+@pytest.mark.parametrize("input_value,expected", [
+    (0, "Null"),
+    (1, "Eins"),
+    (10, "Zehn"),
+], ids=["zero", "one", "ten"])
+def test_number_to_word(input_value, expected):
+    """Test mit benutzerdefinierten Test-IDs."""
+    assert number_to_word(input_value) == expected
+----
+
+== Erweiterte pytest Features
+
+=== Markers
+
+Markers ermöglichen es, Tests zu kategorisieren und selektiv auszuführen:
+
+[source,python]
+----
+import pytest
+
+@pytest.mark.slow
+def test_slow_operation():
+    """Langsamer Test."""
+    time.sleep(2)
+    assert True
+
+@pytest.mark.integration
+def test_api_integration():
+    """Integrationstest."""
+    response = api_client.get("/users")
+    assert response.status_code == 200
+
+@pytest.mark.unit
+def test_pure_function():
+    """Unit-Test."""
+    assert add(2, 3) == 5
+
+# Tests ausführen:
+# pytest -m "not slow"  # Alle außer langsame Tests
+# pytest -m "integration"  # Nur Integrationstests
+----
+
+**pyproject.toml Konfiguration:**
+[source,toml]
+----
+[tool.pytest.ini_options]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+----
+
+=== Mocking
+
+Mocking ist essentiell für das Testen von Code, der externe Abhängigkeiten hat:
+
+[source,python]
+----
+import pytest
+from unittest.mock import Mock, patch
+from src.weather_service import WeatherService
+
+def test_weather_service_with_mock():
+    """Test mit Mock-Objekt."""
+    # Mock erstellen
+    mock_api = Mock()
+    mock_api.get_temperature.return_value = 25.0
+
+    # Service mit Mock initialisieren
+    weather_service = WeatherService(api_client=mock_api)
+
+    # Test ausführen
+    temp = weather_service.get_current_temperature("Berlin")
+
+    # Assertions
+    assert temp == 25.0
+    mock_api.get_temperature.assert_called_once_with("Berlin")
+
+@patch('src.weather_service.requests.get')
+def test_weather_api_call(mock_get):
+    """Test mit patch decorator."""
+    # Mock Response konfigurieren
+    mock_response = Mock()
+    mock_response.json.return_value = {'temperature': 22.5}
+    mock_response.status_code = 200
+    mock_get.return_value = mock_response
+
+    # Test ausführen
+    service = WeatherService()
+    temp = service.fetch_temperature("München")
+
+    # Assertions
+    assert temp == 22.5
+    mock_get.assert_called_once()
+----
+
+=== Konfigurations-Management
+
+**conftest.py** - Zentrale Konfiguration für Tests:
+
+[source,python]
+----
+import pytest
+import tempfile
+import os
+from pathlib import Path
+
+@pytest.fixture(scope="session")
+def test_data_dir():
+    """Test-Vorrichtung: Temporäres Verzeichnis für Testdaten."""
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        yield Path(tmp_dir)
+
+@pytest.fixture
+def sample_file(test_data_dir):
+    """Test-Vorrichtung: Erstellt eine Beispieldatei."""
+    file_path = test_data_dir / "sample.txt"
+    file_path.write_text("Beispielinhalt für Tests")
+    return file_path
+
+@pytest.fixture(autouse=True)
+def setup_test_environment():
+    """Automatische Test-Vorrichtung für jede Testfunktion."""
+    # Setup vor jedem Test
+    os.environ['TEST_MODE'] = 'true'
+
+    yield
+
+    # Cleanup nach jedem Test
+    if 'TEST_MODE' in os.environ:
+        del os.environ['TEST_MODE']
+
+def pytest_configure(config):
+    """pytest-Konfiguration."""
+    config.addinivalue_line(
+        "markers", "slow: marks tests as slow running"
+    )
+----
+
+== Test-Driven Development (TDD)
+
+TDD ist eine Entwicklungsmethodik, bei der Tests vor dem eigentlichen Code geschrieben werden:
+
+=== TDD-Zyklus
+
+1. **Red**: Test schreiben, der fehlschlägt
+2. **Green**: Minimalen Code schreiben, damit Test besteht
+3. **Refactor**: Code verbessern, ohne Funktionalität zu ändern
+
+=== Praktisches TDD-Beispiel
+
+**Schritt 1: Test schreiben (Red)**
+[source,python]
+----
+# tests/test_string_utils.py
+import pytest
+from src.string_utils import reverse_string, is_palindrome
+
+def test_reverse_string():
+    """Test für String-Umkehrung."""
+    assert reverse_string("hello") == "olleh"
+    assert reverse_string("") == ""
+    assert reverse_string("a") == "a"
+
+def test_is_palindrome():
+    """Test für Palindrom-Erkennung."""
+    assert is_palindrome("racecar") == True
+    assert is_palindrome("hello") == False
+    assert is_palindrome("") == True
+    assert is_palindrome("A man a plan a canal Panama") == True
+----
+
+**Schritt 2: Minimale Implementierung (Green)**
+[source,python]
+----
+# src/string_utils.py
+def reverse_string(s: str) -> str:
+    """Kehrt einen String um."""
+    return s[::-1]
+
+def is_palindrome(s: str) -> bool:
+    """Prüft, ob ein String ein Palindrom ist."""
+    # Normalisierung: Kleinbuchstaben, keine Leerzeichen
+    normalized = ''.join(s.lower().split())
+    return normalized == normalized[::-1]
+----
+
+**Schritt 3: Refactoring**
+[source,python]
+----
+# src/string_utils.py (verbesserte Version)
+import re
+
+def reverse_string(s: str) -> str:
+    """Kehrt einen String um.
+
+    Args:
+        s: Der umzukehrende String
+
+    Returns:
+        Der umgekehrte String
+    """
+    if not isinstance(s, str):
+        raise TypeError("Input muss ein String sein")
+    return s[::-1]
+
+def is_palindrome(s: str) -> bool:
+    """Prüft, ob ein String ein Palindrom ist.
+
+    Args:
+        s: Der zu prüfende String
+
+    Returns:
+        True wenn Palindrom, False sonst
+    """
+    if not isinstance(s, str):
+        raise TypeError("Input muss ein String sein")
+
+    # Nur Buchstaben und Zahlen behalten, Kleinschreibung
+    normalized = re.sub(r'[^a-zA-Z0-9]', '', s).lower()
+    return normalized == normalized[::-1]
+----
+
+== Best Practices
+
+=== Test-Organisation
+
+[source,python]
+----
+class TestCalculator:
+    """Testklasse für Calculator-Funktionalität."""
+
+    def setup_method(self):
+        """Setup vor jeder Testmethode."""
+        self.calculator = Calculator()
+
+    def test_basic_operations(self):
+        """Test grundlegender Operationen."""
+        assert self.calculator.add(2, 3) == 5
+        assert self.calculator.subtract(5, 3) == 2
+
+    def test_edge_cases(self):
+        """Test von Grenzfällen."""
+        assert self.calculator.add(0, 0) == 0
+        assert self.calculator.multiply(1000000, 0) == 0
+
+    def test_error_conditions(self):
+        """Test von Fehlerbedingungen."""
+        with pytest.raises(ValueError):
+            self.calculator.divide(10, 0)
+----
+
+=== Aussagekräftige Testnames
+
+[source,python]
+----
+# Schlecht
+def test_user():
+    pass
+
+def test_calc():
+    pass
+
+# Gut
+def test_user_creation_with_valid_email():
+    """Test: Benutzer wird mit gültiger E-Mail erstellt."""
+    pass
+
+def test_calculator_raises_error_on_division_by_zero():
+    """Test: Calculator wirft Fehler bei Division durch Null."""
+    pass
+
+def test_should_return_empty_list_when_no_users_exist():
+    """Test: Sollte leere Liste zurückgeben, wenn keine Benutzer existieren."""
+    pass
+----
+
+=== Test-Daten Management
+
+[source,python]
+----
+# tests/fixtures/test_data.py
+VALID_USERS = [
+    {"name": "Alice", "email": "alice@example.com", "age": 25},
+    {"name": "Bob", "email": "bob@example.com", "age": 30},
+]
+
+INVALID_EMAILS = [
+    "not-an-email",
+    "@example.com",
+    "user@",
+    "",
+]
+
+# tests/conftest.py
+from tests.fixtures.test_data import VALID_USERS, INVALID_EMAILS
+
+@pytest.fixture
+def valid_users():
+    """Test-Vorrichtung: Gültige Benutzerdaten."""
+    return VALID_USERS.copy()
+
+@pytest.fixture
+def invalid_emails():
+    """Test-Vorrichtung: Ungültige E-Mail-Adressen."""
+    return INVALID_EMAILS.copy()
+----
+
+== Code Coverage
+
+Code Coverage misst, welcher Teil Ihres Codes durch Tests abgedeckt ist:
+
+=== Installation und Verwendung
+
+[source,bash]
+----
+# Installation
+pip install pytest-cov
+
+# Tests mit Coverage ausführen
+pytest --cov=src
+
+# HTML-Report generieren
+pytest --cov=src --cov-report=html
+
+# Coverage-Report mit fehlenden Zeilen
+pytest --cov=src --cov-report=term-missing
+----
+
+=== Coverage-Konfiguration
+
+**pyproject.toml**
+[source,toml]
+----
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "*/tests/*",
+    "*/venv/*",
+    "*/__pycache__/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+]
+show_missing = true
+precision = 2
+----
+
+== Debugging von Tests
+
+=== pytest-Debugging-Features
+
+[source,python]
+----
+import pytest
+
+def test_with_debugging():
+    """Test mit Debugging-Unterstützung."""
+    value = complex_calculation()
+
+    # Debugging-Ausgabe
+    print(f"Berechneter Wert: {value}")
+
+    # Interaktiver Debugger (nur bei Fehlern)
+    if value < 0:
+        pytest.set_trace()  # Breakpoint setzen
+
+    assert value > 0
+
+# Tests mit Ausgabe ausführen
+# pytest -s  # Zeigt print-Ausgaben
+# pytest --pdb  # Startet Debugger bei Fehlern
+# pytest --pdbcls=IPython.terminal.debugger:TerminalPdb  # IPython-Debugger
+----
+
+=== Logging in Tests
+
+[source,python]
+----
+import logging
+import pytest
+
+# Logging konfigurieren
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
+def test_with_logging(caplog):
+    """Test mit Logging-Überprüfung."""
+    with caplog.at_level(logging.INFO):
+        logger.info("Test wird ausgeführt")
+        result = some_function_that_logs()
+        logger.warning("Warnung während Test")
+
+    # Log-Nachrichten überprüfen
+    assert "Test wird ausgeführt" in caplog.text
+    assert caplog.records[0].levelname == "INFO"
+    assert len(caplog.records) == 2
+----
+
+== Praktische Übungen
+
+=== Übung 1: Grundlegende Tests
+
+**Aufgabe:** Implementieren Sie eine `BankAccount`-Klasse und schreiben Sie umfassende Tests dafür.
+
+**Anforderungen:**
+- Konto erstellen mit Anfangssaldo
+- Geld einzahlen und abheben
+- Saldo abfragen
+- Überziehung verhindern
+- Transaktionshistorie führen
+
+**Starter-Code:**
+[source,python]
+----
+# src/bank_account.py
+class BankAccount:
+    def __init__(self, initial_balance: float = 0.0):
+        # TODO: Implementieren
+        pass
+
+    def deposit(self, amount: float) -> None:
+        # TODO: Implementieren
+        pass
+
+    def withdraw(self, amount: float) -> None:
+        # TODO: Implementieren
+        pass
+
+    def get_balance(self) -> float:
+        # TODO: Implementieren
+        pass
+
+    def get_transaction_history(self) -> list:
+        # TODO: Implementieren
+        pass
+----
+
+**Test-Template:**
+[source,python]
+----
+# tests/test_bank_account.py
+import pytest
+from src.bank_account import BankAccount
+
+class TestBankAccount:
+    """Tests für die BankAccount-Klasse."""
+
+    def test_account_creation_with_initial_balance(self):
+        """Test: Konto wird mit Anfangssaldo erstellt."""
+        # TODO: Implementieren
+        pass
+
+    def test_deposit_increases_balance(self):
+        """Test: Einzahlung erhöht Saldo."""
+        # TODO: Implementieren
+        pass
+
+    def test_withdraw_decreases_balance(self):
+        """Test: Abhebung verringert Saldo."""
+        # TODO: Implementieren
+        pass
+
+    def test_withdraw_insufficient_funds_raises_error(self):
+        """Test: Abhebung bei unzureichendem Saldo wirft Fehler."""
+        # TODO: Implementieren
+        pass
+
+    @pytest.mark.parametrize("deposits,expected_balance", [
+        ([100, 50, 25], 175),
+        ([1000], 1000),
+        ([10, 20, 30, 40], 100),
+    ])
+    def test_multiple_deposits(self, deposits, expected_balance):
+        """Test: Mehrere Einzahlungen."""
+        # TODO: Implementieren
+        pass
+----
+
+=== Übung 2: Test-Vorrichtungen (Fixtures)
+
+**Aufgabe:** Erstellen Sie Test-Vorrichtungen für verschiedene Szenarien.
+
+[source,python]
+----
+# tests/conftest.py
+import pytest
+from src.bank_account import BankAccount
+
+@pytest.fixture
+def empty_account():
+    """Test-Vorrichtung: Leeres Bankkonto."""
+    # TODO: Implementieren
+    pass
+
+@pytest.fixture
+def account_with_balance():
+    """Test-Vorrichtung: Konto mit 1000€ Guthaben."""
+    # TODO: Implementieren
+    pass
+
+@pytest.fixture
+def account_with_transactions():
+    """Test-Vorrichtung: Konto mit Transaktionshistorie."""
+    # TODO: Implementieren
+    pass
+
+@pytest.fixture(params=[100, 500, 1000])
+def account_with_various_balances(request):
+    """Test-Vorrichtung: Konten mit verschiedenen Guthaben."""
+    # TODO: Implementieren
+    pass
+----
+
+=== Übung 3: Mocking und externe Abhängigkeiten
+
+**Aufgabe:** Testen Sie eine Klasse, die externe APIs verwendet.
+
+[source,python]
+----
+# src/currency_converter.py
+import requests
+
+class CurrencyConverter:
+    def __init__(self, api_key: str):
+        self.api_key = api_key
+        self.base_url = "https://api.exchangerate-api.com/v4/latest"
+
+    def convert(self, amount: float, from_currency: str, to_currency: str) -> float:
+        """Konvertiert Betrag zwischen Währungen."""
+        # TODO: Implementieren mit requests.get()
+        pass
+
+    def get_supported_currencies(self) -> list:
+        """Gibt Liste unterstützter Währungen zurück."""
+        # TODO: Implementieren
+        pass
+
+# tests/test_currency_converter.py
+import pytest
+from unittest.mock import Mock, patch
+from src.currency_converter import CurrencyConverter
+
+class TestCurrencyConverter:
+    """Tests für CurrencyConverter mit Mocking."""
+
+    @patch('src.currency_converter.requests.get')
+    def test_convert_currency_success(self, mock_get):
+        """Test: Erfolgreiche Währungskonvertierung."""
+        # TODO: Mock konfigurieren und Test implementieren
+        pass
+
+    @patch('src.currency_converter.requests.get')
+    def test_convert_currency_api_error(self, mock_get):
+        """Test: API-Fehler behandlung."""
+        # TODO: Mock für Fehlerfall konfigurieren
+        pass
+
+    def test_convert_with_mock_object(self):
+        """Test: Verwendung von Mock-Objekten."""
+        # TODO: Mock-Objekt erstellen und verwenden
+        pass
+----
+
+=== Übung 4: Performance-Tests
+
+**Aufgabe:** Schreiben Sie Tests, die Performance-Anforderungen überprüfen.
+
+[source,python]
+----
+# tests/test_performance.py
+import pytest
+import time
+from src.data_processor import DataProcessor
+
+@pytest.mark.slow
+def test_large_dataset_processing_time():
+    """Test: Verarbeitung großer Datensätze unter 1 Sekunde."""
+    processor = DataProcessor()
+    large_dataset = list(range(100000))
+
+    start_time = time.time()
+    result = processor.process(large_dataset)
+    end_time = time.time()
+
+    processing_time = end_time - start_time
+
+    assert processing_time < 1.0, f"Verarbeitung dauerte {processing_time:.2f}s"
+    assert len(result) == len(large_dataset)
+
+@pytest.mark.benchmark
+def test_algorithm_efficiency():
+    """Test: Algorithmus-Effizienz."""
+    # TODO: Implementieren Sie einen Benchmark-Test
+    pass
+----
+
+=== Übung 5: Integration Tests
+
+**Aufgabe:** Schreiben Sie Integrationstests für eine Web-API.
+
+[source,python]
+----
+# tests/test_integration.py
+import pytest
+import requests
+from src.api_client import APIClient
+
+@pytest.mark.integration
+class TestAPIIntegration:
+    """Integrationstests für API-Client."""
+
+    @pytest.fixture(scope="class")
+    def api_client(self):
+        """Test-Vorrichtung: API-Client für Tests."""
+        return APIClient(base_url="http://localhost:8000")
+
+    def test_user_creation_flow(self, api_client):
+        """Test: Kompletter Benutzer-Erstellungsflow."""
+        # TODO: Implementieren Sie einen End-to-End Test
+        pass
+
+    def test_data_persistence(self, api_client):
+        """Test: Datenpersistierung über API-Calls."""
+        # TODO: Testen Sie, ob Daten korrekt gespeichert werden
+        pass
+----
+
+== Lösungshinweise
+
+=== Übung 1 - Lösungsansatz
+
+[source,python]
+----
+# src/bank_account.py (Beispiel-Lösung)
+class BankAccount:
+    def __init__(self, initial_balance: float = 0.0):
+        if initial_balance < 0:
+            raise ValueError("Anfangssaldo kann nicht negativ sein")
+        self._balance = initial_balance
+        self._transactions = []
+        if initial_balance > 0:
+            self._transactions.append(f"Konto eröffnet mit {initial_balance}€")
+
+    def deposit(self, amount: float) -> None:
+        if amount <= 0:
+            raise ValueError("Einzahlungsbetrag muss positiv sein")
+        self._balance += amount
+        self._transactions.append(f"Einzahlung: +{amount}€")
+
+    def withdraw(self, amount: float) -> None:
+        if amount <= 0:
+            raise ValueError("Abhebungsbetrag muss positiv sein")
+        if amount > self._balance:
+            raise ValueError("Unzureichendes Guthaben")
+        self._balance -= amount
+        self._transactions.append(f"Abhebung: -{amount}€")
+
+    def get_balance(self) -> float:
+        return self._balance
+
+    def get_transaction_history(self) -> list:
+        return self._transactions.copy()
+----
+
+== Zusammenfassung
+
+pytest ist ein mächtiges und flexibles Test-Framework, das professionelle Softwareentwicklung in Python ermöglicht. Die wichtigsten Konzepte sind:
+
+**🧪 Grundlagen:**
+- Einfache assert-Statements
+- Automatische Test-Erkennung
+- Detaillierte Fehlermeldungen
+
+**🔧 Test-Vorrichtungen:**
+- Setup und Teardown von Testumgebungen
+- Verschiedene Scopes (function, class, module, session)
+- Wiederverwendbare Test-Infrastruktur
+
+**📊 Erweiterte Features:**
+- Parametrisierte Tests für Datenvariation
+- Mocking für externe Abhängigkeiten
+- Code Coverage für Qualitätsmessung
+- Markers für Test-Kategorisierung
+
+**🎯 Best Practices:**
+- Test-Driven Development (TDD)
+- Aussagekräftige Testnames
+- Organisierte Teststruktur
+- Performance- und Integrationstests
+
+[TIP]
+====
+**Nächste Schritte:**
+- Integrieren Sie pytest in Ihre CI/CD-Pipeline
+- Erkunden Sie pytest-Plugins für spezielle Anforderungen
+- Implementieren Sie automatische Test-Reports
+- Verwenden Sie pytest für Dokumentationstests mit doctest
+====
+
+Mit pytest haben Sie ein professionelles Werkzeug für die Qualitätssicherung Ihrer Python-Projekte. Regelmäßiges Testen führt zu robusterem, wartbarerem Code und erhöht das Vertrauen in Ihre Software.
