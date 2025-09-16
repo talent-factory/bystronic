@@ -1,0 +1,14 @@
+:doctype: book
+:author: Daniel Senften
+:email: daniel.senften@talent-factory.ch
+:revnumber: 1.0
+:revdate: {localdate}
+include::../locale/attributes-de.adoc[]
+:toc: left
+:icons: font
+:toclevels: 2
+:sectnums:
+:asciidoctor: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+:pdf-theme: themes/pdf-theme.yml
+:title-logo-image: image:../images/logo.png[top=0%, align=left, width=20%]
+:imagesdir: images/
