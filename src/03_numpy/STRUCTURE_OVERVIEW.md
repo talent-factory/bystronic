@@ -31,7 +31,7 @@ src/03_numpy/
 │   │   ├── uebung_01_arrays_beginner.py
 │   │   ├── uebung_02_mathematik_beginner.py
 │   │   ├── uebung_03_manipulation_beginner.py
-│   │   └── uebung_04_bystronic_daten_beginner.py
+│   │   └── uebung_04_smartfactory_daten_beginner.py
 │   ├── intermediate/                   # 🟡 Intermediate-Level (30-45 Min)
 │   │   ├── uebung_01_arrays_intermediate.py
 │   │   ├── uebung_02_statistik_intermediate.py
@@ -129,7 +129,7 @@ src/03_numpy/
 
 **Zielgruppe:** NumPy-Einsteiger, Grundlagen der numerischen Programmierung
 **Dauer:** 20-30 Minuten pro Übung **Fokus:** Array-Grundlagen, einfache
-Operationen, Bystronic-Anwendungen
+Operationen, SmartFactory-Anwendungen
 
 #### Lernziele
 
@@ -145,7 +145,7 @@ Operationen, Bystronic-Anwendungen
 1. **Array-Grundlagen** - Array-Erstellung, Eigenschaften, erste Operationen
 1. **Einfache Mathematik** - Grundrechenarten, Statistik-Funktionen
 1. **Array-Manipulation** - Indexing, Slicing, reshape basics
-1. **Bystronic-Daten** - Produktionszahlen, einfache Qualitätskontrolle
+1. **SmartFactory-Daten** - Produktionszahlen, einfache Qualitätskontrolle
 
 ### 🟡 Intermediate-Pfad (36-65 Punkte)
 
@@ -200,7 +200,7 @@ Für jede Übung in jedem Level:
    - NumPy-Konzepte und Best Practices
    - Mathematische Hintergründe
    - Performance-Tipps und Memory-Management
-   - Bystronic-relevante Anwendungskontexte
+   - SmartFactory-relevante Anwendungskontexte
 
 1. **Skeleton** (`.py`) - Code-Gerüst mit strukturierten TODOs
 
@@ -266,7 +266,7 @@ Für jede Übung in jedem Level:
 - **Reflection** - Selbsteinschätzung der NumPy-Kompetenzen und Lernfortschritt
 - **Dashboard** - Fortschrittsvisualisierung mit NumPy-spezifischen Metriken
 
-## 🏭 Bystronic-Integration
+## 🏭 SmartFactory-Integration
 
 ### Praktische Anwendungsfälle in allen Übungen
 
@@ -307,7 +307,7 @@ Für jede Übung in jedem Level:
 
 ### Motivation
 
-- **Bystronic-relevante Performance-Probleme** in allen Übungen
+- **SmartFactory-relevante Performance-Probleme** in allen Übungen
 - **Messbare Performance-Verbesserungen** gegenüber Pure Python
 - **Industrielle Anwendbarkeit** mit sofort einsetzbaren Lösungen
 
@@ -320,7 +320,7 @@ Für jede Übung in jedem Level:
 - **Broadcasting-Visualisierungen** für Verständnis
 - **Array-Shape-Debugging** für häufige Fehlerquellen
 
-### Integration mit Bystronic-Workflows
+### Integration mit SmartFactory-Workflows
 
 - **CSV-Import/Export** für Maschinendaten
 - **Matplotlib-Integration** für Visualisierungen
@@ -332,7 +332,7 @@ Für jede Übung in jedem Level:
 ### Lernende
 
 - **Performance-Verbesserungen** - Messbare Speedups gegenüber Pure Python
-- **NumPy-Anwendung** - Erfolgreiche Integration in Bystronic-Projekte
+- **NumPy-Anwendung** - Erfolgreiche Integration in SmartFactory-Projekte
 - **Code-Qualität** - Effiziente, lesbare NumPy-Implementierungen
 - **Problemlösungskompetenz** - Eigenständige Optimierung von Algorithmen
 
@@ -383,5 +383,5 @@ NumPy-Tutorial zu einem performance-orientierten, adaptiven Lernsystem, das die
 einzigartigen Vorteile von NumPy für industrielle Anwendungen optimal
 vermittelt.**
 
-*Entwickelt für den Bystronic Python Grundkurs - NumPy als Grundlage für
+*Entwickelt für den SmartFactory Python Grundkurs - NumPy als Grundlage für
 datengetriebene Entscheidungen in der Produktion.*

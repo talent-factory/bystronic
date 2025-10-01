@@ -1,9 +1,9 @@
-# CLAUDE.md - Python Grundkurs Bystronic
+# CLAUDE.md - Python Grundkurs SmartFactory
 
 ## Projektübersicht
 
-Dieses Projekt ist ein umfassender Python-Grundkurs für Bystronic-Entwickler mit
-Fokus auf Datenanalyse und praktische Anwendungen.
+Dieses Projekt ist ein umfassender Python-Grundkurs für SmartFactory-Entwickler
+mit Fokus auf Datenanalyse und praktische Anwendungen.
 
 ## Wichtige Befehle
 
@@ -63,7 +63,7 @@ Zusätzliche Verzeichnisse:
 
 ## Zielgruppe
 
-Bystronic-Entwickler, die von VBA zu Python wechseln möchten und sich auf
+SmartFactory-Entwickler, die von VBA zu Python wechseln möchten und sich auf
 Datenanalyse konzentrieren wollen.
 
 ## Technische Details

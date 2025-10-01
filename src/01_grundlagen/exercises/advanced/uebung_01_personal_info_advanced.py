@@ -420,7 +420,7 @@ ERWARTETE AUSGABE:
 ----------------------------------------
 Vollständiger Name: Dr. Sarah Schmidt
 Alter: 32
-E-Mail-Adresse: sarah.schmidt@bystronic.com
+E-Mail-Adresse: sarah.schmidt@smartfactory.com
 
 Verfügbare Abteilungen:
   1. Engineering
@@ -441,7 +441,7 @@ Fähigkeiten (kommagetrennt, Enter für überspringen): Python, Machine Learning
 📋 MITARBEITERPROFIL: DR. SARAH SCHMIDT
 ======================================================================
 👤 Name:              Dr. Sarah Schmidt
-📧 E-Mail:            sarah.schmidt@bystronic.com
+📧 E-Mail:            sarah.schmidt@smartfactory.com
 🎂 Alter:             32 Jahre
 📅 Geburtsjahr:       ca. 1993
 🏢 Abteilung:         R&D

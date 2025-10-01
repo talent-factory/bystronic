@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🟢 BEGINNER - Bystronic Python Grundkurs - Kapitel 2
+🟢 BEGINNER - SmartFactory Python Grundkurs - Kapitel 2
 Übung 1: Zahlenoperationen (Einsteigerfreundlich)
 
 🎯 LERNZIELE (15-20 Minuten):
@@ -27,7 +27,7 @@ def aufgabe_1_grundlagen():
     print("🟢 AUFGABE 1: Zahlentypen kennenlernen")
     print("=" * 50)
 
-    # TODO 1: Erstellen Sie diese Variablen für eine Bystronic-Maschine
+    # TODO 1: Erstellen Sie diese Variablen für eine SmartFactory-Maschine
     print("📊 Maschinendaten eingeben:")
 
     # Ganze Zahlen (Integer)
@@ -155,7 +155,7 @@ def aufgabe_4_eingabe():
 
 def main():
     """🚀 Hauptprogramm - Alle Aufgaben ausführen"""
-    print("🟢 BEGINNER: Zahlenoperationen für Bystronic")
+    print("🟢 BEGINNER: Zahlenoperationen für SmartFactory")
     print("=" * 60)
     print("📚 Lernen Sie die Grundlagen von Zahlen in Python!")
     print("🏭 Mit praktischen Beispielen aus der Produktion")

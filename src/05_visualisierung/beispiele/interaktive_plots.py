@@ -4,9 +4,9 @@ Interaktive Plots - Beispielskript für dynamische Visualisierungen
 
 Dieses Skript demonstriert die Erstellung interaktiver Visualisierungen
 mit Matplotlib Widgets und verschiedenen Interaktionsmöglichkeiten
-für Bystronic-Anwendungen.
+für SmartFactory-Anwendungen.
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 """
 
 import warnings

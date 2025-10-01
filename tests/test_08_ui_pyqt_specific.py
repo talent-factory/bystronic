@@ -91,7 +91,7 @@ class TestMaschinendatenGUI:
 
     def test_gui_initialization(self, gui):
         """Test der GUI-Initialisierung."""
-        assert gui.windowTitle() == "Maschinendaten Management - Bystronic"
+        assert gui.windowTitle() == "Maschinendaten Management - SmartFactory"
         assert hasattr(gui, "table_widget")
         assert hasattr(gui, "filter_combo")
         assert hasattr(gui, "search_line")
@@ -190,7 +190,7 @@ class TestDiagrammViewer:
 
     def test_viewer_initialization(self, viewer):
         """Test der Viewer-Initialisierung."""
-        assert viewer.windowTitle() == "Produktionsdaten Visualisierung - Bystronic"
+        assert viewer.windowTitle() == "Produktionsdaten Visualisierung - SmartFactory"
         assert hasattr(viewer, "chart_widget")
         assert hasattr(viewer, "chart_type_combo")
         assert hasattr(viewer, "time_range_combo")
@@ -265,7 +265,7 @@ class TestModerneUI:
 
     def test_ui_initialization(self, ui):
         """Test der UI-Initialisierung."""
-        assert ui.windowTitle() == "Moderne Bystronic UI"
+        assert ui.windowTitle() == "Moderne SmartFactory UI"
         assert hasattr(ui, "sidebar")
         assert hasattr(ui, "content_area")
         assert hasattr(ui, "theme_toggle")

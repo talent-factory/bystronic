@@ -1,7 +1,7 @@
 # Kapitel 8: Benutzeroberflächen mit Python
 
-Willkommen zum achten Kapitel des Python Grundkurses für Bystronic-Entwickler!
-🖥️🎨🔧
+Willkommen zum achten Kapitel des Python Grundkurses für
+SmartFactory-Entwickler! 🖥️🎨🔧
 
 ## 📚 Inhalte dieses Kapitels
 
@@ -150,7 +150,7 @@ from PySide6.QtWidgets import (
 class MeineApp(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Bystronic Maschinendaten")
+        self.setWindowTitle("SmartFactory Maschinendaten")
         self.setGeometry(100, 100, 800, 600)
 
         # Zentrales Widget
@@ -228,13 +228,13 @@ import plotly.express as px
 
 # Seitenkonfiguration
 st.set_page_config(
-    page_title="Bystronic Dashboard",
+    page_title="SmartFactory Dashboard",
     page_icon="🏭",
     layout="wide"
 )
 
 # Titel und Beschreibung
-st.title("🏭 Bystronic Produktions-Dashboard")
+st.title("🏭 SmartFactory Produktions-Dashboard")
 st.markdown("**Echtzeitübersicht der Maschinendaten**")
 
 # Sidebar für Einstellungen
@@ -319,7 +319,7 @@ with placeholder.container():
     st.dataframe(current_data)
 ```
 
-## 🏭 Bystronic-Anwendungsfälle
+## 🏭 SmartFactory-Anwendungsfälle
 
 ### 1. Produktionsüberwachung
 
@@ -628,7 +628,7 @@ pip install pyinstaller
 pyinstaller --onefile --windowed maschinendaten_gui.py
 
 # Oder mit spezifischen Icons
-pyinstaller --onefile --windowed --icon=bystronic.ico maschinendaten_gui.py
+pyinstaller --onefile --windowed --icon=smartfactory.ico maschinendaten_gui.py
 ```
 
 ### Streamlit Deployment
@@ -689,4 +689,4 @@ Nach erfolgreichem Abschluss dieses Kapitels: **→
 
 ______________________________________________________________________
 
-*Dieses Kapitel ist Teil des Python Grundkurses für Bystronic-Entwickler*
+*Dieses Kapitel ist Teil des Python Grundkurses für SmartFactory-Entwickler*

@@ -3,7 +3,7 @@
 3D-Visualisierung und Animationen - Übung 3
 
 Diese Übung behandelt erweiterte 3D-Visualisierungen und Animationstechniken
-für industrielle Anwendungen bei Bystronic.
+für industrielle Anwendungen bei SmartFactory.
 
 Lernziele:
 - 3D-Scatter-, Surface- und Mesh-Plots erstellen
@@ -11,7 +11,7 @@ Lernziele:
 - Interaktive 3D-Navigation implementieren
 - Räumliche Datenanalyse durchführen
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 """
 
 import warnings
@@ -943,7 +943,7 @@ def main() -> None:
     print(f"\n{'=' * 70}")
     print("✅ 3D-Visualisierung und Animationen erfolgreich abgeschlossen!")
     print("📈 Erweiterte Kenntnisse in dreidimensionaler Datenanalyse erworben")
-    print("🎨 Professionelle 3D-Plots für Bystronic-Anwendungen entwickelt")
+    print("🎨 Professionelle 3D-Plots für SmartFactory-Anwendungen entwickelt")
     print("🎬 Animationstechniken für dynamische Visualisierungen implementiert")
     print("🔄 Interaktive 3D-Navigation und Rotation gemeistert")
     print("💎 Volumetrische Datenvisualisierung als Bonus-Skill erlernt")

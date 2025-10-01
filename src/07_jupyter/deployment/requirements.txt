@@ -1,4 +1,4 @@
-# Bystronic Jupyter Environment Requirements
+# SmartFactory Jupyter Environment Requirements
 # Core Data Science Stack
 pandas>=2.0.0
 numpy>=1.24.0

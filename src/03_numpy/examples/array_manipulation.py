@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 Beispiel: Array-Manipulation mit NumPy
 
 Dieses Skript zeigt fortgeschrittene Array-Operationen wie

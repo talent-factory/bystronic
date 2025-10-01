@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🟢 BEGINNER - Bystronic Python Grundkurs - Kapitel 3
+🟢 BEGINNER - SmartFactory Python Grundkurs - Kapitel 3
 Übung 1: NumPy Array-Grundlagen (Einsteigerfreundlich)
 
 🎯 LERNZIELE (20-25 Minuten):
@@ -379,7 +379,7 @@ def aufgabe_5_performance_demo():
 
 def main():
     """🚀 Hauptprogramm - Alle Aufgaben ausführen"""
-    print("🟢 BEGINNER: NumPy Array-Grundlagen für Bystronic")
+    print("🟢 BEGINNER: NumPy Array-Grundlagen für SmartFactory")
     print("=" * 70)
     print("📚 Lernen Sie NumPy-Arrays mit praktischen Produktionsbeispielen!")
     print("🎯 Ziel: NumPy verstehen und Performance-Vorteile erleben")

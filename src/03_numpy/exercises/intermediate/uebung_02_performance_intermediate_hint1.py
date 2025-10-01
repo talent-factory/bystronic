@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 🟡 INTERMEDIATE - NumPy Performance-Optimierung - HINT 1 (Subtile Hinweise)
-Übung 2: Performance-Optimierung für Bystronic Datenverarbeitung
+Übung 2: Performance-Optimierung für SmartFactory Datenverarbeitung
 
 🎯 KONZEPTUELLE HINWEISE (ohne Code-Beispiele):
 

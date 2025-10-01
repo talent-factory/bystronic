@@ -27,7 +27,8 @@ von Datentypen und Datenstrukturen demonstrieren.
 
 ### Datenstrukturen
 
-- **[collections_demo.py](collections_demo.py)** - Listen, Dictionaries, Sets und Tupel
+- **[collections_demo.py](collections_demo.py)** - Listen, Dictionaries, Sets
+  und Tupel
 
   - Listen für dynamische Daten
   - Dictionaries für strukturierte Informationen
@@ -38,7 +39,8 @@ von Datentypen und Datenstrukturen demonstrieren.
 
 ### VBA-Migration
 
-- **[vba_collections_comparison.py](vba_collections_comparison.py)** - VBA vs Python Collections
+- **[vba_collections_comparison.py](vba_collections_comparison.py)** - VBA vs
+  Python Collections
 
   - Arrays vs Listen
   - Collections vs Dictionaries
@@ -72,7 +74,7 @@ Nach dem Durcharbeiten der Beispiele können Sie:
 - ✅ Strings manipulieren und formatieren
 - ✅ Listen, Dictionaries, Sets und Tupel einsetzen
 - ✅ Unterschiede zu VBA verstehen
-- ✅ Datenstrukturen für Bystronic-Anwendungen wählen
+- ✅ Datenstrukturen für SmartFactory-Anwendungen wählen
 
 ## 💡 Tipps
 

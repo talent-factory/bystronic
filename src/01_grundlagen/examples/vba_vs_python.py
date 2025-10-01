@@ -205,7 +205,7 @@ def vba_vs_python_vergleich():
 
 def main():
     """Hauptfunktion - führt alle Demonstrationen aus"""
-    print("VBA vs Python - Praktische Vergleiche für Bystronic-Entwickler")
+    print("VBA vs Python - Praktische Vergleiche für SmartFactory-Entwickler")
     print("=" * 70)
 
     demonstriere_listen()

@@ -1,7 +1,7 @@
 # Kapitel 4: Pandas für Datenanalyse
 
-Willkommen zum vierten Kapitel des Python Grundkurses für Bystronic-Entwickler!
-🐼📊
+Willkommen zum vierten Kapitel des Python Grundkurses für
+SmartFactory-Entwickler! 🐼📊
 
 ## 📚 Inhalte dieses Kapitels
 
@@ -201,7 +201,7 @@ pivot = df.pivot_table(
 )
 ```
 
-## 📊 Praktische Anwendungen für Bystronic
+## 📊 Praktische Anwendungen für SmartFactory
 
 ### Produktionsdaten analysieren
 
@@ -327,4 +327,4 @@ Nach erfolgreichem Abschluss dieses Kapitels: **→
 
 ______________________________________________________________________
 
-*Dieses Kapitel ist Teil des Python Grundkurses für Bystronic-Entwickler*
+*Dieses Kapitel ist Teil des Python Grundkurses für SmartFactory-Entwickler*

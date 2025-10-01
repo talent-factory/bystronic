@@ -78,7 +78,7 @@ class TestPyQTGrundlagen:
 
     def test_widget_initialization(self, widget):
         """Test der Widget-Initialisierung."""
-        assert widget.windowTitle() == "PyQt Grundlagen - Bystronic UI-Entwicklung"
+        assert widget.windowTitle() == "PyQt Grundlagen - SmartFactory UI-Entwicklung"
         assert widget.status_bar is not None
         assert widget.tab_widget is not None
         assert widget.timer is not None
@@ -340,13 +340,13 @@ class TestStreamlitComponents:
 
         # Importiere und teste Konfiguration
         expected_config = {
-            "page_title": "Bystronic Streamlit Demo",
+            "page_title": "SmartFactory Streamlit Demo",
             "page_icon": "🏭",
             "layout": "wide",
         }
 
         # Prüfe ob Konfiguration korrekt wäre
-        assert expected_config["page_title"] == "Bystronic Streamlit Demo"
+        assert expected_config["page_title"] == "SmartFactory Streamlit Demo"
         assert expected_config["page_icon"] == "🏭"
         assert expected_config["layout"] == "wide"
 

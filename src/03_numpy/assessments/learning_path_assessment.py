@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 🎯 NumPy Learning Path Assessment
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 
 Dieses Assessment bestimmt Ihren optimalen Lernpfad für NumPy basierend auf:
 - Array-Grundlagen (20%)
@@ -291,7 +291,7 @@ class NumPyAssessment:
                 "id": "context_03",
                 "category": "application_context",
                 "weight": 0.20,
-                "question": "Erfahrung mit Bystronic-spezifischen Anwendungen:",
+                "question": "Erfahrung mit SmartFactory-spezifischen Anwendungen:",
                 "type": "multiple_select",
                 "options": [
                     "Laserschneidprozesse und Parameter",
@@ -299,7 +299,7 @@ class NumPyAssessment:
                     "CNC-Programmierung und Koordinaten",
                     "Qualitätskontrolle in der Fertigung",
                     "Produktionsplanung und -optimierung",
-                    "Bin neu bei Bystronic/der Fertigung",
+                    "Bin neu bei SmartFactory/der Fertigung",
                 ],
                 "points_per_selection": [2, 2, 2, 2, 2, 0],
                 "max_points": 10,
@@ -420,7 +420,7 @@ class NumPyAssessment:
         """Führt das komplette Assessment durch"""
         print("🎯 NumPy Learning Path Assessment")
         print("=" * 50)
-        print("Willkommen zum NumPy-Assessment des Bystronic Python Grundkurses!")
+        print("Willkommen zum NumPy-Assessment des SmartFactory Python Grundkurses!")
         print()
         print("Dieses Assessment dauert etwa 7-10 Minuten und hilft dabei,")
         print("Ihren optimalen Lernpfad für NumPy zu bestimmen.")
@@ -676,7 +676,7 @@ class NumPyAssessment:
                 "name": "🟢 Beginner-Pfad",
                 "description": "NumPy-Grundlagen und erste Schritte",
                 "duration": "20-30 Minuten pro Übung",
-                "focus": "Array-Basics, einfache Operationen, Bystronic-Anwendungen",
+                "focus": "Array-Basics, einfache Operationen, SmartFactory-Anwendungen",
             },
             "intermediate": {
                 "name": "🟡 Intermediate-Pfad",

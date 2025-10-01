@@ -3,9 +3,9 @@
 Plotly Dashboards - Moderne Web-Visualisierungen
 
 Dieses Skript demonstriert die Erstellung interaktiver Web-Visualisierungen
-mit Plotly für moderne Dashboard-Anwendungen bei Bystronic.
+mit Plotly für moderne Dashboard-Anwendungen bei SmartFactory.
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 """
 
 import warnings
@@ -271,7 +271,7 @@ def demo_realtime_dashboard() -> None:
     # Layout anpassen
     fig.update_layout(
         title={
-            "text": "Bystronic Produktions-Dashboard (Live)",
+            "text": "SmartFactory Produktions-Dashboard (Live)",
             "x": 0.5,
             "font": {"size": 18},
         },
@@ -399,7 +399,7 @@ def demo_statistische_plots() -> None:
 
 def demo_geo_visualisierung() -> None:
     """Demonstriert Geo-Visualisierungen für Standort-Analysen"""
-    # Bystronic Standorte (vereinfacht)
+    # SmartFactory Standorte (vereinfacht)
     standorte = {
         "Niederönz (CH)": {
             "lat": 47.2160,
@@ -466,7 +466,7 @@ def demo_geo_visualisierung() -> None:
     )
 
     fig_geo.update_layout(
-        title={"text": "Bystronic Standorte Weltweit", "x": 0.5},
+        title={"text": "SmartFactory Standorte Weltweit", "x": 0.5},
         geo={
             "showland": True,
             "landcolor": "rgb(243, 243, 243)",

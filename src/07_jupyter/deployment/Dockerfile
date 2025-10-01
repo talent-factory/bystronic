@@ -1,8 +1,8 @@
-# Bystronic Jupyter Deployment
+# SmartFactory Jupyter Deployment
 FROM jupyter/scipy-notebook:latest
 
-LABEL maintainer="Daniel Senften <daniel.senften@bystronic.com>"
-LABEL description="Bystronic Jupyter Environment für Produktionsanalyse"
+LABEL maintainer="Daniel Senften <daniel.senften@smartfactory.com>"
+LABEL description="SmartFactory Jupyter Environment für Produktionsanalyse"
 
 USER root
 

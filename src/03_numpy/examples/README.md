@@ -3,8 +3,8 @@
 ## Übersicht
 
 Diese Examples demonstrieren NumPy-Konzepte mit praxisrelevanten
-Bystronic-Anwendungen. Alle Beispiele sind vollständig ausführbar und erklären
-die Konzepte schrittweise.
+SmartFactory-Anwendungen. Alle Beispiele sind vollständig ausführbar und
+erklären die Konzepte schrittweise.
 
 ## 📁 Verfügbare Examples
 
@@ -114,7 +114,7 @@ uv run python src/03_numpy/examples/vba_vs_numpy.py
 - Umfassende Performance-Benchmarks
 - Memory-Verbrauchsanalyse
 - Skalierbarkeits-Tests
-- Real-World Bystronic-Szenarien
+- Real-World SmartFactory-Szenarien
 
 **Lernziele:**
 
@@ -148,7 +148,7 @@ uv run python src/03_numpy/examples/performance_comparison.py
 1. `linear_algebra.py` - Numerische Algorithmen
 1. Eigene Implementierungen basierend auf Examples
 
-## 📊 Bystronic-Integration
+## 📊 SmartFactory-Integration
 
 ### Produktionsrelevante Themen
 
@@ -285,4 +285,4 @@ result = np.divide(a, b, out=np.zeros_like(a), where=b!=0)
 
 ______________________________________________________________________
 
-## 🎯 Diese Examples sind der praktische Einstieg in die NumPy-Welt für Bystronic-Entwickler
+## 🎯 Diese Examples sind der praktische Einstieg in die NumPy-Welt für SmartFactory-Entwickler

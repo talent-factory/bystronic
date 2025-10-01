@@ -5,7 +5,7 @@
 Diese Übung vertieft Ihr Verständnis für statistische Visualisierungen.
 Sie lernen Histogramme, Box-Plots, Heatmaps und Seaborn kennen.
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 Schwierigkeitsgrad: ⭐⭐⭐⭐ (Fortgeschritten)
 Geschätzte Bearbeitungszeit: 60-90 Minuten
 """

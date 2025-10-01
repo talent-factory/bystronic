@@ -5,7 +5,7 @@
 Diese Übung führt Sie durch die Grundlagen der Datenvisualisierung mit Matplotlib.
 Sie lernen verschiedene Plot-Typen kennen und erstellen eigene Visualisierungen.
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 Schwierigkeitsgrad: ⭐⭐⭐ (Grundlagen)
 Geschätzte Bearbeitungszeit: 45-60 Minuten
 """
@@ -163,7 +163,9 @@ def aufgabe_2_balkendiagramm() -> None:
         )
 
     plt.title(
-        "Maschinenleistung - Bystronic Produktionslinie", fontsize=14, fontweight="bold"
+        "Maschinenleistung - SmartFactory Produktionslinie",
+        fontsize=14,
+        fontweight="bold",
     )
     plt.xlabel("Maschinen")
     plt.ylabel("Leistung (%)")
@@ -265,7 +267,7 @@ def aufgabe_3_subplots() -> None:
     ax4.set_ylabel("Qualität (%)")
     ax4.grid(True, alpha=0.3)
 
-    plt.suptitle("Bystronic Produktions-Dashboard", fontsize=16, fontweight="bold")
+    plt.suptitle("SmartFactory Produktions-Dashboard", fontsize=16, fontweight="bold")
     plt.tight_layout()
     plt.show()
     # ============================================

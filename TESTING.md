@@ -1,4 +1,4 @@
-# Testing Guide - Bystronic Python Grundkurs
+# Testing Guide - SmartFactory Python Grundkurs
 
 ## 🧪 Lokale Test-Ausführung
 

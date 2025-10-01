@@ -81,7 +81,7 @@ def sammle_mitarbeiterdaten():
         # TODO: Generieren Sie automatisch eine E-Mail
         vorname = mitarbeiter["vorname"].lower()
         nachname = mitarbeiter["nachname"].lower()
-        mitarbeiter["email"] = f"# ERGÄNZEN: {vorname}.{nachname}@bystronic.com"
+        mitarbeiter["email"] = f"# ERGÄNZEN: {vorname}.{nachname}@smartfactory.com"
 
     return mitarbeiter
 
@@ -214,7 +214,7 @@ Name:           Max Mustermann
 Alter:          35 Jahre
 Abteilung:      Produktion
 Position:       Produktionsleiter
-E-Mail:         max.mustermann@bystronic.com
+E-Mail:         max.mustermann@smartfactory.com
 
 💰 GEHALTSINFORMATIONEN:
 Jahresgehalt:   CHF 85,000.00

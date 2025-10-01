@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Bystronic Python Grundkurs - Kapitel 2
+SmartFactory Python Grundkurs - Kapitel 2
 Beispiel: String-Manipulation und Formatierung
 
 Dieses Skript demonstriert die Arbeit mit Strings in Python
-für typische Bystronic-Anwendungen wie Dateipfade, Teilenummern,
+für typische SmartFactory-Anwendungen wie Dateipfade, Teilenummern,
 Berichte und Datenvalidierung.
 """
 
@@ -46,16 +46,16 @@ def main():
 def demonstrate_string_creation():
     """Verschiedene Arten der String-Erstellung"""
     # Einfache Strings
-    firma = "Bystronic"
+    firma = "SmartFactory"
     maschine = "ByStar Fiber"
 
     # Mehrzeilige Strings
-    beschreibung = """Bystronic ist ein führender Anbieter von
+    beschreibung = """SmartFactory ist ein führender Anbieter von
 Blechbearbeitungsmaschinen und Automatisierungslösungen
 für die industrielle Fertigung."""
 
     # Raw Strings (für Dateipfade, reguläre Ausdrücke)
-    dateipfad = r"C:\Bystronic\Daten\Produktion\2024\März"
+    dateipfad = r"C:\SmartFactory\Daten\Produktion\2024\März"
     regex_pattern = r"\d{4}-\d{2}-\d{2}"  # Datum-Pattern
 
     print(f"Firma: {firma}")
@@ -159,8 +159,8 @@ def demonstrate_string_validation():
 
     # E-Mail Validierung
     emails = [
-        "max.mustermann@bystronic.com",
-        "anna.mueller@bystronic.ch",
+        "max.mustermann@smartfactory.com",
+        "anna.mueller@smartfactory.ch",
         "invalid.email",
         "test@domain",
         "",
@@ -188,7 +188,7 @@ def demonstrate_string_validation():
 
 
 def demonstrate_practical_applications():
-    """Praktische String-Anwendungen für Bystronic"""
+    """Praktische String-Anwendungen für SmartFactory"""
 
     # 1. Dateinamen generieren
     print("1. Dateinamen generieren:")
@@ -265,7 +265,7 @@ Durchschn. Teile/Stunde: {gesamt_teile / gesamt_laufzeit:>8.1f}
 def parse_konfiguration():
     """Simuliert das Parsen einer Konfigurationsdatei"""
     config_text = """
-# Bystronic Maschinen-Konfiguration
+# SmartFactory Maschinen-Konfiguration
 LASER_POWER=6000
 CUTTING_SPEED=15.5
 MATERIAL_THICKNESS=2.5

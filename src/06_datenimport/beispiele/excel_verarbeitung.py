@@ -2,10 +2,10 @@
 """
 Excel Verarbeitung
 
-Umfassende Excel-Import/Export-Funktionen für Bystronic-Anwendungen.
+Umfassende Excel-Import/Export-Funktionen für SmartFactory-Anwendungen.
 Behandelt mehrere Arbeitsblätter, Formatierung und komplexe Strukturen.
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 """
 
 import warnings
@@ -30,9 +30,9 @@ def get_data_path(*args):
     return data_path
 
 
-class BystronicExcelHandler:
+class SmartFactoryExcelHandler:
     """
-    Klasse für die Verarbeitung von Excel-Dateien in Bystronic-Umgebung
+    Klasse für die Verarbeitung von Excel-Dateien in SmartFactory-Umgebung
     """
 
     def __init__(self):
@@ -530,7 +530,7 @@ class BystronicExcelHandler:
             Dictionary mit geladenen Daten
         """
         # Erstelle Beispieldaten falls keine vorhanden
-        sample_file = self.get_data_path("examples", "bystronic_comprehensive.xlsx")
+        sample_file = self.get_data_path("examples", "smartfactory_comprehensive.xlsx")
 
         if not Path(sample_file).exists():
             self.create_sample_workbook(sample_file)
@@ -546,7 +546,7 @@ class BystronicExcelHandler:
             return
 
         fig, axes = plt.subplots(2, 3, figsize=(20, 12))
-        fig.suptitle("Excel Datenanalyse - Bystronic Dashboard", fontsize=16)
+        fig.suptitle("Excel Datenanalyse - SmartFactory Dashboard", fontsize=16)
 
         # Plot 1: Monatsproduktion
         if "Tagesproduktion" in self.loaded_data:
@@ -659,10 +659,10 @@ def main():
     print("=" * 50)
 
     # Excel Handler initialisieren
-    excel_handler = BystronicExcelHandler()
+    excel_handler = SmartFactoryExcelHandler()
 
     # Beispiel-Arbeitsmappe erstellen
-    sample_file = get_data_path("examples", "bystronic_comprehensive.xlsx")
+    sample_file = get_data_path("examples", "smartfactory_comprehensive.xlsx")
     excel_handler.create_sample_workbook(sample_file)
 
     # Excel-Datei laden
@@ -683,7 +683,7 @@ def main():
             print(f"  {kpi}: {value}")
 
         # Erweiterte Arbeitsmappe exportieren
-        enhanced_file = get_data_path("examples", "bystronic_enhanced.xlsx")
+        enhanced_file = get_data_path("examples", "smartfactory_enhanced.xlsx")
         success = excel_handler.export_enhanced_workbook(enhanced_file)
 
         if success:

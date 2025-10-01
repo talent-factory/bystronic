@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 Beispiel: Mathematische Operationen mit NumPy
 
 Dieses Skript zeigt mathematische Funktionen und Berechnungen
-für industrielle Anwendungen bei Bystronic.
+für industrielle Anwendungen bei SmartFactory.
 """
 
 import math

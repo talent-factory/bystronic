@@ -41,7 +41,7 @@ class TestHelloWorld:
         # Überprüft, ob input aufgerufen wurde
         assert mock_input.called
 
-    @patch("builtins.input", return_value="Bystronic Entwickler")
+    @patch("builtins.input", return_value="SmartFactory Entwickler")
     @patch("builtins.print")
     def test_string_formatting_output(self, mock_print, mock_input):
         """Testet die String-Formatierung in der Ausgabe"""
@@ -56,7 +56,7 @@ class TestHelloWorld:
 
         # Überprüfe f-string Verwendung
         greeting_found = any(
-            "Hallo Bystronic Entwickler!" in call for call in print_calls
+            "Hallo SmartFactory Entwickler!" in call for call in print_calls
         )
         assert greeting_found, "Personalisierte Begrüßung nicht gefunden"
 

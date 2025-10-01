@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 Beispiel: NumPy Array-Grundlagen
 
 Dieses Skript demonstriert die Grundlagen von NumPy-Arrays
-für typische Bystronic-Anwendungen wie Messdaten, Koordinaten
+für typische SmartFactory-Anwendungen wie Messdaten, Koordinaten
 und Maschinendaten.
 """
 

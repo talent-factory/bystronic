@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Bystronic Python Grundkurs - Kapitel 2
+SmartFactory Python Grundkurs - Kapitel 2
 Beispiel: Zahlen und mathematische Operationen
 
 Dieses Skript demonstriert die Verwendung von Zahlen in Python
-für typische Bystronic-Anwendungen wie Berechnungen von Materialdicken,
+für typische SmartFactory-Anwendungen wie Berechnungen von Materialdicken,
 Schnittgeschwindigkeiten und Produktionszeiten.
 """
 
@@ -80,7 +80,7 @@ def main():
 
     demonstrate_math_operations()
 
-    # 6. Praktische Berechnungen für Bystronic
+    # 6. Praktische Berechnungen für SmartFactory
     print("\n6. PRAKTISCHE BERECHNUNGEN")
     print("-" * 30)
 

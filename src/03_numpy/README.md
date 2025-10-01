@@ -2,10 +2,10 @@
 
 ## Adaptives Lernsystem für heterogene Lerngruppen
 
-Willkommen zum dritten Kapitel des Python Grundkurses für Bystronic-Entwickler!
-Dieses Kapitel verwendet ein **3-stufiges adaptives Lernsystem**, das sich an
-Ihr Vorwissen anpasst und NumPy als mächtigste Python-Bibliothek für numerische
-Berechnungen vermittelt.
+Willkommen zum dritten Kapitel des Python Grundkurses für
+SmartFactory-Entwickler! Dieses Kapitel verwendet ein **3-stufiges adaptives
+Lernsystem**, das sich an Ihr Vorwissen anpasst und NumPy als mächtigste
+Python-Bibliothek für numerische Berechnungen vermittelt.
 
 ## 🎯 Adaptive Lernpfade
 
@@ -22,7 +22,7 @@ uv run python src/03_numpy/assessments/learning_path_assessment.py
 
 **Zielgruppe:** NumPy-Einsteiger, Grundlagen der numerischen Programmierung
 **Dauer:** 20-30 Minuten pro Übung **Fokus:** Array-Grundlagen, einfache
-Operationen, Bystronic-Anwendungen
+Operationen, SmartFactory-Anwendungen
 
 #### 🟡 Intermediate-Pfad (36-65 Punkte)
 
@@ -67,7 +67,7 @@ Integration
   \- Einfache mathematische Operationen
 - **[uebung_03_manipulation_beginner.py](exercises/beginner/uebung_03_manipulation_beginner.py)**
   \- Grundlegende Array-Manipulation
-- **[uebung_04_bystronic_daten_beginner.py](exercises/beginner/uebung_04_bystronic_daten_beginner.py)**
+- **[uebung_04_smartfactory_daten_beginner.py](exercises/beginner/uebung_04_smartfactory_daten_beginner.py)**
   \- Praktische Produktionsdaten-Verarbeitung
 
 #### 🟡 Intermediate Exercises
@@ -155,7 +155,7 @@ uv run python src/03_numpy/examples/performance_comparison.py
 uv run python src/03_numpy/exercises/beginner/uebung_01_arrays_beginner.py
 uv run python src/03_numpy/exercises/beginner/uebung_02_mathematik_beginner.py
 uv run python src/03_numpy/exercises/beginner/uebung_03_manipulation_beginner.py
-uv run python src/03_numpy/exercises/beginner/uebung_04_bystronic_daten_beginner.py
+uv run python src/03_numpy/exercises/beginner/uebung_04_smartfactory_daten_beginner.py
 ```
 
 #### 🟡 Intermediate-Pfad
@@ -197,7 +197,7 @@ Nach dem Intermediate-Pfad können Sie zusätzlich:
 - ✅ **Statistische Prozesskontrolle** (SPC) mit NumPy implementieren
 - ✅ **Matrix-Operationen** und lineare Algebra anwenden
 - ✅ **Mehrdimensionale Arrays** effizient manipulieren und transformieren
-- ✅ **Qualitätskontroll-Algorithmen** für Bystronic-Prozesse entwickeln
+- ✅ **Qualitätskontroll-Algorithmen** für SmartFactory-Prozesse entwickeln
 - ✅ **Performance-bewusste** NumPy-Programmierung betreiben
 
 ### 🔴 Advanced-Lernziele
@@ -337,7 +337,7 @@ result = np.dot(matrix1, matrix2)
 result = matrix1 @ matrix2
 ```
 
-## 📊 Praktische Anwendungen für Bystronic
+## 📊 Praktische Anwendungen für SmartFactory
 
 ### Produktionsdaten-Analyse
 
@@ -452,4 +452,4 @@ Nach erfolgreichem Abschluss dieses Kapitels: **→
 
 ______________________________________________________________________
 
-## 📊 Dieses Kapitel ist Teil des adaptiven Python Grundkurses für Bystronic-Entwickler
+## 📊 Dieses Kapitel ist Teil des adaptiven Python Grundkurses für SmartFactory-Entwickler

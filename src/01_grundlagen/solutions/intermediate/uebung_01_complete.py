@@ -155,7 +155,7 @@ def sammle_mitarbeiterdaten():
         # Automatische E-Mail-Generierung
         vorname_clean = re.sub(r"[^a-zA-Z]", "", mitarbeiter["vorname"].lower())
         nachname_clean = re.sub(r"[^a-zA-Z]", "", mitarbeiter["nachname"].lower())
-        mitarbeiter["email"] = f"{vorname_clean}.{nachname_clean}@bystronic.com"
+        mitarbeiter["email"] = f"{vorname_clean}.{nachname_clean}@smartfactory.com"
         print(f"📧 Automatisch generierte E-Mail: {mitarbeiter['email']}")
 
     # Zusätzliche optionale Daten

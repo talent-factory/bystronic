@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Bystronic Python Grundkurs - Kapitel 2
+SmartFactory Python Grundkurs - Kapitel 2
 VBA vs Python: Collections-Vergleich
 
 Dieses Skript zeigt die Unterschiede zwischen VBA und Python
 bei der Arbeit mit Collections/Datenstrukturen anhand
-praktischer Bystronic-Beispiele.
+praktischer SmartFactory-Beispiele.
 """
 
 
@@ -17,7 +17,7 @@ def main():
     print(
         """
 Dieser Vergleich zeigt, wie Collections und Datenstrukturen
-in VBA vs Python für typische Bystronic-Aufgaben verwendet werden.
+in VBA vs Python für typische SmartFactory-Aufgaben verwendet werden.
 """
     )
 

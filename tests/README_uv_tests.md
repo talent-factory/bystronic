@@ -1,6 +1,7 @@
 # UI-Tests mit uv Package Manager
 
-Anleitung für die Ausführung der UI-Tests im Bystronic Python-Grundkurs mit uv.
+Anleitung für die Ausführung der UI-Tests im SmartFactory Python-Grundkurs mit
+uv.
 
 ## Schnellstart
 

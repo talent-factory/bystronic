@@ -39,7 +39,7 @@ class LearningPathAssessment:
         print("🎯 EINGANGSASSESSMENT - Python Grundlagen Kapitel 01")
         print("=" * 70)
         print()
-        print("Willkommen zum Bystronic Python Grundkurs!")
+        print("Willkommen zum SmartFactory Python Grundkurs!")
         print()
         print("Dieses Assessment hilft uns dabei, den optimalen Lernpfad für Sie")
         print("zu bestimmen. Es dauert etwa 5-7 Minuten und berücksichtigt:")

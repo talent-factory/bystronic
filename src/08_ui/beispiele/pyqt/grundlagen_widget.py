@@ -45,7 +45,7 @@ class GrundlagenWidget(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("PyQt Grundlagen - Bystronic UI-Entwicklung")
+        self.setWindowTitle("PyQt Grundlagen - SmartFactory UI-Entwicklung")
         self.setGeometry(100, 100, 1000, 700)
 
         # Statusbar
@@ -102,7 +102,7 @@ class GrundlagenWidget(QMainWindow):
         main_layout = QVBoxLayout(central_widget)
 
         # Titel
-        title_label = QLabel("PyQt/PySide Grundlagen für Bystronic-Entwickler")
+        title_label = QLabel("PyQt/PySide Grundlagen für SmartFactory-Entwickler")
         title_font = QFont()
         title_font.setPointSize(16)
         title_font.setBold(True)
@@ -452,7 +452,7 @@ class GrundlagenWidget(QMainWindow):
             "Über diese Anwendung",
             "PyQt Grundlagen Demo\n\n"
             "Diese Anwendung demonstriert grundlegende PyQt/PySide-Konzepte "
-            "für Bystronic-Entwickler.\n\n"
+            "für SmartFactory-Entwickler.\n\n"
             "Erstellt für den Python Grundkurs.",
         )
 

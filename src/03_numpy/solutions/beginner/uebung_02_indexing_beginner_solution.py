@@ -5,9 +5,9 @@ NumPy Indexing & Slicing - Vollständige Beginner Solution
 
 Vollständige Musterlösung für NumPy Indexing und Slicing Übungen.
 Diese Solution demonstriert alle wichtigen Indexing-Techniken mit
-realistischen Bystronic-Anwendungsbeispielen aus der Industrie.
+realistischen SmartFactory-Anwendungsbeispielen aus der Industrie.
 
-Author: Python Expert für Bystronic
+Author: Python Expert für SmartFactory
 Date: 2025-09-16
 """
 
@@ -43,7 +43,7 @@ class NumPyIndexingSolution:
         Aufgabe 1: Einfaches Indexing - Vollständige Lösung
 
         Demonstriert grundlegendes Array-Indexing mit Temperaturmessungen
-        aus einer Bystronic-Fertigungsanlage über 24 Stunden.
+        aus einer SmartFactory-Fertigungsanlage über 24 Stunden.
 
         Returns:
             Tuple[np.ndarray, TemperaturAnalyse]: Temperaturdaten und Analyse
@@ -176,7 +176,7 @@ class NumPyIndexingSolution:
         Aufgabe 2: Array Slicing - Vollständige Lösung
 
         Demonstriert fortgeschrittenes Array-Slicing mit Produktionsdaten
-        einer Bystronic-Pressbrake über zwei Wochen.
+        einer SmartFactory-Pressbrake über zwei Wochen.
 
         Returns:
             Tuple[np.ndarray, np.ndarray, np.ndarray]: Gesamtdaten, Woche1, Woche2
@@ -307,7 +307,7 @@ class NumPyIndexingSolution:
         Aufgabe 3: 2D Array Indexing - Vollständige Lösung
 
         Demonstriert 2D-Array-Indexing mit Qualitätsmessungen von
-        5 Bystronic-Laser-Schneidanlagen über 8 Stunden.
+        5 SmartFactory-Laser-Schneidanlagen über 8 Stunden.
 
         Returns:
             np.ndarray: 2D Qualitätsdaten-Matrix
@@ -456,7 +456,7 @@ class NumPyIndexingSolution:
         Aufgabe 4: Boolean Indexing - Vollständige Lösung
 
         Demonstriert Boolean-Indexing mit Maschinendaten einer
-        Bystronic-Produktionslinie für Qualitätskontrolle.
+        SmartFactory-Produktionslinie für Qualitätskontrolle.
 
         Returns:
             Tuple[np.ndarray, np.ndarray, List[np.ndarray]]:
@@ -494,7 +494,7 @@ class NumPyIndexingSolution:
             ]
         )
 
-        print(f"📊 Maschinendaten Bystronic-Linie: {maschinendaten}")
+        print(f"📊 Maschinendaten SmartFactory-Linie: {maschinendaten}")
         print(f"Anzahl Messwerte: {len(maschinendaten)}")
         print(f"Mittelwert: {np.mean(maschinendaten):.1f}%")
         print(f"Standardabweichung: {np.std(maschinendaten):.1f}%")
@@ -645,7 +645,7 @@ class NumPyIndexingSolution:
         Aufgabe 5: Fancy Indexing - Vollständige Lösung
 
         Demonstriert fortgeschrittenes Fancy Indexing mit Sensordaten
-        eines Bystronic-Überwachungssystems.
+        eines SmartFactory-Überwachungssystems.
 
         Returns:
             Tuple[np.ndarray, np.ndarray, np.ndarray]:
@@ -1088,7 +1088,7 @@ class NumPyIndexingSolution:
         """
         print("🔍 NumPy Indexing & Slicing - Vollständige Musterlösung")
         print("=" * 70)
-        print("Bystronic Python Grundkurs - Industrielle Datenanalyse")
+        print("SmartFactory Python Grundkurs - Industrielle Datenanalyse")
         print("=" * 70)
 
         try:
@@ -1125,7 +1125,7 @@ class NumPyIndexingSolution:
     ) -> None:
         """Drucke Zusammenfassung aller Analysen"""
         print("\n" + "=" * 70)
-        print("📊 ZUSAMMENFASSUNG - Bystronic Indexing & Slicing Analyse")
+        print("📊 ZUSAMMENFASSUNG - SmartFactory Indexing & Slicing Analyse")
         print("=" * 70)
 
         print("🌡️ Temperaturanalyse:")
@@ -1204,12 +1204,12 @@ if __name__ == "__main__":
 • Realistic Industrial Data Patterns
 
 📈 NÄCHSTE SCHRITTE:
-1. Übung mit eigenen Bystronic-Datensätzen
+1. Übung mit eigenen SmartFactory-Datensätzen
 2. Integration in bestehende VBA-zu-Python Migration
 3. Erweiterte NumPy-Funktionen (Universal Functions, Broadcasting)
 4. Performance-Profiling für große Datensätze
 5. Integration mit Pandas für strukturierte Datenanalyse
 
 💡 Diese Solution demonstriert production-ready NumPy Code für
-   industrielle Datenanalyse-Anwendungen bei Bystronic.
+   industrielle Datenanalyse-Anwendungen bei SmartFactory.
 """

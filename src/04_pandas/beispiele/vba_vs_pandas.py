@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-VBA vs Pandas Vergleich - Tutorial für Bystronic
+VBA vs Pandas Vergleich - Tutorial für SmartFactory
 
 Dieses Beispiel zeigt direkte Vergleiche zwischen VBA/Excel und Pandas/Python:
 - Datenmanipulation
@@ -9,7 +9,7 @@ Dieses Beispiel zeigt direkte Vergleiche zwischen VBA/Excel und Pandas/Python:
 - Automatisierung
 - Performance-Unterschiede
 
-Für Bystronic-Entwickler: Migration von VBA zu Python/Pandas
+Für SmartFactory-Entwickler: Migration von VBA zu Python/Pandas
 """
 
 import time
@@ -22,7 +22,7 @@ print("⚔️  VBA/EXCEL vs PANDAS/PYTHON VERGLEICH")
 print("=" * 70)
 
 
-# Beispieldaten erstellen (repräsentativ für Bystronic-Daten)
+# Beispieldaten erstellen (repräsentativ für SmartFactory-Daten)
 def create_comparison_data():
     """Erstelle Daten, die typisch für VBA-Automatisierungen sind"""
     np.random.seed(42)
@@ -659,4 +659,4 @@ print("✅ Bessere Fehlerbehandlung und Testing")
 print("✅ Zukunftssicher und industrieller Standard")
 print("\n💡 Fazit: Die Migration von VBA zu Python/Pandas ist")
 print("   nicht nur empfohlen, sondern essentiell für")
-print("   moderne Datenverarbeitung bei Bystronic!")
+print("   moderne Datenverarbeitung bei SmartFactory!")

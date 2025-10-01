@@ -297,4 +297,4 @@ ______________________________________________________________________
 Ihren Fähigkeiten an.**
 
 *Diese adaptive Übungsstruktur wurde speziell für heterogene Lerngruppen im
-Bystronic Python Grundkurs entwickelt.*
+SmartFactory Python Grundkurs entwickelt.*

@@ -59,7 +59,7 @@ class DatabaseManager:
     def __init__(self, db_path=None):
         # Verwende eine persistente Datei statt In-Memory-DB für bessere Stabilität
         if db_path is None:
-            self.db_path = os.path.join(tempfile.gettempdir(), "bystronic_demo.db")
+            self.db_path = os.path.join(tempfile.gettempdir(), "smartfactory_demo.db")
         else:
             self.db_path = db_path
         self.init_database()
@@ -483,7 +483,7 @@ class DatenbankBrowser(QMainWindow):
 
     def __init__(self, db_path=None):
         super().__init__()
-        self.setWindowTitle("Bystronic Datenbank-Browser")
+        self.setWindowTitle("SmartFactory Datenbank-Browser")
         self.setGeometry(100, 100, 1200, 800)
 
         # Datenbankmanager

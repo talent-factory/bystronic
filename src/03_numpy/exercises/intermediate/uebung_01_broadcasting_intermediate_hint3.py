@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 🟡 INTERMEDIATE - NumPy Broadcasting - HINT 3 (Code-Snippets)
-Übung 1: Broadcasting für Bystronic Produktionsoptimierung
+Übung 1: Broadcasting für SmartFactory Produktionsoptimierung
 
 🎯 DETAILLIERTE CODE-BEISPIELE:
 """

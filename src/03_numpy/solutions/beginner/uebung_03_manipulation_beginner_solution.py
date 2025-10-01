@@ -4,10 +4,10 @@ NumPy Array-Manipulation - Vollständige Beginner Solution
 =========================================================
 
 Vollständige Musterlösung für NumPy Array-Manipulation mit
-Fokus auf industrielle Bystronic-Anwendungen. Diese Solution
+Fokus auf industrielle SmartFactory-Anwendungen. Diese Solution
 demonstriert alle wichtigen Array-Manipulationstechniken.
 
-Author: Python Expert für Bystronic
+Author: Python Expert für SmartFactory
 Date: 2025-09-16
 """
 
@@ -66,7 +66,7 @@ class NumPyManipulationSolution:
         Aufgabe 1: Array Reshape und Transpose - Vollständige Lösung
 
         Demonstriert fundamentale Array-Umformung mit kontinuierlichen
-        Produktionsdaten einer Bystronic-Anlage über 72 Stunden.
+        Produktionsdaten einer SmartFactory-Anlage über 72 Stunden.
 
         Returns:
             Tuple[np.ndarray, np.ndarray]: Umgeformte Arrays und transponierte Version
@@ -228,7 +228,7 @@ class NumPyManipulationSolution:
         Aufgabe 2: Arrays kombinieren - Vollständige Lösung
 
         Demonstriert verschiedene Methoden zur Array-Kombination mit
-        Multi-Schicht-Produktionsdaten von Bystronic-Maschinen.
+        Multi-Schicht-Produktionsdaten von SmartFactory-Maschinen.
 
         Returns:
             Tuple[np.ndarray, np.ndarray]: Kombinierte Arrays
@@ -241,10 +241,10 @@ class NumPyManipulationSolution:
         # Format: [Maschinen × Stunden]
         schicht_1_frueh = np.array(
             [
-                [45, 52, 48, 55],  # Bystronic Laser 1 - Hochleistungsmodell
-                [38, 41, 44, 39],  # Bystronic Laser 2 - Standard
-                [62, 58, 61, 59],  # Bystronic Laser 3 - Premium
-                [51, 49, 53, 47],  # Bystronic Laser 4 - Mittelklasse
+                [45, 52, 48, 55],  # SmartFactory Laser 1 - Hochleistungsmodell
+                [38, 41, 44, 39],  # SmartFactory Laser 2 - Standard
+                [62, 58, 61, 59],  # SmartFactory Laser 3 - Premium
+                [51, 49, 53, 47],  # SmartFactory Laser 4 - Mittelklasse
             ]
         )
 
@@ -257,7 +257,7 @@ class NumPyManipulationSolution:
             ]
         )
 
-        print("📊 Produktionsdaten Bystronic Laser-Schneidanlagen:")
+        print("📊 Produktionsdaten SmartFactory Laser-Schneidanlagen:")
         print("Frühschicht (4 Laser × 4 Stunden):")
         for i, maschine in enumerate(schicht_1_frueh):
             summe = np.sum(maschine)
@@ -389,7 +389,7 @@ class NumPyManipulationSolution:
         Aufgabe 3: Boolean Indexing für Qualitätskontrolle - Vollständige Lösung
 
         Demonstriert umfassendes Boolean Indexing mit realistischen
-        Qualitätsmessungen aus Bystronic-Präzisionsfertigung.
+        Qualitätsmessungen aus SmartFactory-Präzisionsfertigung.
 
         Returns:
             Tuple mit Messdaten, Ausreißern, guten Messungen und Qualitätsanalyse
@@ -422,7 +422,7 @@ class NumPyManipulationSolution:
         messungen = np.round(messungen, 4)
 
         print(
-            f"📊 Qualitätsmessungen Bystronic Laser-Präzision ({anzahl_messungen} Teile):"
+            f"📊 Qualitätsmessungen SmartFactory Laser-Präzision ({anzahl_messungen} Teile):"
         )
         print(
             f"Sollwert: {self.sollwert_praezision:.3f} mm ± {self.toleranz_standard:.3f} mm"
@@ -577,7 +577,7 @@ class NumPyManipulationSolution:
         Aufgabe 4: Erweiterte Array-Manipulation - Vollständige Lösung
 
         Demonstriert komplexe Multi-dimensionale Array-Operationen mit
-        realistischen Produktionsdaten einer Bystronic-Fertigungslinie.
+        realistischen Produktionsdaten einer SmartFactory-Fertigungslinie.
 
         Returns:
             Tuple mit Produktionsdaten und Statistiken
@@ -621,7 +621,7 @@ class NumPyManipulationSolution:
                     wert = basis * tag_faktor * stunden_variation[stunde] * variation
                     produktion_woche[tag, schicht, stunde] = max(20, int(wert))
 
-        print("📊 Produktionsdaten Bystronic-Fertigungslinie:")
+        print("📊 Produktionsdaten SmartFactory-Fertigungslinie:")
         print(f"Dimensionen: {produktion_woche.shape} (Werktage × Schichten × Stunden)")
         print(f"Gesamtproduktion Woche: {np.sum(produktion_woche)} Teile")
         print(f"Durchschnitt pro Stunde: {np.mean(produktion_woche):.1f} Teile/h")
@@ -1150,7 +1150,7 @@ class NumPyManipulationSolution:
         """
         print("🔧 NumPy Array-Manipulation - Vollständige Musterlösung")
         print("=" * 70)
-        print("Bystronic Python Grundkurs - Industrielle Array-Verarbeitung")
+        print("SmartFactory Python Grundkurs - Industrielle Array-Verarbeitung")
         print("=" * 70)
 
         try:
@@ -1192,7 +1192,7 @@ class NumPyManipulationSolution:
     ) -> None:
         """Drucke finale Zusammenfassung aller Analysen"""
         print("\n" + "=" * 70)
-        print("📊 FINALE ZUSAMMENFASSUNG - Bystronic Array-Manipulation")
+        print("📊 FINALE ZUSAMMENFASSUNG - SmartFactory Array-Manipulation")
         print("=" * 70)
 
         print("🎯 Qualitätskontrolle:")
@@ -1220,7 +1220,7 @@ class NumPyManipulationSolution:
         print("   ✅ Memory-effiziente Operationen angewendet")
 
         print("\n💡 Diese Solution demonstriert production-ready NumPy Code")
-        print("   für industrielle Datenverarbeitung bei Bystronic.")
+        print("   für industrielle Datenverarbeitung bei SmartFactory.")
 
 
 def main():
@@ -1284,5 +1284,5 @@ if __name__ == "__main__":
 5. Parallelisierung für große Produktionsdatensätze
 
 🎓 Diese Solution demonstriert professionelle NumPy Array-Manipulation
-   für anspruchsvolle industrielle Datenverarbeitung bei Bystronic.
+   für anspruchsvolle industrielle Datenverarbeitung bei SmartFactory.
 """

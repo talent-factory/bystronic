@@ -172,7 +172,7 @@ Diese Tests gewährleisten:
    Werten
 1. **Performance-Validierung**: Verifikation der vektorisierten Operationen
 1. **Industrielle Anwendbarkeit**: Tests basieren auf realen
-   Bystronic-Anwendungsfällen
+   SmartFactory-Anwendungsfällen
 1. **Lehrwert**: Tests dienen als Referenz für Best Practices
 
 ## 🎓 Lernziele der Tests

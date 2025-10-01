@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-hello_world.py - Erstes Python-Programm für Bystronic-Entwickler
+hello_world.py - Erstes Python-Programm für SmartFactory-Entwickler
 
 Dieses Programm demonstriert die Grundlagen von Python-Syntax
 und zeigt einfache Ausgaben und Variablen-Verwendung.
@@ -16,7 +16,7 @@ def main() -> None:
     print("=" * 50)
 
     # Variablen definieren
-    name = "Bystronic Entwickler"
+    name = "SmartFactory Entwickler"
     jahr = 2025
     sprache = "Python"
 

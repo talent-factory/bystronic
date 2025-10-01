@@ -1,7 +1,7 @@
 [project]
-name = "bystronic"
+name = "smartfactory"
 version = "0.1.0"
-description = "Python Grundkurs für Bystronic-Entwickler mit Fokus auf Datenanalyse"
+description = "Python Grundkurs für SmartFactory-Entwickler mit Fokus auf Datenanalyse"
 readme = "README.md"
 requires-python = ">=3.13.1"
 dependencies = [

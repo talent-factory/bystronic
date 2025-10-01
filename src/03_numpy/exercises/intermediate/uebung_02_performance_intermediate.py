@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 NumPy Übung 2: Performance-Optimierung und Profiling (Intermediate)
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 
 Diese Übung fokussiert auf Performance-kritische NumPy-Techniken für
 produktive Anwendungen mit großen Datenmengen.
@@ -11,7 +11,7 @@ Lernziele:
 - Memory-effiziente Programmierung mit NumPy
 - Profiling-Tools für NumPy-Code verwenden
 - Vectorization vs. Loops optimieren
-- Production-Ready Code für Bystronic-Anwendungen
+- Production-Ready Code für SmartFactory-Anwendungen
 
 Schwierigkeitsgrad: 🟡 Intermediate
 Geschätzte Bearbeitungszeit: 40-45 Minuten
@@ -885,7 +885,7 @@ def aufgabe_5_production_performance():
     print("🎯 AUFGABE 5: PRODUCTION-READY PERFORMANCE-PATTERNS")
     print("-" * 50)
     print("Ziel: Implementiere produktions-taugliche Performance-Patterns")
-    print("für Bystronic-Anwendungen mit großen Datenmengen")
+    print("für SmartFactory-Anwendungen mit großen Datenmengen")
     print()
 
     start_time = time.time()

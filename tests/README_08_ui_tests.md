@@ -1,6 +1,6 @@
 # Tests für Modul 08 - UI-Entwicklung
 
-Umfassende Testdokumentation für PyQt und Streamlit Beispiele im Bystronic
+Umfassende Testdokumentation für PyQt und Streamlit Beispiele im SmartFactory
 Python-Grundkurs.
 
 ## Übersicht
@@ -337,7 +337,7 @@ python -m pytest --json-report --json-report-file=report.json
 
 ______________________________________________________________________
 
-**Hinweis**: Diese Tests sind speziell für den Bystronic Python-Grundkurs
+**Hinweis**: Diese Tests sind speziell für den SmartFactory Python-Grundkurs
 entwickelt und demonstrieren professionelle Test-Techniken für UI-Anwendungen.
 Sie dienen sowohl der Qualitätssicherung als auch als Lernmaterial für die
 Kursteilnehmer.

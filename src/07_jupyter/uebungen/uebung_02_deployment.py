@@ -300,7 +300,7 @@ class DockerDeploymentManager:
     - Service-Konfiguration
     """
 
-    def __init__(self, projekt_name: str = "bystronic-jupyter"):
+    def __init__(self, projekt_name: str = "smartfactory-jupyter"):
         self.projekt_name = projekt_name
         self.basis_image = "jupyter/scipy-notebook:latest"
 
@@ -315,10 +315,10 @@ class DockerDeploymentManager:
         Returns:
             True bei Erfolg
         """
-        dockerfile_inhalt = f"""# Bystronic Jupyter Deployment
+        dockerfile_inhalt = f"""# SmartFactory Jupyter Deployment
 FROM {self.basis_image}
 
-LABEL maintainer="Bystronic <info@bystronic.com>"
+LABEL maintainer="SmartFactory <info@smartfactory.com>"
 LABEL description="Jupyter Environment für {self.projekt_name}"
 
 USER root
@@ -497,7 +497,7 @@ def erweiterte_herausforderungen():
 
 
 if __name__ == "__main__":
-    print("📚 Jupyter Deployment Übung - Bystronic")
+    print("📚 Jupyter Deployment Übung - SmartFactory")
     print("=" * 50)
 
     print("🎯 Lernziele:")

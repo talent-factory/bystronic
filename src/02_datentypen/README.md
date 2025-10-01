@@ -2,9 +2,9 @@
 
 ## Adaptives Lernsystem für heterogene Lerngruppen
 
-Willkommen zum zweiten Kapitel des Python Grundkurses für Bystronic-Entwickler!
-Dieses Kapitel verwendet ein **3-stufiges adaptives Lernsystem**, das sich an
-Ihr Vorwissen anpasst.
+Willkommen zum zweiten Kapitel des Python Grundkurses für
+SmartFactory-Entwickler! Dieses Kapitel verwendet ein **3-stufiges adaptives
+Lernsystem**, das sich an Ihr Vorwissen anpasst.
 
 ## 🎯 Adaptive Lernpfade
 
@@ -19,21 +19,19 @@ uv run python src/02_datentypen/assessments/learning_path_assessment.py
 
 #### 🟢 Beginner-Pfad (0-40 Punkte)
 
-**Zielgruppe:** Programmier-Einsteiger, erste Schritte mit Datentypen
-**Dauer:** 15-25 Minuten pro Übung
-**Fokus:** Grundlagen verstehen, praktische Anwendung
+**Zielgruppe:** Programmier-Einsteiger, erste Schritte mit Datentypen **Dauer:**
+15-25 Minuten pro Übung **Fokus:** Grundlagen verstehen, praktische Anwendung
 
 #### 🟡 Intermediate-Pfad (41-70 Punkte)
 
 **Zielgruppe:** Programmiererfahrung vorhanden, erweiterte Datenverarbeitung
-**Dauer:** 25-40 Minuten pro Übung
-**Fokus:** Funktionale Programmierung, Statistik, Fehlerbehandlung
+**Dauer:** 25-40 Minuten pro Übung **Fokus:** Funktionale Programmierung,
+Statistik, Fehlerbehandlung
 
 #### 🔴 Advanced-Pfad (71-100 Punkte)
 
-**Zielgruppe:** Erfahrene Entwickler, professionelle Systeme
-**Dauer:** 45-60 Minuten pro Übung
-**Fokus:** OOP, Design Patterns, Enterprise-Standards
+**Zielgruppe:** Erfahrene Entwickler, professionelle Systeme **Dauer:** 45-60
+Minuten pro Übung **Fokus:** OOP, Design Patterns, Enterprise-Standards
 
 ## 📁 Neue Struktur
 
@@ -57,30 +55,30 @@ uv run python src/02_datentypen/assessments/learning_path_assessment.py
 
 #### 🟢 Beginner Exercises
 
-- **[uebung_01_zahlen_beginner.py](exercises/beginner/uebung_01_zahlen_beginner.py)** -
-  Grundlagen der Zahlentypen
-- **[uebung_02_strings_beginner.py](exercises/beginner/uebung_02_strings_beginner.py)** -
-  Einfache String-Operationen
-- **[uebung_03_collections_beginner.py](exercises/beginner/uebung_03_collections_beginner.py)** -
-  Listen und Dictionaries
+- **[uebung_01_zahlen_beginner.py](exercises/beginner/uebung_01_zahlen_beginner.py)**
+  \- Grundlagen der Zahlentypen
+- **[uebung_02_strings_beginner.py](exercises/beginner/uebung_02_strings_beginner.py)**
+  \- Einfache String-Operationen
+- **[uebung_03_collections_beginner.py](exercises/beginner/uebung_03_collections_beginner.py)**
+  \- Listen und Dictionaries
 
 #### 🟡 Intermediate Exercises
 
-- **[uebung_01_zahlen_intermediate.py](exercises/intermediate/uebung_01_zahlen_intermediate.py)** -
-  Erweiterte Zahlenoperationen
-- **[uebung_02_strings_intermediate.py](exercises/intermediate/uebung_02_strings_intermediate.py)** -
-  String-Verarbeitung und Regex
-- **[uebung_03_collections_intermediate.py](exercises/intermediate/uebung_03_collections_intermediate.py)** -
-  Komplexe Datenstrukturen
+- **[uebung_01_zahlen_intermediate.py](exercises/intermediate/uebung_01_zahlen_intermediate.py)**
+  \- Erweiterte Zahlenoperationen
+- **[uebung_02_strings_intermediate.py](exercises/intermediate/uebung_02_strings_intermediate.py)**
+  \- String-Verarbeitung und Regex
+- **[uebung_03_collections_intermediate.py](exercises/intermediate/uebung_03_collections_intermediate.py)**
+  \- Komplexe Datenstrukturen
 
 #### 🔴 Advanced Exercises
 
-- **[uebung_01_zahlen_advanced.py](exercises/advanced/uebung_01_zahlen_advanced.py)** -
-  OOP-Zahlenverarbeitung
-- **[uebung_02_strings_advanced.py](exercises/advanced/uebung_02_strings_advanced.py)** -
-  Enterprise String-Processing
-- **[uebung_03_collections_advanced.py](exercises/advanced/uebung_03_collections_advanced.py)** -
-  Design Patterns für Collections
+- **[uebung_01_zahlen_advanced.py](exercises/advanced/uebung_01_zahlen_advanced.py)**
+  \- OOP-Zahlenverarbeitung
+- **[uebung_02_strings_advanced.py](exercises/advanced/uebung_02_strings_advanced.py)**
+  \- Enterprise String-Processing
+- **[uebung_03_collections_advanced.py](exercises/advanced/uebung_03_collections_advanced.py)**
+  \- Design Patterns für Collections
 
 ### 🆘 4-Stufen-Hilfesystem
 
@@ -203,7 +201,7 @@ komplexe_zahl = 3 + 4j             # complex
 boolean_wert = True                # bool
 
 # Text
-text = "Bystronic"                 # str
+text = "SmartFactory"                 # str
 mehrzeiliger_text = """
 Mehrere
 Zeilen
@@ -321,7 +319,7 @@ Bevor Sie zum nächsten Kapitel wechseln:
 - [ ] Können Sie zwischen Datentypen konvertieren?
 - [ ] Haben Sie alle vier Übungen erfolgreich gelöst?
 
-## 📊 Praktische Anwendungen für Bystronic
+## 📊 Praktische Anwendungen für SmartFactory
 
 ### Maschinendaten verwalten
 
@@ -406,9 +404,9 @@ fehlerhafte_teile = [m for m in messungen if not m["ok"]]
 
 ## ➡️ Nächste Schritte
 
-Nach erfolgreichem Abschluss dieses Kapitels:
-**→ [Kapitel 3: NumPy für numerische Berechnungen](../03_numpy/README.md)**
+Nach erfolgreichem Abschluss dieses Kapitels: **→
+[Kapitel 3: NumPy für numerische Berechnungen](../03_numpy/README.md)**
 
----
+______________________________________________________________________
 
-## 📊 Dieses Kapitel ist Teil des adaptiven Python Grundkurses für Bystronic-Entwickler
+## 📊 Dieses Kapitel ist Teil des adaptiven Python Grundkurses für SmartFactory-Entwickler

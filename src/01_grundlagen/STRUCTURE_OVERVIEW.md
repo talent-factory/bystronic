@@ -227,5 +227,5 @@ ______________________________________________________________________
 einem adaptiven, datengetriebenen Lernsystem, das heterogene Lerngruppen optimal
 unterstützt.**
 
-*Entwickelt für den Bystronic Python Grundkurs - Pädagogische Innovation durch
-Technologie.*
+*Entwickelt für den SmartFactory Python Grundkurs - Pädagogische Innovation
+durch Technologie.*

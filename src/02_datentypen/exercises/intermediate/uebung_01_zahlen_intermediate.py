@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🟡 INTERMEDIATE - Bystronic Python Grundkurs - Kapitel 2
+🟡 INTERMEDIATE - SmartFactory Python Grundkurs - Kapitel 2
 Übung 1: Erweiterte Zahlenoperationen
 
 🎯 LERNZIELE (25-35 Minuten):
@@ -233,7 +233,7 @@ def main():
     """🚀 Hauptprogramm - Interaktive Demonstration"""
     print("🟡 INTERMEDIATE: Erweiterte Zahlenoperationen")
     print("=" * 60)
-    print("🏭 Professionelle Berechnungen für Bystronic-Produktionsdaten")
+    print("🏭 Professionelle Berechnungen für SmartFactory-Produktionsdaten")
     print()
 
     try:

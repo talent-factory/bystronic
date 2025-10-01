@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 NumPy Übung 1: Hochleistungs-Computing und Parallelisierung (Advanced)
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 
 Diese Übung behandelt fortgeschrittene Hochleistungs-Techniken mit NumPy für
 massive Datenmengen und parallelisierte Berechnungen in Produktionsumgebungen.

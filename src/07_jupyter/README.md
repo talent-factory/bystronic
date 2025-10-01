@@ -1,12 +1,12 @@
-# Jupyter Notebook Modul - Bystronic Python Grundkurs
+# Jupyter Notebook Modul - SmartFactory Python Grundkurs
 
 **Autor:** Daniel Senften **Version:** 1.0 **Datum:** 2024
 
 ## Überblick
 
 Dieses Modul behandelt erweiterte Jupyter Notebook Features und
-Deployment-Strategien für professionelle Anwendungen bei Bystronic. Es umfasst
-sowohl theoretische Grundlagen als auch praktische Implementierungen für
+Deployment-Strategien für professionelle Anwendungen bei SmartFactory. Es
+umfasst sowohl theoretische Grundlagen als auch praktische Implementierungen für
 Produktionsumgebungen.
 
 ## Struktur
@@ -114,8 +114,8 @@ Nach Abschluss dieses Moduls können Teilnehmer:
 
 Bei Fragen oder Verbesserungsvorschlägen wenden Sie sich an:
 
-- **Daniel Senften** - <daniel.senften@bystronic.com>
+- **Daniel Senften** - <daniel.senften@smartfactory.com>
 
 ## Lizenz
 
-Dieses Material ist für interne Schulungszwecke bei Bystronic entwickelt.
+Dieses Material ist für interne Schulungszwecke bei SmartFactory entwickelt.

@@ -3,8 +3,8 @@
 ## 🎯 Übersicht
 
 Diese Test-Suite überprüft alle Funktionalitäten des Datenimport-Moduls (Modul
-06\) des Python Grundkurses für Bystronic-Entwickler. Die Tests decken CSV-Import
-mit komplexen Strukturen, Excel-Verarbeitung, JSON-Datenverarbeitung,
+06\) des Python Grundkurses für SmartFactory-Entwickler. Die Tests decken
+CSV-Import mit komplexen Strukturen, Excel-Verarbeitung, JSON-Datenverarbeitung,
 Datenbereinigung und Export-Funktionen ab.
 
 ## 📋 Test-Kategorien
@@ -38,13 +38,13 @@ def test_csv_fehlende_werte(self):
     # Überprüft verschiedene Strategien: dropna(), fillna() mit mean/median
 ```
 
-### 2. Bystronic CSV Parser Tests (`TestBystronicCSVParser`)
+### 2. SmartFactory CSV Parser Tests (`TestSmartFactoryCSVParser`)
 
-**Zweck**: Spezielle Tests für den industriellen Bystronic CSV Parser
+**Zweck**: Spezielle Tests für den industriellen SmartFactory CSV Parser
 
 **Getestete Funktionen**:
 
-- `BystronicCSVParser` - Klasse für komplexe CSV-Strukturen
+- `SmartFactoryCSVParser` - Klasse für komplexe CSV-Strukturen
 - Automatische Struktur-Erkennung
 - Metadaten-Extraktion
 - Datenvalidierung
@@ -81,7 +81,7 @@ def test_data_validation(self):
 
 **Getestete Funktionen**:
 
-- Bystronic_Maschinen_Export_2024.csvsende Excel-Verarbeitung
+- SmartFactory_Maschinen_Export_2024.csvsende Excel-Verarbeitung
 - Multi-Sheet Loading
 - KPI-Berechnungen
 - Excel-Export mit Formatierung
@@ -119,7 +119,7 @@ def test_excel_kpi_calculation(self):
 ```json
 {
   "metadata": {
-    "system": "Bystronic IoT Platform",
+    "system": "SmartFactory IoT Platform",
     "timestamp": "2024-01-15T08:30:00Z"
   },
   "sensors": [
@@ -248,7 +248,7 @@ pytest tests/test_06_datenimport.py --cov=src.datenimport --cov-report=html
 
 ```bash
 # Nur Parser-Tests
-pytest tests/test_06_datenimport.py::TestBystronicCSVParser -v
+pytest tests/test_06_datenimport.py::TestSmartFactoryCSVParser -v
 
 # Nur Integration-Tests
 pytest tests/test_06_datenimport.py::TestIntegration -v
@@ -262,7 +262,7 @@ pytest tests/test_06_datenimport.py -v --tb=long -s
 ### Fixtures und Setup
 
 - **Temporäre Verzeichnisse**: Jeder Test verwendet eigene temp-Directories
-- **Mock-Daten**: Realistische Bystronic-Datenstrukturen
+- **Mock-Daten**: Realistische SmartFactory-Datenstrukturen
 - **Automatisches Cleanup**: Temp-Files werden nach Tests entfernt
 
 ### Abhängigkeiten
@@ -289,7 +289,7 @@ import pyarrow as pa  # Wird graceful gehandhabt wenn nicht verfügbar
 1. **Tab-Format**: Tab-getrennt, für technische Daten
 1. **Problematische Daten**: Fehlende Werte, Encoding-Probleme
 
-### Bystronic CSV Spezial-Format
+### SmartFactory CSV Spezial-Format
 
 ```
 Name    Distance Control

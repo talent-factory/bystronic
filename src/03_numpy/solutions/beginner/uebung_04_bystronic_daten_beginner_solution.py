@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-NumPy Bystronic-Datenverarbeitung - Vollständige Beginner Solution
+NumPy SmartFactory-Datenverarbeitung - Vollständige Beginner Solution
 ================================================================
 
-Vollständige Musterlösung für praktische Bystronic-Datenverarbeitung.
+Vollständige Musterlösung für praktische SmartFactory-Datenverarbeitung.
 Diese Solution demonstriert reale industrielle Anwendungen mit
 kompletten Produktions- und Qualitätsdatenanalysen.
 
-Author: Python Expert für Bystronic
+Author: Python Expert für SmartFactory
 Date: 2025-09-16
 """
 
@@ -98,9 +98,9 @@ class PerformanceMetriken:
     memory_usage_python: int
 
 
-class BystronicDatenverarbeitungSolution:
+class SmartFactoryDatenverarbeitungSolution:
     """
-    Vollständige NumPy-basierte Bystronic-Datenverarbeitung Solution
+    Vollständige NumPy-basierte SmartFactory-Datenverarbeitung Solution
     """
 
     def __init__(self, debug_mode: bool = False, seed: int = 42):
@@ -131,7 +131,7 @@ class BystronicDatenverarbeitungSolution:
         # Reproduzierbare Ergebnisse für Tests und Validierung
         np.random.seed(self.seed)
 
-        print("🏭 Simuliere realistische Bystronic-Produktionsdaten...")
+        print("🏭 Simuliere realistische SmartFactory-Produktionsdaten...")
         print(
             f"Basis-Produktion: {self.produktions_parameter.basis_produktion} Stück/Stunde"
         )
@@ -417,9 +417,9 @@ class BystronicDatenverarbeitungSolution:
         # Separater Seed für Qualitätsdaten
         np.random.seed(self.seed + 100)
 
-        print("🔍 Simuliere realistische Bystronic-Qualitätsmessungen...")
+        print("🔍 Simuliere realistische SmartFactory-Qualitätsmessungen...")
 
-        # Qualitätsparameter (realistische Bystronic-Werte)
+        # Qualitätsparameter (realistische SmartFactory-Werte)
         basis_qualitaet = 0.978  # 97.8% Basis-Qualität
         qualitaets_std = 0.015  # 1.5% Standardabweichung
         schicht_qualitaets_faktoren = [0.012, 0.008, -0.018]  # Tag > Spät > Nacht
@@ -989,9 +989,9 @@ class BystronicDatenverarbeitungSolution:
                 "zeitstempel": readable_zeitstempel,
                 "iso_zeitstempel": iso_zeitstempel,
                 "berichtszeitraum": "Tagesproduktion (3 Schichten × 8 Stunden)",
-                "datenquelle": "NumPy Simulation Bystronic",
+                "datenquelle": "NumPy Simulation SmartFactory",
                 "version": "2.0",
-                "anlage": "Bystronic Laser-Schneidanlage ByStar Fiber",
+                "anlage": "SmartFactory Laser-Schneidanlage ByStar Fiber",
                 "standort": "Niederbipp, Schweiz",
                 "schicht_namen": self.schichten_namen,
                 "datenpunkte": {
@@ -1518,11 +1518,11 @@ class BystronicDatenverarbeitungSolution:
 
     def vollstaendige_demonstration(self) -> dict[str, Any]:
         """
-        Führe die komplette Bystronic-Datenverarbeitungs-Pipeline aus
+        Führe die komplette SmartFactory-Datenverarbeitungs-Pipeline aus
         """
-        print("🏭 NumPy Bystronic-Datenverarbeitung - Vollständige Musterlösung")
+        print("🏭 NumPy SmartFactory-Datenverarbeitung - Vollständige Musterlösung")
         print("=" * 70)
-        print("Industrielle Datenanalyse für Bystronic-Fertigungsanlagen")
+        print("Industrielle Datenanalyse für SmartFactory-Fertigungsanlagen")
         print("=" * 70)
 
         try:
@@ -1602,7 +1602,7 @@ class BystronicDatenverarbeitungSolution:
         print("   ✅ Strukturierter, exportierbarer Produktionsbericht erstellt")
 
         print("\n💡 Diese Solution zeigt production-ready NumPy-Implementierung")
-        print("   für industrielle Bystronic-Datenverarbeitung.")
+        print("   für industrielle SmartFactory-Datenverarbeitung.")
 
 
 def main():
@@ -1614,14 +1614,14 @@ def main():
 
     try:
         # Solution-Instanz erstellen
-        solution = BystronicDatenverarbeitungSolution(debug_mode=False, seed=42)
+        solution = SmartFactoryDatenverarbeitungSolution(debug_mode=False, seed=42)
 
         # Vollständige Demonstration ausführen
         ergebnis = solution.vollstaendige_demonstration()
 
         print("\n" + "=" * 70)
         print("🎉 PIPELINE ERFOLGREICH ABGESCHLOSSEN!")
-        print("🎯 NumPy für realistische Bystronic-Produktionsdaten gemeistert!")
+        print("🎯 NumPy für realistische SmartFactory-Produktionsdaten gemeistert!")
         print("🚀 Bereit für Intermediate-Level NumPy-Konzepte!")
         print("=" * 70)
 
@@ -1648,7 +1648,7 @@ if __name__ == "__main__":
 
 
 """
-📚 LEARNING SUMMARY - NumPy Bystronic-Datenverarbeitung
+📚 LEARNING SUMMARY - NumPy SmartFactory-Datenverarbeitung
 ======================================================
 
 🎯 ERREICHTE LERNZIELE:
@@ -1698,5 +1698,5 @@ if __name__ == "__main__":
 5. REST API für Live Production Monitoring
 
 🎓 Diese Solution demonstriert professionelle NumPy-Implementierung
-   für umfassende industrielle Datenverarbeitung bei Bystronic.
+   für umfassende industrielle Datenverarbeitung bei SmartFactory.
 """

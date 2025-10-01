@@ -5,7 +5,7 @@ CSV Import Grundlagen
 Grundlegende Techniken für den Import von CSV-Dateien mit pandas.
 Behandelt verschiedene Trennzeichen, Encodings und Datentypen.
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 """
 
 from pathlib import Path

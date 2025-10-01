@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 NumPy Performance-Vergleich
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 
 Dieses Beispiel demonstriert die Performance-Vorteile von NumPy
 gegenüber Pure Python mit praxisrelevanten Berechnungen.
@@ -10,7 +10,7 @@ Themen:
 - Performance-Benchmarks verschiedener Operationen
 - Memory-Verbrauch und Effizienz
 - Skalierbarkeit mit Datengröße
-- Praktische Anwendungen für Bystronic
+- Praktische Anwendungen für SmartFactory
 """
 
 import sys
@@ -94,7 +94,7 @@ def benchmark_basic_operations():
 
 def benchmark_production_calculations():
     """Benchmarks für typische Produktionsberechnungen"""
-    print("\n\n🏭 PRODUKTIONS-BENCHMARK: Bystronic-relevante Berechnungen")
+    print("\n\n🏭 PRODUKTIONS-BENCHMARK: SmartFactory-relevante Berechnungen")
     print("=" * 60)
 
     # Simuliere Produktionsdaten für eine Woche
@@ -274,7 +274,7 @@ def benchmark_scalability():
 
 
 def benchmark_real_world_scenario():
-    """Realistisches Szenario: Tagesauswertung Bystronic-Produktion"""
+    """Realistisches Szenario: Tagesauswertung SmartFactory-Produktion"""
     print("\n\n🏭 REAL-WORLD SZENARIO: Tagesauswertung Produktion")
     print("=" * 60)
 
@@ -406,7 +406,7 @@ def main():
         print("• Memory-Verbrauch ist deutlich geringer")
         print("• Skaliert besser mit Datengröße")
         print("• Ermöglicht komplexe Berechnungen in Echtzeit")
-        print("• Ideal für Bystronic-Produktionsanalysen")
+        print("• Ideal für SmartFactory-Produktionsanalysen")
         print()
         print("➡️ NÄCHSTE SCHRITTE:")
         print("1. Probieren Sie die NumPy-Übungen aus")

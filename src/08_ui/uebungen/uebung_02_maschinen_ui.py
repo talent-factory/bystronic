@@ -58,7 +58,7 @@ class MaschinendatenInterface(QMainWindow):
         main_layout = QVBoxLayout(central_widget)
 
         # Titel
-        title = QLabel("🏭 Bystronic Maschinendaten-Monitor")
+        title = QLabel("🏭 SmartFactory Maschinendaten-Monitor")
         title.setStyleSheet(
             "font-size: 20px; font-weight: bold; color: #1f4e79; margin: 10px;"
         )

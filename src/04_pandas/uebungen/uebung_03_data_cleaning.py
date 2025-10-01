@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Übung 3: Datenbereinigung - Pandas Tutorial für Bystronic
+Übung 3: Datenbereinigung - Pandas Tutorial für SmartFactory
 
 AUFGABENSTELLUNG:
 In dieser Übung lernen Sie systematische Datenbereinigung für
@@ -492,7 +492,7 @@ print(df_clean["Temperatur_C"].describe())
 df_clean["Temperatur_C"] = pd.to_numeric(df_clean["Temperatur_C"], errors="coerce")
 
 # Ausreisser definieren (realistische Temperaturen für Produktion)
-temp_min, temp_max = 10, 50  # Bystronic Produktionsumgebung
+temp_min, temp_max = 10, 50  # SmartFactory Produktionsumgebung
 temp_outliers = (df_clean["Temperatur_C"] < temp_min) | (
     df_clean["Temperatur_C"] > temp_max
 )
@@ -554,7 +554,7 @@ print("\\nd) Geschäftslogik-Validierung:")
 
 # IHRE LÖSUNG HIER:
 def validate_business_rules(df):
-    """Implementiert Bystronic-spezifische Geschäftsregeln"""
+    """Implementiert SmartFactory-spezifische Geschäftsregeln"""
     validation_errors = []
 
     # Regel 1: Produktionszeit zwischen 0 und 24 Stunden
@@ -701,7 +701,7 @@ heute = pd.Timestamp.now()
 zukunft_daten = df_clean["Timestamp"] > heute
 print(f"Zukunftsdaten: {zukunft_daten.sum()}")
 
-# Wochenend-Produktionsdaten prüfen (ungewöhnlich für Bystronic)
+# Wochenend-Produktionsdaten prüfen (ungewöhnlich für SmartFactory)
 weekend_data = df_clean["Timestamp"].dt.weekday >= 5  # Samstag=5, Sonntag=6
 weekend_count = weekend_data.sum() if df_clean["Timestamp"].notna().any() else 0
 print(f"Wochenend-Produktionsdaten: {weekend_count} (ungewöhnlich)")
@@ -1168,5 +1168,5 @@ print("\\n💾 Ergebnisse exportiert:")
 print(f"• Bereinigte Daten: {export_filename}")
 print("• Bereinigungsprotokoll: uebung_03_bereinigungsprotokoll.json")
 
-print("\\n💡 Als Bystronic-Entwickler beherrschen Sie jetzt")
+print("\\n💡 Als SmartFactory-Entwickler beherrschen Sie jetzt")
 print("   professionelle Datenbereinigung für Produktionsdaten!")

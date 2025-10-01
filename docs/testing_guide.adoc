@@ -1,4 +1,4 @@
-= Test-Leitfaden für Bystronic Python Grundkurs
+= Test-Leitfaden für SmartFactory Python Grundkurs
 :author: Daniel Senften
 :email: daniel.senften@talent-factory.ch
 :revnumber: 1.0
@@ -12,7 +12,7 @@
 
 == Überblick
 
-Dieser Leitfaden erklärt, wie die Tests für die Beispieldateien des Bystronic Python Grundkurses verwendet werden. Die Tests helfen Studierenden dabei, die Funktionalität der Beispiele zu verstehen und eigene Test-Fähigkeiten zu entwickeln.
+Dieser Leitfaden erklärt, wie die Tests für die Beispieldateien des SmartFactory Python Grundkurses verwendet werden. Die Tests helfen Studierenden dabei, die Funktionalität der Beispiele zu verstehen und eigene Test-Fähigkeiten zu entwickeln.
 
 == Warum Tests für Lernmaterial?
 

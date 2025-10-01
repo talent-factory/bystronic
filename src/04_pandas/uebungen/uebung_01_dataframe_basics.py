@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Übung 1: DataFrame-Grundlagen - Pandas Tutorial für Bystronic
+Übung 1: DataFrame-Grundlagen - Pandas Tutorial für SmartFactory
 
 AUFGABENSTELLUNG:
 In dieser Übung lernen Sie die fundamentalen DataFrame-Operationen.
@@ -34,7 +34,7 @@ print("-" * 40)
 
 print(
     """
-Sie arbeiten als Datenanalyst bei Bystronic und haben folgende Maschinendaten erhalten:
+Sie arbeiten als Datenanalyst bei SmartFactory und haben folgende Maschinendaten erhalten:
 
 Maschinendaten:
 - Laser_01: ByStar, Baujahr 2019, 2450.5h Laufzeit, Wartung fällig
@@ -448,7 +448,7 @@ print("• Übung 2: Datenimport aus verschiedenen Quellen")
 print("• Jupyter Notebook für interaktive Analysen erkunden")
 print("• Eigene Maschinendaten mit Pandas analysieren")
 
-print("\n💡 Als Bystronic-Entwickler können Sie jetzt DataFrame-Grundlagen")
+print("\n💡 Als SmartFactory-Entwickler können Sie jetzt DataFrame-Grundlagen")
 print("   professionell einsetzen für Produktionsdaten-Analysen!")
 
 # Export der Ergebnisse (optional)

@@ -2,7 +2,7 @@
 Qualitäts-Monitor mit Streamlit
 ===============================
 
-Echtzeit-Qualitätskontrolle und -überwachung für Bystronic-Maschinen:
+Echtzeit-Qualitätskontrolle und -überwachung für SmartFactory-Maschinen:
 - SPC (Statistical Process Control)
 - Qualitätsmetriken und Trends
 - Ausschuss-Tracking
@@ -25,12 +25,12 @@ from plotly.subplots import make_subplots
 
 # Seitenkonfiguration
 st.set_page_config(
-    page_title="Bystronic Qualitäts-Monitor", page_icon="🔍", layout="wide"
+    page_title="SmartFactory Qualitäts-Monitor", page_icon="🔍", layout="wide"
 )
 
 
 def main():
-    st.title("🔍 Bystronic Qualitäts-Monitor")
+    st.title("🔍 SmartFactory Qualitäts-Monitor")
 
     # Beispieldaten generieren
     @st.cache_data(ttl=30)

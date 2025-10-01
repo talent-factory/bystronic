@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🎯 Bystronic Python Grundkurs - Kapitel 2: Datentypen
+🎯 SmartFactory Python Grundkurs - Kapitel 2: Datentypen
 Learning Path Assessment - Adaptive Lernpfad-Bestimmung
 
 Dieses Assessment bestimmt den optimalen Lernpfad basierend auf:
@@ -137,7 +137,7 @@ class LearningPathAssessment:
                     ],
                 },
                 {
-                    "frage": "Wie vertraut sind Sie mit Bystronic-Produktionsdaten?",
+                    "frage": "Wie vertraut sind Sie mit SmartFactory-Produktionsdaten?",
                     "optionen": [
                         ("Noch nie damit gearbeitet", 0),
                         ("Grundlegende Kenntnisse", 3),

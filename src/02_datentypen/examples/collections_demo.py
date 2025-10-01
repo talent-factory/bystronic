@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Bystronic Python Grundkurs - Kapitel 2
+SmartFactory Python Grundkurs - Kapitel 2
 Beispiel: Collections (Listen, Dictionaries, Sets, Tupel)
 
 Dieses Skript demonstriert die Verwendung von Python Collections
-für typische Bystronic-Anwendungen wie Produktionsdaten,
+für typische SmartFactory-Anwendungen wie Produktionsdaten,
 Maschinenverwaltung und Qualitätskontrolle.
 """
 

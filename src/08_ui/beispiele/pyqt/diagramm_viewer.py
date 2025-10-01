@@ -305,7 +305,7 @@ class DiagrammViewer(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Bystronic Diagramm-Viewer")
+        self.setWindowTitle("SmartFactory Diagramm-Viewer")
         self.setGeometry(50, 50, 1400, 800)
 
         # Timer für Live-Daten

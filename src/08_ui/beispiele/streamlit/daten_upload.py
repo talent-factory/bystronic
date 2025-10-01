@@ -21,7 +21,9 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-st.set_page_config(page_title="Bystronic Daten-Upload", page_icon="📁", layout="wide")
+st.set_page_config(
+    page_title="SmartFactory Daten-Upload", page_icon="📁", layout="wide"
+)
 
 
 def main():

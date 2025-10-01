@@ -96,82 +96,89 @@ src/02_datentypen/
 
 ### 🟢 Beginner-Pfad (0-40 Punkte)
 
-**Zielgruppe:** Programmier-Einsteiger, erste Schritte mit Datentypen  
-**Dauer:** 15-25 Minuten pro Übung  
-**Fokus:** Grundlagen verstehen, praktische Anwendung
+**Zielgruppe:** Programmier-Einsteiger, erste Schritte mit Datentypen **Dauer:**
+15-25 Minuten pro Übung **Fokus:** Grundlagen verstehen, praktische Anwendung
 
-#### Lernziele:
+#### Lernziele
+
 - Grundlegende Zahlentypen (int, float, bool) verstehen
 - Einfache String-Operationen durchführen
 - Listen und Dictionaries erstellen und verwenden
 - Praktische Berechnungen für Produktionsdaten
 
-#### Übungen:
+#### Übungen
+
 1. **Zahlen-Grundlagen** - Zahlentypen, Berechnungen, Vergleiche
-2. **String-Basics** - Text-Ausgabe, f-strings, einfache Manipulation
-3. **Collections-Einführung** - Listen und Dictionaries für Maschinendaten
+1. **String-Basics** - Text-Ausgabe, f-strings, einfache Manipulation
+1. **Collections-Einführung** - Listen und Dictionaries für Maschinendaten
 
 ### 🟡 Intermediate-Pfad (41-70 Punkte)
 
-**Zielgruppe:** Programmiererfahrung vorhanden, erweiterte Datenverarbeitung  
-**Dauer:** 25-40 Minuten pro Übung  
-**Fokus:** Funktionale Programmierung, Statistik, Fehlerbehandlung
+**Zielgruppe:** Programmiererfahrung vorhanden, erweiterte Datenverarbeitung
+**Dauer:** 25-40 Minuten pro Übung **Fokus:** Funktionale Programmierung,
+Statistik, Fehlerbehandlung
 
-#### Lernziele:
+#### Lernziele
+
 - Alle Zahlentypen inklusive complex verwenden
 - Erweiterte String-Verarbeitung mit Regex
 - Komplexe Datenstrukturen verschachteln
 - Statistische Berechnungen implementieren
 - Robuste Fehlerbehandlung anwenden
 
-#### Übungen:
+#### Übungen
+
 1. **Erweiterte Zahlenoperationen** - Statistik, Validierung, Qualitätskontrolle
-2. **String-Processing** - Regex, Parsing, Formatierung
-3. **Komplexe Datenstrukturen** - Verschachtelte Collections, Datenmodellierung
+1. **String-Processing** - Regex, Parsing, Formatierung
+1. **Komplexe Datenstrukturen** - Verschachtelte Collections, Datenmodellierung
 
 ### 🔴 Advanced-Pfad (71-100 Punkte)
 
-**Zielgruppe:** Erfahrene Entwickler, professionelle Systeme  
-**Dauer:** 45-60 Minuten pro Übung  
-**Fokus:** OOP, Design Patterns, Enterprise-Standards
+**Zielgruppe:** Erfahrene Entwickler, professionelle Systeme **Dauer:** 45-60
+Minuten pro Übung **Fokus:** OOP, Design Patterns, Enterprise-Standards
 
-#### Lernziele:
+#### Lernziele
+
 - Objektorientierte Datenmodellierung mit Dataclasses
 - Design Patterns implementieren (Strategy, Observer, Factory)
 - Performance-Optimierung und Caching anwenden
 - Enterprise-Level Fehlerbehandlung und Logging
 - Professionelle Dokumentation und Testing
 
-#### Übungen:
+#### Übungen
+
 1. **OOP-Zahlenverarbeitung** - Dataclasses, Enums, Design Patterns
-2. **Enterprise String-Processing** - Professionelle Text-Verarbeitung
-3. **Design Patterns für Collections** - Erweiterte Architektur-Muster
+1. **Enterprise String-Processing** - Professionelle Text-Verarbeitung
+1. **Design Patterns für Collections** - Erweiterte Architektur-Muster
 
 ## 🆘 4-Stufen-Hilfesystem
 
 Für jede Übung in jedem Level:
 
 1. **Hints** (`.md`) - Konzeptuelle Hilfestellungen ohne Code
-2. **Skeleton** (`.py`) - Code-Gerüst mit Kommentaren und TODOs
-3. **Partial** (`.py`) - Teilweise implementierte Lösung mit Lücken
-4. **Complete** (`.py`) - Vollständige, professionelle Musterlösung
+1. **Skeleton** (`.py`) - Code-Gerüst mit Kommentaren und TODOs
+1. **Partial** (`.py`) - Teilweise implementierte Lösung mit Lücken
+1. **Complete** (`.py`) - Vollständige, professionelle Musterlösung
 
 ## 🎯 Assessment-System
 
 ### Learning Path Assessment
+
 - **5 gewichtete Kategorien** für optimale Lernpfad-Bestimmung
 - **Automatische Empfehlungen** basierend auf Vorwissen
 - **JSON-Speicherung** für Fortschrittsverfolgung
 
 ### Micro-Assessments (geplant)
+
 - **Quiz** - Interaktive Wissensprüfung
 - **Challenges** - Praktische Code-Aufgaben
 - **Reflection** - Selbsteinschätzung
 - **Dashboard** - Gesamtübersicht
 
-## 🏭 Bystronic-Integration
+## 🏭 SmartFactory-Integration
 
-### Praktische Anwendungsfälle in allen Übungen:
+### Praktische Anwendungsfälle in allen Übungen
+
 - **Produktionsdaten-Verarbeitung** - Stückzahlen, Zeiten, Qualitätswerte
 - **Maschinendaten-Strukturierung** - Sensordaten, Status-Informationen
 - **Qualitätskontrolle** - Toleranzen, SPC, Prozessfähigkeitsindizes
@@ -180,23 +187,26 @@ Für jede Übung in jedem Level:
 ## 📊 Pädagogische Verbesserungen
 
 ### Differenzierung
+
 - **3 Schwierigkeitslevel** für heterogene Lerngruppen
 - **Assessment-basierte Zuordnung** statt Selbsteinschätzung
 - **Individuelle Lernpfade** mit angepassten Inhalten
 
 ### Scaffolding
+
 - **4-Stufen-Hilfesystem** für graduellen Kompetenzaufbau
 - **Strukturierte Progression** von Hints zu Complete Solutions
 - **Selbstständiges Lernen** mit bedarfsgerechter Unterstützung
 
 ### Motivation
-- **Bystronic-relevante Kontexte** in allen Übungen
+
+- **SmartFactory-relevante Kontexte** in allen Übungen
 - **Praktische Anwendbarkeit** der gelernten Konzepte
 - **Erfolgserlebnisse** durch angemessene Herausforderungen
 
 ## ➡️ Nächste Entwicklungsschritte
 
 1. **Solutions erstellen** - Alle 4 Hilfeebenen für alle Übungen
-2. **Micro-Assessments** - Quiz, Challenges, Reflection, Dashboard
-3. **Testing** - Umfassende Validierung aller Komponenten
-4. **Kapitel 03** - NumPy mit gleicher adaptiver Struktur
+1. **Micro-Assessments** - Quiz, Challenges, Reflection, Dashboard
+1. **Testing** - Umfassende Validierung aller Komponenten
+1. **Kapitel 03** - NumPy mit gleicher adaptiver Struktur

@@ -39,7 +39,7 @@ Bestimmung des optimalen Lernpfads
 
    - Datenanalyse-Erfahrung
    - Technischer Hintergrund
-   - Bystronic-spezifische Kenntnisse
+   - SmartFactory-spezifische Kenntnisse
    - Datenmengen-Verarbeitung
 
 1. **Performance-Bewusstsein (15%)**
@@ -138,7 +138,7 @@ results/
 1. **Anwendungskontext** (5 Fragen, 2 Min)
 
    - Datenanalyse-Hintergrund
-   - Bystronic-Relevanz
+   - SmartFactory-Relevanz
    - Datenmengen
 
 1. **Performance-Bewusstsein** (5 Fragen, 1 Min)
@@ -248,7 +248,7 @@ Performance-Bewusstsein: ████████████████░░�
 
 - **Performance-Fokus:** Besondere Gewichtung der Performance-Kategorie
 - **Broadcasting-Verständnis:** Spezielle Fragen zu NumPy-Konzepten
-- **Bystronic-Integration:** Industrielle Anwendungskontexte
+- **SmartFactory-Integration:** Industrielle Anwendungskontexte
 - **Memory-Awareness:** Fragen zu effizienter Array-Nutzung
 
 ## 🎯 Validierung und Testing

@@ -11,10 +11,10 @@ services:
       - ./data:/home/jovyan/data:ro
     environment:
       - JUPYTER_ENABLE_LAB=yes
-      - JUPYTER_TOKEN=bystronic-secure-token
+      - JUPYTER_TOKEN=smartfactory-secure-token
     restart: unless-stopped
     networks:
-      - bystronic-net
+      - smartfactory-net
 
   nginx:
     image: nginx:alpine
@@ -28,7 +28,7 @@ services:
       - jupyter
     restart: unless-stopped
     networks:
-      - bystronic-net
+      - smartfactory-net
 
   jupyterhub:
     image: jupyterhub/jupyterhub:latest
@@ -42,12 +42,12 @@ services:
       - DOCKER_JUPYTER_IMAGE=jupyter/datascience-notebook:latest
     restart: unless-stopped
     networks:
-      - bystronic-net
+      - smartfactory-net
 
 volumes:
   jupyter_data:
   jupyterhub_data:
 
 networks:
-  bystronic-net:
+  smartfactory-net:
     driver: bridge

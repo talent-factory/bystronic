@@ -1,9 +1,9 @@
-# Bystronic Jupyter Production Environment Starter
+# SmartFactory Jupyter Production Environment Starter
 # Autor: Daniel Senften
 
 set -e
 
-echo "🏭 Starte Bystronic Jupyter Production Environment..."
+echo "🏭 Starte SmartFactory Jupyter Production Environment..."
 
 # Umgebungsvariablen für Production setzen
 export ENVIRONMENT=prod
@@ -19,7 +19,7 @@ if [ ! -f "$SSL_CERT_PATH/jupyter.pem" ]; then
     openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         -keyout $SSL_CERT_PATH/jupyter.key \
         -out $SSL_CERT_PATH/jupyter.pem \
-        -subj "/C=CH/ST=Bern/L=Niederönz/O=Bystronic/CN=jupyter.bystronic.local"
+        -subj "/C=CH/ST=Bern/L=Niederönz/O=SmartFactory/CN=jupyter.smartfactory.local"
     echo "✅ SSL-Zertifikat erstellt"
 fi
 

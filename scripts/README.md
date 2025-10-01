@@ -1,6 +1,6 @@
-# Scripts für Bystronic Python-Projekt
+# Scripts für SmartFactory Python-Projekt
 
-Dieses Verzeichnis enthält Hilfsskripte für das Bystronic Python-Projekt.
+Dieses Verzeichnis enthält Hilfsskripte für das SmartFactory Python-Projekt.
 
 ## Verfügbare Scripts
 

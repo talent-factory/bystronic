@@ -3,7 +3,7 @@
 Dashboard-Entwicklung - Übung 4
 
 Diese Übung behandelt die Erstellung professioneller Dashboards
-mit verschiedenen Bibliotheken für industrielle Anwendungen bei Bystronic.
+mit verschiedenen Bibliotheken für industrielle Anwendungen bei SmartFactory.
 
 Lernziele:
 - Matplotlib-basierte Dashboards entwickeln
@@ -12,7 +12,7 @@ Lernziele:
 - Benutzerinteraktionen und Callbacks
 - Export und Deployment von Dashboards
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 """
 
 import warnings
@@ -51,7 +51,7 @@ plt.rcParams.update(
     }
 )
 
-# Bystronic Corporate Colors
+# SmartFactory Corporate Colors
 BYSTRONIC_COLORS = {
     "primary": "#1f77b4",
     "secondary": "#ff7f0e",
@@ -832,7 +832,7 @@ def aufgabe_2_plotly_interaktives_dashboard() -> None:
 
     # Als HTML exportieren
     html_filename = (
-        f"bystronic_dashboard_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
+        f"smartfactory_dashboard_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
     )
     fig.write_html(html_filename)
 
@@ -842,7 +842,7 @@ def aufgabe_2_plotly_interaktives_dashboard() -> None:
     print("🖱️ Interaktive Plots mit Hover-Informationen")
     print("🔍 Zoom- und Pan-Funktionen")
     print("📊 Multi-axiale Plots mit verschiedenen Metriken")
-    print("🎨 Corporate Design mit Bystronic-Farben")
+    print("🎨 Corporate Design mit SmartFactory-Farben")
     print("📈 Echtzeitdaten-Simulation über 72 Stunden")
 
     # Zusätzliche Statistiken
@@ -1242,7 +1242,7 @@ def aufgabe_4_dashboard_export() -> None:
         from matplotlib.backends.backend_pdf import PdfPages
 
         with PdfPages(
-            f"bystronic_report_{datetime.now().strftime('%Y%m%d')}.pdf"
+            f"smartfactory_report_{datetime.now().strftime('%Y%m%d')}.pdf"
         ) as pdf:
             # Seite 1: Übersicht
             fig1, axes = plt.subplots(2, 2, figsize=(11, 8))
@@ -1364,7 +1364,7 @@ def aufgabe_4_dashboard_export() -> None:
             pdf.savefig(fig2)
             plt.close()
 
-        print("✅ PDF-Report erstellt: bystronic_report_[datum].pdf")
+        print("✅ PDF-Report erstellt: smartfactory_report_[datum].pdf")
 
     # 2. Excel-Dashboard erstellen
     def create_excel_dashboard():
@@ -1375,7 +1375,9 @@ def aufgabe_4_dashboard_export() -> None:
             import xlsxwriter
 
             # Excel-Datei erstellen
-            filename = f"bystronic_dashboard_{datetime.now().strftime('%Y%m%d')}.xlsx"
+            filename = (
+                f"smartfactory_dashboard_{datetime.now().strftime('%Y%m%d')}.xlsx"
+            )
             workbook = xlsxwriter.Workbook(filename)
 
             # Daten-Worksheet
@@ -1490,7 +1492,7 @@ def aufgabe_4_dashboard_export() -> None:
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Bystronic Produktions-Dashboard</title>
+            <title>SmartFactory Produktions-Dashboard</title>
             <style>
                 body {{
                     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -1635,7 +1637,7 @@ def aufgabe_4_dashboard_export() -> None:
             </div>
 
             <div class="footer">
-                <p>📊 Bystronic Python Grundkurs - Dashboard-Entwicklung</p>
+                <p>📊 SmartFactory Python Grundkurs - Dashboard-Entwicklung</p>
                 <p>🔄 Automatisch generiert mit Python & Matplotlib</p>
             </div>
         </body>
@@ -1644,7 +1646,7 @@ def aufgabe_4_dashboard_export() -> None:
 
         # HTML-Datei speichern
         filename = (
-            f"bystronic_dashboard_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
+            f"smartfactory_dashboard_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
         )
         with open(filename, "w", encoding="utf-8") as f:
             f.write(html_content)
@@ -1763,7 +1765,7 @@ def main() -> None:
     print("🌐 Interaktive Plotly-Dashboards mit Web-Export")
     print("🔴 Real-time Monitoring mit Live-Updates implementiert")
     print("📤 Multi-Format Export (PDF, Excel, HTML) realisiert")
-    print("🏭 Industrielle Anwendungsfälle für Bystronic abgedeckt")
+    print("🏭 Industrielle Anwendungsfälle für SmartFactory abgedeckt")
 
     print("\n📚 Weiterführende Ressourcen:")
     print("• Matplotlib Dashboards: https://matplotlib.org/stable/gallery/index.html")

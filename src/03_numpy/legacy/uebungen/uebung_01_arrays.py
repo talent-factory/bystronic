@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 Übung 1: NumPy Array-Grundlagen
 
 Diese Übung behandelt die Grundlagen von NumPy-Arrays:

@@ -4,7 +4,7 @@ Maschinendaten-GUI für industrielle Anwendungen
 ==============================================
 
 Dieses Beispiel zeigt eine realistische industrielle GUI für die
-Überwachung und Steuerung von Bystronic-Maschinen:
+Überwachung und Steuerung von SmartFactory-Maschinen:
 - Echtzeitdaten-Anzeige
 - Maschinensteuerung
 - Datenprotokollierung
@@ -201,7 +201,7 @@ class MaschinendatenGUI(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Bystronic Maschinendaten-Zentrale")
+        self.setWindowTitle("SmartFactory Maschinendaten-Zentrale")
         self.setGeometry(50, 50, 1400, 900)
 
         # Datenstrukturen
@@ -963,9 +963,9 @@ def main():
     app.setStyle("Fusion")
 
     # Anwendungsmetadaten
-    app.setApplicationName("Bystronic Maschinendaten-GUI")
+    app.setApplicationName("SmartFactory Maschinendaten-GUI")
     app.setApplicationVersion("1.0")
-    app.setOrganizationName("Bystronic")
+    app.setOrganizationName("SmartFactory")
 
     # Hauptfenster erstellen und anzeigen
     window = MaschinendatenGUI()

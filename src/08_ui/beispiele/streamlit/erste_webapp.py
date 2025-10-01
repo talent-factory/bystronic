@@ -24,7 +24,7 @@ import streamlit as st
 
 # Seitenkonfiguration
 st.set_page_config(
-    page_title="Bystronic Streamlit Demo",
+    page_title="SmartFactory Streamlit Demo",
     page_icon="🏭",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -70,7 +70,7 @@ def main():
 
     # Titel der Anwendung
     st.markdown(
-        '<h1 class="main-header">🏭 Bystronic Streamlit Dashboard</h1>',
+        '<h1 class="main-header">🏭 SmartFactory Streamlit Dashboard</h1>',
         unsafe_allow_html=True,
     )
 

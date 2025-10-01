@@ -247,7 +247,9 @@ class VollstaendigeAnwendung(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Bystronic Produktionsmanagement - Vollständige Anwendung")
+        self.setWindowTitle(
+            "SmartFactory Produktionsmanagement - Vollständige Anwendung"
+        )
         self.setGeometry(50, 50, 1400, 900)
 
         # TODO: Aufgabe 5 - Initialisieren Sie die Komponenten
@@ -414,10 +416,10 @@ def streamlit_main():
     # - Session State Management
 
     # st.set_page_config(
-    #     page_title="Bystronic Produktionsmanagement", page_icon="🏭", layout="wide"
+    #     page_title="SmartFactory Produktionsmanagement", page_icon="🏭", layout="wide"
     # )
 
-    # st.title("🏭 Bystronic Produktionsmanagement")
+    # st.title("🏭 SmartFactory Produktionsmanagement")
     # st.markdown("**Vollständige Produktionsmanagement-Lösung**")
 
     # Navigation

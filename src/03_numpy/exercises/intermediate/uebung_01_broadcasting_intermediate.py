@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 NumPy Übung 1: Erweiterte Broadcasting-Techniken (Intermediate)
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 
 Diese Übung fokussiert auf fortgeschrittene Broadcasting-Konzepte mit
 mehrdimensionalen Arrays und komplexen Produktionsszenarien.

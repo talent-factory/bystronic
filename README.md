@@ -1,10 +1,10 @@
-# Python Programmierung Grundkurs - Bystronic
+# Python Programmierung Grundkurs - SmartFactory
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/talent-factory/bystronic)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/talent-factory/smartfactory)
 
 Dieses Projekt bietet eine umfassende Einführung in die Python-Programmierung
-für Bystronic-Entwickler. Der Kurs konzentriert sich auf praktische Anwendungen
-und die Datenanalyse.
+für SmartFactory-Entwickler. Der Kurs konzentriert sich auf praktische
+Anwendungen und die Datenanalyse.
 
 ## 🎯 Kursziele
 
@@ -107,7 +107,7 @@ Nach dem Abschluss dieses Kurses werden Sie in der Lage sein:
 ```bash
 # 1. Repository klonen
 git clone <repository-url>
-cd bystronic
+cd smartfactory
 
 # 2. Projekt mit uv initialisieren und Abhängigkeiten installieren
 uv sync
@@ -122,7 +122,7 @@ uv run jupyter notebook
 ## 📁 Projektstruktur
 
 ```text
-bystronic/
+smartfactory/
 ├── src/
 │   ├── 01_grundlagen/      # Python Grundlagen
 │   ├── 02_datentypen/      # Datentypen und Strukturen
@@ -203,12 +203,14 @@ powershell -ExecutionPolicy Bypass -File "scripts/dev_setup_script.ps1"
 ```
 
 Das Script installiert automatisch:
+
 - **Chocolatey** (Package Manager für Windows)
 - **Python 3.x** (neueste Version)
 - **Git** (Versionskontrolle)
 - **uv** (Python Package Manager)
 
 **Wichtige Hinweise:**
+
 - Script muss als Administrator ausgeführt werden
 - Nach der Installation eine neue PowerShell/CMD-Sitzung starten
 - Alle Tools sind dann systemweit verfügbar

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 🟡 INTERMEDIATE - NumPy Broadcasting - HINT 2 (Konkrete Ansätze)
-Übung 1: Broadcasting für Bystronic Produktionsoptimierung
+Übung 1: Broadcasting für SmartFactory Produktionsoptimierung
 
 🎯 KONKRETE STRATEGIEN mit Pseudo-Code:
 """

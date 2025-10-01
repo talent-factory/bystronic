@@ -2,7 +2,7 @@
 Produktions-Dashboard mit Streamlit
 ==================================
 
-Ein vollständiges Produktionsüberwachungs-Dashboard für Bystronic-Maschinen:
+Ein vollständiges Produktionsüberwachungs-Dashboard für SmartFactory-Maschinen:
 - Echtzeit-Maschinendaten
 - KPI-Überwachung
 - Produktionsplanung
@@ -26,7 +26,7 @@ from plotly.subplots import make_subplots
 
 # Seitenkonfiguration
 st.set_page_config(
-    page_title="Bystronic Produktions-Dashboard",
+    page_title="SmartFactory Produktions-Dashboard",
     page_icon="🏭",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -238,7 +238,7 @@ def main():
 
     # Titel
     st.markdown(
-        '<div class="main-title">🏭 Bystronic Produktions-Dashboard</div>',
+        '<div class="main-title">🏭 SmartFactory Produktions-Dashboard</div>',
         unsafe_allow_html=True,
     )
 
@@ -1137,7 +1137,7 @@ def show_settings():
 
         email_notifications = st.checkbox("E-Mail Benachrichtigungen", value=True)
         if email_notifications:
-            st.text_input("E-Mail Adresse", "admin@bystronic.com")
+            st.text_input("E-Mail Adresse", "admin@smartfactory.com")
 
         st.checkbox("Push-Benachrichtigungen", value=True)
         st.checkbox("Ton-Alarme", value=False)

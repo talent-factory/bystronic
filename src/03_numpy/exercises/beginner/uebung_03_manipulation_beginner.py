@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🟢 BEGINNER - Bystronic Python Grundkurs - Kapitel 3
+🟢 BEGINNER - SmartFactory Python Grundkurs - Kapitel 3
 Übung 3: Array-Manipulation (Einsteigerfreundlich)
 
 🎯 LERNZIELE (20-25 Minuten):
@@ -8,7 +8,7 @@
 - Arrays kombinieren und trennen (concatenate, split)
 - Erweiterte Indexing-Techniken anwenden
 - Boolean Indexing für Datenfilterung
-- Praktische Datenumstrukturierung für Bystronic
+- Praktische Datenumstrukturierung für SmartFactory
 
 📚 HILFSMITTEL:
 - Hints: solutions/beginner/uebung_03_hints.md
@@ -687,7 +687,7 @@ def aufgabe_5_praktische_datenorganisation():
 
 def main():
     """🚀 Hauptprogramm - Alle Aufgaben ausführen"""
-    print("🟢 BEGINNER: Array-Manipulation mit NumPy für Bystronic")
+    print("🟢 BEGINNER: Array-Manipulation mit NumPy für SmartFactory")
     print("=" * 70)
     print("📚 Lernen Sie Arrays umzuformen, zu kombinieren und zu filtern!")
     print("🎯 Ziel: Flexible Datenorganisation für komplexe Produktionsanalysen")
@@ -723,9 +723,9 @@ def main():
         print("   • Komplexe Datenstrukturen organisieren")
         print()
         print("➡️ NÄCHSTE SCHRITTE:")
-        print("📚 Übung 4: Bystronic-Produktionsdaten")
+        print("📚 Übung 4: SmartFactory-Produktionsdaten")
         print(
-            "🚀 uv run python exercises/beginner/uebung_04_bystronic_daten_beginner.py"
+            "🚀 uv run python exercises/beginner/uebung_04_smartfactory_daten_beginner.py"
         )
 
     except KeyboardInterrupt:

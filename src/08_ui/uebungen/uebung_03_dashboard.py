@@ -81,7 +81,7 @@ def main():
     """Hauptfunktion der Streamlit-App."""
 
     # TODO: Aufgabe 3 - Implementieren Sie den Haupt-Titel
-    # st.title("🏭 Bystronic Produktions-Dashboard")
+    # st.title("🏭 SmartFactory Produktions-Dashboard")
     # st.markdown("**Übung 3:** Entwickeln Sie Ihr eigenes Dashboard")
 
     # Session State initialisieren
@@ -266,7 +266,7 @@ def show_settings_page():
     # with col1:
     #     st.write("**Datenquellen:**")
     #     db_connection = st.text_input("Datenbank-URL:", "localhost:5432")
-    #     api_endpoint = st.text_input("API-Endpoint:", "http://api.bystronic.local")
+    #     api_endpoint = st.text_input("API-Endpoint:", "http://api.smartfactory.local")
     #
     # with col2:
     #     st.write("**Alarm-Einstellungen:**")

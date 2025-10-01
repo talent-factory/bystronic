@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
 NumPy Übung 4: Real-World Produktionsanalyse (Intermediate)
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 
 Diese Übung kombiniert alle Intermediate NumPy-Konzepte in einem realistischen
-Bystronic-Produktionsszenario mit komplexen Multi-Dimensionalen Analysen.
+SmartFactory-Produktionsszenario mit komplexen Multi-Dimensionalen Analysen.
 
 Lernziele:
 - Integration aller NumPy-Techniken in komplexen Anwendungen
@@ -31,7 +31,7 @@ def main():
     """Hauptfunktion für Real-World Produktionsanalyse"""
     print("🎯 NUMPY INTERMEDIATE ÜBUNG 4: REAL-WORLD PRODUKTIONSANALYSE")
     print("=" * 75)
-    print("Diese Übung simuliert eine vollständige Bystronic-Produktionsumgebung")
+    print("Diese Übung simuliert eine vollständige SmartFactory-Produktionsumgebung")
     print("mit Multi-Maschinen, Multi-Sensoren und Echtzeit-Qualitätskontrolle.")
     print()
 
@@ -70,7 +70,7 @@ def main():
 
 
 class ProductionDataSimulator:
-    """Simulator für realistische Bystronic-Produktionsdaten"""
+    """Simulator für realistische SmartFactory-Produktionsdaten"""
 
     def __init__(self, n_machines=8, n_sensors_per_machine=12):
         self.n_machines = n_machines

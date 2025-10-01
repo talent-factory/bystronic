@@ -1,10 +1,10 @@
-# Git-Commit-Guide für Bystronic Python-Projekt
+# Git-Commit-Guide für SmartFactory Python-Projekt
 
 ## Übersicht
 
-Das Bystronic Python-Projekt verfügt über ein professionelles Git-Commit-System
-mit automatischen Qualitätschecks und konventionellen Commit-Nachrichten auf
-Deutsch.
+Das SmartFactory Python-Projekt verfügt über ein professionelles
+Git-Commit-System mit automatischen Qualitätschecks und konventionellen
+Commit-Nachrichten auf Deutsch.
 
 ## Schnellstart
 

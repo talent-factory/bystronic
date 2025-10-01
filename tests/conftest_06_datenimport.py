@@ -6,7 +6,7 @@ Diese Datei stellt wiederverwendbare Test-Fixtures bereit, die von allen
 Tests im Datenimport-Modul verwendet werden können. Fixtures sorgen für
 konsistente und isolierte Test-Umgebungen.
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 """
 
 import json
@@ -152,9 +152,9 @@ E;FEHLER;25,0;ERROR"""
 
 
 @pytest.fixture
-def bystronic_csv_mock():
+def smartfactory_csv_mock():
     """
-    Mock-Content für Bystronic CSV im V084_Scope Format
+    Mock-Content für SmartFactory CSV im V084_Scope Format
     """
     content = """Name	Distance Control
 File	O:\\Messungen\\NDC\\Test_V084_Scope.csv
@@ -189,12 +189,12 @@ BitMask	0xffffffffffffffff	BitMask	0xffffffffffffffff	BitMask	0xffffffffffffffff
 
 
 @pytest.fixture
-def bystronic_csv_file(test_data_directory, bystronic_csv_mock):
+def smartfactory_csv_file(test_data_directory, smartfactory_csv_mock):
     """
-    Erstellt eine Mock Bystronic CSV-Datei
+    Erstellt eine Mock SmartFactory CSV-Datei
     """
-    csv_file = test_data_directory / "bystronic_mock.csv"
-    csv_file.write_text(bystronic_csv_mock, encoding="utf-8")
+    csv_file = test_data_directory / "smartfactory_mock.csv"
+    csv_file.write_text(smartfactory_csv_mock, encoding="utf-8")
     return csv_file
 
 
@@ -261,7 +261,7 @@ def sample_excel_file(test_data_directory, sample_excel_data):
     """
     Erstellt eine Excel-Datei mit mehreren Arbeitsblättern
     """
-    excel_file = test_data_directory / "bystronic_test_data.xlsx"
+    excel_file = test_data_directory / "smartfactory_test_data.xlsx"
 
     with pd.ExcelWriter(excel_file, engine="openpyxl") as writer:
         for sheet_name, df in sample_excel_data.items():
@@ -277,7 +277,7 @@ def sample_json_data():
     """
     return {
         "metadata": {
-            "system": "Bystronic IoT Platform",
+            "system": "SmartFactory IoT Platform",
             "version": "2.1.0",
             "timestamp": "2024-01-15T08:30:00Z",
             "location": "Werk_Niederönz",

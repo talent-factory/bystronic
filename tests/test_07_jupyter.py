@@ -268,7 +268,7 @@ class TestJupyterExtensionsDemo:
         assert "c = get_config()" in config
         assert "NotebookApp.ip" in config
         assert "NotebookApp.port" in config
-        assert "bystronic" in config.lower()
+        assert "smartfactory" in config.lower()
         assert "MappingKernelManager" in config
 
     def test_create_jupyterlab_settings(self):
@@ -527,7 +527,7 @@ class TestJupyterIntegration:
 
         # 4. Konfiguration
         config = jupyter_extensions_demo.create_jupyter_config()
-        assert "bystronic" in config.lower()
+        assert "smartfactory" in config.lower()
 
         # 5. Test-Notebook
         notebook = jupyter_extensions_demo.create_extension_test_notebook()

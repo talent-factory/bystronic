@@ -10,7 +10,7 @@ Daniel Senften
 
 === Übersicht
 
-Das Bystronic-Projekt verwendet automatische Markdown-Formatierung durch pre-commit hooks, um konsistente Dokumentation sicherzustellen.
+Das SmartFactory-Projekt verwendet automatische Markdown-Formatierung durch pre-commit hooks, um konsistente Dokumentation sicherzustellen.
 
 === Konfiguration
 

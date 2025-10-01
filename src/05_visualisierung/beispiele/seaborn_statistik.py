@@ -4,9 +4,9 @@ Seaborn Statistische Visualisierung - Beispielskript für erweiterte Plots
 
 Dieses Skript demonstriert die Verwendung von Seaborn für statistische
 Visualisierungen mit modernem Design und erweiterten Plot-Typen
-für Bystronic-Anwendungen.
+für SmartFactory-Anwendungen.
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 """
 
 import warnings

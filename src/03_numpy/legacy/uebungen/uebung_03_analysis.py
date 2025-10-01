@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 Übung 3: Datenanalyse mit NumPy
 
 Diese Übung behandelt statistische Datenanalyse:

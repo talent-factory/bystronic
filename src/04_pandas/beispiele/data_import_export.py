@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Datenimport und -export - Pandas Tutorial für Bystronic
+Datenimport und -export - Pandas Tutorial für SmartFactory
 
 Dieses Beispiel demonstriert verschiedene Import/Export-Möglichkeiten:
 - CSV-Dateien lesen und schreiben
@@ -8,7 +8,7 @@ Dieses Beispiel demonstriert verschiedene Import/Export-Möglichkeiten:
 - JSON-Daten handhaben
 - Verschiedene Formatierungsoptionen
 
-Für Bystronic-Entwickler: Alternativen zu Excel-VBA für Datenverarbeitung
+Für SmartFactory-Entwickler: Alternativen zu Excel-VBA für Datenverarbeitung
 """
 
 import json
@@ -122,7 +122,7 @@ print("-" * 40)
 
 try:
     # Excel mit mehreren Arbeitsblättern erstellen
-    excel_datei = "bystronic_daten.xlsx"
+    excel_datei = "smartfactory_daten.xlsx"
 
     # Verschiedene Datensets für verschiedene Blätter
     df_maschinen = pd.DataFrame(
@@ -180,7 +180,7 @@ print("-" * 40)
 
 # Strukturierte Daten für JSON
 maschinendaten_json = {
-    "unternehmen": "Bystronic",
+    "unternehmen": "SmartFactory",
     "standort": "Niederönz",
     "erstellt_am": str(datetime.now()),
     "maschinen": [
@@ -339,7 +339,7 @@ print("-" * 40)
 
 
 def validate_production_data(df):
-    """Validiert Produktionsdaten nach Bystronic-Standards"""
+    """Validiert Produktionsdaten nach SmartFactory-Standards"""
     errors = []
 
     # Pflichtfelder prüfen
@@ -428,6 +428,6 @@ print("✅ Datenbereinigung beim Import")
 print("✅ Chunked Reading für grosse Dateien")
 print("✅ Datenvalidierung implementieren")
 print("✅ Formatierter Export für verschiedene Systeme")
-print("\n💡 Als Bystronic-Entwickler können Sie jetzt alle gängigen")
+print("\n💡 Als SmartFactory-Entwickler können Sie jetzt alle gängigen")
 print("   Datenformate effizient mit Pandas verarbeiten!")
 print("   Nächster Schritt: Datenbereinigung und -validierung")

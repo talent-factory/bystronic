@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🟢 BEGINNER - Bystronic Python Grundkurs - Kapitel 3
+🟢 BEGINNER - SmartFactory Python Grundkurs - Kapitel 3
 Übung 2: Mathematische Operationen (Einsteigerfreundlich)
 
 🎯 LERNZIELE (20-25 Minuten):
@@ -391,7 +391,7 @@ def aufgabe_5_praktische_anwendung():
     print("=" * 60)
 
     # Komplexes Szenario: Monatsauswertung Produktion
-    print("🏭 SZENARIO: Monatsauswertung Bystronic-Produktion")
+    print("🏭 SZENARIO: Monatsauswertung SmartFactory-Produktion")
     print("=" * 50)
 
     # Simuliere Produktionsdaten für 4 Wochen
@@ -526,7 +526,7 @@ def aufgabe_5_praktische_anwendung():
 
 def main():
     """🚀 Hauptprogramm - Alle Aufgaben ausführen"""
-    print("🟢 BEGINNER: Mathematische Operationen mit NumPy für Bystronic")
+    print("🟢 BEGINNER: Mathematische Operationen mit NumPy für SmartFactory")
     print("=" * 70)
     print("📚 Lernen Sie vektorisierte Berechnungen und statistische Funktionen!")
     print("🎯 Ziel: Effiziente mathematische Operationen für Produktionsdaten")

@@ -77,7 +77,7 @@ class MeineErsteGUI(QMainWindow):
         """Zeigt eine Begrüßung an."""
         # name = self.name_input.text()
         # if name:
-        #     greeting = f"Hallo {name}! Willkommen bei Bystronic!"
+        #     greeting = f"Hallo {name}! Willkommen bei SmartFactory!"
         #     self.output_text.append(greeting)
         # else:
         #     QMessageBox.warning(self, "Warnung", "Bitte geben Sie Ihren Namen ein!")
@@ -103,7 +103,7 @@ class ErweiterteGUI(QMainWindow):
         main_layout = QVBoxLayout(central_widget)
 
         # Titel
-        title = QLabel("🏭 Bystronic Steuerung")
+        title = QLabel("🏭 SmartFactory Steuerung")
         title.setStyleSheet("font-size: 18px; font-weight: bold; color: #1f4e79;")
         title.setAlignment(Qt.AlignCenter)
         main_layout.addWidget(title)

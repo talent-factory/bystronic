@@ -235,7 +235,7 @@ voila notebooks/ --port=8866 --Voila.ip=0.0.0.0 \
 [source,yaml]
 ----
 # environment.yml für Binder
-name: bystronic-notebooks
+name: smartfactory-notebooks
 channels:
   - conda-forge
   - defaults
@@ -438,7 +438,7 @@ spec:
     spec:
       containers:
       - name: jupyter
-        image: bystronic/jupyter-notebook:latest
+        image: smartfactory/jupyter-notebook:latest
         ports:
         - containerPort: 8888
         env:

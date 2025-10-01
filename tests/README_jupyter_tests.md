@@ -1,4 +1,4 @@
-# Jupyter Tests - Bystronic Python Grundkurs
+# Jupyter Tests - SmartFactory Python Grundkurs
 
 ## Übersicht
 

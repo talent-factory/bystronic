@@ -62,7 +62,7 @@ else:
 # Verabschiedung
 print("-" * 40)
 print("Vielen Dank für Ihre Angaben!")
-print("Willkommen im Bystronic Python-Kurs! 🐍")
+print("Willkommen im SmartFactory Python-Kurs! 🐍")
 
 # BONUS: Statistik anzeigen
 print(f"\nStatistik: Sie haben {len(name.split())} Wörter in Ihrem Namen.")
@@ -95,7 +95,7 @@ Mit 32 Jahren haben Sie sicher schon viel Berufserfahrung gesammelt!
 Als technische Fachkraft werden Sie Python sicher schnell meistern!
 ----------------------------------------
 Vielen Dank für Ihre Angaben!
-Willkommen im Bystronic Python-Kurs! 🐍
+Willkommen im SmartFactory Python-Kurs! 🐍
 
 Statistik: Sie haben 2 Wörter in Ihrem Namen.
 

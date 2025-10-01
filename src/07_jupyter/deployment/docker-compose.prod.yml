@@ -4,13 +4,13 @@ version: '3.8'
 services:
   jupyter:
     environment:
-      - JUPYTER_TOKEN=bystronic-secure-token-2024
+      - JUPYTER_TOKEN=smartfactory-secure-token-2024
       - JUPYTER_ENABLE_LAB=yes
       - JUPYTER_LOG_LEVEL=INFO
     volumes:
       - jupyter_notebooks:/home/jovyan/work
       - jupyter_config:/home/jovyan/.jupyter
-      - /opt/bystronic/data:/home/jovyan/work/data:ro
+      - /opt/smartfactory/data:/home/jovyan/work/data:ro
     restart: always
     deploy:
       resources:
@@ -32,7 +32,7 @@ services:
       - ./jupyterhub_config.py:/srv/jupyterhub/jupyterhub_config.py:ro
       - /var/run/docker.sock:/var/run/docker.sock:rw
       - jupyterhub_data:/srv/jupyterhub
-      - /opt/bystronic/users:/srv/jupyterhub/users
+      - /opt/smartfactory/users:/srv/jupyterhub/users
     restart: always
     deploy:
       resources:
@@ -46,6 +46,6 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /opt/bystronic/notebooks
+      device: /opt/smartfactory/notebooks
   jupyter_config:
   jupyterhub_data:

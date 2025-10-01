@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 NumPy Übung 3: Numerische Algorithmen und Signalverarbeitung (Intermediate)
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 
 Diese Übung behandelt erweiterte numerische Algorithmen und Signalverarbeitung
 mit NumPy für technische Anwendungen in der Produktion.
@@ -12,7 +12,7 @@ Lernziele:
 - Fourier-Transformationen für Frequenzanalyse
 - Interpolation und Kurvenanpassung
 - Optimierungsalgorithmen mit NumPy
-- Praktische Anwendungen für Bystronic-Szenarien
+- Praktische Anwendungen für SmartFactory-Szenarien
 
 Schwierigkeitsgrad: 🟡 Intermediate
 Geschätzte Bearbeitungszeit: 45-50 Minuten
@@ -31,7 +31,7 @@ def main():
     print("🎯 NUMPY INTERMEDIATE ÜBUNG 3: NUMERISCHE ALGORITHMEN & SIGNALVERARBEITUNG")
     print("=" * 80)
     print("Diese Übung behandelt erweiterte numerische Methoden und")
-    print("Signalverarbeitung für technische Bystronic-Anwendungen.")
+    print("Signalverarbeitung für technische SmartFactory-Anwendungen.")
     print()
 
     try:

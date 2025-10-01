@@ -270,9 +270,9 @@ class TestPandasIntegration:
         except Exception as e:
             pytest.fail(f"Pandas-Beispiel fehlgeschlagen: {e}")
 
-    def test_bystronic_specific_data_patterns(self):
-        """Testet Bystronic-spezifische Datenmuster"""
-        # Typische Bystronic-Maschinendaten
+    def test_smartfactory_specific_data_patterns(self):
+        """Testet SmartFactory-spezifische Datenmuster"""
+        # Typische SmartFactory-Maschinendaten
         maschinendaten = pd.DataFrame(
             {
                 "Maschine_ID": ["LASER_01", "LASER_02", "PRESSE_01", "STANZE_01"],

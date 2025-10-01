@@ -1,4 +1,4 @@
-# Bystronic Jupyter Notebook Configuration
+# SmartFactory Jupyter Notebook Configuration
 # Autor: Daniel Senften
 
 c = get_config()
@@ -8,7 +8,7 @@ c = get_config()
 # =============================================================================
 
 # Token-basierte Authentifizierung
-c.NotebookApp.token = "bystronic-secure-token-2024"
+c.NotebookApp.token = "smartfactory-secure-token-2024"
 
 # Passwort-Hash (optional, zusätzlich zum Token)
 # Generiert mit: from notebook.auth import passwd; passwd()
@@ -78,23 +78,23 @@ c.NotebookApp.tornado_settings = {
 }
 
 # Session-Management
-c.Session.key = b"bystronic-session-key-2024"
+c.Session.key = b"smartfactory-session-key-2024"
 
 # =============================================================================
-# Bystronic-spezifische Einstellungen
+# SmartFactory-spezifische Einstellungen
 # =============================================================================
 
 
-# Startup-Hooks für Bystronic-Umgebung
-def bystronic_startup_hook():
-    """Initialisierung für Bystronic-spezifische Funktionen"""
+# Startup-Hooks für SmartFactory-Umgebung
+def smartfactory_startup_hook():
+    """Initialisierung für SmartFactory-spezifische Funktionen"""
     import os
     import sys
 
-    # Bystronic-Module zum Python-Pfad hinzufügen
-    bystronic_path = "/home/jovyan/work/bystronic_modules"
-    if os.path.exists(bystronic_path) and bystronic_path not in sys.path:
-        sys.path.insert(0, bystronic_path)
+    # SmartFactory-Module zum Python-Pfad hinzufügen
+    smartfactory_path = "/home/jovyan/work/smartfactory_modules"
+    if os.path.exists(smartfactory_path) and smartfactory_path not in sys.path:
+        sys.path.insert(0, smartfactory_path)
 
     # Umgebungsvariablen setzen
     os.environ["BYSTRONIC_ENV"] = "production"
@@ -102,7 +102,7 @@ def bystronic_startup_hook():
 
 
 # Startup-Hook registrieren
-c.NotebookApp.startup_hooks = [bystronic_startup_hook]
+c.NotebookApp.startup_hooks = [smartfactory_startup_hook]
 
 # =============================================================================
 # JupyterLab-spezifische Konfiguration

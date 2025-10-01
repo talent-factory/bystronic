@@ -7,7 +7,8 @@ Datenstrukturen in Python.
 
 ### Interaktive Lernmaterialien
 
-- **[02_datentypen.ipynb](02_datentypen.ipynb)** - Jupyter Notebook mit allen Datentypen
+- **[02_datentypen.ipynb](02_datentypen.ipynb)** - Jupyter Notebook mit allen
+  Datentypen
 
   - **Format:** Interaktives Jupyter Notebook
   - **Inhalt:** Vollständige Theorie mit ausführbaren Beispielen
@@ -67,7 +68,8 @@ Nach dem Studium der Theorie verstehen Sie:
 
 - ✅ **Datentyp-System** - Wie Python Typen verwaltet
 - ✅ **Memory Model** - Wie Objekte im Speicher organisiert sind
-- ✅ **Mutability** - Unterschied zwischen veränderlichen und unveränderlichen Typen
+- ✅ **Mutability** - Unterschied zwischen veränderlichen und unveränderlichen
+  Typen
 - ✅ **Type Conversion** - Sichere und unsichere Konvertierungen
 
 ### Praktische Anwendung
@@ -77,7 +79,7 @@ Nach dem Studium der Theorie verstehen Sie:
 - ✅ **Best Practices** - Idiomatischer Python-Code
 - ✅ **Fehlerbehandlung** - Typbedingte Fehler vermeiden
 
-### Bystronic-Kontext
+### SmartFactory-Kontext
 
 - ✅ **Produktionsdaten** - Geeignete Datenstrukturen wählen
 - ✅ **Qualitätsdaten** - Numerische Berechnungen optimieren
@@ -88,12 +90,15 @@ Nach dem Studium der Theorie verstehen Sie:
 
 ### Voraussetzungen
 
-- **[Kapitel 1: Grundlagen](../../01_grundlagen/theory/)** - Python-Syntax und Grundkonzepte
+- **[Kapitel 1: Grundlagen](../../01_grundlagen/theory/)** - Python-Syntax und
+  Grundkonzepte
 
 ### Aufbauende Kapitel
 
-- **[Kapitel 3: NumPy](../../03_numpy/theory/)** - Numerische Arrays und Berechnungen
-- **[Kapitel 4: Pandas](../../04_pandas/theory/)** - Datenanalyse und -manipulation
+- **[Kapitel 3: NumPy](../../03_numpy/theory/)** - Numerische Arrays und
+  Berechnungen
+- **[Kapitel 4: Pandas](../../04_pandas/theory/)** - Datenanalyse und
+  -manipulation
 
 ## 💡 Tipps für das Studium
 
@@ -123,6 +128,5 @@ Nach dem Studium der Theorie verstehen Sie:
 
 ## ➡️ Nächste Schritte
 
-Nach dem Studium der Theorie:
-→ **[Examples](../examples/)** - Praktische Demonstrationen
-→ **[Exercises](../exercises/)** - Hands-on Übungen
+Nach dem Studium der Theorie: → **[Examples](../examples/)** - Praktische
+Demonstrationen → **[Exercises](../exercises/)** - Hands-on Übungen

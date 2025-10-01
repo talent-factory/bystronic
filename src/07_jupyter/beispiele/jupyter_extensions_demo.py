@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Jupyter Extensions Demo für Bystronic
+Jupyter Extensions Demo für SmartFactory
 
 Demonstriert die Verwendung und Konfiguration von Jupyter Extensions.
 """
@@ -112,7 +112,7 @@ def create_jupyter_config() -> str:
     Returns:
         Konfiguration als String
     """
-    config = """# jupyter_notebook_config.py - Bystronic Konfiguration
+    config = """# jupyter_notebook_config.py - SmartFactory Konfiguration
 c = get_config()
 
 # === Basis-Konfiguration ===
@@ -122,11 +122,11 @@ c.NotebookApp.open_browser = False
 c.NotebookApp.allow_remote_access = True
 
 # === Sicherheit ===
-c.NotebookApp.token = 'bystronic-secure-token-2024'
+c.NotebookApp.token = 'smartfactory-secure-token-2024'
 c.NotebookApp.password = ''  # Wird durch Token ersetzt
 
 # === Arbeitsverzeichnis ===
-c.NotebookApp.notebook_dir = '/opt/bystronic/notebooks'
+c.NotebookApp.notebook_dir = '/opt/smartfactory/notebooks'
 
 # === Extensions ===
 c.NotebookApp.nbserver_extensions = {
@@ -219,7 +219,7 @@ def create_extension_test_notebook() -> dict:
                     "# Variablen für Inspector\n",
                     "test_array = np.array([1, 2, 3, 4, 5])\n",
                     "test_df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})\n",
-                    "test_string = 'Bystronic Test'\n",
+                    "test_string = 'SmartFactory Test'\n",
                     "\n",
                     "print('✅ Variablen für Inspector erstellt')",
                 ],
@@ -361,7 +361,7 @@ def validate_extension_installation() -> dict[str, str]:
 
 
 if __name__ == "__main__":
-    print("🔧 Jupyter Extensions Demo für Bystronic")
+    print("🔧 Jupyter Extensions Demo für SmartFactory")
     print("=" * 50)
 
     # Extension Manager initialisieren

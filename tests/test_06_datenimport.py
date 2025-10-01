@@ -6,11 +6,11 @@ Diese Tests überprüfen alle Funktionalitäten des Datenimport-Moduls:
 - CSV-Import mit komplexen Strukturen
 - Excel-Verarbeitung mit mehreren Arbeitsblättern
 - JSON-Datenverarbeitung
-- Bystronic CSV Parser
+- SmartFactory CSV Parser
 - Datenbereinigung
 - Export-Funktionen
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 """
 
 import json
@@ -33,14 +33,14 @@ sys.path.insert(0, str(beispiele_path))
 # Module importieren
 try:
     import csv_import_grundlagen
-    from bystronic_csv_parser import BystronicCSVParser
     from csv_import_grundlagen import (
         csv_import_beispiele,
         csv_performance_optimierung,
         csv_probleme_loesen,
         visualisiere_csv_daten,
     )
-    from excel_verarbeitung import BystronicExcelHandler
+    from excel_verarbeitung import SmartFactoryExcelHandler
+    from smartfactory_csv_parser import SmartFactoryCSVParser
 except ImportError as e:
     pytest.skip(
         f"Datenimport Beispiele können nicht importiert werden: {e}",
@@ -177,13 +177,13 @@ class TestCSVImportGrundlagen:
         assert df_optimized["Kategorie"].dtype.name == "category"
 
 
-class TestBystronicCSVParser:
-    """Tests für den Bystronic CSV Parser"""
+class TestSmartFactoryCSVParser:
+    """Tests für den SmartFactory CSV Parser"""
 
     def setup_method(self):
         """Setup für jeden Test"""
         self.temp_dir = Path(tempfile.mkdtemp())
-        self.parser = BystronicCSVParser()
+        self.parser = SmartFactoryCSVParser()
 
     def teardown_method(self):
         """Cleanup nach jedem Test"""
@@ -192,8 +192,8 @@ class TestBystronicCSVParser:
         if self.temp_dir.exists():
             shutil.rmtree(self.temp_dir)
 
-    def create_mock_bystronic_csv(self):
-        """Erstellt eine Mock Bystronic CSV-Datei"""
+    def create_mock_smartfactory_csv(self):
+        """Erstellt eine Mock SmartFactory CSV-Datei"""
         mock_content = """Name	Distance Control
 File	O:\\Messungen\\Test.csv
 Starttime of export	133964386997165000	Montag, 1. Januar 2024	10:00:00.000
@@ -220,7 +220,7 @@ BitMask	0xffffffffffffffff	BitMask	0xffffffffffffffff	BitMask	0xffffffffffffffff
 2	23.1	2	2.1	2	5.8
 3	23.4	3	2.8	3	5.5
 """
-        csv_file = self.temp_dir / "mock_bystronic.csv"
+        csv_file = self.temp_dir / "mock_smartfactory.csv"
         csv_file.write_text(mock_content, encoding="utf-8")
         return csv_file
 
@@ -232,7 +232,7 @@ BitMask	0xffffffffffffffff	BitMask	0xffffffffffffffff	BitMask	0xffffffffffffffff
 
     def test_analyze_structure(self):
         """Test der Struktur-Analyse"""
-        csv_file = self.create_mock_bystronic_csv()
+        csv_file = self.create_mock_smartfactory_csv()
 
         structure = self.parser.analyze_structure(str(csv_file))
 
@@ -245,7 +245,7 @@ BitMask	0xffffffffffffffff	BitMask	0xffffffffffffffff	BitMask	0xffffffffffffffff
 
     def test_extract_metadata(self):
         """Test der Metadaten-Extraktion"""
-        csv_file = self.create_mock_bystronic_csv()
+        csv_file = self.create_mock_smartfactory_csv()
 
         # Erst die Struktur analysieren
         structure = self.parser.analyze_structure(str(csv_file))
@@ -257,7 +257,7 @@ BitMask	0xffffffffffffffff	BitMask	0xffffffffffffffff	BitMask	0xffffffffffffffff
 
     def test_parse_complex_csv(self):
         """Test des kompletten CSV-Parsing"""
-        csv_file = self.create_mock_bystronic_csv()
+        csv_file = self.create_mock_smartfactory_csv()
 
         result = self.parser.parse_complex_csv(str(csv_file))
 
@@ -306,7 +306,7 @@ class TestExcelVerarbeitung:
     def setup_method(self):
         """Setup für jeden Test"""
         self.temp_dir = Path(tempfile.mkdtemp())
-        self.excel_handler = BystronicExcelHandler()
+        self.excel_handler = SmartFactoryExcelHandler()
 
     def teardown_method(self):
         """Cleanup nach jedem Test"""
@@ -435,7 +435,7 @@ class TestJSONVerarbeitung:
         """Erstellt eine Test-JSON-Datei"""
         test_data = {
             "metadata": {
-                "system": "Bystronic IoT Platform",
+                "system": "SmartFactory IoT Platform",
                 "version": "2.1.0",
                 "timestamp": "2024-01-15T08:30:00Z",
             },
@@ -789,7 +789,7 @@ class TestExportFunktionen:
                 "exported_at": pd.Timestamp.now().isoformat(),
                 "rows": len(df),
                 "columns": len(df.columns),
-                "source": "Bystronic Test Suite",
+                "source": "SmartFactory Test Suite",
             },
             "column_info": {col: str(dtype) for col, dtype in df.dtypes.items()},
             "data": df.to_dict("records"),

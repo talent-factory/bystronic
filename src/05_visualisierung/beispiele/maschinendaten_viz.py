@@ -3,9 +3,9 @@
 Maschinendaten-Visualisierung - Industrielle Datenanalyse
 
 Dieses Skript demonstriert die Visualisierung von industriellen Maschinendaten
-mit verschiedenen Plot-Techniken speziell für Bystronic-Anwendungen.
+mit verschiedenen Plot-Techniken speziell für SmartFactory-Anwendungen.
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 """
 
 import warnings
@@ -63,7 +63,7 @@ def main() -> None:
 
     print(f"\n{'=' * 70}")
     print("✅ Maschinendaten-Visualisierungen erfolgreich erstellt!")
-    print("🏭 Industrielle Dashboards für Bystronic-Produktionsumgebung")
+    print("🏭 Industrielle Dashboards für SmartFactory-Produktionsumgebung")
     print("📊 KPI-Tracking und Performance-Monitoring")
 
 

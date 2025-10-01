@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Übung 2: Datenimport - Pandas Tutorial für Bystronic
+Übung 2: Datenimport - Pandas Tutorial für SmartFactory
 
 AUFGABENSTELLUNG:
 In dieser Übung lernen Sie verschiedene Datenquellen zu importieren,
@@ -111,7 +111,7 @@ def create_test_excel():
 def create_test_json():
     """Erstelle JSON-Testdaten"""
     data = {
-        "unternehmen": "Bystronic AG",
+        "unternehmen": "SmartFactory AG",
         "standort": "Niederönz",
         "export_datum": "2024-03-15T10:30:00",
         "produktionslinien": [
@@ -833,5 +833,5 @@ for file in temp_files:
     if Path(file).exists():
         print(f"  • {file}")
 
-print("\n💡 Als Bystronic-Entwickler können Sie jetzt professionell")
+print("\n💡 Als SmartFactory-Entwickler können Sie jetzt professionell")
 print("   Daten aus verschiedenen Quellen importieren und validieren!")

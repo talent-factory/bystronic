@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Professioneller Git-Commit-Befehl für Bystronic Python-Projekt
+Professioneller Git-Commit-Befehl für SmartFactory Python-Projekt
 Führt automatische Qualitätschecks durch und erstellt konventionelle Commit-Nachrichten
 """
 

@@ -4,9 +4,9 @@ Matplotlib Grundlagen - Beispielskript für 2D-Diagramme
 
 Dieses Skript demonstriert die grundlegenden Funktionen von Matplotlib
 für die Erstellung verschiedener 2D-Diagramme mit Fokus auf industrielle
-Anwendungen bei Bystronic.
+Anwendungen bei SmartFactory.
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 """
 
 import warnings
@@ -173,7 +173,7 @@ def main() -> None:
     print(f"\n{'=' * 70}")
     print("✅ Matplotlib-Grundlagen erfolgreich demonstriert!")
     print("🎨 Verschiedene Diagrammtypen für industrielle Anwendungen")
-    print("📊 Professionelle Visualisierungen für Bystronic-Daten")
+    print("📊 Professionelle Visualisierungen für SmartFactory-Daten")
 
 
 def demo_styling() -> None:
@@ -315,7 +315,7 @@ def demo_komplexe_layouts() -> None:
     # Colorbar
     plt.colorbar(im, ax=ax4, orientation="horizontal", pad=0.1)
 
-    plt.suptitle("Bystronic Produktions-Dashboard", fontsize=16, fontweight="bold")
+    plt.suptitle("SmartFactory Produktions-Dashboard", fontsize=16, fontweight="bold")
     plt.tight_layout()
     plt.show()
 

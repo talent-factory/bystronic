@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 Beispiel: VBA vs NumPy Vergleich
 
 Dieses Skript zeigt den direkten Vergleich zwischen VBA-Code

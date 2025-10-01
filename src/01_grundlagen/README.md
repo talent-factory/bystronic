@@ -1,6 +1,6 @@
 # 📚 Kapitel 01: Python Grundlagen
 
-Willkommen zum ersten Kapitel des **Bystronic Python Grundkurses**! 🐍
+Willkommen zum ersten Kapitel des **SmartFactory Python Grundkurses**! 🐍
 
 Dieses Kapitel bietet eine **adaptive Lernumgebung** mit personalisierten
 Lernpfaden für heterogene Lerngruppen.
@@ -403,6 +403,6 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-*Dieses adaptive Lernsystem wurde speziell für den **Bystronic Python
+*Dieses adaptive Lernsystem wurde speziell für den **SmartFactory Python
 Grundkurs** entwickelt und unterstützt heterogene Lerngruppen durch
 personalisierte, datengetriebene Lernpfade.*

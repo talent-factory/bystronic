@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Datenbereinigung - Pandas Tutorial für Bystronic
+Datenbereinigung - Pandas Tutorial für SmartFactory
 
 Dieses Beispiel demonstriert wichtige Datenbereinigungstechniken:
 - Umgang mit fehlenden Werten (NaN)
@@ -9,7 +9,7 @@ Dieses Beispiel demonstriert wichtige Datenbereinigungstechniken:
 - Ausreisser-Behandlung
 - String-Bereinigung
 
-Für Bystronic-Entwickler: Robuste Datenverarbeitung für Produktionsdaten
+Für SmartFactory-Entwickler: Robuste Datenverarbeitung für Produktionsdaten
 """
 
 import warnings
@@ -482,6 +482,6 @@ print("✅ Verschiedene Strategien für fehlende Werte")
 print("✅ Validierungsregeln implementieren")
 print("✅ Bereinigungsprotokoll erstellen")
 print("✅ Qualitäts-Metriken berechnen")
-print("\n💡 Als Bystronic-Entwickler können Sie jetzt robuste")
+print("\n💡 Als SmartFactory-Entwickler können Sie jetzt robuste")
 print("   Datenbereinigung für Produktionsdaten implementieren!")
 print("   Nächster Schritt: Erweiterte Datenanalyse und Aggregationen")

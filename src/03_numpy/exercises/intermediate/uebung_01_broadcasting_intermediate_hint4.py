@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 🟡 INTERMEDIATE - NumPy Broadcasting - HINT 4 (Fast vollständige Lösung)
-Übung 1: Broadcasting für Bystronic Produktionsoptimierung
+Übung 1: Broadcasting für SmartFactory Produktionsoptimierung
 
 🎯 FAST VOLLSTÄNDIGE LÖSUNG mit TODO-Bereichen:
 Nur wenige kritische Broadcasting-Operationen müssen noch ergänzt werden!

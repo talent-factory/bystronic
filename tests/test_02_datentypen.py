@@ -136,8 +136,8 @@ class TestStringsDemo:
         assert "split" in source or "partition" in source, "String-Splitting fehlt"
         assert 'f"' in source or ".format(" in source, "String-Formatierung fehlt"
 
-    def test_bystronic_specific_examples(self):
-        """Testet Bystronic-spezifische String-Beispiele"""
+    def test_smartfactory_specific_examples(self):
+        """Testet SmartFactory-spezifische String-Beispiele"""
         # Test typische Maschinennamen-Verarbeitung
         maschinen_name = "LASER_01_BYSTAR_FIBER"
 
@@ -238,7 +238,7 @@ class TestDataTypeIntegration:
 
     def test_numeric_precision(self):
         """Testet numerische Präzision bei Berechnungen"""
-        # Typische Bystronic-Berechnungen mit Fließkommazahlen
+        # Typische SmartFactory-Berechnungen mit Fließkommazahlen
         materialdicke = 2.5
         toleranz = 0.1
 

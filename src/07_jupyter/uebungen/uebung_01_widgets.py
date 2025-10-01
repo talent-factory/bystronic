@@ -249,7 +249,7 @@ def erstelle_interaktives_dashboard(data: pd.DataFrame) -> widgets.Widget | None
     # TODO: Layout erstellen und zurückgeben
     dashboard = widgets.VBox(
         [
-            widgets.HTML("<h2>🏭 Bystronic Maschinen-Dashboard</h2>"),
+            widgets.HTML("<h2>🏭 SmartFactory Maschinen-Dashboard</h2>"),
             # TODO: Fügen Sie Widgets und Layout hinzu
         ]
     )
@@ -313,7 +313,7 @@ def erweiterte_aufgaben():
 
 
 if __name__ == "__main__":
-    print("📚 Jupyter Widgets Übung - Bystronic")
+    print("📚 Jupyter Widgets Übung - SmartFactory")
     print("=" * 50)
 
     if not WIDGETS_AVAILABLE:

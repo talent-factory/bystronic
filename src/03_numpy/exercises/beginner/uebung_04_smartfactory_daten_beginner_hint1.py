@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-🟢 BEGINNER - NumPy Bystronic-Datenverarbeitung - HINT 1 (Subtile Hinweise)
-Übung 4: Praktische Bystronic-Datenverarbeitung
+🟢 BEGINNER - NumPy SmartFactory-Datenverarbeitung - HINT 1 (Subtile Hinweise)
+Übung 4: Praktische SmartFactory-Datenverarbeitung
 
 🎯 KONZEPTUELLE HINWEISE (ohne Code-Beispiele):
 

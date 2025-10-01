@@ -236,7 +236,7 @@ Verfügbare Abteilungen:
 Abteilung (1-6): 1
 Position: Software-Entwicklerin
 Jahresgehalt (CHF): 75000
-E-Mail (optional): anna.mueller@bystronic.com
+E-Mail (optional): anna.mueller@smartfactory.com
 
 ==================================================
 👤 MITARBEITERPROFIL
@@ -245,7 +245,7 @@ Name:           Anna Müller
 Alter:          28 Jahre
 Abteilung:      IT
 Position:       Software-Entwicklerin
-E-Mail:         anna.mueller@bystronic.com
+E-Mail:         anna.mueller@smartfactory.com
 
 💰 GEHALTSINFORMATIONEN:
 Jahresgehalt:   CHF 75,000.00
@@ -269,7 +269,7 @@ HILFEN ZUM AUSFÜLLEN:
 □ Monatsgehalt: gehalt / 12
 □ Altersgruppe: "Mittel (30-49)" und "Senior (≥ 50)"
 □ Jahre bis Rente: 65 - alter
-□ E-Mail generieren: f"{vorname.lower()}.{nachname.lower()}@bystronic.com"
+□ E-Mail generieren: f"{vorname.lower()}.{nachname.lower()}@smartfactory.com"
 
 LÖSUNGSHILFEN:
 ==============

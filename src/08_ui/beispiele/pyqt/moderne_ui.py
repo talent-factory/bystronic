@@ -271,7 +271,7 @@ class ModernSidebar(QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
 
         # Header
-        header = QLabel("Bystronic Dashboard")
+        header = QLabel("SmartFactory Dashboard")
         header.setStyleSheet(
             """
             QLabel {
@@ -361,7 +361,7 @@ class ModernDashboard(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Bystronic Modern Dashboard")
+        self.setWindowTitle("SmartFactory Modern Dashboard")
         self.setGeometry(100, 100, 1400, 900)
 
         self.setup_dark_theme()
@@ -814,7 +814,7 @@ def main():
     app = QApplication(sys.argv)
 
     # Anwendungs-Metadaten
-    app.setApplicationName("Bystronic Modern Dashboard")
+    app.setApplicationName("SmartFactory Modern Dashboard")
     app.setApplicationVersion("2.0")
 
     # Hauptfenster erstellen

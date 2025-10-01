@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DataFrame-Grundlagen - Pandas Tutorial für Bystronic
+DataFrame-Grundlagen - Pandas Tutorial für SmartFactory
 
 Dieses Beispiel demonstriert die wichtigsten DataFrame-Operationen:
 - Erstellung von DataFrames
@@ -8,7 +8,7 @@ Dieses Beispiel demonstriert die wichtigsten DataFrame-Operationen:
 - Indexing und Selection
 - Einfache Datenmanipulation
 
-Für Bystronic-Entwickler: Vergleichbare Funktionalität zu Excel-Arbeitsblättern
+Für SmartFactory-Entwickler: Vergleichbare Funktionalität zu Excel-Arbeitsblättern
 """
 
 import numpy as np
@@ -243,5 +243,5 @@ print("✅ Sortieren und Aggregieren")
 print("✅ Gruppierungen für Analysen")
 print("✅ Praktisches Beispiel: Produktionsdaten")
 print("✅ Export in verschiedene Formate")
-print("\n💡 Als Bystronic-Entwickler kennen Sie jetzt die Pandas-Grundlagen!")
+print("\n💡 Als SmartFactory-Entwickler kennen Sie jetzt die Pandas-Grundlagen!")
 print("   Nächster Schritt: Datenimport aus verschiedenen Quellen")

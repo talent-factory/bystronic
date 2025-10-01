@@ -123,7 +123,7 @@ print(f"\nWir sind gespannt auf Ihre Fortschritte im Kurs, {name}!")
 # Verabschiedung
 print("-" * 40)
 print("Vielen Dank für Ihre Angaben!")
-print("Willkommen im Bystronic Python-Kurs! 🐍")
+print("Willkommen im SmartFactory Python-Kurs! 🐍")
 
 # BONUS: Interessante Statistiken
 print("\n📊 KLEINE STATISTIKEN:")
@@ -177,7 +177,7 @@ Kein Problem! Jeder Experte hat mal als Anfänger begonnen.
 Wir sind gespannt auf Ihre Fortschritte im Kurs, Max Mustermann!
 ----------------------------------------
 Vielen Dank für Ihre Angaben!
-Willkommen im Bystronic Python-Kurs! 🐍
+Willkommen im SmartFactory Python-Kurs! 🐍
 
 📊 KLEINE STATISTIKEN:
 • Ihr Name hat 14 Zeichen

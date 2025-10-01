@@ -1,6 +1,6 @@
 # 📊 Modul 06: Datenimport und -export
 
-## Python Grundkurs für Bystronic-Entwickler - Modul 06
+## Python Grundkurs für SmartFactory-Entwickler - Modul 06
 
 ______________________________________________________________________
 
@@ -8,8 +8,8 @@ ______________________________________________________________________
 
 Dieses Modul behandelt den professionellen Import und Export von Daten in
 verschiedenen Formaten, mit speziellem Fokus auf industrielle Anwendungen bei
-Bystronic. Von einfachen CSV-Dateien bis zu komplexen IoT-Sensordaten und APIs -
-hier lernen Sie alle wichtigen Techniken für die Datenverarbeitung.
+SmartFactory. Von einfachen CSV-Dateien bis zu komplexen IoT-Sensordaten und
+APIs - hier lernen Sie alle wichtigen Techniken für die Datenverarbeitung.
 
 ## 📚 Lernziele
 
@@ -30,7 +30,7 @@ src/06_datenimport/
 ├── datenimport_tutorial.ipynb          # Interaktives Jupyter Tutorial
 ├── beispiele/                          # Praxisnahe Implementierungsbeispiele
 │   ├── csv_import_grundlagen.py        # CSV-Import: Trennzeichen, Encoding, Performance
-│   ├── bystronic_csv_parser.py         # Spezieller Parser für Bystronic CSV-Strukturen
+│   ├── smartfactory_csv_parser.py         # Spezieller Parser für SmartFactory CSV-Strukturen
 │   └── excel_verarbeitung.py           # Excel: Multi-Sheet, KPIs, Formatierung
 └── uebungen/                           # Interaktive Übungen mit Lösungen
     └── uebung_01_csv_basics.py         # CSV-Import Grundlagen (⭐⭐☆☆)
@@ -64,12 +64,12 @@ df = pd.read_csv('datei.csv',
                 parse_dates=['Datum'])  # Datum-Spalten automatisch konvertieren
 ```
 
-### 3. Bystronic CSV-Parser verwenden
+### 3. SmartFactory CSV-Parser verwenden
 
 ```python
-from src.datenimport.beispiele.bystronic_csv_parser import BystronicCSVParser
+from src.datenimport.beispiele.smartfactory_csv_parser import SmartFactoryCSVParser
 
-parser = BystronicCSVParser()
+parser = SmartFactoryCSVParser()
 result = parser.parse_complex_csv('V084_Scope.csv')
 
 df = result['dataframe']
@@ -80,7 +80,7 @@ metadata = result['metadata']
 
 ```python
 # Alle Arbeitsblätter laden
-excel_data = pd.read_excel('bystronic_data.xlsx', sheet_name=None)
+excel_data = pd.read_excel('smartfactory_data.xlsx', sheet_name=None)
 
 # Spezifische Sheets
 production_df = pd.read_excel('data.xlsx', sheet_name='Produktion')
@@ -131,7 +131,7 @@ from src.datenimport.beispiele.csv_import_grundlagen import csv_probleme_loesen
 csv_probleme_loesen()
 ```
 
-### Bystronic CSV-Parser für komplexe Strukturen
+### SmartFactory CSV-Parser für komplexe Strukturen
 
 **V084_Scope.csv Format:**
 
@@ -145,9 +145,9 @@ Zeile 22+:    Messdaten
 **Parser verwenden:**
 
 ```python
-from src.datenimport.beispiele.bystronic_csv_parser import BystronicCSVParser
+from src.datenimport.beispiele.smartfactory_csv_parser import SmartFactoryCSVParser
 
-parser = BystronicCSVParser()
+parser = SmartFactoryCSVParser()
 
 # Automatische Struktur-Erkennung
 result = parser.parse_complex_csv('data/large/V084_Scope.csv')
@@ -165,9 +165,9 @@ info = result['parsing_info']   # Parsing-Details
 ### Excel-Verarbeitung mit KPIs
 
 ```python
-from src.datenimport.beispiele.excel_verarbeitung import BystronicExcelHandler
+from src.datenimport.beispiele.excel_verarbeitung import SmartFactoryExcelHandler
 
-handler = BystronicExcelHandler()
+handler = SmartFactoryExcelHandler()
 
 # Umfassender Daten-Import
 excel_data = handler.load_comprehensive_data()
@@ -357,7 +357,7 @@ def validate_industrial_data(df):
 pytest tests/test_06_datenimport.py -v
 
 # Nur CSV-Parser Tests
-pytest tests/test_06_datenimport.py::TestBystronicCSVParser -v
+pytest tests/test_06_datenimport.py::TestSmartFactoryCSVParser -v
 
 # Mit Coverage-Report
 pytest tests/test_06_datenimport.py --cov=src.datenimport --cov-report=html
@@ -368,11 +368,11 @@ pytest tests/test_06_datenimport.py --cov=src.datenimport --cov-report=html
 ### Komplette Datenverarbeitungs-Pipeline
 
 ```python
-def bystronic_data_pipeline(input_file, output_dir):
-    """Vollständige Pipeline für Bystronic-Datenverarbeitung"""
+def smartfactory_data_pipeline(input_file, output_dir):
+    """Vollständige Pipeline für SmartFactory-Datenverarbeitung"""
 
     # 1. Import mit speziellem Parser
-    parser = BystronicCSVParser()
+    parser = SmartFactoryCSVParser()
     result = parser.parse_complex_csv(input_file)
     df_raw = result['dataframe']
 
@@ -403,7 +403,7 @@ def bystronic_data_pipeline(input_file, output_dir):
     return report
 
 # Verwendung
-report = bystronic_data_pipeline('data/large/V084_Scope.csv', 'output/')
+report = smartfactory_data_pipeline('data/large/V084_Scope.csv', 'output/')
 print(f"✅ Pipeline abgeschlossen: {report['processed_rows']:,} Zeilen verarbeitet")
 ```
 
@@ -440,4 +440,4 @@ ______________________________________________________________________
 
 **Viel Erfolg beim Datenimport und -export!** 🚀
 
-*Dieses Modul ist Teil des Python-Grundkurses für Bystronic-Entwickler*
+*Dieses Modul ist Teil des Python-Grundkurses für SmartFactory-Entwickler*

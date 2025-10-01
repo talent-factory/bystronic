@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 Beispiel: Lineare Algebra mit NumPy
 
 Dieses Skript demonstriert Matrix-Operationen und lineare Algebra

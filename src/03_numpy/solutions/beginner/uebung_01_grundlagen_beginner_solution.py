@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-MUSTERLÖSUNG: NumPy Grundlagen für Bystronic
+MUSTERLÖSUNG: NumPy Grundlagen für SmartFactory
 ==========================================
 
 Vollständige Lösung für die erste Beginner-Übung mit NumPy Grundlagen.
@@ -13,7 +13,7 @@ Lernziele:
 ✅ Aggregationsfunktionen für statistische Auswertungen
 ✅ Praktische Anwendung in Produktionsumgebung
 
-Autor: NumPy Grundkurs Bystronic
+Autor: NumPy Grundkurs SmartFactory
 Version: 1.0.0
 """
 
@@ -571,7 +571,7 @@ def main():
     """
     Hauptfunktion zur Ausführung aller Aufgaben
     """
-    print("🔧 MUSTERLÖSUNG: NumPy Grundlagen für Bystronic")
+    print("🔧 MUSTERLÖSUNG: NumPy Grundlagen für SmartFactory")
     print("=" * 70)
     print("Vollständige Implementierung aller Grundlagen-Aufgaben")
     print("mit industriellen Anwendungsbeispielen.\n")
@@ -592,7 +592,7 @@ def main():
     print("\n✅ MUSTERLÖSUNG KOMPLETT")
     print("Alle NumPy-Grundlagen erfolgreich demonstriert!")
     print("Diese Lösung zeigt professionelle Implementierung für")
-    print("industrielle Datenverarbeitung bei Bystronic.")
+    print("industrielle Datenverarbeitung bei SmartFactory.")
 
 
 if __name__ == "__main__":

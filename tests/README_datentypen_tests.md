@@ -24,7 +24,7 @@ Datenverarbeitung.
 - ✅ **Funktion-Existenz**: Überprüft Verfügbarkeit der main() Funktion
 - ✅ **Ausführbarkeit**: Testet fehlerfreie Ausführung
 - ✅ **String-Operationen**: Validiert upper/lower, strip, split, f-strings
-- ✅ **Bystronic-Beispiele**: Maschinennamen-Parsing und -Verarbeitung
+- ✅ **SmartFactory-Beispiele**: Maschinennamen-Parsing und -Verarbeitung
 
 ### **TestCollectionsDemo** (6 Tests)
 
@@ -122,7 +122,7 @@ def test_code_contains_patterns(self):
 
 ## 📊 Industrielle Anwendungen
 
-Die Tests validieren typische Bystronic-Berechnungen:
+Die Tests validieren typische SmartFactory-Berechnungen:
 
 ### **Produktionsmetriken**
 
@@ -157,7 +157,8 @@ Diese Tests gewährleisten:
 1. **Numerische Stabilität**: Fließkomma-Berechnungen mit Toleranzen
 1. **String-Verarbeitung**: Robuste Text-Manipulation für Maschinendaten
 1. **Collection-Handling**: Sichere Verwendung von Listen, Sets, Dictionaries
-1. **Industrielle Anwendbarkeit**: Tests basieren auf realen Bystronic-Szenarien
+1. **Industrielle Anwendbarkeit**: Tests basieren auf realen
+   SmartFactory-Szenarien
 
 ## 🎓 Lernziele der Tests
 

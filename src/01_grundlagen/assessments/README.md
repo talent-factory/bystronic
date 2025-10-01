@@ -245,6 +245,6 @@ ______________________________________________________________________
 
 **🎓 Viel Erfolg beim Lernen mit dem Micro-Assessment-System!**
 
-*Dieses System wurde speziell für den Bystronic Python Grundkurs entwickelt und
-unterstützt heterogene Lerngruppen durch adaptive, personalisierte
+*Dieses System wurde speziell für den SmartFactory Python Grundkurs entwickelt
+und unterstützt heterogene Lerngruppen durch adaptive, personalisierte
 Lernkontrolle.*

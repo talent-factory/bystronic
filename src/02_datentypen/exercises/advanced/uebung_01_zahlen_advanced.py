@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-🔴 ADVANCED - Bystronic Python Grundkurs - Kapitel 2
+🔴 ADVANCED - SmartFactory Python Grundkurs - Kapitel 2
 Übung 1: Professionelle Zahlenverarbeitung mit OOP
 
 🎯 LERNZIELE (45-60 Minuten):

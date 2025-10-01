@@ -4,7 +4,7 @@ version: '3.8'
 services:
   jupyter:
     environment:
-      - JUPYTER_TOKEN=dev-token-bystronic
+      - JUPYTER_TOKEN=dev-token-smartfactory
       - JUPYTER_ENABLE_LAB=yes
       - JUPYTER_LOG_LEVEL=DEBUG
     volumes:
@@ -14,7 +14,7 @@ services:
     ports:
       - "8888:8888"
     command: ["start-notebook.sh",
-              "--NotebookApp.token=dev-token-bystronic",
+              "--NotebookApp.token=dev-token-smartfactory",
               "--NotebookApp.allow_root=True",
               "--NotebookApp.disable_check_xsrf=True"]
 

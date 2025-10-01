@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 🟢 BEGINNER - NumPy Array-Manipulation - HINT 2 (Konkrete Ansätze)
-Übung 3: Array-Manipulation für Bystronic Produktionsdaten
+Übung 3: Array-Manipulation für SmartFactory Produktionsdaten
 
 🎯 KONKRETE STRATEGIEN mit Pseudo-Code:
 

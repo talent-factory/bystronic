@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 Übung 4: Lineare Algebra mit NumPy
 
 Diese Übung behandelt lineare Algebra für technische Anwendungen:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Übung 4: Datenanalyse - Pandas Tutorial für Bystronic
+Übung 4: Datenanalyse - Pandas Tutorial für SmartFactory
 
 AUFGABENSTELLUNG:
 In dieser Übung führen Sie umfassende Datenanalysen durch.
@@ -1537,7 +1537,7 @@ print("• Machine Learning für Predictive Analytics")
 print("• Real-time Analytics mit Apache Kafka")
 print("• Advanced Visualization mit Plotly/Matplotlib")
 
-print("\\n💡 Als Bystronic-Entwickler beherrschen Sie jetzt")
+print("\\n💡 Als SmartFactory-Entwickler beherrschen Sie jetzt")
 print("   professionelle Datenanalyse und Business Intelligence!")
 print("   Sie können umfassende Produktionsdaten-Analysen")
 print("   durchführen und strategische Entscheidungen datenbasiert unterstützen.")

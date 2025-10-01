@@ -7,33 +7,37 @@ individuellen Lernpfads für Kapitel 2: Datentypen und Datenstrukturen.
 
 ### 📊 Learning Path Assessment (Hauptassessment)
 
-**Datei:** `learning_path_assessment.py`  
-**Dauer:** 5-7 Minuten  
-**Zweck:** Bestimmung des optimalen Lernpfads
+**Datei:** `learning_path_assessment.py` **Dauer:** 5-7 Minuten **Zweck:**
+Bestimmung des optimalen Lernpfads
 
-#### 5 Bewertungskategorien:
+#### 5 Bewertungskategorien
 
 1. **Datentyp-Grundlagen** (25% Gewichtung)
+
    - Verständnis von int, float, complex, bool, str
    - String-Operationen und Formatierung
 
-2. **Mathematik-Kenntnisse** (20% Gewichtung)
+1. **Mathematik-Kenntnisse** (20% Gewichtung)
+
    - Mathematische Berechnungen in der Programmierung
    - Statistische Auswertungen
 
-3. **Programmier-Erfahrung** (20% Gewichtung)
+1. **Programmier-Erfahrung** (20% Gewichtung)
+
    - Allgemeine Programmiererfahrung
    - Fehlerbehandlung und Debugging
 
-4. **Datenstrukturen** (20% Gewichtung)
+1. **Datenstrukturen** (20% Gewichtung)
+
    - Listen, Dictionaries, Sets, Tupel
    - Datenkonvertierung zwischen Typen
 
-5. **Qualitätskontrolle** (15% Gewichtung)
-   - Erfahrung mit Messdatenauswertung
-   - Bystronic-Produktionsdaten
+1. **Qualitätskontrolle** (15% Gewichtung)
 
-#### Lernpfad-Zuordnung:
+   - Erfahrung mit Messdatenauswertung
+   - SmartFactory-Produktionsdaten
+
+#### Lernpfad-Zuordnung
 
 - **🟢 Beginner (0-40 Punkte):** Grundlagen der Datentypen
 - **🟡 Intermediate (41-70 Punkte):** Erweiterte Datenverarbeitung
@@ -42,20 +46,24 @@ individuellen Lernpfads für Kapitel 2: Datentypen und Datenstrukturen.
 ### 🔄 Micro-Assessments (in Entwicklung)
 
 #### 📝 Quiz Assessment
-**Datei:** `micro_assessment_quiz.py`  
-**Zweck:** Interaktive Wissensprüfung zu spezifischen Themen
+
+**Datei:** `micro_assessment_quiz.py` **Zweck:** Interaktive Wissensprüfung zu
+spezifischen Themen
 
 #### 💻 Challenges Assessment
-**Datei:** `micro_assessment_challenges.py`  
-**Zweck:** Praktische Code-Aufgaben zur Kompetenzvalidierung
+
+**Datei:** `micro_assessment_challenges.py` **Zweck:** Praktische Code-Aufgaben
+zur Kompetenzvalidierung
 
 #### 🤔 Reflection Assessment
-**Datei:** `micro_assessment_reflection.py`  
-**Zweck:** Selbsteinschätzung und Lernfortschritt-Reflexion
+
+**Datei:** `micro_assessment_reflection.py` **Zweck:** Selbsteinschätzung und
+Lernfortschritt-Reflexion
 
 #### 📊 Dashboard
-**Datei:** `micro_assessment_dashboard.py`  
-**Zweck:** Gesamtübersicht aller Assessment-Ergebnisse
+
+**Datei:** `micro_assessment_dashboard.py` **Zweck:** Gesamtübersicht aller
+Assessment-Ergebnisse
 
 ## 🚀 Verwendung
 
@@ -69,9 +77,9 @@ uv run python src/02_datentypen/assessments/learning_path_assessment.py
 ### Beispiel-Workflow
 
 1. **Assessment durchführen** (5-7 Minuten)
-2. **Lernpfad-Empfehlung erhalten**
-3. **Empfohlene Übungen bearbeiten**
-4. **Fortschritt mit Micro-Assessments überprüfen**
+1. **Lernpfad-Empfehlung erhalten**
+1. **Empfohlene Übungen bearbeiten**
+1. **Fortschritt mit Micro-Assessments überprüfen**
 
 ## 📁 Ergebnis-Speicherung
 
@@ -176,11 +184,11 @@ Das Assessment zeigt detaillierte Ergebnisse für jede Kategorie:
 ### Lernzyklus
 
 1. **Assessment** → Lernpfad-Bestimmung
-2. **Theory** → Grundlagen verstehen
-3. **Examples** → Konzepte sehen
-4. **Exercises** → Praktisch üben
-5. **Micro-Assessment** → Fortschritt prüfen
-6. **Wiederholung** oder **Aufstieg**
+1. **Theory** → Grundlagen verstehen
+1. **Examples** → Konzepte sehen
+1. **Exercises** → Praktisch üben
+1. **Micro-Assessment** → Fortschritt prüfen
+1. **Wiederholung** oder **Aufstieg**
 
 ### Qualitätssicherung
 
@@ -191,7 +199,6 @@ Das Assessment zeigt detaillierte Ergebnisse für jede Kategorie:
 
 ## ➡️ Nächste Schritte
 
-Nach dem Assessment:
-→ **[Theory](../theory/)** - Theoretische Grundlagen (optional)
-→ **[Examples](../examples/)** - Praktische Demonstrationen
-→ **[Exercises](../exercises/)** - Ihr empfohlener Lernpfad
+Nach dem Assessment: → **[Theory](../theory/)** - Theoretische Grundlagen
+(optional) → **[Examples](../examples/)** - Praktische Demonstrationen →
+**[Exercises](../exercises/)** - Ihr empfohlener Lernpfad

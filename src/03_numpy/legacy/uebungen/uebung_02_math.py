@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bystronic Python Grundkurs - Kapitel 3
+SmartFactory Python Grundkurs - Kapitel 3
 Übung 2: Mathematische Operationen mit NumPy
 
 Diese Übung behandelt mathematische Funktionen und Berechnungen:

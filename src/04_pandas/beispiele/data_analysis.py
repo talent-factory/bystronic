@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Datenanalyse - Pandas Tutorial für Bystronic
+Datenanalyse - Pandas Tutorial für SmartFactory
 
 Dieses Beispiel demonstriert fortgeschrittene Datenanalysemethoden:
 - Gruppierungen und Aggregationen
@@ -9,7 +9,7 @@ Dieses Beispiel demonstriert fortgeschrittene Datenanalysemethoden:
 - Statistische Auswertungen
 - Join-Operationen
 
-Für Bystronic-Entwickler: Produktionsdaten analysieren und Insights gewinnen
+Für SmartFactory-Entwickler: Produktionsdaten analysieren und Insights gewinnen
 """
 
 import warnings
@@ -547,6 +547,6 @@ print("✅ Outlier-Erkennung und Behandlung")
 print("✅ Performance-Benchmarking")
 print("✅ Trendanalyse und Forecasting-Vorbereitung")
 print("✅ Umfassende Analysereports")
-print("\n💡 Als Bystronic-Entwickler beherrschen Sie jetzt")
+print("\n💡 Als SmartFactory-Entwickler beherrschen Sie jetzt")
 print("   professionelle Datenanalyse mit Pandas!")
 print("   Nächster Schritt: Integration mit Visualisierungen")

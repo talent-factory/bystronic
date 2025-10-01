@@ -1,7 +1,7 @@
 # Kapitel 5: Visualisierung mit Python
 
-Willkommen zum fünften Kapitel des Python Grundkurses für Bystronic-Entwickler!
-📊📈🎨
+Willkommen zum fünften Kapitel des Python Grundkurses für
+SmartFactory-Entwickler! 📊📈🎨
 
 ## 📚 Inhalte dieses Kapitels
 
@@ -204,7 +204,7 @@ fig.show()
 - **3D Mesh**: Drahtgitter-Modelle
 - **Volumetric**: Voxel-Daten, MRT-ähnlich
 
-## 🏭 Bystronic-Anwendungen
+## 🏭 SmartFactory-Anwendungen
 
 ### Maschinendaten-Dashboard
 
@@ -257,7 +257,7 @@ plt.show()
 ### Professionelle Layouts
 
 ```python
-# Bystronic Corporate Design
+# SmartFactory Corporate Design
 plt.style.use('seaborn-v0_8-whitegrid')
 colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
 
@@ -326,4 +326,4 @@ Nach erfolgreichem Abschluss dieses Kapitels: **→
 
 ______________________________________________________________________
 
-*Dieses Kapitel ist Teil des Python Grundkurses für Bystronic-Entwickler*
+*Dieses Kapitel ist Teil des Python Grundkurses für SmartFactory-Entwickler*

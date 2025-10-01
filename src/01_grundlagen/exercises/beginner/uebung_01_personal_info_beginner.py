@@ -45,7 +45,7 @@ print(f"Sie wurden ungefähr im Jahr {geburtsjahr} geboren.")
 
 # BONUS: Fügen Sie eine schöne Formatierung hinzu
 print("=" * 40)
-print("🎉 Willkommen bei Bystronic!")
+print("🎉 Willkommen bei SmartFactory!")
 print("=" * 40)
 
 """
@@ -58,7 +58,7 @@ Hallo Max Mustermann!
 Sie sind 30 Jahre alt.
 Sie wurden ungefähr im Jahr 1995 geboren.
 ========================================
-🎉 Willkommen bei Bystronic!
+🎉 Willkommen bei SmartFactory!
 ========================================
 
 NÄCHSTE SCHRITTE:

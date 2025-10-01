@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Bystronic CSV Parser - Spezieller Parser für komplexe CSV-Strukturen
+SmartFactory CSV Parser - Spezieller Parser für komplexe CSV-Strukturen
 
 Dieses Modul bietet intelligente Parsing-Funktionen für CSV-Dateien mit
 komplexen Strukturen, wie sie in industriellen Anwendungen häufig vorkommen.
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 Datum: 2024
 """
 
@@ -30,9 +30,9 @@ def get_data_path(*args):
     return data_path
 
 
-class BystronicCSVParser:
+class SmartFactoryCSVParser:
     """
-    Intelligenter CSV-Parser für Bystronic-Maschinendaten
+    Intelligenter CSV-Parser für SmartFactory-Maschinendaten
 
     Unterstützt:
     - Automatische Header-Erkennung
@@ -509,13 +509,13 @@ class BystronicCSVParser:
 
 def main():
     """
-    Beispiel für die Verwendung des Bystronic CSV Parsers
+    Beispiel für die Verwendung des SmartFactory CSV Parsers
     """
-    print("🔧 Bystronic CSV Parser - Demo")
+    print("🔧 SmartFactory CSV Parser - Demo")
     print("=" * 50)
 
     # Parser initialisieren
-    parser = BystronicCSVParser()
+    parser = SmartFactoryCSVParser()
 
     # Beispiel-CSV-Datei (angenommen sie existiert)
     csv_file = get_data_path("large", "V084_Scope.csv")
@@ -557,7 +557,7 @@ def main():
                 print(df[numeric_cols].describe().to_string())
 
             # Export-Beispiel
-            output_file = get_data_path("examples", "parsed_bystronic_data.csv")
+            output_file = get_data_path("examples", "parsed_smartfactory_data.csv")
             df.to_csv(output_file, index=False)
             print(f"\n💾 Daten exportiert: {output_file}")
 

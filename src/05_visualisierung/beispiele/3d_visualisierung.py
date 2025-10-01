@@ -3,10 +3,10 @@
 3D-Visualisierung - Beispielskript für räumliche Darstellungen
 
 Dieses Skript demonstriert verschiedene 3D-Visualisierungstechniken
-mit Matplotlib für industrielle Anwendungen bei Bystronic.
+mit Matplotlib für industrielle Anwendungen bei SmartFactory.
 Fokus auf räumliche Daten, Oberflächen und interaktive 3D-Modelle.
 
-Autor: Python Grundkurs Bystronic
+Autor: Python Grundkurs SmartFactory
 """
 
 import warnings

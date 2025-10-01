@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Jupyter Widgets Demo für Bystronic
+Jupyter Widgets Demo für SmartFactory
 
 Demonstriert die Verwendung von ipywidgets für interaktive Notebooks.
 Dieses Modul kann sowohl in Jupyter Notebooks als auch für Tests verwendet werden.
@@ -183,7 +183,7 @@ def create_interactive_dashboard(data: pd.DataFrame) -> widgets.Widget | None:
     controls = widgets.HBox([machine_dropdown, parameter_dropdown])
     dashboard = widgets.VBox(
         [
-            widgets.HTML("<h3>🏭 Bystronic Maschinen-Dashboard</h3>"),
+            widgets.HTML("<h3>🏭 SmartFactory Maschinen-Dashboard</h3>"),
             controls,
             status_checkbox,
             output,
@@ -207,7 +207,7 @@ def create_simple_widgets() -> dict[str, widgets.Widget]:
         "slider": widgets.IntSlider(
             value=50, min=0, max=100, step=1, description="Wert:"
         ),
-        "text": widgets.Text(value="Bystronic", description="Firma:"),
+        "text": widgets.Text(value="SmartFactory", description="Firma:"),
         "button": widgets.Button(
             description="Verarbeiten", button_style="success", icon="check"
         ),
@@ -235,7 +235,7 @@ def demonstrate_magic_commands() -> list[str]:
         "%load_ext autoreload",
         "%autoreload 2",
         "%%time\n# Zeitbasierte Messung\nfor i in range(100000):\n    pass",
-        "%%writefile example.py\n# Datei schreiben\nprint('Hello Bystronic!')",
+        "%%writefile example.py\n# Datei schreiben\nprint('Hello SmartFactory!')",
         "%%bash\nls -la\npwd",
     ]
 
@@ -298,7 +298,7 @@ def performance_test_function(n: int = 1000000) -> float:
 
 
 if __name__ == "__main__":
-    print("🚀 Jupyter Widgets Demo für Bystronic")
+    print("🚀 Jupyter Widgets Demo für SmartFactory")
     print("=" * 50)
 
     # Beispieldaten erstellen

@@ -6,7 +6,7 @@ NumPy Broadcasting - Vollständige Intermediate Solution
 Vollständige Musterlösung für erweiterte Broadcasting-Techniken mit
 mehrdimensionalen Arrays und komplexen Produktionsszenarien.
 
-Author: Python Expert für Bystronic
+Author: Python Expert für SmartFactory
 Date: 2025-09-16
 """
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Pytest-Konfiguration für Bystronic Python Grundkurs Tests
+Pytest-Konfiguration für SmartFactory Python Grundkurs Tests
 
 Diese Datei enthält gemeinsame Fixtures und Konfigurationen
 für alle Tests im Projekt.

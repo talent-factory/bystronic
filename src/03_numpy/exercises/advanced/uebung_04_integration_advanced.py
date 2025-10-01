@@ -4,7 +4,7 @@ NumPy Advanced: System Integration und Production Deployment
 ==========================================================
 
 Übung 4: Integration in Produktionsumgebungen und System-Interfaces
-für industrielle NumPy-Anwendungen bei Bystronic.
+für industrielle NumPy-Anwendungen bei SmartFactory.
 
 Lernziele:
 - NumPy in bestehende Systeme integrieren

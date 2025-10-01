@@ -61,7 +61,7 @@ print(f"# HIER EINE PERSÖNLICHE NACHRICHT ERSTELLEN")
 # TODO 5: Verabschiedung
 print("-" * 40)
 print("Vielen Dank für Ihre Angaben!")
-print("Willkommen im Bystronic Python-Kurs! 🐍")
+print("Willkommen im SmartFactory Python-Kurs! 🐍")
 
 """
 ERWARTETE AUSGABE (Beispiel):
@@ -88,7 +88,7 @@ Hallo Max Mustermann! Schön, dass Sie aus Zürich zu uns gefunden haben!
 Als Ingenieur werden Sie sicher viel Freude an der Programmierung haben.
 ----------------------------------------
 Vielen Dank für Ihre Angaben!
-Willkommen im Bystronic Python-Kurs! 🐍
+Willkommen im SmartFactory Python-Kurs! 🐍
 
 NÄCHSTE SCHRITTE:
 =================

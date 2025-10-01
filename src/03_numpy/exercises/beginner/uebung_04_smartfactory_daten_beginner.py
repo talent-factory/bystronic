@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-NumPy Übung 4: Praktische Bystronic-Datenverarbeitung (Beginner)
-Bystronic Python Grundkurs - Kapitel 3
+NumPy Übung 4: Praktische SmartFactory-Datenverarbeitung (Beginner)
+SmartFactory Python Grundkurs - Kapitel 3
 
 Diese Übung kombiniert alle bisherigen NumPy-Konzepte in einem realistischen
-Bystronic-Produktionsszenario mit echten Datenverarbeitungsaufgaben.
+SmartFactory-Produktionsszenario mit echten Datenverarbeitungsaufgaben.
 
 Lernziele:
 - Kombination aller NumPy-Grundlagen in einem praktischen Projekt
@@ -27,7 +27,7 @@ def main():
     """Hauptfunktion für alle Übungsaufgaben"""
     print("🏭 NUMPY ÜBUNG 4: PRAKTISCHE BYSTRONIC-DATENVERARBEITUNG")
     print("=" * 65)
-    print("Diese Übung simuliert einen echten Produktionstag bei Bystronic")
+    print("Diese Übung simuliert einen echten Produktionstag bei SmartFactory")
     print("mit realistischen Datenmengen und Qualitätsanforderungen.")
     print()
 

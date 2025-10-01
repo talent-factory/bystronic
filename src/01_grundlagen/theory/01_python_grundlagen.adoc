@@ -1,4 +1,4 @@
-= Python Grundlagen - Bystronic Entwickler Kurs
+= Python Grundlagen - SmartFactory Entwickler Kurs
 :author: Daniel Senften
 :email: daniel.senften@talent-factory.ch
 :revnumber: 1.0
@@ -195,7 +195,7 @@ print("Hallo Welt!")
 print("Willkommen bei Python!")
 
 # Variablen definieren
-name = "Bystronic Entwickler"
+name = "SmartFactory Entwickler"
 jahr = 2025
 
 print(f"Hallo {name}! Das Jahr {jahr} wird grossartig für Python!")
